@@ -29,6 +29,7 @@ import {createAgentLedgerWriter} from './onchain/agent-writer.mjs';
 import {createAgentSpendPort} from './custody/agent-spend.mjs';
 import {createSpendExecutor} from './workflow/spend.mjs';
 import {createLedgerCommitter} from './onchain/ledger-commit.mjs';
+import {createFundedLoop} from './payments/funded-loop.mjs';
 import {createLedgerAutoCommit} from './onchain/ledger-autocommit.mjs';
 import { createKnowledgeImporter } from './knowledge/import.mjs';
 import { createWorkflow } from './workflow/index.mjs';
@@ -125,7 +126,7 @@ export async function createApp(options={}) {
   // ref and a ledger contract are present; anything missing keeps the graph inert.
   const agentApiBaseUrl=options.agentApiBaseUrl??process.env.NEAR_INTENTS_AGENT_API_URL;
   const agentConfigured=Boolean(providers.agentId&&providers.grantRef&&providers.resolveSecret&&ledgerBinding?.contractId&&options.enableAgentSpend!==false);
-  let spendExecutor=null,ledgerAutoCommit=null;
+  let spendExecutor=null,ledgerAutoCommit=null,fundedLoopCommitter=null;
   if(agentConfigured){
     let sdkApi=null;
     const resolve=async()=>{
@@ -140,9 +141,11 @@ export async function createApp(options={}) {
       async spend(request){const {apiKey,grantToken}=await resolve();return createAgentSpendPort({apiKey,baseUrl:agentApiBaseUrl,agentId:providers.agentId,grantToken}).spend(request);},
     };
     const committer={async append(events){const {api,grantToken}=await resolve();return createLedgerCommitter({api,agentId:providers.agentId,grantToken,contractId:ledgerBinding.contractId,companyId}).append(events);},async head(){const {api,grantToken}=await resolve();return createLedgerCommitter({api,agentId:providers.agentId,grantToken,contractId:ledgerBinding.contractId,companyId}).head();}};
+    fundedLoopCommitter=committer;
     spendExecutor=createSpendExecutor({journal,agentSpend,companyId,ledger:committer});
     ledgerAutoCommit=createLedgerAutoCommit({journal,committer,companyId});
   }
+  const fundedLoopFile=options.fundedLoopFile??process.env.SHOP_FUNDED_LOOP_FILE,fundedLoop=fundedLoopFile?createFundedLoop({file:fundedLoopFile,committer:fundedLoopCommitter,companyId,clock}):null;
   const autonomy=createAutonomy({journal,rules,internalWork,companyId,clock,spendExecutor,ledgerAutoCommit});
   await workspace.initialize();
   if(options.initializeWorkspace)await options.initializeWorkspace({workspace,journal,rules});
@@ -162,8 +165,8 @@ export async function createApp(options={}) {
   const creditReadiness=createCreditReadiness({journal,rules,adapter:creditReadAdapter,organizationId:creditOrganizationId,sessionSecretRef:creditSessionSecretRef,keySecretRef:providers.cloudSecretRef});
   const outlayerBinding=Object.hasOwn(options,'outlayerBinding')?options.outlayerBinding:(process.env.SHOP_OUTLAYER_PROJECT_OWNER?{projectOwner:process.env.SHOP_OUTLAYER_PROJECT_OWNER,projectName:process.env.SHOP_OUTLAYER_PROJECT_NAME,versionHash:process.env.SHOP_OUTLAYER_VERSION_HASH,computeMicroUsd:process.env.SHOP_OUTLAYER_COMPUTE_MICRO_USD??'1000',networkId:process.env.SHOP_OUTLAYER_NETWORK??'mainnet',paymentKeyOwner:process.env.SHOP_OUTLAYER_PAYMENT_KEY_OWNER,paymentKeyNonce:Number(process.env.SHOP_OUTLAYER_PAYMENT_KEY_NONCE)}:null);
   nearIntegrations=createNearIntegrations({journal,rules,treasury,providers,dispatchAuthorized,companyId,autonomy,clock,technical:{outlayer:outlayerBinding,ledgerBinding},transport:options.integrationTransport,verifyOutlayer:options.verifyOutlayerExecution,verifyPingSettlement:options.verifyPingSettlement});
-  const web=createWeb({aiDemo,companyId,demoControl,localDemoContext,demoFacts:()=>({agentCount:journal.list('agents').length,documentCount:journal.list('companyKnowledgeDocuments').length,serviceCount:journal.list('supportServices').length,conversationCount:journal.list('supportConversations').length,ticketCount:journal.list('supportTickets').length,replyCount:journal.list('supportMessages').filter(m=>m.role==='assistant').length,eventCount:journal.events().length,providerOperations:Object.keys(journal.snapshot().operations).length,financialVersion:treasury.snapshot().version}),nearIntegrations,onchainLedger,customerCare,creditReadiness,runtime,components,cloudProducts,autonomy,workflow,ledger,rules,readiness,workspace,knowledge,knowledgeImporter,ownerToken:providers.ownerToken});
+  const web=createWeb({aiDemo,fundedLoop,companyId,demoControl,localDemoContext,demoFacts:()=>({agentCount:journal.list('agents').length,documentCount:journal.list('companyKnowledgeDocuments').length,serviceCount:journal.list('supportServices').length,conversationCount:journal.list('supportConversations').length,ticketCount:journal.list('supportTickets').length,replyCount:journal.list('supportMessages').filter(m=>m.role==='assistant').length,eventCount:journal.events().length,providerOperations:Object.keys(journal.snapshot().operations).length,financialVersion:treasury.snapshot().version}),nearIntegrations,onchainLedger,customerCare,creditReadiness,runtime,components,cloudProducts,autonomy,workflow,ledger,rules,readiness,workspace,knowledge,knowledgeImporter,ownerToken:providers.ownerToken});
   await initialize();
-  return {aiDemo,demoControl,localDemoContext,nearIntegrations,onchainLedger,customerCare,rules,journal,treasury,custody,payments,funding,inference,research,payouts,workflow,ledger,web,readiness,workspace,knowledge,providers,runtime,components,cloudProducts,creditReadiness,autonomy,internalWork,close:async()=>{await autonomy.close();await journal.close();}};
+  return {aiDemo,fundedLoop,demoControl,localDemoContext,nearIntegrations,onchainLedger,customerCare,rules,journal,treasury,custody,payments,funding,inference,research,payouts,workflow,ledger,web,readiness,workspace,knowledge,providers,runtime,components,cloudProducts,creditReadiness,autonomy,internalWork,close:async()=>{await autonomy.close();await journal.close();}};
   } catch(error) {await journal.close();throw error;}
 }

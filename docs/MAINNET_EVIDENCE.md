@@ -137,6 +137,31 @@ node scripts/verify-loop-receipt.mjs   # read-only; 18/18 at last run (14 LIVE_P
 
 The verifier recomputes each committed event's payload hash with the product's own function and finds it in the contract's hash-chained records, then checks the ledger transaction is FINAL, successful and an `append()` signed by the agent. Reproduce the run itself with `node scripts/loop-spend-e2e.mjs` (needs owner credentials and spends real funds; `--controlled` supplies the decision instead of a model, `--reason-only` spends nothing).
 
+## 9. Customer-funded service loop
+
+One real customer sale, one paid answer, the cost attributed to it, and the surplus. Labels are exact.
+
+| Step | Label | Reference |
+| --- | --- | --- |
+| **Revenue in:** customer pays 0.10 USDC (in wNEAR, settled to USDC by 1Click) into the treasury | LIVE_PUBLIC (settlement leg), provider `SUCCESS` | settlement tx [`3k7d2NbkpVhh…`](https://nearblocks.io/txns/3k7d2NbkpVhhL4KP3eQDVWHNsAzzZykDz1vKLbWaEVPn), artifact [`live-checkout-settlement.json`](../artifacts/mainnet-proof/live-checkout-settlement.json) |
+| `sale.confirmed` committed to the ledger | LIVE_PUBLIC | [`68Wy7NvsrKQp…`](https://nearblocks.io/txns/68Wy7NvsrKQpnAGPu1ySZ7GYY1STm4CD5ou5FmauV8fb) |
+| **Paid answer:** the sale is claimed (one answer per sale), then a real E2EE NEAR AI call over the Harbor Mutual documents (`Qwen/Qwen3.8-27B`, response signature verified) | LOCAL_ARTIFACT | inference `e0cc2328…`, [`funded-loop.json`](../artifacts/mainnet-proof/funded-loop.json) |
+| **Expense out:** provider-billed cost **202,710 nanoUSD ($0.000203)** | LOCAL_ARTIFACT (provider `/billing/costs`) | same |
+| **Surplus:** 100,000,000 - 202,710 = **99,797,290 nanoUSD ($0.0998)** stays attributed to the treasury | LOCAL_ARTIFACT (arithmetic) | same |
+| `inference.consumed` committed to the ledger, referencing the sale | LIVE_PUBLIC | [`9c2JJN2K3uYM…`](https://nearblocks.io/txns/9c2JJN2K3uYMvAyA8dCBEX7UbQbkRtdofJrqjzRdmCpU) |
+
+```sh
+node scripts/demo-funded-loop.mjs register | answer "<question>" | report   # needs a settled live-checkout sale; spends ~$0.0002-0.002 of the owner Cloud key
+node scripts/verify-funded-loop.mjs                                         # read-only; 10/10 at last run
+```
+
+**Limits, stated plainly:**
+- **No USDC paid NEAR AI.** There is no documented cash-to-Cloud-credit route (`src/cloud-funding/index.mjs`). The call was billed to the owner-prepaid Cloud key; the sale is *attributed* to that cost in the ledger and the `funding` field says so. Revenue in and cost out are both real, but the second was not paid from the first.
+- **Two earlier real calls are unattributed owner expense.** Their billing ids were not captured (the SDK hides response headers), so their costs could not be matched and the claims were released. They are listed under `abandoned` in `.runtime/funded-loop/state.json` (local state, not committed).
+- Sale assurance is provider `SUCCESS` plus a FINAL on-chain settlement leg; the independent money-movement port is not wired. The verifier also does not check the customer's own transfer into the deposit address (it is not in the artifact).
+- The billed cost is the provider's report, not on-chain.
+- The paid-answer gate exists in the server route (`POST /api/workspace/ai-demo/run` with `saleId`, enabled by `SHOP_FUNDED_LOOP_FILE`) and is unit-tested, but the live answer was run through the script: the preview store is bound to a different provider identity (`ECONOMIC_IDENTITY_MISMATCH`), so the full server was not started for this evidence.
+
 ## Payment inventory: what moved and how to check it
 
 | Movement | Amount | Counterparty | Publicly checkable? |
@@ -146,16 +171,17 @@ The verifier recomputes each committed event's payload hash with the product's o
 | Agent API confidential swap (allowed case) | 0.1 USDC → wNEAR | Intents | No: confidential, no public tx |
 | Loop-driven confidential swap | 0.025 USDC → wNEAR | Intents | No; only its ledger commitment is public |
 | 1Click NEAR→USDC swap | ~2.33 USDC received | Intents | No artifact retained (section 5) |
+| **Customer sale (revenue in)** | **+0.10 USDC** (paid as ~0.0327 wNEAR) | 1Click deposit → treasury | Settlement leg yes (FINAL tx); see section 9 |
 | Ledger `append()` calls | gas only | the ledger contract | Yes, FINAL txs |
 
-**There are zero customer-paid transactions and zero payments received.** Every row is outbound spending by us. Provider `SUCCESS` and a ledger commitment are not monetary finality.
+**One customer payment was received (section 9); every other row is outbound spending by us.** Provider `SUCCESS` and a ledger commitment are not monetary finality.
 
 ## What each item does **not** prove
 
 - Ledger records are **commitments**, not proof of business truth; raw data stays off chain.
 - The marketplace payment buys one task result; it is **not** a reusable skill/persona licence.
 - The Cloud call is real inference over **fictional** company documents; it is not a real insurer decision, and offline plaintext replay is unavailable.
-- No capital, credit lot, autonomous Cloud purchase, customer sale, payout or refund is created or claimed.
+- No capital, credit lot, autonomous Cloud purchase, payout or refund is created or claimed. The one customer sale is section 9, with its limits.
 - The loop spend is a confidential swap of cents. Its purpose text ("buy inference credits") is model-written and describes no purchase that occurred.
 - Confidential swaps have no public transaction, so a third party cannot confirm funds moved from the chain alone.
 - Payer/writer isolation is by **account**; the writer key scope is the only key-level control proven here.

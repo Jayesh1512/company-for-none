@@ -43,7 +43,7 @@ export async function parseOrderRequest(request) {
 }
 
 /** HTTP mechanics and Rules access enforcement. No pricing or lifecycle decisions. */
-export function createWeb({ aiDemo,workflow, ledger, rules, readiness, ownerToken, workspace, knowledge, knowledgeImporter, runtime, components, cloudProducts, creditReadiness, autonomy, customerCare, onchainLedger, nearIntegrations, demoControl, localDemoContext, demoFacts, companyId='local-workspace' }) {
+export function createWeb({ aiDemo,fundedLoop,workflow, ledger, rules, readiness, ownerToken, workspace, knowledge, knowledgeImporter, runtime, components, cloudProducts, creditReadiness, autonomy, customerCare, onchainLedger, nearIntegrations, demoControl, localDemoContext, demoFacts, companyId='local-workspace' }) {
   const decideAccess = async (resource, access = {}, order) => {
     const decision = await rules.evaluate({ type: 'access', id: `access:${resource}:${order?.id || 'public'}`, resource }, { access, order });
     if (!isAllowed(decision)) throw error(decision?.reasonCode || 'ACCESS_DENIED', resource === 'report' ? 'The report is not available to this access context.' : 'This access context is not permitted.', decision?.status === 'hold' ? 409 : 403);
@@ -71,7 +71,15 @@ export function createWeb({ aiDemo,workflow, ledger, rules, readiness, ownerToke
           if(url.search||!aiDemo)throw error('NOT_FOUND','AI demo route not found.',404);
           if(request.method==='GET'&&path==='/api/workspace/ai-demo')return json(await aiDemo.view(access));
           if(request.method==='POST'&&path.endsWith('/control'))return json(await aiDemo.control(access,await supportInput(request)));
-          if(request.method==='POST'&&path.endsWith('/run'))return json(await aiDemo.run(access,await supportInput(request),request.headers.get('idempotency-key')));
+          if(request.method==='POST'&&path.endsWith('/run')){
+            const input=await supportInput(request),key=request.headers.get('idempotency-key');
+            if(!fundedLoop)return json(await aiDemo.run(access,input,key));
+            // Customer-funded mode: a confirmed sale must be claimed before any provider call.
+            const {saleId,...demoInput}=input;if(typeof saleId!=='string'||!key)throw error('PAYMENT_REQUIRED','A confirmed customer sale (saleId) and an idempotency key are required.',402);
+            await fundedLoop.claim(saleId,key);
+            const run=await aiDemo.run(access,demoInput,key),entry=await fundedLoop.settle({saleId,runKey:key,run});
+            return json({...run,fundedLoop:{saleId,...entry.settled}});
+          }
           throw error('NOT_FOUND','AI demo route not found.',404);
         }
         if(path==='/api/support/services'||path.startsWith('/api/support/conversations')){

@@ -1,0 +1,68 @@
+{
+  "kind": "funded-loop",
+  "at": "2026-11-14T17:56:17.885Z",
+  "sale": {
+    "id": "sale:167b4b8b599c4313f4310bb0",
+    "priceAtomic": "100000",
+    "asset": "nep141:17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+    "revenueNanoUsd": "100000000",
+    "customer": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b",
+    "depositTxs": [
+      "3k7d2NbkpVhhL4KP3eQDVWHNsAzzZykDz1vKLbWaEVPn",
+      "C38WNjPVnBeQNHGFicRBmRUhZzshUdJ4vS6nvUPnrz9k",
+      "xNQPzzqaKDYnp3wBkJT8C9zhfZaZ86prewFZqYNJPG6"
+    ],
+    "saleLedgerTx": "68Wy7NvsrKQpnAGPu1ySZ7GYY1STm4CD5ou5FmauV8fb",
+    "assurance": "provider-status-success + final on-chain deposit tx; independent onchain-final money-movement port NOT wired (adapter records unknown/SETTLEMENT_PROOF_UNAVAILABLE)",
+    "settledAt": "2026-11-14T17:33:21.253Z",
+    "depositAddress": "89dcbabb92537f6ec367b005990758cbe26aa8a110371d910c8d4d4951768b02",
+    "depositedAmount": "32701123378677153558940"
+  },
+  "claim": {
+    "runKey": "funded-answer:sale:167b4b8b599c4313f4310bb0",
+    "at": "2026-11-14T17:54:56.564Z"
+  },
+  "settled": {
+    "status": "settled",
+    "runId": "79fba6e858ba4af7b3c3d2540e4819c6",
+    "providerRequestId": "79fba6e858ba4af7b3c3d2540e4819c6",
+    "inferenceId": "e0cc2328-473e-519a-9f1a-31ae94c2d09e",
+    "revenueNanoUsd": "100000000",
+    "inferenceCostNanoUsd": "202710",
+    "surplusNanoUsd": "99797290",
+    "funding": "owner-prepaid-cloud-key; sale USDC attributed to cost (accounting only)",
+    "at": "2026-11-14T17:55:08.964Z",
+    "ledgerTx": "9c2JJN2K3uYMvAyA8dCBEX7UbQbkRtdofJrqjzRdmCpU",
+    "ledgerCorrelationId": "op_dgOP4iVyGTnjyKJB9XkI5lsgtO1v78dMZEBBtFRw7oA",
+    "answer": "\n\nThe fictional auto policy example lists a collision deductible of 500 demo dollars per incident. This is an illustrative demo amount, not a real coverage decision.",
+    "model": "Qwen/Qwen3.8-27B",
+    "responseSignatureVerified": true,
+    "usage": {
+      "prompt_tokens": 972,
+      "total_tokens": 1109,
+      "completion_tokens": 137,
+      "prompt_tokens_details": {
+        "cached_tokens": 960
+      },
+      "reasoning_tokens": 102,
+      "completion_tokens_details": {
+        "reasoning_tokens": 102
+      }
+    }
+  },
+  "revenueIn": {
+    "usdcAtomic": "100000",
+    "saleLedgerTx": "68Wy7NvsrKQpnAGPu1ySZ7GYY1STm4CD5ou5FmauV8fb",
+    "depositTxs": [
+      "3k7d2NbkpVhhL4KP3eQDVWHNsAzzZykDz1vKLbWaEVPn",
+      "C38WNjPVnBeQNHGFicRBmRUhZzshUdJ4vS6nvUPnrz9k",
+      "xNQPzzqaKDYnp3wBkJT8C9zhfZaZ86prewFZqYNJPG6"
+    ]
+  },
+  "expenseOut": {
+    "nanoUsd": "202710",
+    "inferenceId": "e0cc2328-473e-519a-9f1a-31ae94c2d09e",
+    "ledgerTx": "9c2JJN2K3uYMvAyA8dCBEX7UbQbkRtdofJrqjzRdmCpU"
+  },
+  "surplusNanoUsd": "99797290"
+}
