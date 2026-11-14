@@ -1,77 +1,74 @@
 # Company for None — A Living Organization on NEAR
 
-**A company that runs itself.** An owner sets the purpose, knowledge, policy, and budget. Then a master agent takes over: it serves customers, collects revenue, pays for services, hires specialist agents, and maintains the organization — all on NEAR mainnet. Humans only set the constraints.
+**A living organization, not just a chatbot.** Company for None explores a business that can serve, spend and improve after its owner sets the purpose, approved knowledge, policy and budget. A master agent coordinates specialists and a permanent backlog. The goal is a self-sustaining organization whose customer revenue pays for its services and maintenance. **Self-repair and bounded spending have recorded execution evidence; customer-funded sustainability is not yet demonstrated.**
 
-## The vision: a self—sustaining agent business
+## The operating model: earn, spend, learn, improve
 
-```
-    Users interact (questions, tasks)
-           │
-           ▼
-    x402 payment collected → treasury
-           │
-           ▼
-    Master agent serves the request
-     ├─ Reads company knowledge (JBrain)
-     ├─ Calls NEAR AI Cloud (paid TEE inference)
-     └─ Delivers answer / completes task
-           │
-           ▼
-    Revenue and expenses tracked on mainnet ledger
-     ├─ Revenue: x402 payments from users
-     └─ Expenses: inference costs, marketplace tasks
-           │
-           ▼
-    Observed gaps → permanent backlog
-           │
-           ▼
-    Master agent spins up specialist agents
-     ├─ Developer agent: picks up backlog items
-     ├─ Tests improvement → promotes new version
-     └─ Organization upgrades itself
+The business model below is the target architecture, not a claim that every step is live:
+
+```text
+Customer request + x402 payment                 [revenue: not yet demonstrated]
+                    |
+                    v
+Treasury: receipts, costs, reservations, surplus [financial accounting]
+                    |
+                    v
+Master agent -> scoped specialists -> delivery
+                    |
+                    v
+Missing knowledge / failed validation -> permanent backlog
+                    |
+                    v
+Knowledge curator + template developer -> evaluated repair
+                    |
+                    v
+Updated knowledge and template -> retry / future permitted work
 ```
 
-**A concrete example.** A customer asks the support agent about their auto insurance policy. The agent reads the company knowledge base (native JBrain), calls NEAR AI Cloud for a TEE-verified cited answer, and the interaction is recorded on the mainnet ledger. The x402 payment for the service goes into the treasury.
+### The actual example: an agent repairs an incomplete intake process
 
-Later, the customer needs a field the insurance report template doesn't have — say, a middle name. This gap is recorded (`recordGap`). The master agent triages it and delegates a developer agent (`kind: 'developer'`) to pick up the backlog item. The developer proposes a new template version with the additional field. A fixed template evaluator (`evaluateTemplateChange` in `src/autonomy/evaluation.mjs`, running as a WASM contract on OutLayer) compares the candidate against the baseline: does it preserve all existing required fields? Does it meet the contract's field requirements? Are identifiers safe? If the evaluation passes, the new template revision is promoted as the active head. The next customer query automatically uses the updated template — the organization just improved itself.
+The [recorded live recovery scenario](docs/LIVE_RECOVERY_DEMO.md) uses fictional insurance documents, real native JBrain storage and real NEAR AI Cloud responses:
 
-In a real-world scenario, this same loop handles policy documents that customers pay extra to access — adding fields like address or coverage details, updating the knowledge base, and continuing to earn revenue from the enriched service. The updates happen in the backend; the agent keeps serving and collecting payments without interruption.
+1. **Support encounters a knowledge gap.** A customer asks which contact preference an intake must record and chooses `portal`. The runbook does not explain the requirement, so the support agent escalates rather than inventing an answer. The intake template also lacks `contactPreference`.
+2. **The backlog coordinates repair.** Within the predefined recovery workflow, the manager delegates support work and the backlog selects a **knowledge curator** and a **template developer**.
+3. **Knowledge changes from an approved source.** The curator selects the exact approved passage: contact preference must be `portal` or `email`. The runtime checks that excerpt and saves a new native JBrain runbook revision. This updates the knowledge base; it is not an invented policy or an unverified knowledge-graph write.
+4. **The developer repairs the template.** It proposes the missing field. A local fixed evaluator compares old and new templates against the same mandatory-field contract; the baseline fails and the candidate passes. This verifies required-field coverage, not an enum validator for `portal` versus `email`. Rules check the current revision before promotion. This demonstrated evaluator is not a verified remote OutLayer run.
+5. **The same request now succeeds.** Support reads the new runbook and template revisions, cites the updated guidance and produces an intake containing `contactPreference: portal`. It creates no insurance approval or payment.
 
-**Revenue.** Users pay for services via x402 (USDC on NEAR). Two marketplace tasks have already been completed and paid on mainnet.
+The retained [browser evidence](artifacts/live-recovery/browser-proof.json) records **six distinct, original-process-verified NEAR AI responses**, changed knowledge/template revisions and **$0.005128148** in matched provider bills. The [restart evidence](artifacts/live-recovery/restart-proof.json) records no extra provider calls. This is a bounded, owner-funded recovery scenario with a **private company journal**, not a customer-funded business or a mainnet publication of those recovery events. No external customer database is needed for this demonstration.
 
-**Expenses.** The treasury pays for NEAR AI Cloud inference (real TEE—verified calls, $0.00322116 billed), marketplace tasks, and agent operations. All tracked against the USD5 lifetime cap.
+### Treasury and the path to sustainability
 
-**Self-sustaining.** The ledger records both sides — revenue in, expenses out — on a hash-chained Rust contract deployed on NEAR mainnet. The organization's financial history is on-chain and verifiable.
+- **Revenue — intended:** customers pay via x402 for delivered services or approved premium documents. **There are currently no customer-paid transactions or received revenue in the retained payment evidence.**
+- **Expenses — evidenced:** owner-funded inference, separately purchased marketplace tasks and a loop-driven Agent API confidential swap. Marketplace task purchases are expenses, not our sales. Their evidence scopes and authorization limits differ; they are not all one treasury-funded run.
+- **Accounting — implemented with limits:** Rules and Treasury maintain reservations, costs and receipt handling. The Rust mainnet ledger stores safe event/hash commitments; it is not a public balance sheet and does not independently prove customer revenue, confidential fund movement or profitability. See the [payment inventory](docs/MAINNET_EVIDENCE.md#payment-inventory-what-moved-and-how-to-check-it).
+- **Self-improvement — demonstrated narrowly:** the recovery scenario updates source-backed knowledge and an additive template. It does not autonomously rewrite arbitrary application code, invent policy or prove paid hiring of external agents. Instruction changes still need owner review.
 
-**Self-improving.** When a gap is observed (a missing field, a knowledge update, a template change), the master agent records it, triages it, and delegates a developer agent. The developer proposes a candidate template, a fixed evaluator (WASM on OutLayer) checks it against the contract, and if it passes, the new version is promoted. Future queries use the updated template automatically. The organization maintains and upgrades itself — funded by its own revenue.
-
-**The owner's role.** Define the company purpose, upload knowledge, set spending policy and budget. Then step back. The owner reviews instruction proposals and high-risk decisions, but the day-to-day — serving customers, paying for services, tracking gaps, improving — is the organization's own loop.
-
----
+**Hypothetical commercial extension:** customers could pay an extra fee for a document with approved additional fields, such as an address or requested monetary detail. The organization would detect the missing capability, route a repair through its backlog and use the approved revision for later work. Customer data integration, paid delivery and continued earnings during updates still need implementation and evidence; this is not a live insurance service.
 
 ## How it works
 
-The product turns a company brief into a managed agent workspace — a living organization. The intended routine is manager → scoped specialists → delivery → observed gaps → permanent backlog → developer agent → fixed evaluation → tested improvement → future work uses the new version. The owner sets purpose, knowledge, policy and budget. The treasury tracks revenue (x402 payments) and expenses (inference, marketplace tasks) on the mainnet ledger. Company for none is the default for new companies; Company for one retains owner-managed work. The [full guide](docs/COMPANY_FOR_NONE_GUIDE.md) explains the operating loop, a fictional insurance day-in-the-life, healing, upgrades, resource buying, current capability status and the owner setup checklist.
+The intended organization loop is manager → scoped specialists → delivery → observed gaps → permanent backlog → developer → evaluation → approved improvement → subsequent work using the new revision. Company for none is the default for new companies; Company for one retains owner-managed work. The [full guide](docs/COMPANY_FOR_NONE_GUIDE.md) separates setup, current capabilities, controlled tests and remaining live gates. Owners still supply authority, credentials, budget and exceptional decisions; agents cannot grant themselves permission.
 
-The local workspace, native JBrain knowledge and fictional customer-care service work now. The complete reasoning/improvement loop has controlled test evidence. **Real funded operations are demonstrated on mainnet** (see below); a single loop-driven mainnet spend is also evidenced; the remaining gap is the autonomous sale-to-payout loop where customer revenue funds the agent's own inference. The guide’s [single status table](docs/COMPANY_FOR_NONE_GUIDE.md#current-capability-and-status) separates local evidence, controlled tests, required inputs and remaining implementation.
+The local workspace, native JBrain knowledge and fictional customer-care service work now. The general autonomy loop has controlled-test evidence; the separate recovery scenario above records a bounded live knowledge/template repair. Public NEAR ledger writes and a loop-driven confidential spend are evidenced separately below. These do not establish customer-funded inference, paid service delivery, revenue sharing or a complete autonomous business.
 
 **Earlier public-only evidence (14 November):** the run verified a real **1Click dry quote** with the official SDK’s default production root, plus **Cloud gateway/model UpToDate attestation** with fresh nonces and attested gateway TLS. Public responses include 64 models, 231 tokens and the deployment wallet's then-current `UNKNOWN_ACCOUNT` result, before its later funding and deployment. No completion, swap, transaction or spend occurred in that run. [Evidence, exact reproduction, hashes and limits](docs/LIVE_EVIDENCE.md) keep these results separate from paid business proof; deployment provenance was not checked.
 
-**Mainnet execution (14 November):** the company ledger contract is **deployed on NEAR mainnet** and written by the **Agent API native-call route** (agent account, owner-signed policy + grant). `node scripts/verify-mainnet-evidence.mjs` passes **20/20 checks**: **14 live public-chain checks** (contract account, code hash, 22 hash-chained records, 7 FINAL transactions) and **6 local artifact checks**. [Transactions, artifacts and exact scope](docs/MAINNET_EVIDENCE.md).
+**Mainnet execution (14 November):** the company ledger contract is **deployed on NEAR mainnet** and written by the **Agent API native-call route** (agent account, owner-signed policy + grant). `node scripts/verify-mainnet-evidence.mjs` passes **20/20 checks**: **14 live public-chain checks** (contract account, code hash, reported head of 22 records, links in the first 20 records, and 7 FINAL successful transactions) and **6 local artifact checks**. [Transactions, artifacts and exact scope](docs/MAINNET_EVIDENCE.md).
 
 ### Real funded operations
 
-The following are real, paid, on mainnet — not simulated:
+These are distinct execution paths. Cloud inference runs off chain; ledger transactions run on NEAR mainnet. Stored provider artifacts are not fresh independent verification of delivery, signatures, billing or settlement:
 
 1. **NEAR AI Cloud inference (TEE-verified, E2EE).** Two actual encrypted calls via the official `@nearai/inference-sdk` v0.3.0. Gateway + model attestation verified with fresh nonces; wire signature and plaintext verified in the original process. Provider billing confirmed at **$0.00322116** total. The second call produced a cited answer from the fictional Harbor Mutual policy with `status: "answered"`, `cost.status: "confirmed"`, `verification.status: "verified"`. [Flow, evidence and limits](docs/REAL_AI_DEMO.md).
 
-2. **Marketplace x402 tasks (real USDC payments).** Two tasks completed on `market.near.ai` via the x402 protocol. Task `c41a599b` delivered a research answer on NEAR Intents with sources; paid in USDC (`nep141:17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1`) on `near:mainnet`. [Marketplace artifacts](artifacts/marketplace/).
+2. **Marketplace x402 task purchases (outbound expenses).** Retained artifacts report two completed tasks purchased from `market.near.ai` via x402. These are not customer payments to our organization, and the public checker does not independently reverify their payment or delivery. Task `c41a599b` delivered a research answer on NEAR Intents with sources; paid in USDC (`nep141:17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1`) on `near:mainnet`. [Marketplace artifacts](artifacts/marketplace/).
 
-3. **Mainnet ledger records via Agent API.** The Agent API agent account (`b2c5b8f3…`) wrote hash-chained records to the company ledger contract on NEAR mainnet via the native-call route (tx `B5uKmgFDs8…`, FINAL + SuccessValue). The ledger now has 22 records with an intact hash chain. 14/14 live chain checks pass. [Ledger details](docs/NEAR_ONCHAIN_LEDGER.md).
+3. **Mainnet ledger records via Agent API.** The Agent API agent account (`b2c5b8f3…`) wrote hash-chained records to the company ledger contract on NEAR mainnet via the native-call route (tx `B5uKmgFDs8…`, FINAL + SuccessValue). At the recorded check the head reported 22 records; the public checklist inspected previous-hash links in the first 20. That alone does not validate every payload or establish financial truth. 14/14 live chain checks passed. [Ledger details](docs/NEAR_ONCHAIN_LEDGER.md).
 
 4. **1Click NEAR Intents quote.** Real dry quote obtained from `1click.chaindefuser.com` with the official SDK's default production root. Quote was verified offline after disk reopen and an explicitly synthetic altered amount was rejected. No swap completion or settlement occurred in this run.
 
-**The funded loop that exists:** customer question → agent reads native JBrain knowledge → agent calls NEAR AI Cloud (real paid TEE inference) → cited answer or owner-review ticket → operation recorded on mainnet ledger via Agent API. Separately, the agent completes paid marketplace x402 tasks in USDC.
+**Keep the evidence paths separate:** the owner-funded AI demo reads JBrain and produces cited answers or review tickets in its private journal. The recovery scenario additionally demonstrates knowledge/template repair and a successful retry. Separate scripts and the spend loop write mainnet ledger commitments. We have not shown one customer-paid transaction linking service delivery, treasury-funded inference and a payout.
 
 **What remains incomplete:** the autonomous sale-to-payout loop — a customer paying the agent for a service, the agent using that revenue to fund its own inference, and the surplus settling to contributors. The inference is owner-funded, not customer-funded. Closing this loop (even one end-to-end transaction) is the highest-leverage improvement.
 
@@ -81,7 +78,7 @@ Offline replay also verified the original production-signed quote after disk reo
 
 **Mentor implementation increment:** [every recommendation and its exact disposition](docs/MENTOR_IMPLEMENTATION.md). Native ledger calls now use shared native/USD reservations, final dispatch and original-operation recovery, with independent final-RPC fee parsing exercised against actual local Sandbox success and billed failure. Settings adds private provider request preparation, original wallet-intent handling and unsigned scoped-key/account/feed plans. Recorded mentor regression: **544 passed, 0 failed/skipped**, with **44 focused checks**, **12 native JBrain checks** and **151 syntax files**. That increment created no new paid call, public/vendor account, grant, mainnet transaction or public seller. Missing production proof/fee producers and G6 remain hard live gates.
 
-**The main demo now uses actual NEAR AI.** Open [Real AI demo](http://127.0.0.1:4173/#demo): select an existing agent/documents and ask a question. Two actual encrypted, official-SDK-verified calls produced a cited answer and an owner-review ticket; provider bills total **$0.00322116**. Refresh/restart reuses accepted records without another completion. This is the explicitly approved **owner-funded, live-call verification** scope within the existing $5 ceiling. The funded inference and ledger loop is demonstrated; autonomous customer-funded commerce remains the next step. [Flow, authority, evidence and limits](docs/REAL_AI_DEMO.md).
+**The main demo now uses actual NEAR AI.** Open [Real AI demo](http://127.0.0.1:4173/#demo): select an existing agent/documents and ask a question. Two actual encrypted, official-SDK-verified calls produced a cited answer and an owner-review ticket; provider bills total **$0.00322116**. Refresh/restart reuses accepted records without another completion. This is the explicitly approved **owner-funded, live-call verification** scope within the existing $5 ceiling. The funded inference demo is recorded; it does not itself establish a mainnet ledger write or customer-funded commerce. Offline plaintext recovery remains unavailable. [Flow, authority, evidence and limits](docs/REAL_AI_DEMO.md).
 
 The earlier [isolated local demo](docs/LOCAL_REAL_DEMO.md) remains a model-free knowledge/records flow available via its explicit local-demo API/CLI. The main top bar now opens the AI demo. The original setup prefill is **Fill example fields**.
 
@@ -153,7 +150,7 @@ It uses actual local JBrain and public retrieval and reports real execution hold
 
 M01 alone reads policy and decides permissions, limits, readiness, amounts and refunds. M03 records exact reservations and receipts. Stable original operation identities survive restart; unknown effects are reconciled, never blindly resent. The existing **USD5 lifetime actual-plus-pending cap** is an upper bound, not a spending grant. Balance snapshots are nonadditive observations, not new funds or owned credit. Autonomous Cloud cash-to-credit purchase and reusable paid skill acquisition remain unsupported.
 
-Official Cloud **0.3.0**, 1Click **0.1.26** and Agent API **0.9.0** SDKs are pinned. Actual free preflight verifies nonce and gateway/model TCB, without a completion. The current SDK cannot supply supported durable original plaintext replay/proof. Accepted production commands remain held. No custom decryption or security-route switch is used. [Verification contracts](docs/NEAR_VERIFICATION.md), [Cloud products](docs/NEAR_CLOUD_PRODUCTS.md) and [business operation](docs/BUSINESS_OPERATION.md) carry the technical details and remaining economic evidence gates.
+Official Cloud **0.3.0**, 1Click **0.1.26** and Agent API **0.9.0** SDKs are pinned. Actual free preflight verifies nonce and gateway/model TCB, without a completion. The current SDK cannot supply supported durable original plaintext replay/proof. The strict commercial route remains gated; the separately authorized AI demo and recovery scenario use original-process live verification with hold-on-loss, not offline replay guarantees. No custom decryption or security-route switch is used. [Verification contracts](docs/NEAR_VERIFICATION.md), [Cloud products](docs/NEAR_CLOUD_PRODUCTS.md) and [business operation](docs/BUSINESS_OPERATION.md) carry the technical details and remaining economic evidence gates.
 
 Company documents live in native JBrain. PDF, Markdown/text and public webpage imports produce editable previews; explicit Save persists reviewed text/provenance. PDF extraction has no OCR; webpage import does not crawl or execute scripts. Original uploads and unsaved previews remain in memory. **Saved knowledge, grants, conversations, tickets, reports, provider evidence and journal history persist.** Back up the journal and company-brain directory together while stopped. This is a local single-owner workspace, not a no-retention or multi-tenant service. See [JBrain integration](docs/JBRAIN_INTEGRATION.md).
 
