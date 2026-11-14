@@ -1,13 +1,18 @@
 # Mainnet verification evidence
 
 Dated **14 November 2026**. This page records every verification item completed on
-NEAR mainnet, with the exact transactions, contracts, artifacts and a single
-reproducible command. Each claim is independently checkable on a public block
-explorer; nothing here is a judge score or a spending authority.
+NEAR mainnet, with transactions, contracts, provider artifacts and a read-only
+checklist. Chain transactions can be inspected on a public block explorer;
+provider completion, delivery and billing records require separate verification.
+Nothing here is a judge score or a spending authority.
 
 > **Trust labels:** **LIVE_PUBLIC** = a real public chain transaction or provider
 > observation; **HELD/VERIFIED** = real execution whose output is held by policy,
 > not promoted to accepted business truth; **CONTROLLED** = injected test facts.
+
+The provider sections describe retained original-run records. The checklist's
+**LOCAL_ARTIFACT** label explicitly distinguishes inspecting those records from
+fresh independent verification of their claims.
 
 ```text
 Account roles
@@ -17,21 +22,26 @@ Account roles
   dedicated marketplace payer : e17d480f28ef0c3f39c7b3a12bdf80acfa2e2282a5e7a2eae3f019510ce6e8d4
 ```
 
-## Reproduce everything (one command)
+## Recheck chain state and inspect retained provider artifacts
 
 ```sh
 node scripts/verify-mainnet-evidence.mjs
 ```
 
-It is **read-only**: public RPC `query`/`tx` and contract `get_head`/`get_records`
-views only. It sends nothing, signs nothing, spends nothing. It prints PASS/FAIL
-for every item below and exits non-zero if any claim fails. Last run: **20/20 passed**.
+It is **read-only**: public RPC `query`/`tx`, contract `get_head`/`get_records`
+views and local artifact reads only. It signs nothing and spends nothing. Each
+PASS/FAIL is labeled **LIVE_PUBLIC** or **LOCAL_ARTIFACT**, and a failed check exits
+non-zero. The recorded checklist has **14 live public-chain checks** and **6 local
+provider-artifact checks**. The latter inspect stored fields; they do not independently
+reverify marketplace completion/payment, Cloud signatures or provider billing.
+**The claimed 1Click swap settlement is not checked by this command.** A passing
+20/20 checklist does not establish all business claims or the complete autonomous flow.
 
 ## 1. Ledger contract deployed on mainnet (risk #1)
 
 | Step | Label | Transaction |
 | --- | --- | --- |
-| Atomic deploy `deploy_contract(wasm)` + `new(company_hash, null)` | LIVE_PUBLIC | [`DP64fpGTGLyDwUouW9ecas6wgZwozS7hyDeKH3WtUswR`](https://nearblocks.io/txns/DP64fpGTGLyDwUouW9ecas6wgZwozS7hyDeKH3WtUswR) |
+| Atomic deploy `deploy_contract(wasm)` + `new(company_hash, null)` | LIVE_PUBLIC | [`DP64fpGTGLyDwUouW9ecas6wgZwuzS7hyDeKH3WtUswR`](https://nearblocks.io/txns/DP64fpGTGLyDwUouW9ecas6wgZwuzS7hyDeKH3WtUswR) |
 | `set_writer(owner)` + append sequence 2 | LIVE_PUBLIC | [`Cmh2zL2SWhm5mJ4JY23nHFFyJtLiavEV4Vfp4Bsvzb1n`](https://nearblocks.io/txns/Cmh2zL2SWhm5mJ4JY23nHFFyJtLiavEV4Vfp4Bsvzb1n) / [`5Xg6uasjZW4nnwWCFjP3stAaaiDtnCixc3zGvuCarhUb`](https://nearblocks.io/txns/5Xg6uasjZW4nnwWCFjP3stAaaiDtnCixc3zGvuCarhUb) |
 
 - Contract account: `755a0a4b…`, `code_hash` `GnfHJq4kXk5eLNNSvez2ue7BCHDEaGyZSTXrGzqaZ27g` (matches `artifacts/onchain-ledger/contract-manifest.json`).

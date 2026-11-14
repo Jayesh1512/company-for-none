@@ -8,6 +8,7 @@ import {createTreasury} from '../../src/treasury/index.mjs';
 import {createRules} from '../../src/rules/index.mjs';
 import {createOnchainLedger,readLedgerFacts} from '../../src/onchain/index.mjs';
 import {createAgentLedgerWriter} from '../../src/onchain/agent-writer.mjs';
+import {NEAR_RPC} from '../../src/onchain/rpc.mjs';
 import {fingerprint} from '../../src/contracts.mjs';
 import {config} from '../rules/fixtures.mjs';
 import {LEDGER_ZERO_HASH,ledgerCompanyHash} from '../../src/rules/onchain-ledger.mjs';
@@ -20,7 +21,7 @@ async function fixture(t,{acceptedCrash=false}={}){
   if(url.includes('/v1/status?')){statusReads++;return new Response(JSON.stringify({correlation_id:correlation,agent_id:agentId,type:'native',status:'SUCCESS',details:{method:'near_call',chain:'near',account_id:binding.signerId,target:binding.contractId,method_name:'append',tx_hash:txHash}}));}
   if(stopAtIdentity)rules.updateConfig({...rules.snapshot().config,killSwitch:true});return new Response(JSON.stringify({status:'ACTIVE',wallet:{near_account_id:binding.signerId}}));
  };
- const rpcTransport=async(url,options)=>{assert.equal(url,'https://rpc.mainnet.near.org');const q=JSON.parse(options.body);let result;
+ const rpcTransport=async(url,options)=>{assert.equal(url,NEAR_RPC.mainnet);const q=JSON.parse(options.body);let result;
   if(q.method==='tx')result={final_execution_status:'FINAL',transaction:{hash:txHash,signer_id:rpcAlter?'other.near':binding.signerId,receiver_id:binding.contractId,actions:[{FunctionCall:{...call,args:Buffer.from(JSON.stringify(call.args)).toString('base64')}}]},transaction_outcome:{id:'tx',block_hash:blockHash,outcome:{tokens_burnt:'5'}},receipts_outcome:[{id:'receipt',block_hash:blockHash,outcome:{tokens_burnt:'7'}}],status:{SuccessValue:''}};
   else if(q.method==='block')result={header:{hash:blockHash,height:101}};
   else if(q.params.request_type==='view_account')result={amount:'1000',code_hash:'test-pinned-code',block_height:100,block_hash:blockHash};

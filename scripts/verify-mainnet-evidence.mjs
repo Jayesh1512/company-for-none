@@ -1,4 +1,6 @@
-// Verify every mainnet claim made in docs/MAINNET_EVIDENCE.md, live.
+// Recheck the ledger on public mainnet RPC and inspect retained provider artifacts.
+// LIVE_PUBLIC checks query the chain; LOCAL_ARTIFACT checks do not independently
+// reverify provider execution, payment, signatures or billing. Swap is not checked.
 //
 // Read-only: queries public RPC, the ledger contract views and the on-chain tx
 // status. Sends nothing, signs nothing, spends nothing. Prints PASS/FAIL per item.
@@ -43,7 +45,8 @@ const txStatus = async hash => {
 };
 
 const results = [];
-const check = (name, ok, detail) => { results.push({name, ok, detail}); console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${detail ? ` — ${detail}` : ''}`); };
+const check = (name, ok, detail, scope = 'LIVE_PUBLIC') => { results.push({name, ok, detail, scope}); console.log(`${ok ? 'PASS' : 'FAIL'}  [${scope}] ${name}${detail ? ` — ${detail}` : ''}`); };
+const artifactCheck = (name, ok, detail) => check(name, ok, detail, 'LOCAL_ARTIFACT');
 
 try {
   const account = await rpc('query', {request_type: 'view_account', finality: 'final', account_id: LEDGER});
@@ -67,13 +70,15 @@ for (const [name, hash] of [['deploy', DEPLOY_TX], ['set_writer', SET_WRITER_TX]
   try {
     const result = await txStatus(hash);
     const status = result?.status;
-    check(`tx FINAL success: ${name} (${hash.slice(0, 10)}…)`, Boolean(status && Object.hasOwn(status, 'SuccessValue')) || JSON.stringify(status).includes('Success'), JSON.stringify(status).slice(0, 60));
+    const succeeded = result.final_execution_status === 'FINAL' && status && Object.hasOwn(status, 'SuccessValue') &&
+      !(result.receipts_outcome ?? []).some(receipt => Object.hasOwn(receipt.outcome?.status ?? {}, 'Failure'));
+    check(`tx FINAL success: ${name} (${hash.slice(0, 10)}…)`, Boolean(succeeded), JSON.stringify(status).slice(0, 60));
   } catch (error) {
     check(`tx: ${name}`, false, String(error.message ?? error).slice(0, 60));
   }
 }
 
-// Marketplace payments: prove the recorded tasks/payments exist in the artifacts.
+// Artifact consistency only: does not independently prove task completion/payment.
 try {
   const files = (await import('node:fs')).readdirSync('artifacts/marketplace').filter(f => f.endsWith('.json'));
   const paid = [];
@@ -81,23 +86,28 @@ try {
     const j = JSON.parse(await readFile(`artifacts/marketplace/${f}`, 'utf8'));
     if (j.taskState === 'TASK_STATE_COMPLETED') paid.push({payer: j.payer, taskId: j.taskId});
   }
-  check('marketplace x402 paid task(s) completed', paid.length >= 1, `${paid.length} completed: ${paid.map(p => p.taskId?.slice(0, 8)).join(', ')}`);
+  artifactCheck('marketplace artifacts report completed tasks', paid.length >= 1, `${paid.length} completed: ${paid.map(p => p.taskId?.slice(0, 8)).join(', ')}`);
 } catch (error) {
-  check('marketplace evidence', false, String(error.message ?? error).slice(0, 60));
+  artifactCheck('marketplace evidence', false, String(error.message ?? error).slice(0, 60));
 }
 
-// Cloud inference (item 5): the recorded run is verified and cost-reconciled.
+// Artifact consistency only: does not reverify the original Cloud call or bill.
 try {
   const run = JSON.parse(await readFile('artifacts/mainnet-proof/cloud-inference-item5.json', 'utf8'));
-  check('cloud inference answered', run.status === 'answered', run.status);
-  check('cloud wire signature verified', run.verification?.wireSignatureVerified === true);
-  check('cloud plaintext verified in original call', run.verification?.plaintextVerifiedInOriginalCall === true);
-  check('cloud offline plaintext recovery unavailable (route b)', run.verification?.offlinePlaintextRecovery === false);
-  check('cloud cost reconciled', run.cost?.status === 'confirmed' && run.cost?.actualCostNanoUsd !== '0', `${run.cost?.actualCostNanoUsd} nanoUSD`);
+  artifactCheck('cloud artifact reports answered inference', run.status === 'answered', run.status);
+  artifactCheck('cloud artifact reports verified wire signature', run.verification?.wireSignatureVerified === true);
+  artifactCheck('cloud artifact reports original-call plaintext verification', run.verification?.plaintextVerifiedInOriginalCall === true);
+  artifactCheck('cloud artifact records no offline plaintext recovery (route b)', run.verification?.offlinePlaintextRecovery === false);
+  artifactCheck('cloud artifact reports reconciled cost', run.cost?.status === 'confirmed' && /^[1-9]\d*$/.test(run.cost?.actualCostNanoUsd ?? ''), `${run.cost?.actualCostNanoUsd} nanoUSD`);
 } catch (error) {
-  check('cloud inference evidence', false, String(error.message ?? error).slice(0, 60));
+  artifactCheck('cloud inference evidence', false, String(error.message ?? error).slice(0, 60));
 }
 
 const failed = results.filter(r => !r.ok).length;
 console.log(`\n${results.length - failed}/${results.length} passed${failed ? `, ${failed} FAILED` : ''}`);
+for (const scope of ['LIVE_PUBLIC', 'LOCAL_ARTIFACT']) {
+  const scoped = results.filter(r => r.scope === scope);
+  console.log(`${scope}: ${scoped.filter(r => r.ok).length}/${scoped.length} passed`);
+}
+console.log('Local artifact checks are recorded assertions, not independent provider verification. 1Click swap settlement is not checked.');
 process.exitCode = failed ? 1 : 0;

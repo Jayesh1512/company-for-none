@@ -25,12 +25,15 @@ function arg(name) {
 const amountNear = arg('amount-near');
 const useWnear = Boolean(arg('use-wnear'));
 const dryRun = Boolean(arg('dry-run'));
-if (!useWnear && (!amountNear || Number.isNaN(Number(amountNear)))) throw new Error('Provide --amount-near <NEAR> (or --use-wnear to swap the current wNEAR balance).');
-const amountYocto = amountNear ? (BigInt(Math.round(Number(amountNear) * 1e6)) * 10n ** 18n).toString() : null;
+if ((!useWnear || amountNear !== null) && (typeof amountNear !== 'string' || !/^(0|[1-9]\d*)(?:\.\d{1,24})?$/.test(amountNear))) throw new Error('Provide a positive --amount-near with at most 24 decimal places (or --use-wnear to swap the current wNEAR balance).');
+const [whole, fraction = ''] = amountNear?.split('.') ?? [];
+const amountYocto = amountNear ? (BigInt(whole) * 10n ** 24n + BigInt(fraction.padEnd(24, '0'))).toString() : null;
+if (!useWnear && BigInt(amountYocto) <= 0n) throw new Error('The wrap amount must be positive.');
 
 const walletDir = '.runtime/company-ledger-wallet/mainnet';
-const credential = JSON.parse(await readFile(`${walletDir}/credential.json`, 'utf8'));
-const accountId = credential.account_id;
+// A dry run needs only public account metadata; never load or construct a signer.
+const credential = JSON.parse(await readFile(`${walletDir}/${dryRun ? 'public' : 'credential'}.json`, 'utf8'));
+const accountId = dryRun ? credential.accountId : credential.account_id;
 
 const rpc = async (method, params) => {
   const response = await fetch(RPC, {method: 'POST', headers: {'content-type': 'application/json'}, body: JSON.stringify({jsonrpc: '2.0', id: 1, method, params})});
@@ -43,9 +46,7 @@ const viewCall = async (account_id, method_name, args) => {
   return JSON.parse(Buffer.from(result.result).toString('utf8'));
 };
 
-const provider = new JsonRpcProvider({url: RPC});
-const signer = KeyPairSigner.fromSecretKey(credential.private_key);
-const account = new Account(accountId, provider, signer);
+const account = dryRun ? null : new Account(accountId, new JsonRpcProvider({url: RPC}), KeyPairSigner.fromSecretKey(credential.private_key));
 
 const accountView = await rpc('query', {request_type: 'view_account', finality: 'final', account_id: accountId});
 const storageRequired = BigInt(accountView.storage_usage) * 10000000000000000000n;
@@ -59,7 +60,7 @@ if (!useWnear && BigInt(amountYocto) + 100000000000000000000000n > freeYocto) {
 
 // 1. Wrap NEAR -> wNEAR (unless swapping an existing wNEAR balance). wrap.near keeps
 // a one-time ~0.00125 NEAR storage deposit, so the credited amount can be slightly less.
-if (!useWnear) {
+if (!useWnear && !dryRun) {
   console.log(JSON.stringify({...summary, note: 'Wrapping NEAR -> wNEAR...'}, null, 2));
   const wrapResult = await account.signAndSendTransaction({
     receiverId: WRAP, actions: [actions.functionCall('near_deposit', {}, GAS, BigInt(amountYocto))], waitUntil: 'FINAL',
@@ -68,18 +69,23 @@ if (!useWnear) {
 }
 const wNearBalance = await viewCall(WRAP, 'ft_balance_of', {account_id: accountId});
 summary.wNearBalance = (Number(wNearBalance) / 1e24).toFixed(6);
-if (wNearBalance === '0') throw new Error('No wNEAR to swap.');
+// Before a hypothetical wrap, quote the expected balance without sending it.
+// A first-time wNEAR storage charge can reduce the actual live balance.
+const quoteAmount = dryRun && !useWnear ? (BigInt(wNearBalance) + BigInt(amountYocto)).toString() : wNearBalance;
+if (quoteAmount === '0') throw new Error('No wNEAR to swap.');
+summary.quoteAmountYocto = quoteAmount;
+summary.quoteAmountEstimated = dryRun && !useWnear;
 
 // 2. Request a real quote for the exact wNEAR balance so we know the deposit address.
 const quoteRequest = {
-  dry: false, swapType: 'EXACT_INPUT', slippageTolerance: 100,
-  originAsset: WRAP_ASSET, destinationAsset: USDC_ASSET, amount: wNearBalance,
+  dry: dryRun, swapType: 'EXACT_INPUT', slippageTolerance: 100,
+  originAsset: WRAP_ASSET, destinationAsset: USDC_ASSET, amount: quoteAmount,
   depositType: 'ORIGIN_CHAIN', recipientType: 'DESTINATION_CHAIN', refundType: 'ORIGIN_CHAIN',
   refundTo: accountId, recipient: accountId, deadline: new Date(Date.now() + 20 * 60 * 1000).toISOString(),
 };
 const quoteResponse = await fetch('https://1click.chaindefuser.com/v0/quote', {method: 'POST', headers: {'content-type': 'application/json'}, body: JSON.stringify(quoteRequest)});
 const quoteBody = await quoteResponse.json();
-if (quoteResponse.status !== 201 || !quoteBody?.quote?.depositAddress) throw new Error(`QUOTE_FAILED ${quoteResponse.status} ${JSON.stringify(quoteBody).slice(0, 300)}`);
+if (quoteResponse.status !== 201 || !quoteBody?.quote || (!dryRun && !quoteBody.quote.depositAddress)) throw new Error(`QUOTE_FAILED ${quoteResponse.status} ${JSON.stringify(quoteBody).slice(0, 300)}`);
 const quote = quoteBody.quote;
 summary.depositAddress = quote.depositAddress;
 summary.expectedUsdc = (Number(quote.amountOut) / 1e6).toFixed(6);
@@ -87,7 +93,7 @@ summary.minUsdc = (Number(quote.minAmountOut) / 1e6).toFixed(6);
 summary.quoteDeadline = quote.deadline;
 
 if (dryRun) {
-  console.log(JSON.stringify({...summary, note: 'Dry run: quote only, nothing wrapped or sent.'}, null, 2));
+  console.log(JSON.stringify({...summary, note: 'Dry run: estimate only; no key loaded, transaction signed, wrapping or deposit. A first-time wNEAR storage charge can reduce the live quote amount.'}, null, 2));
   process.exit(0);
 }
 

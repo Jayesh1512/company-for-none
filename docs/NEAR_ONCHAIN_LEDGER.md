@@ -1,8 +1,8 @@
 # Company ledger on NEAR
 
-For the company operating model and consolidated capability status, see [How Company for None works](COMPANY_FOR_NONE_GUIDE.md). This page specifies the ledger implementation and remaining mainnet work.
+For the company operating model and consolidated capability status, see [How Company for None works](COMPANY_FOR_NONE_GUIDE.md). This page specifies the ledger implementation, mainnet evidence and remaining routine-publishing work.
 
-The user selected **NEAR mainnet** and explicitly requested a new local deployment wallet. The contract and local integration are implemented and tested. **No mainnet contract or ledger record has been deployed.** Funding the wallet does not automatically submit a transaction.
+The contract is **deployed on NEAR mainnet**, with six linked records in the recorded evidence and the Agent API agent account as operational writer. Deployment, scoped-key writes and the Agent API append were performed through separately invoked scripts. Routine app publishing remains gated on a verified native fee/signing envelope and exact current authority. See [transactions, read-only verification and limits](MAINNET_EVIDENCE.md).
 
 ## Deployment wallet
 
@@ -12,9 +12,9 @@ Funding account:
 755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b
 ```
 
-This is a newly generated ed25519 implicit mainnet account. The latest actual public RPC check returned `UNKNOWN_ACCOUNT`: it is not funded/provisioned on-chain yet. The credential is in `.runtime/company-ledger-wallet/mainnet/credential.json`, mode0600, under an ignored directory. No secret is in the public metadata, journal, UI, logs or artifacts. Preserve this private file; it is the deployment owner's key. `public.json` contains only the public account/key/network/company binding. Repeating wallet generation preserves the key, and can recover missing public metadata after an interrupted first write. It never provisions or transfers funds.
+This ed25519 implicit mainnet account is now funded and hosts the deployed ledger contract. Its credential is in `.runtime/company-ledger-wallet/mainnet/credential.json`, mode0600, under an ignored directory. No secret is in the public metadata, journal, UI, logs or artifacts. Preserve this private file; it is the deployment owner's key. `public.json` contains only the public account/key/network/company binding; its creation-time provisioning flags are historical, so query current chain state. Repeating wallet generation preserves the key, and can recover missing public metadata after an interrupted first write. Wallet generation itself never provisions or transfers funds.
 
-The [14 November public evidence run](LIVE_EVIDENCE.md) saved that account error at final mainnet block **224503657**, hash `HkUDEbEfZmPv8kb45WmNrNeT1CzCksB5Jgrq9a967QzA`. Exact RPC bytes and hashes are retained. This is a read of an absent account, not a deployment, record or fee. The same run’s signed 1Click dry quote supplies no native-call signing authority or settlement proof.
+The earlier [14 November public-only evidence run](LIVE_EVIDENCE.md) saved `UNKNOWN_ACCOUNT` at final mainnet block **224503657**, hash `HkUDEbEfZmPv8kb45WmNrNeT1CzCksB5Jgrq9a967QzA`, before funding and deployment. Exact RPC bytes and hashes are retained as historical evidence. The same run's signed 1Click dry quote supplies no native-call signing authority or settlement proof. Later deployment and Agent API writes are recorded separately in [mainnet evidence](MAINNET_EVIDENCE.md).
 
 ## What is stored on-chain
 
@@ -73,16 +73,16 @@ body: {receiver_id:<ledger>,method_name:"append",args:<exact batch>,gas:<approve
 
 The provider requires `receiver_id` in policy `native.near.call`. Its ordinary `budget`, `timelock_ms`, `schedule` and `owner_approval` do **not** apply to native calls. That makes our own exact call binding, native fee limit, lifetime USD5 actual+pending reservation and immediate final gate essential. `src/onchain/agent-writer.mjs` implements the durable native HTTP port and refuses secrets/I/O without a real M01 effect permit. It never promotes a provider response to confirmed ledger state. The app now wires this port through exact M01/M03 admission, native/USD reservation, consumed permit and the immediate final transport gate. It is executable only if a private verified native fee/signing envelope and exact scope exist; the default production composition has no such producer.
 
-**Publishing intentionally remains held**, even if a structural authorization object is present. Shared native/USD reservation, permit consumption, final dispatch, original-operation recovery and final-RPC actual-fee accounting are implemented and locally tested. The outstanding production implementation/evidence is the independent native fee/signing-envelope producer, actual identity/policy/grant binding, scoped funding and deployment. This is not solved by supplying funds or a key alone. No generic dispatch permit, direct-wallet operational fallback or new USD5 allowance is created.
+**Routine app publishing remains held without verified per-operation inputs**, even if a structural authorization object is present. Shared native/USD reservation, permit consumption, final dispatch, original-operation recovery and final-RPC actual-fee accounting are implemented and locally tested. Mainnet deployment and a script-driven Agent API append are now established; they do not supply the app's missing independent native fee/signing-envelope producer or verify its current exact authority and funding. This is not solved by supplying funds or a key alone. No generic dispatch permit, direct-wallet operational fallback or new USD5 allowance is created.
 
-The user confirmed there is **no existing company Agent API identity or live grant**. Actual setup therefore also needs:
+An Agent API identity, owner-signed policy and live grant were provisioned for the recorded mainnet run. Routine app setup must bind and verify that existing scope rather than infer permissions from the deployment:
 
 1. A protected partner API key from partners.near-intents.org. The official public schema exposes owner actions through generate-intent → owner signs unchanged payload → submit-intent. Do not invent a POST registration endpoint.
-2. Review/acceptance of the provider's required terms and exact owner-signed creation/policy/grant preview. No identity, policy or grant has been provisioned in this increment.
+2. Evidence of review/acceptance of the provider's required terms and the exact owner-signed policy/grant. Retain protected references to the existing identity and grant; a successful past append is not current spending authority.
 3. The resulting agent's actual NEAR account as operational writer, and a native-call allowlist for this contract only. Contract permissions prevent that writer rotating itself or moving deployment funds.
-4. Funded deployment/operational accounts and concrete fee/storage/USD bounds within the existing total ceiling, followed by the remaining safe signing protocol. No NEAR/USD conversion or funding amount is guessed.
+4. Fresh operational-account balance and concrete fee/storage/USD bounds within the existing total ceiling, followed by the verified per-operation signing protocol. No NEAR/USD conversion or funding amount is guessed.
 
-Contract deployment uses the new deployment owner's key, separately from subsequent agent calls. The review draft is unsigned and has no inferred gas amount. Do not deploy it manually to bypass the missing budget/authorization integration.
+The completed contract deployment used the deployment owner's key, separately from subsequent agent calls. The older prepared deployment draft remains an unsigned historical artifact. Redeployment or further calls require their own exact authority; the evidence scripts do not enable routine app dispatch.
 
 ## Reproduction and evidence
 
@@ -93,6 +93,7 @@ npm run contract:test
 node --test test/onchain-ledger/*.test.mjs test/onchain-ledger-rules/*.test.mjs
 node scripts/check-ledger-browser.mjs http://127.0.0.1:4173
 npm run ledger:deployment-plan -- mainnet
+node scripts/verify-mainnet-evidence.mjs  # live ledger checks + labeled local provider artifact checks
 npm test
 npm run check
 ```
@@ -104,6 +105,6 @@ Primary sources checked14November2026: [NEAR API libraries](https://docs.near.or
 
 ## Mentor follow-up,14 November2026
 
-See [all dispositions and safeguards](MENTOR_IMPLEMENTATION.md). New native fee receipts verify the exact final transaction and receipt-block watermark, including gas burned by failed calls. Known unsubmitted calls can release only their own zero-cost reservation; unknown calls retain it and cannot be retried blindly. Absolute native balance snapshots never become Intents cash or Cloud credit. Costs and checkpoint finality remain separate owner-visible facts. Actual local Sandbox fee checks use the real compiled contract and nearcore RPC; their USD conversion is explicitly test-only. No mainnet account, signing, deployment or fee occurred.
+See [all dispositions and safeguards](MENTOR_IMPLEMENTATION.md). New native fee receipts verify the exact final transaction and receipt-block watermark, including gas burned by failed calls. Known unsubmitted calls can release only their own zero-cost reservation; unknown calls retain it and cannot be retried blindly. Absolute native balance snapshots never become Intents cash or Cloud credit. Costs and checkpoint finality remain separate owner-visible facts. Actual local Sandbox fee checks use the real compiled contract and nearcore RPC; their USD conversion is explicitly test-only. That earlier increment made no mainnet account, signing, deployment or fee; [later mainnet evidence](MAINNET_EVIDENCE.md) records the subsequent transactions.
 
-The scoped function-call key and named/role account output is an unsigned review plan, not an installed credential or alternate operational route. The selected Agent API route is unchanged. The near.social feed is a bound, confirmed-hash-only preparation artifact; current publication semantics and authority remain unverified and no post is made.
+The earlier UI's scoped function-call key and named/role account output remains an unsigned review plan. A separately invoked script later installed and exercised a scoped writer key, then the contract writer was rotated to the Agent API account. The selected routine Agent API route is unchanged. The near.social feed is a bound, confirmed-hash-only preparation artifact; current publication semantics and authority remain unverified and no post is made.
