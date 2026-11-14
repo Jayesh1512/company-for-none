@@ -1,0 +1,61 @@
+{
+  "mode": "fixture",
+  "viewport": {
+    "width": 1600,
+    "height": 900
+  },
+  "agentId": "b26fb313-06fa-41cd-bc19-655ffcce60ea",
+  "orderId": "515f61c2-236b-41bc-a75e-15af000be5a6",
+  "marks": [
+    {
+      "name": "agents",
+      "seconds": 0.595790875
+    },
+    {
+      "name": "marketplace",
+      "seconds": 5.435830125
+    },
+    {
+      "name": "create",
+      "seconds": 13.142204833
+    },
+    {
+      "name": "profile",
+      "seconds": 20.174580916
+    },
+    {
+      "name": "skill",
+      "seconds": 26.263301583
+    },
+    {
+      "name": "service",
+      "seconds": 35.026597125
+    },
+    {
+      "name": "brief",
+      "seconds": 39.626625208
+    },
+    {
+      "name": "approve",
+      "seconds": 43.305113
+    },
+    {
+      "name": "report",
+      "seconds": 49.527902208
+    },
+    {
+      "name": "tasks",
+      "seconds": 61.553678541000004
+    },
+    {
+      "name": "ledger",
+      "seconds": 65.83740174999998
+    },
+    {
+      "name": "end",
+      "seconds": 69.840476916
+    }
+  ],
+  "pageErrors": [],
+  "recordedAt": "2026-11-11T07:30:00.744Z"
+}

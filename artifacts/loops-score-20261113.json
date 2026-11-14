@@ -1,0 +1,124 @@
+{
+  "reviewedAt": "2026-11-13",
+  "basis": "Evaluator prompts fetched with loops evaluate; repository inspected; numeric estimates added at user's request, not generated or awarded by Loops House.",
+  "submissionExists": false,
+  "verification": {
+    "tests": 256,
+    "failed": 0,
+    "skipped": 0,
+    "syntaxFiles": 74,
+    "testsLog": "/tmp/near1-loops-score-tests-20261113.log",
+    "liveEconomicExecutionProven": false
+  },
+  "autonomousBusiness": {
+    "estimate": 50,
+    "outOf": 100,
+    "criteria": [
+      {
+        "name": "NEAR Tech Usage",
+        "points": 18,
+        "maximum": 35,
+        "reason": "Official Cloud/1Click/Agent SDKs are pinned and used in actual verification/client code, but Cloud SDK completion remains an isolated component and core business integration is not live-proven."
+      },
+      {
+        "name": "Real, Not Simulated",
+        "points": 5,
+        "maximum": 25,
+        "reason": "Native JBrain and local source/import paths are real. Free provider reachability is observed. No actual paid report, customer settlement, contributor payout or autonomous Cloud acquisition is proven."
+      },
+      {
+        "name": "Track Fit",
+        "points": 15,
+        "maximum": 20,
+        "reason": "Treasury, policy constraints, service orders, contributor obligations and private delivery match the business brief; real procurement and economic autonomy remain absent."
+      },
+      {
+        "name": "Execution & Completeness",
+        "points": 12,
+        "maximum": 20,
+        "reason": "Durable operations, fail-closed authorization, accounting/privacy tests and reproducible JBrain are substantial; fresh product startup is setup-only and cannot fulfil the real customer loop."
+      }
+    ]
+  },
+  "grandPrize": {
+    "estimate": 45,
+    "outOf": 100,
+    "criteria": [
+      {
+        "name": "NEAR Tech Usage",
+        "points": 20,
+        "maximum": 40,
+        "reason": "Actual SDK and cryptographic verification work, with unproven account/receipt/finality attribution and incomplete business wiring."
+      },
+      {
+        "name": "Real, Not Simulated",
+        "points": 6,
+        "maximum": 30,
+        "reason": "Useful real local infrastructure, but the NEAR economic critical path remains blocked and no approved paid output exists."
+      },
+      {
+        "name": "Innovation & Ambition",
+        "points": 8,
+        "maximum": 15,
+        "reason": "Combines agent workspace, permissioned company knowledge and constrained commerce; current behavior does not yet demonstrate a distinctive autonomous business mechanism."
+      },
+      {
+        "name": "Execution & Completeness",
+        "points": 11,
+        "maximum": 15,
+        "reason": "Strong engineering controls and tests; incomplete core experience prevents a higher mark."
+      }
+    ]
+  },
+  "bountyFit": {
+    "autonomousBusinessFirstSecondThird": "Partial alignment; placement cannot be inferred.",
+    "grandPrize": "Partial alignment; no rank or win prediction."
+  },
+  "evidence": [
+    {
+      "path": "src/app.mjs",
+      "line": 67,
+      "claim": "Real product composition; separate SDK component is composed alongside business workflow."
+    },
+    {
+      "path": "src/inference/index.mjs",
+      "line": 22,
+      "claim": "Business client reports proof unavailable."
+    },
+    {
+      "path": "src/inference/verification.mjs",
+      "line": 215,
+      "claim": "Explicit official SDK response verification is invoked."
+    },
+    {
+      "path": "src/inference/verification.mjs",
+      "line": 220,
+      "claim": "Plaintext/durable replay verification remains unavailable."
+    },
+    {
+      "path": "src/payments/signatures.mjs",
+      "line": 24,
+      "claim": "Official quote signature verification; mutable settlement status is outside verified scope."
+    },
+    {
+      "path": "src/custody/proofs.mjs",
+      "line": 123,
+      "claim": "Official Agent SDK operation-proof verification is called; distinct finality/money stages."
+    },
+    {
+      "path": "src/cloud-funding/index.mjs",
+      "line": 18,
+      "claim": "Autonomous funding refuses unsupported execution."
+    },
+    {
+      "path": "src/rules/business.mjs",
+      "line": 75,
+      "claim": "Live procurement remains unavailable."
+    }
+  ],
+  "topNextSteps": [
+    "Close durable verified report/Cloud path and wire it into the business workflow, using a supported explicitly approved route without weakening proof policy.",
+    "Prove one authorized customer payment -> spendable balance -> fresh report -> automatic contributor payout, with actual costs and a usable predeposit refund route.",
+    "Demonstrate real agent-funded Cloud acquisition and one supplier-delivered entitlement; keep either capability explicitly blocked if vendor support is unavailable."
+  ]
+}

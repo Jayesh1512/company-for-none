@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "milestone": "working-local-fixture-mvp",
+  "strictLiveProven": false,
+  "commands": {
+    "npm test": {
+      "passed": 122,
+      "failed": 0,
+      "integrationChecks": 20,
+      "durationMs": 10363.248083
+    },
+    "npm run check": {
+      "syntaxFiles": 32,
+      "passed": true
+    },
+    "npm run demo": {
+      "passed": true,
+      "runs": [
+        {
+          "orderId": "70cf77e2-cebc-4626-89ce-b2e2baea68ea",
+          "sourceAsset": "demo-usdc",
+          "status": "complete",
+          "elapsedMs": 443,
+          "mode": "fixture",
+          "sources": 3,
+          "reportHash": "9bfb4c2714de19364d45e0b427ee3ed8e3626c41dca9a12f53ab6b3f43f1bc9f"
+        },
+        {
+          "orderId": "5deb4e4d-cb55-4b11-b306-d75e4c5c8f14",
+          "sourceAsset": "demo-near",
+          "status": "complete",
+          "elapsedMs": 588,
+          "mode": "fixture",
+          "sources": 3,
+          "reportHash": "c5595f8d976a41d34818ec55bdf47c6367cf32a685097f24276b2ed1ec87e0d5"
+        },
+        {
+          "orderId": "0928c9ea-00a3-4d6b-aec7-c95b9bfd2c76",
+          "sourceAsset": "demo-usdc",
+          "status": "complete",
+          "elapsedMs": 722,
+          "mode": "fixture",
+          "sources": 3,
+          "reportHash": "592e46d713ec76574b41d13b22af88531749d2014b38821b5273a1b52df6b347"
+        }
+      ]
+    },
+    "npm run probe": {
+      "passed": true,
+      "kind": "public-catalog-only",
+      "evidence": "artifacts/research-shop-public-probes.json"
+    }
+  },
+  "browserEvidence": {
+    "path": "test/research-web/artifacts/browser-proof.json",
+    "observedAt": "2026-11-10T20:48:25.043Z",
+    "pageErrors": [],
+    "mode": "fixture",
+    "checks": [
+      "create",
+      "quote",
+      "fixture-payment",
+      "run",
+      "private-report",
+      "3 source references",
+      "payment progress",
+      "mobile report no horizontal overflow",
+      "mobile ledger no horizontal overflow",
+      "mobile storefront no horizontal overflow",
+      "public ledger private question redacted",
+      "unauthorized report 403",
+      "unauthorized owner 403",
+      "refresh preserves order without financial duplicate"
+    ]
+  },
+  "publicRetrievalEvidence": {
+    "path": "test/research-web/artifacts/public-source-smoke.json",
+    "kind": "real-free-read-only-transport-smoke-only"
+  },
+  "preview": {
+    "url": "http://127.0.0.1:4173",
+    "directory": ".runtime/preview-20261111",
+    "priorDevelopmentStorePreserved": ".runtime/research-shop"
+  },
+  "liveGates": [
+    "No approved funded cap or credentials yet",
+    "Official NEAR Intents testnet path unresolved",
+    "Autonomous Cloud credit purchasing unverified; fixtures do not satisfy live requirement"
+  ],
+  "degradedLedgerBrowserEvidence": {
+    "path": "artifacts/mvp-degraded-ledger.json",
+    "passed": true
+  }
+}

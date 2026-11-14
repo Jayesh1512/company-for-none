@@ -1,0 +1,40 @@
+{
+  "at": "2026-11-14T09:34:06.556Z",
+  "mode": "actual-native-jbrain-policy-lookup",
+  "modelCalls": 0,
+  "providerCalls": 0,
+  "spendUsd": 0,
+  "checks": [
+    "explicit idempotent company + 2 real profiles + 4 native JBrain documents",
+    "actual marketplace -> agent chat -> exact auto deductible + source citation",
+    "personal claim decision -> persistent escalation, no approval",
+    "browser refresh restores private transcript without duplicate turns",
+    "owner escalation inbox + desktop/mobile 390px no overflow",
+    "customer token isolation + open replay never discloses a token",
+    "disk reopen + existing capability + reply replay, unchanged Treasury"
+  ],
+  "pageErrors": [],
+  "suite": {
+    "tests": 493,
+    "pass": 493,
+    "fail": 0,
+    "skip": 0,
+    "node": "26.12.1",
+    "syntaxFiles": 126
+  },
+  "mainPreview": {
+    "url": "http://127.0.0.1:4173/#care",
+    "company": "Northstar Care",
+    "actualSupportAgents": 2,
+    "existingAgentsPreserved": 4,
+    "nativePolicyDocuments": 4,
+    "localSupportListings": 2,
+    "previousObjective": "superseded",
+    "automaticPaidWork": "paused",
+    "nativeT3ViewportCssWidth": 356,
+    "nativeT3PortalCopyWidth": 224,
+    "nativeT3AutoDeductibleReply": "500 demo dollars with one exact citation",
+    "nativeT3ServerRestart": "same saved capability restores2messages/1citation",
+    "spendUsd": 0
+  }
+}

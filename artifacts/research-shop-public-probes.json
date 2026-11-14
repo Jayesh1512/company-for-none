@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-10T20:45:50.182Z",
+  "mode": "real-free-public-read-only",
+  "credentialValuesRead": false,
+  "fundsMoved": false,
+  "inferenceCalled": false,
+  "probes": [
+    {
+      "module": "M05",
+      "provider": "near-intents",
+      "url": "https://1click.chaindefuser.com/v0/tokens",
+      "httpStatus": 200,
+      "count": 229,
+      "elapsedMs": 532,
+      "evidence": "public-catalog-only",
+      "liveExecutionProven": false
+    },
+    {
+      "module": "M07",
+      "provider": "near-ai-cloud",
+      "url": "https://cloud-api.near.ai/v1/models",
+      "httpStatus": 200,
+      "count": 64,
+      "elapsedMs": 945,
+      "evidence": "public-catalog-only",
+      "liveExecutionProven": false
+    }
+  ],
+  "liveGates": [
+    "Official Intents testnet route unresolved",
+    "Autonomous Cloud credit purchase unverified",
+    "Explicit funded credentials/caps and execution evidence absent"
+  ]
+}

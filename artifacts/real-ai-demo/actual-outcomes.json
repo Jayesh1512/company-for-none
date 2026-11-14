@@ -1,0 +1,13 @@
+{
+  "observedAt": "2026-11-14T13:26:22.809Z",
+  "sameOriginalCompany": true,
+  "agentCount": 6,
+  "documentCount": 6,
+  "actualAcceptedReplies": 2,
+  "actualEscalationTicket": true,
+  "totalActualNanoUsd": "3221160",
+  "unknownReservations": 0,
+  "providerOperations": 2,
+  "orderCount": 0,
+  "scope": "owner-funded; not autonomous inference purchase"
+}

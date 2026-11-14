@@ -1,0 +1,12 @@
+✔ organization setup persists metadata and explicit ordered reviews, with CAS and no client completion claims (94.696708ms)
+✔ role, profile and skill review fingerprints follow actual metadata changes (104.151958ms)
+✔ setup routes keep local access, current kill, input validation and mutation-origin boundaries (41.815375ms)
+✔ setup rendering escapes organization content and depicts truthful infra and linked return flows (40.689375ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 356.007958

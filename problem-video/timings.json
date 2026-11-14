@@ -1,0 +1,94 @@
+{
+  "title": "The cost of connecting everything",
+  "fps": 30,
+  "durationInFrames": 2054,
+  "durationSeconds": 68.46666666666667,
+  "voice": {
+    "engine": "macOS say",
+    "voice": "Daniel",
+    "rate": 165,
+    "synthetic": true
+  },
+  "scenes": [
+    {
+      "id": "one-job",
+      "title": "One job to do",
+      "narration": "You want to give an AI agent one job. Research a market. Prepare a launch. Move the business forward.",
+      "from": 0,
+      "durationInFrames": 225,
+      "voiceSeconds": 6.399521,
+      "voiceFrom": 14,
+      "audio": "audio/one-job.wav"
+    },
+    {
+      "id": "toolchain",
+      "title": "Six setup jobs",
+      "narration": "But before the work begins, you're choosing models, connecting company knowledge, adding skills, shaping behavior, wiring services, and setting up payments.",
+      "from": 225,
+      "durationInFrames": 348,
+      "voiceSeconds": 10.486229,
+      "voiceFrom": 14,
+      "audio": "audio/toolchain.wav"
+    },
+    {
+      "id": "context",
+      "title": "Scattered context",
+      "narration": "The brief lives in one place. The documents live somewhere else. Every new agent asks for context you have already given.",
+      "from": 573,
+      "durationInFrames": 254,
+      "voiceSeconds": 7.346896,
+      "voiceFrom": 14,
+      "audio": "audio/context.wav"
+    },
+    {
+      "id": "coordinator",
+      "title": "The human coordinator",
+      "narration": "More agents mean more handoffs. Different instructions. Missing sources. Conflicting answers. You become the coordinator.",
+      "from": 827,
+      "durationInFrames": 284,
+      "voiceSeconds": 8.361875,
+      "voiceFrom": 14,
+      "audio": "audio/coordinator.wav"
+    },
+    {
+      "id": "spend",
+      "title": "Spend and responsibility",
+      "narration": "And now, agents can spend. Which service was paid? What did inference cost? Who approved it? A useful answer is only part of the job.",
+      "from": 1111,
+      "durationInFrames": 299,
+      "voiceSeconds": 8.850042,
+      "voiceFrom": 14,
+      "audio": "audio/spend.wav"
+    },
+    {
+      "id": "overhead",
+      "title": "The hidden work",
+      "narration": "The result? More setup. More copying. More supervision. Less time doing the work that matters.",
+      "from": 1410,
+      "durationInFrames": 230,
+      "voiceSeconds": 6.548125,
+      "voiceFrom": 14,
+      "audio": "audio/overhead.wav"
+    },
+    {
+      "id": "needs",
+      "title": "What businesses need",
+      "narration": "Businesses need agents that share the right context, have clear responsibilities, and work within visible limits.",
+      "from": 1640,
+      "durationInFrames": 243,
+      "voiceSeconds": 6.968313,
+      "voiceFrom": 14,
+      "audio": "audio/needs.wav"
+    },
+    {
+      "id": "outcome",
+      "title": "The real goal",
+      "narration": "Because the goal is not to manage more AI tools. It's to get real work done.",
+      "from": 1883,
+      "durationInFrames": 171,
+      "voiceSeconds": 4.576875,
+      "voiceFrom": 14,
+      "audio": "audio/outcome.wav"
+    }
+  ]
+}

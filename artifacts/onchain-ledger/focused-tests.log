@@ -1,0 +1,25 @@
+✔ setup export is a scoped redacted contiguous hash chain with no signing or raw identity/payload disclosure (3.33675ms)
+✔ every operation is owner-only and ignores caller journal/RPC/authorization booleans (0.761ms)
+✔ unsigned prepare binds current local checkpoint and actual RPC head, with no gas/deposit/key invented (0.675667ms)
+✔ binding cannot be swapped across prepared work, checkpoint, restart or caller input (1.345833ms)
+✔ gaps, reordered or rewritten private journal facts, invalid checkpoint and stale/mismatched RPC hold preparation (1.278333ms)
+✔ publish fails closed without protected authorization and cannot be enabled by a key/success/receipt flag (1.435541ms)
+✔ native gas/deposit/fee caps and common USD5 lifetime actual+pending are checked without invented asset conversion (1.671083ms)
+✔ exact finalized RPC batch confirmation advances checkpoint but never claims cost reconciliation (0.7605ms)
+✔ a later RPC head needs every exact contiguous actual record from batch end through the observed head (1.296291ms)
+✔ tampered unsigned args and standalone success/tx IDs never become a chain confirmation (0.506917ms)
+✔ read/export/reconcile remain separate from paid readiness, while current kill and all historical gates persist (28.16375ms)
+✔ owner-only deployment address/artifact projection never exposes secrets or becomes an operational writer binding (0.437875ms)
+✔ generated wallet is network/company-bound, private, idempotent and never uses RPC (26.259084ms)
+✔ actual setup app exports safe hash records; owner-only routes do not change Treasury or send transactions (66.62575ms)
+✔ RPC inspect pins exact deployed WASM code, writer, company and single final block across record reads (1.273875ms)
+✔ native Agent API writer cannot resolve secrets or dispatch on held or unsigned Rules decisions (26.087875ms)
+✔ ledger panel never labels local records as anchored or renders unsafe values as markup (0.300708ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 260.654208

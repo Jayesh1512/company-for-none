@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "kind": "mainnet-ledger-deployment",
+  "networkId": "mainnet",
+  "accountId": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b",
+  "companyHash": "9f83bd56058199fad25b2afbe9a452a01170dac5187f8546cf0d469278d962f9",
+  "wasmBytes": 124113,
+  "wasmHash": "ea91b9966ae583d82d56e06af98be07bd28d643809ba9877a6f6b24dd2f71f77",
+  "expectedCodeHash": "GnfHJq4kXk5eLNNSvez2ue7BCHDEaGyZSTXrGzqaZ27g",
+  "transactionHash": "DP64fpGTGLyDwUouW9ecas6wgZwuzS7hyDeKH3WtUswR",
+  "finalExecutionStatus": null,
+  "status": "ALREADY_DEPLOYED_SKIPPED",
+  "head": {
+    "companyHash": "9f83bd56058199fad25b2afbe9a452a01170dac5187f8546cf0d469278d962f9",
+    "sequence": 0,
+    "hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "ownerId": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b",
+    "writerId": null
+  },
+  "headBlock": {
+    "height": 224521752,
+    "hash": "3Qy9eQmxwNAc7iCtRBUCKJ4k3smenXW7Yztf3PeKs4iU"
+  },
+  "explorer": "https://nearblocks.io/txns/DP64fpGTGLyDwUouW9ecas6wgZwuzS7hyDeKH3WtUswR",
+  "recordedAt": "2026-11-14T13:42:26.414Z"
+}

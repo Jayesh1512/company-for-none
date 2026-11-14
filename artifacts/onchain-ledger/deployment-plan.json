@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "networkId": "mainnet",
+  "companyId": "local-workspace",
+  "contractAccountId": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b",
+  "deploymentSignerId": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b",
+  "companyHash": "9f83bd56058199fad25b2afbe9a452a01170dac5187f8546cf0d469278d962f9",
+  "wasmHash": "ea91b9966ae583d82d56e06af98be07bd28d643809ba9877a6f6b24dd2f71f77",
+  "wasmBytes": 124113,
+  "actions": [
+    {
+      "type": "DeployContract",
+      "wasmFile": "artifacts/onchain-ledger/company-ledger.wasm",
+      "sha256": "ea91b9966ae583d82d56e06af98be07bd28d643809ba9877a6f6b24dd2f71f77"
+    },
+    {
+      "type": "FunctionCall",
+      "methodName": "new",
+      "args": {
+        "company_hash": "9f83bd56058199fad25b2afbe9a452a01170dac5187f8546cf0d469278d962f9",
+        "writer_id": null
+      },
+      "depositYocto": "0",
+      "gasUnits": null
+    }
+  ],
+  "atomicDeploymentAndInitializationRequired": true,
+  "operationalWriter": "not-bound",
+  "unsigned": true,
+  "readyToSign": false,
+  "mainnetTransactionsSent": 0,
+  "requires": [
+    "Funded deployment account",
+    "Exact owner-approved native fee/storage limits and current USD5 common-budget reservation",
+    "Current final RPC nonce/block/code facts",
+    "Actual company Agent API identity, policy and grant before set_writer or operational append",
+    "Final current authorization immediately before signing/submission"
+  ]
+}

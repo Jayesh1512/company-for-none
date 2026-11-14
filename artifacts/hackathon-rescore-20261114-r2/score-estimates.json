@@ -1,0 +1,127 @@
+{
+  "assessedAt": "2026-11-14T12:25:45.891879+00:00",
+  "event": "near-hackathon",
+  "cliVersion": "0.6.0",
+  "assessmentType": "Unofficial assistant estimates explicitly requested by builder, separate from fresh Loops House qualitative alignment report. Loops evaluate returns a prompt, not a numeric judge score. No human judging/ranking/award prediction.",
+  "uncertainty": "approximately +/-5 points",
+  "previousAssessment": "artifacts/hackathon-review-20261114/score-estimates.json",
+  "sourceBaselineManifest": "artifacts/mentor-implementation/source-manifest.json",
+  "baselineSHA256": "1bc3e202a2f5b4e221f379f7bced724e5cde7e8873accb080dc961bac6befd3b",
+  "all264BaselineFilesMatched": true,
+  "inFlightDemoChangesCredited": false,
+  "submissionExists": false,
+  "submissionWrites": 0,
+  "knowledgeCreditsUsed": 0,
+  "paidProviderCalls": 0,
+  "providerProbes": 0,
+  "mainnetTransactions": 0,
+  "scores": [
+    {
+      "target": "Autonomous Business",
+      "sponsor": "autonomous-business",
+      "previous": 58,
+      "estimate": 64,
+      "outOf": 100,
+      "delta": 6,
+      "criteria": [
+        {
+          "name": "NEAR Tech Usage",
+          "points": 23,
+          "weight": 35
+        },
+        {
+          "name": "Real, Not Simulated",
+          "points": 7,
+          "weight": 25
+        },
+        {
+          "name": "Track Fit",
+          "points": 18,
+          "weight": 20
+        },
+        {
+          "name": "Execution & Completeness",
+          "points": 16,
+          "weight": 20
+        }
+      ]
+    },
+    {
+      "target": "NEAR Grand Prize",
+      "sponsor": "near",
+      "previous": 52,
+      "estimate": 59,
+      "outOf": 100,
+      "delta": 7,
+      "criteria": [
+        {
+          "name": "NEAR Tech Usage",
+          "points": 27,
+          "weight": 40
+        },
+        {
+          "name": "Real, Not Simulated",
+          "points": 7,
+          "weight": 30
+        },
+        {
+          "name": "Innovation & Ambition",
+          "points": 12,
+          "weight": 15
+        },
+        {
+          "name": "Execution & Completeness",
+          "points": 13,
+          "weight": 15
+        }
+      ]
+    },
+    {
+      "target": "Privacy & Private AI",
+      "sponsor": "privacy-private-ai",
+      "previous": 51,
+      "estimate": 52,
+      "outOf": 100,
+      "delta": 1,
+      "criteria": [
+        {
+          "name": "NEAR Tech Usage",
+          "points": 19,
+          "weight": 35
+        },
+        {
+          "name": "Real, Not Simulated",
+          "points": 6,
+          "weight": 25
+        },
+        {
+          "name": "Track Fit",
+          "points": 12,
+          "weight": 20
+        },
+        {
+          "name": "Execution & Completeness",
+          "points": 15,
+          "weight": 20
+        }
+      ]
+    }
+  ],
+  "freshValidation": {
+    "command": "npm run test:mentor",
+    "tests": 44,
+    "pass": 44,
+    "fail": 0,
+    "skip": 0,
+    "log": "focused-validation.log",
+    "scope": "isolated controlled provider ports/actual product Rules+Treasury mechanics, not real provider execution"
+  },
+  "existingEvidenceNotRerun": {
+    "fullTests": 544,
+    "nativeJBrainTests": 12,
+    "syntaxFiles": 151,
+    "actualLocalSandboxFeeChecks": 5
+  },
+  "qualitativeReport": "alignment-review.md",
+  "largestRemainingGap": "No accepted paid private business output or funded independently verified settlement/delivery/payout/mainnet ledger; production proof/cost/signing producers and external authorities still absent."
+}

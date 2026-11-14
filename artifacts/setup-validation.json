@@ -1,0 +1,55 @@
+{
+  "checkedAt": "2026-11-12T06:23:43.732Z",
+  "preview": "http://127.0.0.1:4173/#setup",
+  "steps": [
+    "Define Org",
+    "Define Agents",
+    "Add Profiles",
+    "Enhance Skills",
+    "Set Up Infra",
+    "Company Brain"
+  ],
+  "tests": {
+    "passed": 141,
+    "failed": 0,
+    "skipped": 0
+  },
+  "syntaxFiles": 45,
+  "browser": {
+    "checkedAt": "2026-11-12T06:19:12.854Z",
+    "qaBase": "http://127.0.0.1:4181",
+    "preview": "http://127.0.0.1:4173/#setup",
+    "fictionalQaOnly": true,
+    "realJBrain": true,
+    "createdAgentId": "6796f49a-42db-499c-9cd3-19fd1b2fa9bb",
+    "checks": [
+      "six-visible-ordered-steps",
+      "organization-save-branding",
+      "template-create-return",
+      "profile-edit-return",
+      "skill-install-return",
+      "truthful-infra",
+      "brain-blocks-empty-library",
+      "knowledge-save-return",
+      "finish-and-refresh-resume",
+      "desktop1440-mobile390-no-overflow",
+      "main-preview-kept-unconfigured"
+    ],
+    "pageErrors": [],
+    "mobileNavigation": {
+      "sidebarCollapses": true,
+      "drawerOpenAndNavigate": true,
+      "transitionSettled": true
+    }
+  },
+  "modes": {
+    "execution": "fixture",
+    "knowledge": "actual local JBrain"
+  },
+  "evidence": [
+    "artifacts/setup-tests.log",
+    "artifacts/setup-check.log",
+    "artifacts/setup-design-detect.json"
+  ],
+  "remainingLiveGatesUnchanged": true
+}

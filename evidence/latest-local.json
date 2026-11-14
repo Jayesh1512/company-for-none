@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "directory": "evidence/runs/2026-11-14T12-49-11-380Z",
+  "scenarioOutput": "evidence/runs/2026-11-14T12-49-11-380Z/care-scenario.json",
+  "startedAt": "2026-11-14T12:49:11.380Z",
+  "completedAt": "2026-11-14T12:49:28.516Z",
+  "sourceScope": "Selected test file hashes; not a whole-checkout source freeze.",
+  "previewUsed": false,
+  "inheritedProviderCredentials": false,
+  "publicProviderCalls": 0,
+  "paidCalls": 0,
+  "mainnetTransactions": 0,
+  "results": [
+    {
+      "id": "care-local",
+      "kind": "local_execution",
+      "trustScope": "LIVE_LOCAL",
+      "tests": [
+        "test/customer-care-domain/support.test.mjs"
+      ],
+      "command": [
+        "/Users/jys/.hermes/node/bin/node",
+        "--test",
+        "--test-reporter=spec",
+        "test/customer-care-domain/support.test.mjs"
+      ],
+      "startedAt": "2026-11-14T12:49:11.686Z",
+      "completedAt": "2026-11-14T12:49:14.133Z",
+      "passed": true,
+      "exitCode": 0,
+      "sourceUnchanged": true,
+      "sourceHashes": {
+        "test/customer-care-domain/support.test.mjs": "aaf278baea1cf4b52c473e94e8cf42f762b65b8fed71985a060d153fc934a436"
+      },
+      "testCount": 11,
+      "passCount": 11,
+      "failCount": 0,
+      "skipCount": 0,
+      "doesNotProve": "Actual isolated native JBrain and local application; fictional data, no model/provider/paid effect."
+    },
+    {
+      "id": "healing-controlled",
+      "kind": "controlled_test",
+      "trustScope": "CONTROLLED",
+      "tests": [
+        "test/autonomy/pipeline.test.mjs"
+      ],
+      "command": [
+        "/Users/jys/.hermes/node/bin/node",
+        "--test",
+        "--test-reporter=spec",
+        "test/autonomy/pipeline.test.mjs"
+      ],
+      "startedAt": "2026-11-14T12:49:14.134Z",
+      "completedAt": "2026-11-14T12:49:27.901Z",
+      "passed": true,
+      "exitCode": 0,
+      "sourceUnchanged": true,
+      "sourceHashes": {
+        "test/autonomy/pipeline.test.mjs": "240ab2016878d92c6cfbf88116c694493fcfd07050e57c238ee4b5f03578f29b"
+      },
+      "testCount": 13,
+      "passCount": 13,
+      "failCount": 0,
+      "skipCount": 0,
+      "doesNotProve": "Controlled SDK output, proof, credit and billing; native JBrain/local orchestration do not turn this into real paid reasoning."
+    },
+    {
+      "id": "protocol-controlled",
+      "kind": "controlled_test",
+      "trustScope": "CONTROLLED",
+      "tests": [
+        "test/integrations/native-writer.test.mjs"
+      ],
+      "command": [
+        "/Users/jys/.hermes/node/bin/node",
+        "--test",
+        "--test-reporter=spec",
+        "test/integrations/native-writer.test.mjs"
+      ],
+      "startedAt": "2026-11-14T12:49:27.901Z",
+      "completedAt": "2026-11-14T12:49:28.515Z",
+      "passed": true,
+      "exitCode": 0,
+      "sourceUnchanged": true,
+      "sourceHashes": {
+        "test/integrations/native-writer.test.mjs": "659b61240b18cf12fd2c98d4a7a499e19a9ba3de3c5bb795984b80112fa66563"
+      },
+      "testCount": 5,
+      "passCount": 5,
+      "failCount": 0,
+      "skipCount": 0,
+      "doesNotProve": "Controlled HTTP/signing-envelope facts; no public-chain transaction or production grant."
+    }
+  ]
+}

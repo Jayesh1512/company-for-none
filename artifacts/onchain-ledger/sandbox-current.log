@@ -1,0 +1,13 @@
+Receipt: CnYi7jEp8yW4dvuUA2cod3LdUuWHmRVF5qHnUpxFoYcd
+	Failure [dev-59966-41888.test.near]: Error: {"index":0,"kind":{"index":0,"kind":{"FunctionCallError":{"ExecutionError":"Smart contract panicked: WRITER_REQUIRED"}}}}
+Receipt: ER1MkCezFZ8LqauxpT63Ptc6FUSHLHku2qvMyxZjgvok
+	Failure [dev-59966-41888.test.near]: Error: {"index":0,"kind":{"index":0,"kind":{"FunctionCallError":{"ExecutionError":"Smart contract panicked: RECORD_HASH_MISMATCH"}}}}
+Receipt: FSe9shgekURUtECk6MkS21zPxesHRbuYvvoXb9nG64Cn
+	Failure [dev-59966-41888.test.near]: Error: {"index":0,"kind":{"index":0,"kind":{"FunctionCallError":{"ExecutionError":"Smart contract panicked: PARTIAL_OVERLAP"}}}}
+Receipt: BuK6Z41NV28F2DTYWzDNyVsRQE4c9XDMjF5uHZMDHFXB
+	Failure [dev-59966-41888.test.near]: Error: {"index":0,"kind":{"index":0,"kind":{"FunctionCallError":{"ExecutionError":"Smart contract panicked: COMPANY_MISMATCH"}}}}
+Receipt: CY3wXzq8VyA2oN3mVMBqpr61pB5wCH4Y7Pp6pq4B3QRF
+	Failure [dev-59966-41888.test.near]: Error: {"index":0,"kind":{"index":0,"kind":{"FunctionCallError":{"ExecutionError":"Smart contract panicked: OWNER_REQUIRED"}}}}
+Receipt: 4dnvyyiDTVtVFtCmDBQjvKxgyccrVy5XnzJiMk48SrbL
+	Failure [dev-59966-41888.test.near]: Error: {"index":0,"kind":{"index":0,"kind":{"FunctionCallError":{"ExecutionError":"Smart contract panicked: WRITER_REQUIRED"}}}}
+{"pass":8,"checks":["compiled real WASM validates and stores2 exact chained event records","public view returns exact stored safe records","exact replay appends zero duplicate records","foreign signer rejected on actual chain","tampered payload hash fails atomically","partial overlap cannot reissue or splice records","foreign company and unauthorized writer rotation rejected","owner revocation immediately stops old writer without removing history"]}

@@ -1,0 +1,16 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.DS_Store
+.impeccable/context*
+artifacts/screenshots/
+
+.runtime/
+
+# Private live authorization and provider observations
+*.authorization.json
+*.inference-bounds.json
+
+# Rebuildable Rust compiler output; checked artifacts carry their own manifest.
+contracts/**/target/

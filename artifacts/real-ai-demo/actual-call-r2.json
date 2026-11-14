@@ -1,0 +1,86 @@
+{
+  "observedAt": "2026-11-14T13:19:03.850Z",
+  "httpStatus": 200,
+  "elapsedMs": 65189,
+  "scope": "ACTUAL_PROVIDER_ATTEMPT",
+  "result": {
+    "id": "ai-demo:3de9eab0435f18aaaf3a8cd432027289f91ad958aa0e4b5314cbdfba5aaffaf4",
+    "companyId": "local-workspace",
+    "inputFingerprint": "62fb854d6b5e95b98058a0e9e4285b1e7876cb995f4423548a8aab5cca60344f",
+    "question": "Explain the collision deductible in plain English. Does this policy excerpt by itself decide whether my particular accident is covered?",
+    "agentId": "28e9620c-b3f4-4d9d-96c9-2cdcaeb1e5b4",
+    "agentVersion": 1,
+    "requestFingerprint": "c49bee72f17c904c606cdf309ddb0102bdab08273c275741a6e68bd73ef87fef",
+    "status": "answered",
+    "createdAt": "2026-11-14T13:17:58.676Z",
+    "updatedAt": "2026-11-14T13:19:03.826Z",
+    "cost": {
+      "status": "confirmed",
+      "actualCostNanoUsd": "1621380",
+      "reasonCode": "APPROVED"
+    },
+    "trace": [
+      {
+        "step": "agent-assigned",
+        "at": "2026-11-14T13:17:58.676Z",
+        "agentId": "28e9620c-b3f4-4d9d-96c9-2cdcaeb1e5b4"
+      },
+      {
+        "step": "native-knowledge-read",
+        "at": "2026-11-14T13:17:58.676Z",
+        "documentCount": 1
+      },
+      {
+        "step": "cloud-completion",
+        "at": "2026-11-14T13:19:03.052Z",
+        "status": "confirmed"
+      },
+      {
+        "step": "official-sdk-verification",
+        "at": "2026-11-14T13:19:03.052Z",
+        "status": "verified"
+      },
+      {
+        "step": "citations-accepted",
+        "at": "2026-11-14T13:19:03.056Z"
+      }
+    ],
+    "providerRequestId": "84d7b779ef4e4f308a5707f37f2f174c",
+    "inferenceId": "39e533b3-0065-5564-b668-f4d077bf8386",
+    "answer": "In this fictional policy example, the collision deductible is an illustrative 500 demo dollars per incident, meaning a sample amount tied to collision damage. No, the excerpt by itself does not decide whether your particular accident is covered; the document says a policy excerpt cannot decide an actual incident, and only a human owner review can address an individual scenario.",
+    "citations": [
+      {
+        "documentId": "companies/local-workspace/documents/61a6a33f-6711-4d04-a33e-833041973773",
+        "title": "Harbor Mutual — Fictional Auto Policy HM-AUTO-DEMO",
+        "revision": "4c338a4f87ad4b89b29b87216ce2289b31991a0584282b7b40446f5809bb1ce8",
+        "hash": "92287ad6c4be411cb3ae1af6abf53f395b995aca22a23282fa09e58ca9bde4dd",
+        "excerpt": "collision damage has an illustrative deductible of 500 demo dollars per incident"
+      },
+      {
+        "documentId": "companies/local-workspace/documents/61a6a33f-6711-4d04-a33e-833041973773",
+        "title": "Harbor Mutual — Fictional Auto Policy HM-AUTO-DEMO",
+        "revision": "4c338a4f87ad4b89b29b87216ce2289b31991a0584282b7b40446f5809bb1ce8",
+        "hash": "92287ad6c4be411cb3ae1af6abf53f395b995aca22a23282fa09e58ca9bde4dd",
+        "excerpt": "A policy excerpt cannot decide whether an actual incident is covered"
+      }
+    ],
+    "reason": "",
+    "verification": {
+      "status": "verified",
+      "scope": "live-process-e2ee",
+      "wireSignatureVerified": true,
+      "plaintextVerifiedInOriginalCall": true,
+      "offlinePlaintextRecovery": false
+    },
+    "sources": [
+      {
+        "id": "companies/local-workspace/documents/61a6a33f-6711-4d04-a33e-833041973773",
+        "title": "Harbor Mutual — Fictional Auto Policy HM-AUTO-DEMO",
+        "revision": "4c338a4f87ad4b89b29b87216ce2289b31991a0584282b7b40446f5809bb1ce8"
+      }
+    ],
+    "acceptance": "live-process-e2ee",
+    "offlinePlaintextRecovery": false,
+    "fundingSource": "owner-cloud-key"
+  }
+}

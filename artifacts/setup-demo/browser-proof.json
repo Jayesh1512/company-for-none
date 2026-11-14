@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-11-14T08:45:04.119Z",
+  "mode": "isolated actual HTTP/browser setup",
+  "demoMode": true,
+  "exampleDraftsOnly": true,
+  "autoSeededRecords": 0,
+  "functionalOnly": false,
+  "screenshotsCaptured": true,
+  "providerEffects": 0,
+  "orders": 0,
+  "financialVersion": 0,
+  "agents": 2,
+  "defaultOperatingMode": "none",
+  "editableProfilesPersisted": true,
+  "reviewDoesNotStart": true,
+  "canonicalOrganizationAligned": true,
+  "backlogItems": 1,
+  "contextSelectionRoute": true,
+  "refreshStable": true,
+  "crossSiteStatus": 403,
+  "tokenEntryRequired": false,
+  "consoleExceptions": [],
+  "scans": [
+    {
+      "name": "operations-desktop",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "bodyWidth": 1440,
+      "heading": "Northstar Studio (Demo)"
+    },
+    {
+      "name": "setup-desktop",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "bodyWidth": 1440,
+      "heading": "Set up your organization"
+    },
+    {
+      "name": "operations-mobile",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390,
+      "heading": "Northstar Studio (Demo)"
+    },
+    {
+      "name": "agents-mobile",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390,
+      "heading": "Northstar Studio (Demo)"
+    },
+    {
+      "name": "ledger-mobile",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390,
+      "heading": "Northstar Studio (Demo)"
+    },
+    {
+      "name": "setup-mobile",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390,
+      "heading": "Set up your organization"
+    }
+  ]
+}

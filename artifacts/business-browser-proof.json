@@ -1,0 +1,31 @@
+{
+  "mode": "fixture",
+  "orderId": "45a0ade5-5ca6-4805-9b19-b1e83bdcf3e4",
+  "completed": true,
+  "privateReport": true,
+  "errors": [],
+  "widths": [
+    {
+      "route": "#order/45a0ade5-5ca6-4805-9b19-b1e83bdcf3e4",
+      "viewport": 390,
+      "document": 390
+    },
+    {
+      "route": "#setup/complete",
+      "viewport": 390,
+      "document": 390
+    },
+    {
+      "route": "#marketplace",
+      "viewport": 390,
+      "document": 390
+    },
+    {
+      "route": "#settings",
+      "viewport": 390,
+      "document": 390
+    }
+  ],
+  "providerCalls": "fixture only",
+  "browser": "Playwright fallback after two T3 snapshot timeouts"
+}

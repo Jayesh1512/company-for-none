@@ -1,0 +1,54 @@
+{
+  "durationSeconds": 68.46666666666667,
+  "frames": 2054,
+  "scenes": [
+    {
+      "id": "one-job",
+      "from": 0,
+      "frames": 225,
+      "voiceSeconds": 6.399521
+    },
+    {
+      "id": "toolchain",
+      "from": 225,
+      "frames": 348,
+      "voiceSeconds": 10.486229
+    },
+    {
+      "id": "context",
+      "from": 573,
+      "frames": 254,
+      "voiceSeconds": 7.346896
+    },
+    {
+      "id": "coordinator",
+      "from": 827,
+      "frames": 284,
+      "voiceSeconds": 8.361875
+    },
+    {
+      "id": "spend",
+      "from": 1111,
+      "frames": 299,
+      "voiceSeconds": 8.850042
+    },
+    {
+      "id": "overhead",
+      "from": 1410,
+      "frames": 230,
+      "voiceSeconds": 6.548125
+    },
+    {
+      "id": "needs",
+      "from": 1640,
+      "frames": 243,
+      "voiceSeconds": 6.968313
+    },
+    {
+      "id": "outcome",
+      "from": 1883,
+      "frames": 171,
+      "voiceSeconds": 4.576875
+    }
+  ]
+}

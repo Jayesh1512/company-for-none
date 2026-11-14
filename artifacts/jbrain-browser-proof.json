@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-11-11T07:57:09.107Z",
+  "base": "http://127.0.0.1:4180",
+  "realJBrain": true,
+  "isolatedFixtureStore": true,
+  "agentId": "3b48c5be-338e-4947-96b0-b38e32bcda5e",
+  "documentId": "companies/local-workspace/documents/ffb54441-c797-451a-8429-66cf0ee741af",
+  "orderId": "a0579341-f954-4508-9263-3501b51fb95a",
+  "publishedId": "companies/local-workspace/documents/40a24551-5cff-482c-8cbc-0ba3c0f44cd0",
+  "checks": [
+    "create-company-document",
+    "shared-visible-to-second-agent",
+    "restrict-to-one-agent",
+    "unauthorized-agent-no-context",
+    "selected-context-on-task",
+    "fixture-run-uses-frozen-context",
+    "explicit-report-share",
+    "second-agent-can-use-published-report",
+    "390px-library-editor-task-no-overflow"
+  ],
+  "pageErrors": [],
+  "finalPreview": {
+    "url": "http://127.0.0.1:4173/#knowledge",
+    "connected": true,
+    "emptyRealCompanyLibrary": true,
+    "editorAvailable": true,
+    "mobile390NoOverflow": true,
+    "pageErrors": []
+  }
+}

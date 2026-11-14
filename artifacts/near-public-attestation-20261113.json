@@ -1,0 +1,21 @@
+{
+  "scope": "read-only gateway/model attestation; not paid inference or business delivery",
+  "model": "Qwen/Qwen3.8-27B",
+  "sdk": {
+    "name": "@nearai/inference-sdk",
+    "version": "0.3.0",
+    "nodeEntry": true
+  },
+  "verifiedAt": "2026-11-13T12:19:33.084Z",
+  "status": "verified",
+  "gatewayTcbStatus": "UpToDate",
+  "modelTcbStatuses": [
+    "UpToDate"
+  ],
+  "modelCount": 1,
+  "completionSent": false,
+  "credentialRequired": false,
+  "policyFingerprint": "41dd772926945a1e4af17c9266208f86a306203e3e2caa0ca62f5de5e46bd568",
+  "privateRawEvidencePreserved": true,
+  "plaintextOrBusinessDeliveryProven": false
+}

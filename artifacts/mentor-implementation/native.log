@@ -1,0 +1,24 @@
+
+> autonomous-research-shop@0.1.0 test:native
+> node scripts/test-native.mjs
+
+✔ uploaded PDF preview is ephemeral; only owner-reviewed text is saved to actual JBrain with agent grants (937.5545ms)
+✔ one-click demo writes actual JBrain context once, preserves edits and survives restart without financial effects (819.345125ms)
+✔ actual JBrain shares company context across permitted agents, blocks restricted and foreign documents (772.431875ms)
+✔ actual JBrain revisions persist through service/app restart, stale writes conflict and unknown YAML fields survive (831.065792ms)
+✔ task freezes permitted company revisions, generates attributed context and publishes only with its private capability (2166.494125ms)
+✔ revoking access blocks fresh inference dispatch while refunds remain executable (1833.658667ms)
+✔ actual accepted JBrain write with lost HTTP response recovers original receipt after restart without a second write (730.919875ms)
+✔ company document UI escapes content and missing JBrain blocks selected context without a fallback (682.00025ms)
+✔ M01 owns company scope, grant validation, bounds and kill decisions (185.888208ms)
+✔ JBrain context selection is bounded by M01 and excerpts retain revisions and truncation (1062.188042ms)
+✔ a persisted workspace cannot be rebound to another company, and a rejected reopen releases its lock (161.705292ms)
+✔ all six organization steps complete against actual JBrain and resume after both services restart (818.569292ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11131.967375

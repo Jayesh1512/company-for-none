@@ -1,0 +1,286 @@
+{
+  "coordinatorThreadId": "mcp:6ba88ce4-e20a-47be-8ca3-7c71af821fdd",
+  "date": "2026-11-14",
+  "status": "local_integrated_verified_strict_live_blocked",
+  "budget": {
+    "currency": "USD",
+    "totalMaximum": "5",
+    "actualPlusPending": true,
+    "authorizedAccount": null,
+    "authorizedNetwork": null,
+    "transferPurchaseScope": null,
+    "actualUsd": "0",
+    "pendingUsd": "0",
+    "runtimeCeilingNanoUsd": "5000000000",
+    "privateEnvUpperBoundPersisted": true,
+    "grantsSpendingAuthority": false
+  },
+  "model": "gpt-6.1-sol",
+  "plan": "docs/NEAR_E2E_PARALLEL_FIXES.md",
+  "baseline": {
+    "tests": 328,
+    "failures": 0,
+    "skipped": 0,
+    "syntax": 99
+  },
+  "workers": [
+    {
+      "id": "S1",
+      "title": "NEAR E2E — Setup, Readiness & Rules — GPT-6.1-Sol",
+      "threadId": "mcp:f27336fc-bb1d-4db1-bfd9-b94794283276",
+      "runId": "run:thread:mcp%3Af27336fc-bb1d-4db1-bfd9-b94794283276:ordinal:1",
+      "status": "handoff_integrated",
+      "modelSelection": {
+        "instanceId": "codex",
+        "model": "gpt-6.1-sol",
+        "options": [
+          {
+            "id": "reasoningEffort",
+            "value": "high"
+          },
+          {
+            "id": "serviceTier",
+            "value": "default"
+          }
+        ]
+      },
+      "scope": "Exclusive ownership src/rules/**, test/rules/**, src/workspace/index.mjs, src/runtime/readiness.mjs, public/operation.js, test/workspace/setup.test.mjs; NEW test/near-e2e-setup/** and handoffs/e2e-setup-sonnet.md. ALL M01 policy changes from other workers come to you via coordinator.",
+      "initialModelSelection": {
+        "instanceId": "claudeAgent",
+        "model": "claude-sonnet-5-5",
+        "options": [
+          {
+            "id": "effort",
+            "value": "high"
+          }
+        ]
+      },
+      "handoff": "handoffs/e2e-setup-sonnet.md"
+    },
+    {
+      "id": "S2",
+      "title": "NEAR E2E — Cloud Inference & TEE Proof — GPT-6.1-Sol",
+      "threadId": "mcp:691bd9a4-61bd-47b9-a5ee-4bf33b7d6c9f",
+      "runId": "run:thread:mcp%3A691bd9a4-61bd-47b9-a5ee-4bf33b7d6c9f:ordinal:1",
+      "status": "implementation_complete_supported_sdk_live_blocker",
+      "modelSelection": {
+        "instanceId": "codex",
+        "model": "gpt-6.1-sol",
+        "options": [
+          {
+            "id": "reasoningEffort",
+            "value": "high"
+          },
+          {
+            "id": "serviceTier",
+            "value": "default"
+          }
+        ]
+      },
+      "scope": "Exclusive ownership src/inference/**, src/runtime/components.mjs, test/integrations-adapters/*cloud-verification*, *business-sdk*; NEW test/near-e2e-inference/** and handoffs/e2e-inference-sonnet.md. No src/rules edits; policy requests S1/coordinator. No shared generation-contracts edits without coordinator.",
+      "initialModelSelection": {
+        "instanceId": "claudeAgent",
+        "model": "claude-sonnet-5-5",
+        "options": [
+          {
+            "id": "effort",
+            "value": "high"
+          }
+        ]
+      },
+      "handoff": "handoffs/e2e-inference-sonnet.md"
+    },
+    {
+      "id": "S3",
+      "title": "NEAR E2E — Cloud Tools & Knowledge — GPT-6.1-Sol",
+      "threadId": "mcp:77a5f646-2485-47e1-9f9c-c674731d99ee",
+      "runId": "run:thread:mcp%3A77a5f646-2485-47e1-9f9c-c674731d99ee:ordinal:1",
+      "status": "handoff_integrated",
+      "modelSelection": {
+        "instanceId": "codex",
+        "model": "gpt-6.1-sol",
+        "options": [
+          {
+            "id": "reasoningEffort",
+            "value": "high"
+          },
+          {
+            "id": "serviceTier",
+            "value": "default"
+          }
+        ]
+      },
+      "scope": "Exclusive ownership src/cloud/**, src/runtime/cloud-products.mjs, test/cloud/**; NEW test/near-e2e-tools/** and handoffs/e2e-tools-sonnet.md. Shared cloud-contracts/generation-contracts, src/knowledge, Rules, UI remain coordinator/S1-owned.",
+      "initialModelSelection": {
+        "instanceId": "claudeAgent",
+        "model": "claude-sonnet-5-5",
+        "options": [
+          {
+            "id": "effort",
+            "value": "high"
+          }
+        ]
+      },
+      "handoff": "handoffs/e2e-tools-sonnet.md"
+    },
+    {
+      "id": "S4",
+      "title": "NEAR E2E — 1Click Payments & Refunds — GPT-6.1-Sol",
+      "threadId": "mcp:cb92584a-c2a9-41ec-9731-b2a6e4e9d6d7",
+      "runId": "run:thread:mcp%3Acb92584a-c2a9-41ec-9731-b2a6e4e9d6d7:ordinal:1",
+      "status": "handoff_integrated",
+      "modelSelection": {
+        "instanceId": "codex",
+        "model": "gpt-6.1-sol",
+        "options": [
+          {
+            "id": "reasoningEffort",
+            "value": "high"
+          },
+          {
+            "id": "serviceTier",
+            "value": "default"
+          }
+        ]
+      },
+      "scope": "Exclusive ownership src/payments/**; NEW test/near-e2e-payments/** and handoffs/e2e-payments-sonnet.md. Do not edit existing shared integrations-adapters test files, Rules, custody, app, Treasury, web or package.",
+      "initialModelSelection": {
+        "instanceId": "claudeAgent",
+        "model": "claude-sonnet-5-5",
+        "options": [
+          {
+            "id": "effort",
+            "value": "high"
+          }
+        ]
+      },
+      "handoff": "handoffs/e2e-payments-sonnet.md"
+    },
+    {
+      "id": "S5",
+      "title": "NEAR E2E — Agent Wallet & Custody Proof — GPT-6.1-Sol",
+      "threadId": "mcp:795dd7cd-1b4c-4b60-8e01-86b24c856512",
+      "runId": "run:thread:mcp%3A795dd7cd-1b4c-4b60-8e01-86b24c856512:ordinal:1",
+      "status": "handoff_integrated",
+      "modelSelection": {
+        "instanceId": "codex",
+        "model": "gpt-6.1-sol",
+        "options": [
+          {
+            "id": "reasoningEffort",
+            "value": "high"
+          },
+          {
+            "id": "serviceTier",
+            "value": "default"
+          }
+        ]
+      },
+      "scope": "Exclusive ownership src/custody/**; NEW test/near-e2e-custody/** and handoffs/e2e-custody-sonnet.md. No existing state-money/adapter test edits (read freely); no Treasury/payouts/Rules/app/dependencies.",
+      "initialModelSelection": {
+        "instanceId": "claudeAgent",
+        "model": "claude-sonnet-5-5",
+        "options": [
+          {
+            "id": "effort",
+            "value": "high"
+          }
+        ]
+      },
+      "handoff": "handoffs/e2e-custody-sonnet.md"
+    },
+    {
+      "id": "S6",
+      "title": "NEAR E2E — Credit Funding & Marketplace — GPT-6.1-Sol",
+      "threadId": "mcp:35e5acf3-e7ef-43ad-aa5e-750f317672b2",
+      "runId": "run:thread:mcp%3A35e5acf3-e7ef-43ad-aa5e-750f317672b2:ordinal:1",
+      "status": "handoff_integrated",
+      "modelSelection": {
+        "instanceId": "codex",
+        "model": "gpt-6.1-sol",
+        "options": [
+          {
+            "id": "reasoningEffort",
+            "value": "high"
+          },
+          {
+            "id": "serviceTier",
+            "value": "default"
+          }
+        ]
+      },
+      "scope": "Exclusive ownership src/cloud-funding/** and NEW src/procurement/**; NEW test/near-e2e-funding/** and handoffs/e2e-funding-sonnet.md. Runtime providers/app/catalog/UI/Treasury/Rules stay coordinator/S1-owned.",
+      "initialModelSelection": {
+        "instanceId": "claudeAgent",
+        "model": "claude-sonnet-5-5",
+        "options": [
+          {
+            "id": "effort",
+            "value": "high"
+          }
+        ]
+      },
+      "handoff": "handoffs/e2e-funding-sonnet.md"
+    },
+    {
+      "id": "S7",
+      "title": "NEAR E2E — Autonomous Company Loop — GPT-6.1-Sol",
+      "threadId": "mcp:e2b04c01-dfaf-4cfd-aa9c-4d1fe30078c1",
+      "runId": "run:thread:mcp%3Ae2b04c01-dfaf-4cfd-aa9c-4d1fe30078c1:ordinal:1",
+      "status": "handoff_integrated",
+      "modelSelection": {
+        "instanceId": "codex",
+        "model": "gpt-6.1-sol",
+        "options": [
+          {
+            "id": "reasoningEffort",
+            "value": "high"
+          },
+          {
+            "id": "serviceTier",
+            "value": "default"
+          }
+        ]
+      },
+      "scope": "Exclusive ownership src/autonomy/**, src/workflow/internal.mjs, test/autonomy/**; NEW handoffs/e2e-autonomy-sonnet.md. No Rules, knowledge, workspace, app, main workflow, UI/shared source edits.",
+      "initialModelSelection": {
+        "instanceId": "claudeAgent",
+        "model": "claude-sonnet-5-5",
+        "options": [
+          {
+            "id": "effort",
+            "value": "high"
+          }
+        ]
+      },
+      "handoff": "handoffs/e2e-autonomy-sonnet.md"
+    }
+  ],
+  "initialModel": "claude-sonnet-5-5",
+  "providerInstanceId": "codex",
+  "modelSwitch": {
+    "date": "2026-11-14",
+    "requestedBy": "user",
+    "sameThreads": true,
+    "reasoningEffort": "high",
+    "allSevenSelectionsVerified": true,
+    "finalAfterCompletionRecheck": true,
+    "staleS6SelectionCorrected": true
+  },
+  "verification": {
+    "fullTests": 468,
+    "failures": 0,
+    "skipped": 0,
+    "nativeJbrain": 12,
+    "controlledPipeline": 13,
+    "syntaxFiles": 120,
+    "browser": "isolated desktop1440/mobile390 + actual native Settings/health/attestation passed",
+    "realPaidRun": false,
+    "evidence": "artifacts/near-e2e-fixes/",
+    "result": "docs/NEAR_E2E_RESULT.md"
+  },
+  "preview": {
+    "workspace": "http://127.0.0.1:4173/#settings",
+    "actualLocalDemo": "http://127.0.0.1:4185/#autonomy"
+  }
+}

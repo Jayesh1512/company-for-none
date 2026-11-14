@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-11-14T08:31:01.951Z",
+  "model": "Qwen/Qwen3.8-27B",
+  "status": "verified",
+  "reasonCode": null,
+  "gatewayTcbStatus": "UpToDate",
+  "modelTcbStatuses": [
+    "UpToDate"
+  ],
+  "modelCount": 1,
+  "evidenceRef": "private:60454d009641fb32b5bede3b94386b72ebf1bcc5cfda9c8dfb20f6f6f6e58ec1",
+  "store": "/var/folders/cg/g6zcn0xn237dnp6xrmh694y40000gn/T/near1-s2-public-preflight-b6D46C",
+  "completionSent": false,
+  "credentialsUsed": false,
+  "plaintextOrBusinessDeliveryProven": false,
+  "preservedPrivateStore": ".runtime/provider-evidence/near-e2e-public-attestation-20261114"
+}

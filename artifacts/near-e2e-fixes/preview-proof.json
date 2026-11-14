@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-11-14T08:48:20.644Z",
+  "mainPreview": "http://127.0.0.1:4173/#settings",
+  "agentsPreserved": 4,
+  "documentsPreserved": 2,
+  "currentProjectionHasUniqueCapabilities": true,
+  "setupBasis": null,
+  "unifiedReviewed": false,
+  "activationReady": false,
+  "activationBlockers": [
+    "COMMERCIAL_POLICY_REQUIRED"
+  ],
+  "mode": "setup",
+  "lifetimeCostCeilingNanoUsd": "5000000000",
+  "knowledgeStatus": "connected"
+}

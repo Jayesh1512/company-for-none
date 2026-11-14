@@ -1,0 +1,87 @@
+{
+  "at": "2026-11-14T11:00:07.537Z",
+  "networkIO": false,
+  "publicFiles": [
+    {
+      "file": "cloud-models.response.json",
+      "bytes": 65690,
+      "sha256": "a95e1981f3e0ebfed90a4efe57e1fee218acf28f7f2f80469abb8eb898a61f25",
+      "matched": true
+    },
+    {
+      "file": "cloud-pricing.response.json",
+      "bytes": 79330,
+      "sha256": "e8363cc5f10d2e7759f98991d358a91f9744f52a0d2796a8f1420880335f821c",
+      "matched": true
+    },
+    {
+      "file": "cloud-services.response.json",
+      "bytes": 341,
+      "sha256": "9fbefe2173622190811043bcac7831d5e987381c6e0b0c25b28b53c7ec5ee2e3",
+      "matched": true
+    },
+    {
+      "file": "intents-tokens.response.json",
+      "bytes": 58892,
+      "sha256": "c8f688c8dad8758b7cd14376e8ba18da3f99f01a41b9fbd4edb127ea032c39bb",
+      "matched": true
+    },
+    {
+      "file": "agent-api-schema.response.json",
+      "bytes": 330456,
+      "sha256": "e3903669d7195101cbefb8efc12e2d360e50182d058ffb56f17b35b7963a4372",
+      "matched": true
+    },
+    {
+      "file": "agent-public-tee-info.response.json",
+      "bytes": 49529,
+      "sha256": "94998b20cc2ed19e32a249ad5b8e8b7213bf4a5615b56b8d2170ce0b11edc9f3",
+      "matched": true
+    },
+    {
+      "file": "near-mainnet-status.response.json",
+      "bytes": 4885,
+      "sha256": "e207be8c0bd291137d5f8cb218ec9277b904bbacf1f1e902fa3e85b552e8b384",
+      "matched": true
+    },
+    {
+      "file": "deployment-wallet.response.json",
+      "bytes": 447,
+      "sha256": "e3e858675363e8426def9cc5e4e7b6031618424ad6c8d37ae2c4b9c74b3c067f",
+      "matched": true
+    },
+    {
+      "file": "near-mainnet-final-block.response.json",
+      "bytes": 18730,
+      "sha256": "b3513c99e2d2ed66448be1861ed7eb7c36d2a405c23df1a35963304108c4a75f",
+      "matched": true
+    }
+  ],
+  "summaryChecksumsMatched": true,
+  "dryRequest": true,
+  "originalQuote": {
+    "source": "actual provider response",
+    "journalReopened": true,
+    "status": "verified",
+    "reasonCode": "SIGNED_QUOTE_FIELDS_VERIFIED",
+    "trustRoot": "sdk-default-manager-public-key",
+    "sdk": {
+      "name": "@defuse-protocol/one-click-sdk-typescript",
+      "version": "0.1.26",
+      "trustRoot": "sdk-default-manager-public-key"
+    },
+    "signedPayloadHash": "B3dqisZ9kPWttVcQzfGe8YS7DqUQX3NVfFf1Zn7FUBdy"
+  },
+  "negativeControl": {
+    "source": "explicitly synthetic altered copy of captured provider response",
+    "field": "quote.amountIn",
+    "byteChecksumRecomputed": true,
+    "status": "failed",
+    "reasonCode": "QUOTE_SIGNATURE_INVALID"
+  },
+  "teeAttestationReverifiedOffline": false,
+  "attestationScope": "Only summary checksum verified here; rerun collector for actual fresh official-SDK attestation.",
+  "settlementVerified": false,
+  "paidInferenceCalls": 0,
+  "transactionsSent": 0
+}

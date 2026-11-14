@@ -1,0 +1,45 @@
+{
+  "ledger": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b",
+  "companyHash": "9f83bd56058199fad25b2afbe9a452a01170dac5187f8546cf0d469278d962f9",
+  "agentAccount": "b2c5b8f31edf4dfb2560eb14397c8d61656c9f34c4f644077ed08a991fd9fc75",
+  "headBefore": {
+    "companyHash": "9f83bd56058199fad25b2afbe9a452a01170dac5187f8546cf0d469278d962f9",
+    "sequence": 4,
+    "hash": "386ab87d853bf2c8c240a84559e3e9cbc314eeb16fd89038b6f3bc9d8c2d00d4",
+    "ownerId": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b",
+    "writerId": "b2c5b8f31edf4dfb2560eb14397c8d61656c9f34c4f644077ed08a991fd9fc75"
+  },
+  "nativeCall": {
+    "correlation_id": "op_fXj05OFYyQQqP4YCZkBRGqUiGrmrmFlj8nAksPpzwnM",
+    "status": "SUCCESS",
+    "failure": null,
+    "txHash": "B5uKmgFDs8MrVrMZUuYDj9yQxYDP8bWnpQDdgduJwF1m"
+  },
+  "headAfter": {
+    "companyHash": "9f83bd56058199fad25b2afbe9a452a01170dac5187f8546cf0d469278d962f9",
+    "sequence": 6,
+    "hash": "0ad234fc28f14dc642d210c739a126061a15c9a9318ed38e861138c17a1e9087",
+    "ownerId": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b",
+    "writerId": "b2c5b8f31edf4dfb2560eb14397c8d61656c9f34c4f644077ed08a991fd9fc75"
+  },
+  "recordsReadBack": [
+    {
+      "sequence": 5,
+      "type": "work.completed",
+      "at": "2026-11-14T14:30:02.207Z",
+      "actorHash": "527e1982f9e1e6677c37157cc13db9da6fb97d79b4ebf2a37ab0e73c408a469a",
+      "payloadHash": "302141ee7a5e0e907eb0d462dc42187d5fc4783b52852a066106801e879b494d",
+      "previousHash": "386ab87d853bf2c8c240a84559e3e9cbc314eeb16fd89038b6f3bc9d8c2d00d4",
+      "hash": "2f90bb6611b13bf36e76d34499d7808ea9983e5d3a6c56918ef1361faf711f3e"
+    },
+    {
+      "sequence": 6,
+      "type": "ledger.chain_confirmed",
+      "at": "2026-11-14T14:30:02.207Z",
+      "actorHash": "527e1982f9e1e6677c37157cc13db9da6fb97d79b4ebf2a37ab0e73c408a469a",
+      "payloadHash": "302141ee7a5e0e907eb0d462dc42187d5fc4783b52852a066106801e879b494d",
+      "previousHash": "2f90bb6611b13bf36e76d34499d7808ea9983e5d3a6c56918ef1361faf711f3e",
+      "hash": "0ad234fc28f14dc642d210c739a126061a15c9a9318ed38e861138c17a1e9087"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "reviewedAt": "2026-11-14T13:46:20.488046+00:00",
+  "scope": "Evidence-only review and indexing; no provider/private-credential access or paid execution.",
+  "artifactsVerified": 36,
+  "claimsChecked": 14,
+  "recordedActualAiCalls": 2,
+  "recordedBilledNanoUsd": "3221160",
+  "recordedAiScope": "live-process-e2ee",
+  "strictCommercialDurableClaim": "HELD",
+  "privateAiCryptographyReverifiedOffline": false,
+  "sourceCitationBytesReverifiedOffline": false,
+  "offlineProductionQuoteSignatureReverified": true,
+  "actualAiSourceManifest27Unchanged": true,
+  "integrityTests": {
+    "pass": 14,
+    "fail": 0,
+    "skip": 0
+  },
+  "ownedSyntaxFiles": 9,
+  "ownedSourceSHA256": "89e9875b003a16d1d7c210b865ba97dbeb0777bdcd696c5e32e1d10588c037ea",
+  "relativeLinksChecked": 31,
+  "unreviewedDeltaReview": "evidence/reviews/paid-runner-review.json",
+  "unreviewedRunnerDisabled": true,
+  "automaticPaidRunDiscoveryRemoved": true,
+  "newPaidRequests": 0,
+  "networkIO": false,
+  "rawPrivateProofRead": false,
+  "credentialsRead": false,
+  "fullProductSuiteRerun": false,
+  "earlierEvidenceValidation": "evidence/validation.json remains historical28-artifact/13-claim snapshot."
+}

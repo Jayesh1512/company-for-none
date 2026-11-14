@@ -1,0 +1,61 @@
+{
+  "company": "Northstar Care",
+  "agents": [
+    {
+      "id": "28e9620c-b3f4-4d9d-96c9-2cdcaeb1e5b4",
+      "version": 1
+    },
+    {
+      "id": "84f90e2e-d1a9-4acb-b754-044e5fa34c33",
+      "version": 1
+    },
+    {
+      "id": "ba1da4e3-c8dc-495b-9ce0-35115c9f295d",
+      "version": 1
+    },
+    {
+      "id": "f970dd6a-59a6-4f60-839a-9d51f9ef0d0a",
+      "version": 1
+    },
+    {
+      "id": "local-workspace:backlog",
+      "version": 1
+    },
+    {
+      "id": "local-workspace:manager",
+      "version": 1
+    }
+  ],
+  "documents": [
+    {
+      "id": "companies/local-workspace/documents/16b4b736-fc06-44fa-ad1e-483422cfcde3",
+      "revision": "600e77171272414895cbc85e596b6997880596a5f0ff22aeb67cad0f27cbedfa",
+      "version": 1
+    },
+    {
+      "id": "companies/local-workspace/documents/446ce145-9788-4996-936d-792b2be5ff6c",
+      "revision": "30a0629165ad56b142c7527ddad2c8084445d1b7b53a3c874a83e78d39d85196",
+      "version": 1
+    },
+    {
+      "id": "companies/local-workspace/documents/568c48d4-d6f9-4ae5-a53d-2894b4304643",
+      "revision": "e88ec929be5da70a23c8756f211f54b7f7441759178347c33cdb13352c582ee2",
+      "version": 1
+    },
+    {
+      "id": "companies/local-workspace/documents/594a712b-ccaa-4b90-8d2f-5acf2cdaeb5b",
+      "revision": "cb729ab0f6d066f85a89b62103e2c6e6b1be1b7b3eb2baf3a7c8c397826771f4",
+      "version": 1
+    },
+    {
+      "id": "companies/local-workspace/documents/61a6a33f-6711-4d04-a33e-833041973773",
+      "revision": "4c338a4f87ad4b89b29b87216ce2289b31991a0584282b7b40446f5809bb1ce8",
+      "version": 1
+    },
+    {
+      "id": "companies/local-workspace/documents/c75784c3-08aa-4ccb-91f1-b06ad12a9c11",
+      "revision": "cb729ab0f6d066f85a89b62103e2c6e6b1be1b7b3eb2baf3a7c8c397826771f4",
+      "version": 1
+    }
+  ]
+}

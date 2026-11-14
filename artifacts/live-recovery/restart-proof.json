@@ -1,0 +1,15 @@
+{
+  "at": "2026-11-14T13:29:43.674Z",
+  "state": "completed",
+  "acceptedModelCalls": 6,
+  "allRunRecords": 8,
+  "extraProviderCalls": 0,
+  "unchanged": [
+    "scenario",
+    "runs",
+    "financial",
+    "events"
+  ],
+  "actualNanoUsd": "5128148",
+  "reservedNanoUsd": "0"
+}

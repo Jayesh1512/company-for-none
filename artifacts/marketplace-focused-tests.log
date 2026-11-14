@@ -1,0 +1,13 @@
+✔ marketplace displays all six agent requirements and preserves legacy templates, skills and services (61.3945ms)
+✔ requirement and search filters operate on actual listings without changing financial state (35.280291ms)
+✔ inference, knowledge and wallet states reflect facts and unconfigured services are never offered as live connections (34.575458ms)
+✔ SOUL.md preview/download is independently sourced and review does not write until an ordinary Rules-gated save (43.468166ms)
+✔ resource names, selected agents and SOUL content render inertly (30.188708ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 316.367959

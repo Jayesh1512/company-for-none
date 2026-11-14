@@ -1,0 +1,130 @@
+{
+  "assessedAt": "2026-11-14T12:59:55.387007+00:00",
+  "event": "near-hackathon",
+  "cliVersion": "0.6.0",
+  "assessmentType": "Unofficial assistant estimates requested by the builder using freshly fetched Loops qualitative rubrics. The Loops service does not issue these numbers; no human judge score or award prediction.",
+  "uncertainty": "approximately +/-5 points",
+  "previousAssessment": "artifacts/hackathon-rescore-20261114-r2/score-estimates.json",
+  "scores": [
+    {
+      "target": "Autonomous Business",
+      "sponsor": "autonomous-business",
+      "previous": 64,
+      "estimate": 64,
+      "outOf": 100,
+      "delta": 0,
+      "criteria": [
+        {
+          "name": "NEAR Tech Usage",
+          "points": 23,
+          "weight": 35
+        },
+        {
+          "name": "Real, Not Simulated",
+          "points": 7,
+          "weight": 25
+        },
+        {
+          "name": "Track Fit",
+          "points": 18,
+          "weight": 20
+        },
+        {
+          "name": "Execution & Completeness",
+          "points": 16,
+          "weight": 20
+        }
+      ]
+    },
+    {
+      "target": "NEAR Grand Prize",
+      "sponsor": "near",
+      "previous": 59,
+      "estimate": 59,
+      "outOf": 100,
+      "delta": 0,
+      "criteria": [
+        {
+          "name": "NEAR Tech Usage",
+          "points": 27,
+          "weight": 40
+        },
+        {
+          "name": "Real, Not Simulated",
+          "points": 7,
+          "weight": 30
+        },
+        {
+          "name": "Innovation & Ambition",
+          "points": 12,
+          "weight": 15
+        },
+        {
+          "name": "Execution & Completeness",
+          "points": 13,
+          "weight": 15
+        }
+      ]
+    },
+    {
+      "target": "Privacy & Private AI",
+      "sponsor": "privacy-private-ai",
+      "previous": 52,
+      "estimate": 52,
+      "outOf": 100,
+      "delta": 0,
+      "criteria": [
+        {
+          "name": "NEAR Tech Usage",
+          "points": 19,
+          "weight": 35
+        },
+        {
+          "name": "Real, Not Simulated",
+          "points": 6,
+          "weight": 25
+        },
+        {
+          "name": "Track Fit",
+          "points": 12,
+          "weight": 20
+        },
+        {
+          "name": "Execution & Completeness",
+          "points": 15,
+          "weight": 20
+        }
+      ]
+    }
+  ],
+  "reasonForNoAutomaticIncrease": "Completed local demo and evidence organization improve credibility/reproducibility but add no newly accepted paid private AI result, funded independently verified commerce or mainnet ledger write. Prior estimates already credited the local customer-care capability and public/Sandbox evidence.",
+  "freshChecks": {
+    "offlineArtifacts": 28,
+    "claims": 13,
+    "productionQuoteSignatureAfterReopen": "verified",
+    "syntheticSignedAmountTamper": "rejected",
+    "evidenceIntegrityTests": 9,
+    "fail": 0,
+    "skip": 0,
+    "networkIO": false,
+    "logs": [
+      "evidence-verification.log",
+      "evidence-tests.log"
+    ]
+  },
+  "completedDemoSourceManifest": "artifacts/local-real-demo/source-manifest.json",
+  "sourceComparison": "source-comparison.json",
+  "inFlightRealAIImplementationCredited": false,
+  "earlierEvidenceNotRerun": {
+    "fullTests": 549,
+    "demoFocusedTests": 11,
+    "nativeJBrainTests": 12,
+    "evidenceLocalTests": 29
+  },
+  "projectExists": false,
+  "submissionWrites": 0,
+  "knowledgeCreditsUsed": 0,
+  "paidCalls": 0,
+  "mainnetTransactions": 0,
+  "qualitativeReport": "alignment-review.md"
+}

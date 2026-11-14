@@ -1,0 +1,11 @@
+import {spawnSync} from 'node:child_process';
+import {readFile,mkdir,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {wasmCodeHash} from '../src/onchain/rpc.mjs';
+const run=(command,args,options={})=>{const result=spawnSync(command,args,{stdio:'inherit',...options});if(result.status!==0)throw Error(command+' failed');};
+run('cargo',['build','--locked','--manifest-path','contracts/company-ledger/Cargo.toml','--target','wasm32-unknown-unknown','--release'],{env:{...process.env,RUSTFLAGS:'--cfg near -C target-feature=-bulk-memory,-sign-ext,-reference-types,-multivalue,-nontrapping-fptoint'}});
+await mkdir('artifacts/onchain-ledger',{recursive:true});
+run(process.execPath,['node_modules/binaryen/bin/wasm-opt','contracts/company-ledger/target/wasm32-unknown-unknown/release/company_ledger.wasm','--enable-bulk-memory','--enable-sign-ext','-Oz','--llvm-memory-copy-fill-lowering','--signext-lowering','--strip-debug','--strip-dwarf','-o','artifacts/onchain-ledger/company-ledger.wasm']);
+const bytes=await readFile('artifacts/onchain-ledger/company-ledger.wasm');
+const artifact={wasmBytes:bytes.length,wasmHash:createHash('sha256').update(bytes).digest('hex'),codeHash:wasmCodeHash(bytes),nearSdk:'5.30.2',deployed:false};
+await writeFile('artifacts/onchain-ledger/contract-manifest.json',JSON.stringify(artifact,null,2)+'\n');console.log(JSON.stringify(artifact));

@@ -1,0 +1,50 @@
+{
+  "productMode": "setup",
+  "actualJBrain": true,
+  "providerProbe": "owner-invoked actual local JBrain health",
+  "paidEffects": 0,
+  "automaticSeeds": 0,
+  "errors": [],
+  "widths": [
+    {
+      "hash": "#setup/infra",
+      "viewport": 390,
+      "document": 390
+    },
+    {
+      "hash": "#marketplace",
+      "viewport": 390,
+      "document": 390
+    },
+    {
+      "hash": "#knowledge",
+      "viewport": 390,
+      "document": 390
+    },
+    {
+      "hash": "#settings",
+      "viewport": 390,
+      "document": 390
+    }
+  ],
+  "agents": 2,
+  "mode": "setup",
+  "knowledgeDocuments": [
+    {
+      "revision": "cb729ab0f6d066f85a89b62103e2c6e6b1be1b7b3eb2baf3a7c8c397826771f4",
+      "visibility": "company"
+    },
+    {
+      "revision": "cb729ab0f6d066f85a89b62103e2c6e6b1be1b7b3eb2baf3a7c8c397826771f4",
+      "visibility": "company"
+    }
+  ],
+  "ready": false,
+  "brain": {
+    "capability": "jbrain",
+    "status": "verified",
+    "observationId": "probe:fe8703e4-e55b-4fdf-b841-76cb38c0b60b",
+    "expiresAt": "2026-11-13T07:06:09.428Z",
+    "reasonCode": "VERIFIED"
+  }
+}

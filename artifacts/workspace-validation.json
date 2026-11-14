@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-11T06:37:00.954847+00:00",
+  "request": "Paperclip-style agent workspace; create agents, roster, marketplace templates/skills AND services",
+  "mode": "fixture",
+  "tests": {
+    "passed": 127,
+    "failed": 0,
+    "workspace": 5,
+    "log": "artifacts/workspace-tests.log"
+  },
+  "syntaxFiles": 36,
+  "browserProof": "artifacts/workspace-browser-proof.json",
+  "designReview": ".impeccable/review/review.md",
+  "previewUrl": "http://127.0.0.1:4173/#agents",
+  "liveConnectionsProven": false
+}

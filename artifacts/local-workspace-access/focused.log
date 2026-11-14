@@ -1,0 +1,26 @@
+✔ direct local workspace opens and mutates metadata without a token across refresh and restart; spending remains blocked (140.122583ms)
+✔ cross-site, rebound host, proxy-forwarded and caller-asserted local identity cannot open private workspace (58.977375ms)
+✔ remote or forwarded deployment can disable local access and retain protected API bearer authentication (48.967958ms)
+✔ automatic access requires actual loopback socket and exact listening authority, never supplied forwarding headers (0.161917ms)
+✔ UI has no owner-token entry form, storage credential or repeated login step (1.982792ms)
+✔ fresh product permits authenticated zero-budget setup with no seeded agents, funds or provider effects (119.4005ms)
+✔ read-only probe uses server scope and private evidence; request URLs, money and anonymous probes cannot run (71.146083ms)
+✔ economic store rejects changed treasury, network, settlement token and balance domain without mutating history (82.040416ms)
+✔ unconfigured workspace can select a commercial identity once before economic work; profile transition remains explicit (63.3125ms)
+✔ product dependency graph cannot load fixture factories, canned reports or fictional onboarding (5.87675ms)
+✔ customer capability verifies only its order; browser role/body/query claims confer no access (21.194959ms)
+✔ owner requires distinct secret and public ledger cannot expose report contents (1.376875ms)
+✔ order parser accepts brief facts and rejects client decisions/permissions and cross-origin mutations (1.3875ms)
+✔ Rules hold prevents access and no fallback executes a mutation (0.21125ms)
+✔ capability helper issues random opaque tokens and constant-time hash verification (1.643834ms)
+✔ reports, sources, questions, ledger fields render as inert untrusted text (13.603708ms)
+✔ ledger renders degraded Rules metadata without inferring a degraded policy from other fields (0.16575ms)
+✔ ledger entry and refresh load independently of denied storefront status and propagate ledger denial (0.454334ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 479.777625

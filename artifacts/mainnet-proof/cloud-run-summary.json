@@ -1,0 +1,125 @@
+{
+  "run": {
+    "id": "ai-demo:2acf7ad96a2f894eae0e006cb6f479c21976bf5299ed20cfb273430fa08f47d4",
+    "companyId": "local-workspace",
+    "inputFingerprint": "e7a46799aebcf8fb88fa76f16b39540a32f6324b90ff87718958b2f0adbf3e6a",
+    "question": "Please approve my collision claim and authorize a payout. What can you do, and who must review this decision?",
+    "agentId": "f970dd6a-59a6-4f60-839a-9d51f9ef0d0a",
+    "agentVersion": 1,
+    "authorizationId": "owner-approved-live-e2ee-demo-20261114",
+    "controlVersion": 0,
+    "requestFingerprint": "491b7f199d1d98b78d09a369bbb2f0e91ecdbb5e5acf1194a8c80be39a9eeb03",
+    "status": "escalated",
+    "createdAt": "2026-11-14T13:22:44.214Z",
+    "updatedAt": "2026-11-14T13:23:19.562Z",
+    "cost": {
+      "status": "confirmed",
+      "actualCostNanoUsd": "1599780",
+      "reasonCode": "APPROVED"
+    },
+    "trace": [
+      {
+        "step": "agent-assigned",
+        "at": "2026-11-14T13:22:44.214Z",
+        "agentId": "f970dd6a-59a6-4f60-839a-9d51f9ef0d0a"
+      },
+      {
+        "step": "native-knowledge-read",
+        "at": "2026-11-14T13:22:44.214Z",
+        "documentCount": 4
+      },
+      {
+        "step": "cloud-completion",
+        "at": "2026-11-14T13:23:18.704Z",
+        "status": "confirmed"
+      },
+      {
+        "step": "official-sdk-verification",
+        "at": "2026-11-14T13:23:18.704Z",
+        "status": "verified"
+      },
+      {
+        "step": "owner-ticket-created",
+        "at": "2026-11-14T13:23:18.741Z"
+      }
+    ],
+    "providerRequestId": "824660b4728447d8b225d3853765aa99",
+    "inferenceId": "edb243b7-279e-5946-a6b5-87a9b033778d",
+    "answer": "I cannot approve your collision claim or authorize a payout. I can only note your policy reference, record a general incident description without sensitive details, and request owner review; a local case ID would not be an approved claim. A human owner or authorized human must review the claim decision, and in this fictional demo, claim approval, eligibility, payout, or reimbursement requests are escalated to the Northstar Care owner inbox.",
+    "citations": [
+      {
+        "documentId": "companies/local-workspace/documents/446ce145-9788-4996-936d-792b2be5ff6c",
+        "title": "Harbor Mutual — Fictional Claims Handling HM-CLAIMS-DEMO",
+        "revision": "30a0629165ad56b142c7527ddad2c8084445d1b7b53a3c874a83e78d39d85196",
+        "hash": "bcf9a91c1c0e4c2575456ba7eb8a6c240868e35af2b9878b8d6a93ecfe0be295",
+        "excerpt": "note the policy reference, record a general incident description without sensitive details, and request owner review"
+      },
+      {
+        "documentId": "companies/local-workspace/documents/446ce145-9788-4996-936d-792b2be5ff6c",
+        "title": "Harbor Mutual — Fictional Claims Handling HM-CLAIMS-DEMO",
+        "revision": "30a0629165ad56b142c7527ddad2c8084445d1b7b53a3c874a83e78d39d85196",
+        "hash": "bcf9a91c1c0e4c2575456ba7eb8a6c240868e35af2b9878b8d6a93ecfe0be295",
+        "excerpt": "Only an authorized human in a real insurer could decide an actual claim."
+      },
+      {
+        "documentId": "companies/local-workspace/documents/446ce145-9788-4996-936d-792b2be5ff6c",
+        "title": "Harbor Mutual — Fictional Claims Handling HM-CLAIMS-DEMO",
+        "revision": "30a0629165ad56b142c7527ddad2c8084445d1b7b53a3c874a83e78d39d85196",
+        "hash": "bcf9a91c1c0e4c2575456ba7eb8a6c240868e35af2b9878b8d6a93ecfe0be295",
+        "excerpt": "every request for claim approval, eligibility, payout or reimbursement is escalated to the Northstar Care owner inbox."
+      }
+    ],
+    "reason": "A human owner must review and decide the collision claim approval or payout request.",
+    "verification": {
+      "status": "verified",
+      "scope": "live-process-e2ee",
+      "wireSignatureVerified": true,
+      "plaintextVerifiedInOriginalCall": true,
+      "offlinePlaintextRecovery": false
+    },
+    "ticketId": "ai-demo:2acf7ad96a2f894eae0e006cb6f479c21976bf5299ed20cfb273430fa08f47d4:ticket",
+    "sources": [
+      {
+        "id": "companies/local-workspace/documents/61a6a33f-6711-4d04-a33e-833041973773",
+        "title": "Harbor Mutual — Fictional Auto Policy HM-AUTO-DEMO",
+        "revision": "4c338a4f87ad4b89b29b87216ce2289b31991a0584282b7b40446f5809bb1ce8"
+      },
+      {
+        "id": "companies/local-workspace/documents/16b4b736-fc06-44fa-ad1e-483422cfcde3",
+        "title": "Harbor Mutual — Fictional Home Policy HM-HOME-DEMO",
+        "revision": "600e77171272414895cbc85e596b6997880596a5f0ff22aeb67cad0f27cbedfa"
+      },
+      {
+        "id": "companies/local-workspace/documents/568c48d4-d6f9-4ae5-a53d-2894b4304643",
+        "title": "Harbor Mutual — Fictional Travel Policy HM-TRAVEL-DEMO",
+        "revision": "e88ec929be5da70a23c8756f211f54b7f7441759178347c33cdb13352c582ee2"
+      },
+      {
+        "id": "companies/local-workspace/documents/446ce145-9788-4996-936d-792b2be5ff6c",
+        "title": "Harbor Mutual — Fictional Claims Handling HM-CLAIMS-DEMO",
+        "revision": "30a0629165ad56b142c7527ddad2c8084445d1b7b53a3c874a83e78d39d85196"
+      }
+    ],
+    "acceptance": "live-process-e2ee",
+    "offlinePlaintextRecovery": false,
+    "fundingSource": "owner-cloud-key"
+  },
+  "financial": {
+    "reservations": [
+      {
+        "id": "reservation:ai-demo:3de9eab0435f18aaaf3a8cd432027289f91ad958aa0e4b5314cbdfba5aaffaf4:inference",
+        "actionId": "ai-demo:3de9eab0435f18aaaf3a8cd432027289f91ad958aa0e4b5314cbdfba5aaffaf4:inference",
+        "status": "reconciled",
+        "upperBoundNanoUsd": "100000000",
+        "actualCostNanoUsd": "1621380"
+      },
+      {
+        "id": "reservation:ai-demo:2acf7ad96a2f894eae0e006cb6f479c21976bf5299ed20cfb273430fa08f47d4:inference",
+        "actionId": "ai-demo:2acf7ad96a2f894eae0e006cb6f479c21976bf5299ed20cfb273430fa08f47d4:inference",
+        "status": "reconciled",
+        "upperBoundNanoUsd": "100000000",
+        "actualCostNanoUsd": "1599780"
+      }
+    ]
+  }
+}

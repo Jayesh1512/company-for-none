@@ -1,0 +1,12 @@
+{
+  "evaluator": "company-template-additive-v1",
+  "target": "wasm32-wasip2",
+  "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
+  "sourceHash": "24874d774a9228bd3738f1b3829585dd2d010a2b588e09228c7fd69a44b8949d",
+  "lockHash": "ef9f35b366d65afd5056b9300d2368b7269d5436915b97fda67e85835b8a8239",
+  "wasmHash": "8b48f0bfb4b21b48a0d4d05acc67d33c8045ec4fe55052d540a0ab1906a74443",
+  "wasmBytes": 142587,
+  "deployed": false,
+  "executionProven": false,
+  "reproducibility": "Locked dependencies and recorded compiler; cross-machine byte reproducibility not yet established."
+}

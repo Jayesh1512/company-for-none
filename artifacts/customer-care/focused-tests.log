@@ -1,0 +1,33 @@
+✔ public support HTTP is customer-scoped; owner publication and private company APIs stay protected (367.327ms)
+✔ HTTP transcript redacts stale source excerpts, including old keyed response replay (392.646625ms)
+✔ support transport bounds uploads before domain dispatch (314.040667ms)
+✔ customer and owner templates keep all transcript/source text inert and show lookup provenance (0.517792ms)
+✔ explicit setup creates two persistent profiles and four real native documents, never seeds startup or overwrites owner edits (333.240334ms)
+✔ policy lookup quotes exact current native JBrain sections, with citations and no model claim; keyed replies survive restart once (268.665709ms)
+✔ unknown query and claim approval create real private owner tickets; explicit escalation is idempotent (341.81075ms)
+✔ random capability tokens are hash-only at rest and isolate customers, including identical keys and restart (266.801042ms)
+✔ revocation and unapproved source edits prevent new replies and redact old transcript/replay excerpts; explicit owner publication restores (218.758ms)
+✔ direct native revision change without metadata update cannot leak through reply, view or replay (169.70025ms)
+✔ grant revocation after actual source read is rechecked at the journal commit boundary (191.275708ms)
+✔ native JBrain outage redacts old passages and cannot produce a canned fallback answer (168.87475ms)
+✔ interrupted initial setup never publishes an intervening owner edit when no service exists yet (165.212542ms)
+✔ capability hash is checked again at commit after asynchronous native reads (170.67925ms)
+✔ owner-published policy text is quoted literally and never executed as instructions or code (178.473291ms)
+✔ actual fictional policy lookup works in zero-paid setup and returns exact published excerpts with atomic records (7.455167ms)
+✔ unknown questions and personal claim decisions create real owner-visible cases without fabricated approval (5.020834ms)
+✔ publication needs current exact canonical bytes, real ready agent and explicit public grant; caller facts cannot grant anything (0.850541ms)
+✔ every reply/view rechecks source revision, current explicit grant and exact action-bound fresh snapshot (5.029667ms)
+✔ server-verified customers cannot read or reply to another conversation, list owner inbox, publish, or supply a forged role (0.496708ms)
+✔ old approved source history becomes readable only after exact current publication is restored; restart adds no authority (0.499458ms)
+✔ bounded inputs, exact plan identity, turn/ticket limits and policy kill remain centralized (28.440417ms)
+✔ support actions neither unlock old public private-knowledge research nor paid inference/provisioning (2.848417ms)
+✔ CRLF sources retain exact quote bytes (0.478708ms)
+✔ source selection narrows by policy category while keeping every quoted passage byte-exact (0.756084ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2584.449334

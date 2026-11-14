@@ -1,0 +1,71 @@
+{
+  "chapters": [
+    {
+      "name": "agents",
+      "sourceStart": 0.595790875,
+      "sourceDuration": 4.84003925,
+      "editedDuration": 5
+    },
+    {
+      "name": "marketplace",
+      "sourceStart": 5.435830125,
+      "sourceDuration": 7.706374707999999,
+      "editedDuration": 8
+    },
+    {
+      "name": "create",
+      "sourceStart": 13.142204833,
+      "sourceDuration": 7.032376083000001,
+      "editedDuration": 8
+    },
+    {
+      "name": "profile",
+      "sourceStart": 20.174580916,
+      "sourceDuration": 6.0887206670000005,
+      "editedDuration": 5
+    },
+    {
+      "name": "skill",
+      "sourceStart": 26.263301583,
+      "sourceDuration": 8.763295542000002,
+      "editedDuration": 8
+    },
+    {
+      "name": "service",
+      "sourceStart": 35.026597125,
+      "sourceDuration": 4.600028082999998,
+      "editedDuration": 5
+    },
+    {
+      "name": "brief",
+      "sourceStart": 39.626625208,
+      "sourceDuration": 3.6784877919999985,
+      "editedDuration": 5
+    },
+    {
+      "name": "approve",
+      "sourceStart": 43.305113,
+      "sourceDuration": 6.222789208000002,
+      "editedDuration": 6
+    },
+    {
+      "name": "report",
+      "sourceStart": 49.527902208,
+      "sourceDuration": 12.025776333000003,
+      "editedDuration": 11
+    },
+    {
+      "name": "tasks",
+      "sourceStart": 61.553678541000004,
+      "sourceDuration": 4.28372320899998,
+      "editedDuration": 4
+    },
+    {
+      "name": "ledger",
+      "sourceStart": 65.83740174999998,
+      "sourceDuration": 4.003075166000016,
+      "editedDuration": 5
+    }
+  ],
+  "changes": "Pauses retimed per chapter; no execution results fabricated."
+}

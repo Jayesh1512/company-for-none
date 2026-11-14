@@ -1,0 +1,56 @@
+
+> autonomous-research-shop@0.1.0 test:mentor
+> node --test test/integrations/*.test.mjs test/onchain-ledger-rules/*.test.mjs
+
+✔ OutLayer request pins payer, code, unique input, compute/deposit and resource limits (1.00675ms)
+✔ OutLayer resolves credentials before final transport; original reads stay on the fixed origin (13.941209ms)
+✔ OutLayer success and attestation URL never replace execution proof or verified cost (1.255459ms)
+✔ OutLayer byte hashes are separate from semantic fingerprints and bind this exact job (0.36925ms)
+✔ OutLayer real balance codec attributes the presented payer and excludes trial/call grants from money (0.817583ms)
+✔ Ping uses the documented quote/deposit protocol and exact original requirements/refund (2.025ms)
+✔ Ping pending/short/terminal/provider-success remain separate and never imply payment evidence (0.899416ms)
+✔ Agent API owner signing keeps the exact provider payload and correlation through all standards (1.138916ms)
+✔ owner intent success remains provider observation, never a grant or cash observation (0.337792ms)
+✔ named/role account and function-call key plans allocate parent funding without changing custody (0.413917ms)
+✔ checkpoint feed contains only an already confirmed commitment and cannot publish (0.198542ms)
+✔ native fee receipts independently bind the final signer/contract/call and sum every outcome once (0.287042ms)
+✔ Rust executable matches the actual fixed JS evaluator over repaired, regressed and invalid candidates (25.259458ms)
+✔ actual native client/M01/M03 composition reserves both units, writes once, reopens original and verifies actual RPC fees (284.882042ms)
+✔ provider SUCCESS/tx hash never defeats a mismatched final native receipt (166.219917ms)
+✔ unknown acceptance without provider correlation survives restart and is never blindly resent (221.018625ms)
+✔ no private verified signing envelope means no native POST, reservation or inferred success (44.860875ms)
+✔ a stop during the free native preflight yields no POST and releases the exact proven unsubmitted fee reserve (84.626625ms)
+✔ actual M01/M03 integration gate denies anonymous, unapproved and caller-supplied authority before HTTP (173.17525ms)
+✔ real client composition persists exact exchange before decoding, restart never resubmits original effect (113.436709ms)
+✔ invalid JSON after accepted effect remains durable unknown with its original raw bytes (131.933208ms)
+✔ missing credentials cause no provider operation or financial reservation (28.183083ms)
+✔ current kill/policy and plan expiry rechecked after credential await prevent transport (21.429708ms)
+✔ customer quote cannot be attached to a different resource, and expired quotes cannot make a new deposit request (134.668417ms)
+✔ a current final stop releases only a locally proven unsubmitted reservation, never an unknown effect (132.663333ms)
+✔ native snapshots are absolute, monotone and replayable; actual fees reconcile once without credit creation (71.81175ms)
+✔ all provider purposes share the lifetime ceiling and the same prepaid key across project bindings (0.399541ms)
+✔ a durable provider cost-bound incident blocks new spending while owner status remains readable (1.097708ms)
+✔ integration surface escapes untrusted inputs and enables execution only from server readiness (1.129708ms)
+✔ native publishing is separate from read-only status and shows original cost reconciliation (0.346459ms)
+✔ wallet bridge signs only the unchanged provider-selected EIP-712 payload and expected owner/chain (0.718083ms)
+✔ NEP-366 bridge preserves provider delegate bytes and does not create a relayer or sign alternate payloads (0.3255ms)
+✔ setup export is a scoped redacted contiguous hash chain with no signing or raw identity/payload disclosure (5.344791ms)
+✔ every operation is owner-only and ignores caller journal/RPC/authorization booleans (0.823708ms)
+✔ unsigned prepare binds current local checkpoint and actual RPC head, with no gas/deposit/key invented (1.167458ms)
+✔ binding cannot be swapped across prepared work, checkpoint, restart or caller input (1.840208ms)
+✔ gaps, reordered or rewritten private journal facts, invalid checkpoint and stale/mismatched RPC hold preparation (1.340042ms)
+✔ publish fails closed without protected authorization and cannot be enabled by a key/success/receipt flag (2.77075ms)
+✔ native gas/deposit/fee caps and common USD5 lifetime actual+pending are checked without invented asset conversion (2.727292ms)
+✔ exact finalized RPC batch confirmation advances checkpoint but never claims cost reconciliation (0.886375ms)
+✔ a later RPC head needs every exact contiguous actual record from batch end through the observed head (1.599166ms)
+✔ tampered unsigned args and standalone success/tx IDs never become a chain confirmation (0.575458ms)
+✔ read/export/reconcile remain separate from paid readiness, while current kill and all historical gates persist (40.320959ms)
+✔ owner-only deployment address/artifact projection never exposes secrets or becomes an operational writer binding (0.449125ms)
+ℹ tests 44
+ℹ suites 0
+ℹ pass 44
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 962.016583

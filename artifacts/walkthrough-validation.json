@@ -1,0 +1,44 @@
+{
+  "verifiedAt": "2026-11-11T07:36:12.047Z",
+  "file": "artifacts/near-product-walkthrough.mp4",
+  "sha256": "041747de885f79926fcca309ac31b5958fd6b25de9699d9300080fb3103b672a",
+  "media": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1",
+        "nb_frames": "2370",
+        "side_data_list": [
+          {}
+        ]
+      }
+    ],
+    "format": {
+      "duration": "79.000000",
+      "size": "5467767"
+    }
+  },
+  "mode": "fixture",
+  "silent": true,
+  "burnedInChapterCaptions": true,
+  "actualBrowserFootage": true,
+  "chapterCount": 6,
+  "capturePageErrors": [],
+  "fullDecode": "pass",
+  "sampledFrames": "opening, chapters and closing visually inspected",
+  "appTests": {
+    "passed": 127,
+    "failed": 0
+  },
+  "syntaxCheck": {
+    "files": 38,
+    "status": "pass"
+  },
+  "renderLog": "artifacts/walkthrough-render.log",
+  "nativeFallbackReason": "Preview evaluate timed out after 15000ms twice; recordingStop timed out after 120000ms.",
+  "preview": "http://localhost:3001/NearWalkthrough"
+}

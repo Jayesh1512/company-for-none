@@ -1,0 +1,42 @@
+{
+ "retrievedAt": "2026-11-14",
+ "kind": "free public documented reads; no credentials; no completion",
+ "files": {
+  "services.raw.json": {
+   "url": "https://cloud-api.near.ai/v1/services",
+   "sha256": "9fbefe2173622190811043bcac7831d5e987381c6e0b0c25b28b53c7ec5ee2e3"
+  },
+  "model-list.raw.json": {
+   "url": "https://cloud-api.near.ai/v1/model/list?limit=1000&offset=0",
+   "sha256": "e8363cc5f10d2e7759f98991d358a91f9744f52a0d2796a8f1420880335f821c"
+  }
+ },
+ "docs": {
+  "openapi.json": {
+   "url": "https://docs.near.ai/api-reference/openapi.json",
+   "sha256": "0329b9e318396e56789a2c76915ea2dbc30136cc29ab7ab75f2c2863493865cc"
+  },
+  "response-signatures.md": {
+   "url": "https://docs.near.ai/cloud/verification/cloud-api/response-signatures.md",
+   "sha256": "1b4c7c3d576543b8f997c0e61cdb9a2da30217024317d5b26be26882754bcbea"
+  },
+  "get-costs-by-request-ids.md": {
+   "url": "https://docs.near.ai/api-reference/billing/get-costs-by-request-ids.md",
+   "sha256": "673f8cd56fc5dce3aa819dd45807705eca9454fbd71fcd62b72004ffc9af85a9"
+  },
+  "document-reranking-endpoint.md": {
+   "url": "https://docs.near.ai/api-reference/rerank/document-reranking-endpoint.md",
+   "sha256": "f6a853df87c4d3ab87ec5ee709a614d84180267ef80466af87935115caab1dac"
+  },
+  "get-completion-or-responses-api-signature.md": {
+   "url": "https://docs.near.ai/api-reference/attestation/get-completion-or-responses-api-signature.md",
+   "sha256": "affbc5ccc9deba4cf17109a30ed085f076b3fa678ac0c4ba8b4466985c09c7d8"
+  }
+ },
+ "findings": [
+  "signature route documented only for chat completions and resp_* Responses",
+  "only /v1/privacy/classify and /v1/privacy/redact declare an Inference-Id response header in the OpenAPI",
+  "/v1/billing/costs and organization reporting are marked Deprecated; replacement base URL not announced",
+  "web_search service costPerUnit 5000000 nanoUSD per request, billed in addition to inference tokens"
+ ]
+}

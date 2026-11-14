@@ -1,0 +1,91 @@
+{
+  "recordedAt": "2026-11-13T10:43:50.732515+00:00",
+  "milestone": "Reversible NEAR verification SDK integration; funded/full proof gates open",
+  "packages": {
+    "@nearai/inference-sdk": "0.3.0",
+    "@defuse-protocol/one-click-sdk-typescript": "0.1.26",
+    "@near-intents-agent-api/sdk": "0.9.0"
+  },
+  "nodeMinimum": "24.22.1",
+  "checks": {
+    "tests": 256,
+    "failed": 0,
+    "skipped": 0,
+    "syntaxFiles": 74,
+    "nativeJBrainTestsIncluded": 12,
+    "adapterTests": 49,
+    "agentAuditProofTests": 10,
+    "rulesTests": 66
+  },
+  "publicReads": [
+    {
+      "url": "https://cloud-api.near.ai/v1/models",
+      "status": 200,
+      "observedAt": "2026-11-13T10:24:57.192Z",
+      "bodyHash": "a95e1981f3e0ebfed90a4efe57e1fee218acf28f7f2f80469abb8eb898a61f25"
+    },
+    {
+      "url": "https://api.agentsonintents.com/tee/info",
+      "status": 200,
+      "observedAt": "2026-11-13T10:24:58.798Z",
+      "bodyHash": "dd886ebfc09705dcb45af4e89484259168b33843d8948c5b442ffdde4dedaaf3"
+    }
+  ],
+  "cloudPreflight": {
+    "stage": "preflight",
+    "status": "unavailable",
+    "reasonCode": "CREDENTIAL_UNAVAILABLE",
+    "completionSent": false
+  },
+  "paidComponent": {
+    "status": "blocked",
+    "reasonCode": "COMPONENT_AUTHORIZATION_REQUIRED"
+  },
+  "browser": {
+    "observedAt": "2026-11-13T10:38:29.392Z",
+    "browser": "installed Playwright fallback after two T3 snapshot timeouts",
+    "mode": "setup",
+    "attestationStatus": "unavailable",
+    "reason": "CREDENTIAL_UNAVAILABLE",
+    "providerCompletionCalls": 0,
+    "paidEffects": 0,
+    "publicStatusRedacted": true,
+    "ready": false,
+    "widths": [
+      {
+        "hash": "#settings",
+        "viewport": 390,
+        "document": 390
+      },
+      {
+        "hash": "#marketplace",
+        "viewport": 390,
+        "document": 390
+      },
+      {
+        "hash": "#setup/infra",
+        "viewport": 390,
+        "document": 390
+      }
+    ],
+    "pageErrors": []
+  },
+  "claims": {
+    "positiveLiveCloudAttestation": false,
+    "fundedCloudCompletion": false,
+    "liveSettlementOrPayout": false,
+    "autonomousFunding": false,
+    "fullG6DurablePlaintextProof": false,
+    "newSubmissionOrPublication": false
+  },
+  "limits": [
+    "Official SDK E2EE key is closure-only: no supported durable plaintext replay",
+    "Offline attestation replay lacks collateral revalidation",
+    "Nested 1Click quote signature does not authenticate mutable settlement status/finality",
+    "Agent audit/recorded RPC finality does not prove account/asset/amount movement",
+    "No private Cloud credential, exact funded caps or independently attributed credit/bounds supplied"
+  ],
+  "previewUrl": "http://127.0.0.1:4173/#settings",
+  "previewDataDirectory": ".runtime/product-r2-preview",
+  "planSha256": "66ece30643ef99f9ed64148f8142f695b6e16a1cc40334dc06d4fcd658cf56da"
+}

@@ -1,0 +1,16 @@
+{
+  "title": "The cost of connecting everything",
+  "fps": 30,
+  "voice": "Daniel",
+  "rate": 165,
+  "scenes": [
+    {"id":"one-job","title":"One job to do","narration":"You want to give an AI agent one job. Research a market. Prepare a launch. Move the business forward."},
+    {"id":"toolchain","title":"Six setup jobs","narration":"But before the work begins, you're choosing models, connecting company knowledge, adding skills, shaping behavior, wiring services, and setting up payments."},
+    {"id":"context","title":"Scattered context","narration":"The brief lives in one place. The documents live somewhere else. Every new agent asks for context you have already given."},
+    {"id":"coordinator","title":"The human coordinator","narration":"More agents mean more handoffs. Different instructions. Missing sources. Conflicting answers. You become the coordinator."},
+    {"id":"spend","title":"Spend and responsibility","narration":"And now, agents can spend. Which service was paid? What did inference cost? Who approved it? A useful answer is only part of the job."},
+    {"id":"overhead","title":"The hidden work","narration":"The result? More setup. More copying. More supervision. Less time doing the work that matters."},
+    {"id":"needs","title":"What businesses need","narration":"Businesses need agents that share the right context, have clear responsibilities, and work within visible limits."},
+    {"id":"outcome","title":"The real goal","narration":"Because the goal is not to manage more AI tools. It's to get real work done."}
+  ]
+}

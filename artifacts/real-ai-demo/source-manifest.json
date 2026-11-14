@@ -1,0 +1,143 @@
+{
+  "observedAt": "2026-11-14T13:32:57.348Z",
+  "algorithm": "SHA256(sorted relative path + NUL + file bytes + NUL)",
+  "sourceHash": "84b48e89c583cede21f79c4bf1adb7a7456224a82fb9ca2c34916cd70726fde7",
+  "entries": [
+    {
+      "path": ".impeccable/surfaces/ai-demo.md",
+      "bytes": 890,
+      "sha256": "f0bedbedfbf087f35d5b5a6c77718bd93272bb35ba646dda2cb0159f12ef5321"
+    },
+    {
+      "path": "MVP_CHAT_REGISTRY.json",
+      "bytes": 19107,
+      "sha256": "8c9f897676f46478c4b56356f917342b7098083a133167d630b35f25b335e4ad"
+    },
+    {
+      "path": "MVP_STATUS.md",
+      "bytes": 65152,
+      "sha256": "6525bbd8296985f208b52d7b9c41bb78a3175158fe5e676c0508c65c3ca00a07"
+    },
+    {
+      "path": "PRODUCT.md",
+      "bytes": 11729,
+      "sha256": "a1cae25eeb88f0b450cbab9c8b7cd1686a905b6a80c436240d454c476ba1384c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 13330,
+      "sha256": "79cd997de439601d40f528811e628526372f21a0ed24d9a77a92b93bed3df4a2"
+    },
+    {
+      "path": "docs/COMPANY_FOR_NONE_GUIDE.md",
+      "bytes": 22133,
+      "sha256": "ee0eb8c7416a69ff354c2281b4d324f46e536cb3f6c5ef745c41d1d8a96c201b"
+    },
+    {
+      "path": "docs/NEAR_VERIFICATION.md",
+      "bytes": 9442,
+      "sha256": "daa5697104875dcfc81357fe6e5a12183e7bed6889e270fd9b02287c1352aaad"
+    },
+    {
+      "path": "docs/REAL_AI_DEMO.md",
+      "bytes": 7113,
+      "sha256": "f84782e4e25c237868d870097e4085865bc965c6a8c05ee913eb0fb2e432b2f9"
+    },
+    {
+      "path": "handoffs/real-ai-demo.md",
+      "bytes": 3536,
+      "sha256": "a2506a34dff61024e49911b6ee8da29d723c18e983d8a9b330ef58293c260dc8"
+    },
+    {
+      "path": "public/ai-demo.js",
+      "bytes": 5130,
+      "sha256": "bda6b89cd855e1ba51a85ab3f714066b740011c6d3858144785171aa0be4ab67"
+    },
+    {
+      "path": "public/app.js",
+      "bytes": 37906,
+      "sha256": "5654b9a609196e0bf1e126bc0a73a905959b1c963c9642032761cec08a16ffbc"
+    },
+    {
+      "path": "public/local-demo.css",
+      "bytes": 1672,
+      "sha256": "5f4bd3f28ff64cc76ae0c0f847449ead8f26abf50e6b4c648cb717b0bb6786e7"
+    },
+    {
+      "path": "public/workspace.js",
+      "bytes": 36620,
+      "sha256": "04c074c198e46a2d610b73b6fd15d59da0871794ae20db2d2dcc7c9cf3378e48"
+    },
+    {
+      "path": "src/app.mjs",
+      "bytes": 19001,
+      "sha256": "b4f8148e32f9167faf136e135c9fcb8bc6a7d0a55527125006807ff9871841b3"
+    },
+    {
+      "path": "src/demo/ai.mjs",
+      "bytes": 13448,
+      "sha256": "21634c254932e2dc67540d60bf49b3fdd072576b457c8df4189a61ca2e6eb141"
+    },
+    {
+      "path": "src/demo/local.mjs",
+      "bytes": 6788,
+      "sha256": "cc944149013ecbc34292608d700dba7d50374d6db79f84c99c1d5cbc912799a6"
+    },
+    {
+      "path": "src/inference/verification.mjs",
+      "bytes": 28698,
+      "sha256": "420a9db6914bdb2a10954ce99461f9d66982e2d06e3c3fa6b72571ad51f2979a"
+    },
+    {
+      "path": "src/rules/ai-demo.mjs",
+      "bytes": 10706,
+      "sha256": "36615381a26ebf2b9b8aee3a335f57f414f33cc7c574d90c268afd4f55609c59"
+    },
+    {
+      "path": "src/rules/config.mjs",
+      "bytes": 10762,
+      "sha256": "9f01eef976a46c4c1ccff0bab25a3732fb1becd675f2c7951db82fcbe2bac768"
+    },
+    {
+      "path": "src/rules/index.mjs",
+      "bytes": 41816,
+      "sha256": "f7df95cbdc9537b2cecfeb571a89e98324d06c946b7e14462bc8c0f9ebd69f7c"
+    },
+    {
+      "path": "src/rules/verification.mjs",
+      "bytes": 5538,
+      "sha256": "e91dbf1715c41bf4c978b5c11c70404697ac561944ce30023620d79345d3b0b3"
+    },
+    {
+      "path": "src/runtime/providers.mjs",
+      "bytes": 5461,
+      "sha256": "9954c8aa9eada5fe05654524f2e16586088eca9324881983187b60724c5c30e6"
+    },
+    {
+      "path": "src/web/index.mjs",
+      "bytes": 29809,
+      "sha256": "ae1745cafffaf11e0e32ba6368feea413920188953bdadfa3ba4ce394e187087"
+    },
+    {
+      "path": "test/integrations/ai-demo.test.mjs",
+      "bytes": 10271,
+      "sha256": "da31d3476ccaa9db18d9214be96b531251abdd9714067535df3d3055505b61c3"
+    },
+    {
+      "path": "test/integrations/local-demo-ui.test.mjs",
+      "bytes": 2524,
+      "sha256": "9976753683c08c929241215adb7b6de1b83536878daab7832215950166e23d98"
+    },
+    {
+      "path": "test/integrations/local-demo.test.mjs",
+      "bytes": 7232,
+      "sha256": "360354adcdb8f599f2e37cbe7eb71f2a679ac646691a5aae0ce53573b6116dc1"
+    },
+    {
+      "path": "test/workspace/demo.test.mjs",
+      "bytes": 5338,
+      "sha256": "7e6989560149fb8b93274e88ac038dd1a3708e0bbd7b1b4d4cdcb09ebcf18612"
+    }
+  ],
+  "frozenHistoricalReviewsVerified": true
+}

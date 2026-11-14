@@ -1,0 +1,40 @@
+✔ Cloud preflight is owner-only, server-selected, read-only and records actual verifier findings privately (73.45225ms)
+✔ public readiness redacts identity/private refs and expires old verified observations (41.351042ms)
+✔ paid component without exact authorization cannot prepare or dispatch; describe uses no provider (40.530166ms)
+✔ attestation view distinguishes missing and unavailable proof, escapes values and never labels a report verified (0.420416ms)
+✔ one-shot component uses real Rules/Treasury gates and never repeats an unknown SDK completion after restart (232.992166ms)
+✔ read-only replay uses known private evidence without a spending grant and refuses a changed request (59.105166ms)
+✔ three fresh complete fixture sales, two customer assets, exact accounting, private report and rebuildable public ledger (1829.119ms)
+✔ lost funding response survives restart, reconciles original operation, and never re-submits (456.136ms)
+✔ lost inference response survives restart, reconciles original operation, and never re-submits (420.452208ms)
+✔ lost payout response survives restart, reconciles original operation, and never re-submits (403.286ms)
+✔ crash after durable funding result before workflow transition resumes without a second effect (497.411875ms)
+✔ crash after durable inference result before workflow transition resumes without a second effect (522.0245ms)
+✔ crash after durable payout result before workflow transition resumes without a second effect (393.147708ms)
+✔ rejected sourced report refunds the sale, preserves billed cost and reverses unpaid contributor obligation (411.373416ms)
+✔ definitively failed billed inference is accounted and refunded without contributor payout (395.599167ms)
+✔ late verified receipt is reserved and refunded; never allocated as a sale (224.202584ms)
+✔ current kill stops old paid order before new effects; frozen price and recipient survive config change (537.213625ms)
+✔ actual HTTP enforces private capabilities, separate owner token, inert untrusted data and mutation origin (514.643625ms)
+✔ delayed actual billing retains reservation and blocks delivery until original inference reconciles (492.960917ms)
+✔ unresolved charge stays held across midnight and kill; repeated recovery never submits again (259.878792ms)
+✔ simultaneous and repeated run commands serialize one obligation, one inference and one payout (431.304541ms)
+✔ wrong verified settlement facts cannot allocate revenue or start paid work (87.3265ms)
+✔ all-failed source retrieval refunds before inference rather than trusting evidenceReady (236.694208ms)
+✔ bounded pure prompt assembly failure follows Rules remedy without charging inference (239.906875ms)
+✔ valid kill at first startup resumes fixture initialization exactly once after owner turns it off (468.134375ms)
+✔ invalid hot rules block business effects while last accepted redacted public ledger stays readable (436.404041ms)
+✔ order changed during permit consumption cannot dispatch using the earlier order snapshot (140.790916ms)
+✔ one-shot component permits use exact existing Treasury +2 protocol without company activation or fabricated order/payment (106.612084ms)
+✔ component limits, owner/credit scope, request and grants cannot be supplied or enlarged in request facts (4.527333ms)
+✔ current kill, owner grant revocation/expiry, exact prepared bytes and unknown costs stop final component dispatch (10.933791ms)
+✔ component paid proof bypasses only sales readiness, never fresh bounds or reconciled attributable credit (2.366291ms)
+✔ orderless component costs require trusted actual billing and bound receipt metadata, unknown never frees its reserve (1.467917ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9758.395583

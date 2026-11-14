@@ -1,0 +1,72 @@
+# DEMONSTRATION VALUES ONLY. Fixture mode never authorizes real money or paid inference.
+# No secrets, keys or credentials belong in this file. Live access/funded limits are absent.
+schemaVersion: 1
+mode: fixture
+liveAuthorized: false
+killSwitch: false
+settlementAsset:
+  network: fixture
+  asset: demo-usdc
+  decimals: 6
+treasuryAccount: fixture-treasury
+fixtureBootstrap:
+  network: fixture
+  asset: demo-usdc
+  decimals: 6
+  amount: "100000000"
+customerAssets:
+  - network: fixture
+    asset: demo-usdc
+    decimals: 6
+  - network: fixture
+    asset: demo-near
+    decimals: 24
+pricing:
+  minimumAtomic: "5000000"
+  invoiceTtlMs: 900000
+revenue:
+  contributors:
+    - account: fixture-contributor
+      bps: 2000
+  treasuryBps: 8000
+spending:
+  dailyInferenceCapNanoUsd: "1000000000"
+  maxRequestNanoUsd: "100000000"
+  maxFundingNanoUsd: "500000000"
+  permitTtlMs: 10000
+  fixtureFundingAtomicPerUsd: "1000000"
+  fundingRecipients:
+    - fixture-cloud
+research:
+  minWords: 400
+  maxWords: 700
+  minSources: 3
+  maxSources: 5
+  maxSourceAgeDays: 730
+  maxQueries: 5
+  maxInputTokens: 10000
+  maxOutputTokens: 1400
+  maxReasoningTokens: 1000
+  maxBytesPerSource: 100000
+  timeoutMs: 10000
+  maxRedirects: 3
+  maxInputChars: 30000
+  model: fixture-research
+  minQuestionOverlapTokens: 1
+  minEvidenceExcerpts: 3
+  # Retrieval dates may be shown; an unknown publication date stays explicitly unknown.
+  allowUnknownPublicationDates: true
+  freeSourcesOnly: true
+  requiredSections:
+    - findings
+    - implications
+    - uncertainty
+retry:
+  maxAttempts: 3
+refund:
+  fullSettlement: true
+  feeTreatment: shop_pays
+access:
+  publicLedger: true
+  customerReports: true
+  ownerControls: true

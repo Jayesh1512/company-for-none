@@ -1,0 +1,9 @@
+import React from 'react';
+import {AbsoluteFill,Easing,interpolate,useCurrentFrame,useVideoConfig} from 'remotion';
+export const palette={dark:'#10151b',paper:'#f5f2e9',ink:'#17212a',muted:'#a2acb7',soft:'#646d74',lime:'#daef86',coral:'#f1a38b',line:'#3b4652'};
+export const ease={extrapolateLeft:'clamp',extrapolateRight:'clamp',easing:Easing.bezier(.16,1,.3,1)} as const;
+export const appear=(frame:number,delay=0)=>interpolate(frame,[delay,delay+22],[0,1],ease);
+export const Frame=({children,light=false}:{children:React.ReactNode;light?:boolean})=><AbsoluteFill style={{background:light?palette.paper:palette.dark,color:light?palette.ink:palette.paper,fontFamily:'Avenir Next,Arial,sans-serif',overflow:'hidden'}}>{children}</AbsoluteFill>;
+export const Headline=({children,light=false,width=1700,size=106}:{children:React.ReactNode;light?:boolean;width?:number;size?:number})=>{const f=useCurrentFrame();return <div style={{position:'absolute',left:110,top:100,width,fontSize:size,fontWeight:650,letterSpacing:-4,lineHeight:1.08,opacity:appear(f),translate:`0 ${interpolate(f,[0,24],[26,0],ease)}px`,color:light?palette.ink:palette.paper}}>{children}</div>;};
+export const RoleDot=({x,y,label,delay=0,color=palette.lime}:{x:number;y:number;label:string;delay?:number;color?:string})=>{const f=useCurrentFrame();return <div style={{position:'absolute',left:x,top:y,width:380,display:'flex',alignItems:'center',gap:20,opacity:appear(f,delay),translate:`0 ${interpolate(f,[delay,delay+24],[18,0],ease)}px`}}><div style={{width:16,height:16,borderRadius:16,background:color,flexShrink:0}}/><span style={{fontSize:39,lineHeight:1.25,fontWeight:500,letterSpacing:-1}}>{label}</span></div>;};
+export const SceneShade=()=>{const f=useCurrentFrame(),{durationInFrames}=useVideoConfig();return <AbsoluteFill style={{pointerEvents:'none',background:palette.dark,opacity:interpolate(f,[durationInFrames-7,durationInFrames],[0,.12],ease)}}/>;};

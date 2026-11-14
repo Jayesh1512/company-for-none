@@ -1,0 +1,32 @@
+{
+  "frames": 2054,
+  "fps": 30,
+  "durationSeconds": 68.46666666666667,
+  "scenes": 8,
+  "narrationFitsAllScenes": true,
+  "sourceFiles": [
+    "Context.tsx",
+    "Coordinator.tsx",
+    "Needs.tsx",
+    "OneJob.tsx",
+    "Outcome.tsx",
+    "Overhead.tsx",
+    "Root.tsx",
+    "Spend.tsx",
+    "Toolchain.tsx",
+    "index.tsx",
+    "shared.tsx"
+  ],
+  "noProductVideoOrImageImports": true,
+  "assets": "Only locally synthesized narration and original generated score",
+  "renderedReviewFrames": [
+    90,
+    375,
+    700,
+    950,
+    1250,
+    1540,
+    1780,
+    2000
+  ]
+}

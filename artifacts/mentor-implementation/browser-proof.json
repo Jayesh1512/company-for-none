@@ -1,0 +1,24 @@
+{
+  "at": "2026-11-14T11:58:00.370Z",
+  "composition": "actual setup-only product; no provider fixtures",
+  "browser": "repository Playwright fallback after explicit native automation-host-unavailable error",
+  "desktop": {
+    "width": 1440,
+    "scrollWidth": 1440
+  },
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "requestPrepared": true,
+  "unapprovedExecutionDisabled": true,
+  "refreshKeepsOnePlan": true,
+  "unsignedRoleAndScopedKeyPlan": true,
+  "crossSiteStatus": 403,
+  "pageErrors": [],
+  "providerOperations": 0,
+  "financialVersion": 0,
+  "orders": 0,
+  "paidCalls": 0,
+  "mainnetWrites": 0
+}

@@ -1,0 +1,22 @@
+{
+  "at": "2026-11-12T11:28:56.101Z",
+  "browser": "T3 native uploads, saves and actual IANA page import; installed Playwright responsive confirmation after two native screenshot timeouts",
+  "qaStore": ".runtime/knowledge-import-qa",
+  "checks": [
+    "PDF picker -> actual isolated PDF.js preview -> explicit save in local JBrain",
+    "Markdown picker -> preview -> explicit save",
+    "Actual IANA public page preview,1426characters,no paid inference",
+    "Source switches preserve draft title/content",
+    "Private URL error preserves editor text",
+    "Save/reload restores reviewed imported content",
+    "Native file selector retains selected filename across renders",
+    "1440px desktop and390px mobile without overflow",
+    "Zero headless page exceptions"
+  ],
+  "screenshots": [
+    ".impeccable/review/knowledge-import-desktop.png",
+    ".impeccable/review/knowledge-import-mobile.png"
+  ],
+  "mode": "actual local extraction and JBrain; public read only; no real funds or paid models",
+  "qaHarnessNote": "Initial QA save succeeded; final wait had a duplicate toast/live-region locator. Confirmation read the persisted document with an unambiguous locator."
+}

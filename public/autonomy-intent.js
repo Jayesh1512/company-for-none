@@ -1,0 +1,1 @@
+export const AUTONOMY_INTENT = Object.freeze({maxAgents:6,maxOpenWork:12,maxDepth:3,maxSteps:24,maxCalls:12,maxCreations:10,maxInputBytes:262144,maxResultBytes:131072,maxRetries:2,allowedResourceKinds:['skill','soul'],allowedPatchKinds:['template.add_optional_field','template.require_field']});

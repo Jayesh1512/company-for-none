@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "kind": "marketplace-x402-payment",
+  "paidAt": "2026-11-14T13:52:07.538Z",
+  "challenge": {
+    "amount": "500000",
+    "asset": "17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+    "maxTimeoutSeconds": 780,
+    "network": "near:mainnet",
+    "payTo": "ea667f5f496e60033bf8075cce4793efdeba28d74d116ef95848324347f539fc",
+    "scheme": "exact"
+  },
+  "payer": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b",
+  "taskId": "c41a599b-87a3-42cd-a70b-d35ad0d9babd",
+  "taskState": "TASK_STATE_COMPLETED",
+  "artifacts": [
+    {
+      "artifactId": "c1674918-5a14-44dc-8c9f-be347eeb981e",
+      "name": "deliverable.md",
+      "parts": [
+        {
+          "text": "**NEAR Intents** is a multichain transaction protocol on NEAR Protocol where users simply state the outcome they want (e.g., \"swap 1 ETH on Ethereum for USDC on Arbitrum\"), and a network of competing third-party executors (solvers) figure out how to fulfill it—abstracting away bridging, gas management, and route selection. `[1]` `[2]`\n\n---\n\n**Sources**\n\n[1] NEAR Intents — https://intents.near.org/\n[2] What are Intents? — https://docs.near-intents.org/getting-started/what-are-intents"
+        }
+      ]
+    }
+  ],
+  "rawResponse": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+      "task": {
+        "artifacts": [
+          {
+            "artifactId": "c1674918-5a14-44dc-8c9f-be347eeb981e",
+            "name": "deliverable.md",
+            "parts": [
+              {
+                "text": "**NEAR Intents** is a multichain transaction protocol on NEAR Protocol where users simply state the outcome they want (e.g., \"swap 1 ETH on Ethereum for USDC on Arbitrum\"), and a network of competing third-party executors (solvers) figure out how to fulfill it—abstracting away bridging, gas management, and route selection. `[1]` `[2]`\n\n---\n\n**Sources**\n\n[1] NEAR Intents — https://intents.near.org/\n[2] What are Intents? — https://docs.near-intents.org/getting-started/what-are-intents"
+              }
+            ]
+          }
+        ],
+        "contextId": "a97b9aa6-4757-4eb6-82b4-0c14a9625f6d",
+        "id": "c41a599b-87a3-42cd-a70b-d35ad0d9babd",
+        "status": {
+          "message": {
+            "messageId": "151a8d4b-e3da-4cf5-831c-b6da6c1834e7",
+            "parts": [
+              {
+                "text": "NEAR Intents in one sentence\nIn one sentence, what is NEAR Intents?"
+              }
+            ],
+            "role": "ROLE_USER"
+          },
+          "state": "TASK_STATE_COMPLETED",
+          "timestamp": "2026-11-14T13:52:06.766267+00:00"
+        }
+      }
+    }
+  }
+}

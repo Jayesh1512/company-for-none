@@ -1,0 +1,8 @@
+{
+  "checkedAt": "2026-11-14T12:24:06.190085+00:00",
+  "baselineManifest": "artifacts/mentor-implementation/source-manifest.json",
+  "baselineAggregate": "1bc3e202a2f5b4e221f379f7bced724e5cde7e8873accb080dc961bac6befd3b",
+  "baselineFileCount": 264,
+  "changedTrackedManifestPaths": [],
+  "inFlightDemoChangesNotCredited": true
+}

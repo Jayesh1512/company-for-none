@@ -1,0 +1,21 @@
+{
+  "observedAt": "2026-11-14T13:14:39.704Z",
+  "responses": [
+    {
+      "kind": "gateway-attestation",
+      "httpStatus": 200,
+      "observedAt": "2026-11-14T13:13:42.134Z"
+    },
+    {
+      "kind": "model-metadata",
+      "httpStatus": 200,
+      "observedAt": "2026-11-14T13:13:45.726Z"
+    },
+    {
+      "kind": "model-attestation",
+      "httpStatus": 401,
+      "observedAt": "2026-11-14T13:13:46.434Z"
+    }
+  ],
+  "completionSent": false
+}

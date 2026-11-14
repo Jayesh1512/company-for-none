@@ -1,0 +1,26 @@
+{
+  "at": "2026-11-12T15:40:25.138Z",
+  "preview": "http://127.0.0.1:4173/#marketplace",
+  "qaStore": ".runtime/marketplace-stack-qa",
+  "checks": [
+    "All six requirements and legacy templates visible",
+    "Category and search filters, empty reset, plain marketplace route restores all requirements",
+    "Agent-specific skill install persisted",
+    "Actual SOUL.md download (filename/content checked)",
+    "Profile review preserves existing instructions; no write before Save; save/reload retains one block",
+    "JBrain connected facts and website import deep link",
+    "Inference/wallet simulated and live setup-required labels",
+    "No paid operations or sales",
+    "1440px desktop and390px mobile without overflow",
+    "Zero page exceptions",
+    "Final mobile category grid exposes all six requirements without sideways scrolling"
+  ],
+  "screenshots": [
+    ".impeccable/review/marketplace-stack-desktop.png",
+    ".impeccable/review/marketplace-stack-mobile.png",
+    ".impeccable/review/marketplace-soul-mobile.png"
+  ],
+  "mode": "local UI/configuration; no new real wallet, paid inference or external account connection",
+  "browser": "Installed Playwright after two T3 snapshot timeouts",
+  "note": "Initial browser round caught stale category on plain marketplace route; fixed and confirmed from same QA store."
+}

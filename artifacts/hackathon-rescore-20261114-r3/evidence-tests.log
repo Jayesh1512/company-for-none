@@ -1,0 +1,17 @@
+✔ controlled evidence cannot be relabelled live or acquire a different provenance (1.258583ms)
+✔ held claims cannot be promoted by a manifest boolean or dropped from the index (0.234459ms)
+✔ bound artifact byte changes are rejected independently of claim labels (0.179084ms)
+✔ private paths, traversal and substituted artifact paths are rejected (0.129916ms)
+✔ secret scan catches private credentials without treating a public NEAR key or digest as a secret (1.15475ms)
+✔ evidence verification never grants spending authority (0.104333ms)
+✔ public NEAR block signatures are not secret keys, while private-key fields remain rejected (0.208833ms)
+✔ claim prose cannot silently promote a held outcome or change generated limitations (0.175791ms)
+✔ reindexing an altered original public response cannot replace its collection digest (0.109958ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 56.333083

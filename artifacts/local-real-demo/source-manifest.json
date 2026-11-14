@@ -1,0 +1,118 @@
+{
+  "at": "2026-11-14T12:45:35.592507+00:00",
+  "scope": "22 changed local demo/runtime/UI/test/script/package files; concurrent evidence-only work excluded",
+  "algorithm": "sorted relative path + NUL + exact bytes + NUL",
+  "aggregateSHA256": "2cb24b95a0568c57f9b7dd797a384ce833b08d741c2875ef788e6bc68ce14cea",
+  "files": [
+    {
+      "path": "package.json",
+      "sha256": "2eff87afc49586a08d28205c008357bf030ee7ce58a9527f36daa6e2d11da786",
+      "bytes": 3040
+    },
+    {
+      "path": "public/app.js",
+      "sha256": "cd2fd884b4cb5dca7574b7fea68913aac722f02d20ef26574d28c9141434fbdd",
+      "bytes": 37201
+    },
+    {
+      "path": "public/autonomy.js",
+      "sha256": "3ab5c12bd2b06e54549e697a2e5dd4c0768a4a0f423d0680c219183688eac80c",
+      "bytes": 19221
+    },
+    {
+      "path": "public/company-setup.js",
+      "sha256": "4b969bb3efc7c4413390647a0aa4627d9713b84ebb1bc41008894dbdb6da0385",
+      "bytes": 12078
+    },
+    {
+      "path": "public/customer-care.js",
+      "sha256": "2a34113f51cdc6b5b0f1bcb554c3ec6c0a490efb40c09f7e4a39c0c3ee969d99",
+      "bytes": 8599
+    },
+    {
+      "path": "public/index.html",
+      "sha256": "c41862bfcfb4307da16c2618cdfdeaef85785dfc5294555fe2dad881d31d0aac",
+      "bytes": 1065
+    },
+    {
+      "path": "public/local-demo.css",
+      "sha256": "9b6a0d02f7395517b0163c974cf41929a6311fa3d4e800bb40b039cf8946c532",
+      "bytes": 1057
+    },
+    {
+      "path": "public/local-demo.js",
+      "sha256": "12ca9559d0aeff747750dd8c672a39463398b96c1af0dd7a015971173069f7c3",
+      "bytes": 4263
+    },
+    {
+      "path": "public/workspace.js",
+      "sha256": "7f54f64ae6f450445d4934452fbc3a99d37cda9906291c2190bcd4306b5ae43f",
+      "bytes": 36440
+    },
+    {
+      "path": "scripts/check-autonomy-browser.mjs",
+      "sha256": "9f0e1cae1c8b6aacd34157ae82c2ee5dfd5c97429d16b5d48fe336f20c326584",
+      "bytes": 11202
+    },
+    {
+      "path": "scripts/check-local-demo-browser.mjs",
+      "sha256": "62d08fb890cf5eec87439a4d78c170bbe5af2998ca3f1ae90c7921b7f38220b6",
+      "bytes": 6517
+    },
+    {
+      "path": "scripts/local-demo.mjs",
+      "sha256": "4f95c906654fc3c100e2cf9a9ee92bb3758680b6d1b8d6081075b00fee27ac08",
+      "bytes": 1075
+    },
+    {
+      "path": "server.mjs",
+      "sha256": "720f498addc9504e95dcc1a1bf88028d7d4a6d119bba495f44718757f7077ba4",
+      "bytes": 4830
+    },
+    {
+      "path": "src/app.mjs",
+      "sha256": "2ba242f3168e20b45c6afeb614fbf75856a49d3898338ee3b72c771f2c065f05",
+      "bytes": 18606
+    },
+    {
+      "path": "src/demo/local.mjs",
+      "sha256": "f41f606b4ad1ed806a3544c80137b5735fbecc6740108cccc63de29eb8296d64",
+      "bytes": 6756
+    },
+    {
+      "path": "src/rules/index.mjs",
+      "sha256": "c66006f0422d0bcfdca5f6ca9d86c9c34c5ba2e393c653cd5a0e265629e71a5b",
+      "bytes": 40903
+    },
+    {
+      "path": "src/rules/local-demo.mjs",
+      "sha256": "2d266df4fb69b408bf44398b7e62ee134f5cac9e6c2e83977a5054746bd25553",
+      "bytes": 1178
+    },
+    {
+      "path": "src/runtime/providers.mjs",
+      "sha256": "a597290959e83a3bad50d95b69c0a5c119341862a0b2a3d90baed608700b9e8a",
+      "bytes": 5269
+    },
+    {
+      "path": "src/web/index.mjs",
+      "sha256": "b3a419a1d518373525a7e6c36981343b7f9ad01841c2b561e38f0610e0ab7b16",
+      "bytes": 29002
+    },
+    {
+      "path": "test/integrations/local-demo-ui.test.mjs",
+      "sha256": "1325bb9950515f6447616bf6c67c023b2ced8b7a828816164ce69bfb81e4cd44",
+      "bytes": 2490
+    },
+    {
+      "path": "test/integrations/local-demo.test.mjs",
+      "sha256": "3ecf9eb0b50935fe46fa89a442a0c3df0d9c8cb975c3bb652cf2a5ec3e56a7ea",
+      "bytes": 7125
+    },
+    {
+      "path": "test/workspace/demo.test.mjs",
+      "sha256": "07f2307eb219afac7789f8e3ae255f7d2542e9180c2003cc4613953194bb68a8",
+      "bytes": 5341
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+✔ actual native client/M01/M03 composition reserves both units, writes once, reopens original and verifies actual RPC fees (178.8695ms)
+✔ provider SUCCESS/tx hash never defeats a mismatched final native receipt (101.507833ms)
+✔ unknown acceptance without provider correlation survives restart and is never blindly resent (96.457625ms)
+✔ no private verified signing envelope means no native POST, reservation or inferred success (26.272042ms)
+✔ a stop during the free native preflight yields no POST and releases the exact proven unsubmitted fee reserve (63.197875ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 568.089375

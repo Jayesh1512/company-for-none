@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "kind": "marketplace-x402-payment",
+  "paidAt": "2026-11-14T14:04:25.726Z",
+  "challenge": {
+    "amount": "500000",
+    "asset": "17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+    "maxTimeoutSeconds": 780,
+    "network": "near:mainnet",
+    "payTo": "ea667f5f496e60033bf8075cce4793efdeba28d74d116ef95848324347f539fc",
+    "scheme": "exact"
+  },
+  "payer": "e17d480f28ef0c3f39c7b3a12bdf80acfa2e2282a5e7a2eae3f019510ce6e8d4",
+  "taskId": null,
+  "taskState": null,
+  "artifacts": null,
+  "rawResponse": {
+    "accepts": [
+      {
+        "amount": "500000",
+        "asset": "17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+        "maxTimeoutSeconds": 780,
+        "network": "near:mainnet",
+        "payTo": "ea667f5f496e60033bf8075cce4793efdeba28d74d116ef95848324347f539fc",
+        "scheme": "exact"
+      }
+    ],
+    "error": "invalid payment: invalid_exact_near_function_call_key_not_allowed",
+    "x402Version": 2
+  }
+}

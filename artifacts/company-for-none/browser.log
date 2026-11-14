@@ -1,0 +1,59 @@
+{
+  "checkedAt": "2026-11-13T22:45:35.124Z",
+  "mode": "isolated actual HTTP/browser setup",
+  "functionalOnly": true,
+  "screenshotsFromPriorVisualPass": true,
+  "providerEffects": 0,
+  "orders": 0,
+  "financialVersion": 0,
+  "agents": 2,
+  "backlogItems": 1,
+  "contextSelectionRoute": true,
+  "refreshStable": true,
+  "anonymousStatus": 403,
+  "consoleExceptions": [],
+  "scans": [
+    {
+      "name": "operations-desktop",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "bodyWidth": 1440,
+      "heading": "Fictional operations QA"
+    },
+    {
+      "name": "setup-desktop",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "bodyWidth": 1440,
+      "heading": "Company for none"
+    },
+    {
+      "name": "operations-mobile",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390,
+      "heading": "Fictional operations QA"
+    },
+    {
+      "name": "agents-mobile",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390,
+      "heading": "Fictional operations QA"
+    },
+    {
+      "name": "ledger-mobile",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390,
+      "heading": "Fictional operations QA"
+    },
+    {
+      "name": "setup-mobile",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390,
+      "heading": "Company for none"
+    }
+  ]
+}

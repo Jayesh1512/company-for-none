@@ -1,0 +1,109 @@
+{
+  "companyName": "Northstar Care",
+  "services": [
+    {
+      "id": "support:local-workspace:policy-guide",
+      "companyId": "local-workspace",
+      "agentId": "28e9620c-b3f4-4d9d-96c9-2cdcaeb1e5b4",
+      "name": "Harbor Mutual Policy Guide",
+      "description": "Northstar Care · exact published fictional auto, home and travel policy passages.",
+      "kind": "policy",
+      "replyMode": "policy_lookup",
+      "aiEnabled": false,
+      "fictional": true,
+      "status": "published",
+      "version": 1,
+      "sources": [
+        {
+          "documentId": "companies/local-workspace/documents/61a6a33f-6711-4d04-a33e-833041973773",
+          "revision": "4c338a4f87ad4b89b29b87216ce2289b31991a0584282b7b40446f5809bb1ce8",
+          "hash": "92287ad6c4be411cb3ae1af6abf53f395b995aca22a23282fa09e58ca9bde4dd"
+        },
+        {
+          "documentId": "companies/local-workspace/documents/16b4b736-fc06-44fa-ad1e-483422cfcde3",
+          "revision": "600e77171272414895cbc85e596b6997880596a5f0ff22aeb67cad0f27cbedfa",
+          "hash": "5708f7fd443d205422373768a371ffb7f2c3fe7dc2827ad83c7421602b2abb81"
+        },
+        {
+          "documentId": "companies/local-workspace/documents/568c48d4-d6f9-4ae5-a53d-2894b4304643",
+          "revision": "e88ec929be5da70a23c8756f211f54b7f7441759178347c33cdb13352c582ee2",
+          "hash": "d1ed73e7ff721d1c116d6d3998d1455198ea718d36451c11d5c8066f1bf99d86"
+        }
+      ],
+      "publicationCurrent": true
+    },
+    {
+      "id": "support:local-workspace:claims-guide",
+      "companyId": "local-workspace",
+      "agentId": "f970dd6a-59a6-4f60-839a-9d51f9ef0d0a",
+      "name": "Harbor Mutual Claims Guide",
+      "description": "Northstar Care · fictional claims reporting steps and owner escalations.",
+      "kind": "claims",
+      "replyMode": "policy_lookup",
+      "aiEnabled": false,
+      "fictional": true,
+      "status": "published",
+      "version": 1,
+      "sources": [
+        {
+          "documentId": "companies/local-workspace/documents/61a6a33f-6711-4d04-a33e-833041973773",
+          "revision": "4c338a4f87ad4b89b29b87216ce2289b31991a0584282b7b40446f5809bb1ce8",
+          "hash": "92287ad6c4be411cb3ae1af6abf53f395b995aca22a23282fa09e58ca9bde4dd"
+        },
+        {
+          "documentId": "companies/local-workspace/documents/16b4b736-fc06-44fa-ad1e-483422cfcde3",
+          "revision": "600e77171272414895cbc85e596b6997880596a5f0ff22aeb67cad0f27cbedfa",
+          "hash": "5708f7fd443d205422373768a371ffb7f2c3fe7dc2827ad83c7421602b2abb81"
+        },
+        {
+          "documentId": "companies/local-workspace/documents/568c48d4-d6f9-4ae5-a53d-2894b4304643",
+          "revision": "e88ec929be5da70a23c8756f211f54b7f7441759178347c33cdb13352c582ee2",
+          "hash": "d1ed73e7ff721d1c116d6d3998d1455198ea718d36451c11d5c8066f1bf99d86"
+        },
+        {
+          "documentId": "companies/local-workspace/documents/446ce145-9788-4996-936d-792b2be5ff6c",
+          "revision": "30a0629165ad56b142c7527ddad2c8084445d1b7b53a3c874a83e78d39d85196",
+          "hash": "bcf9a91c1c0e4c2575456ba7eb8a6c240868e35af2b9878b8d6a93ecfe0be295"
+        }
+      ],
+      "publicationCurrent": true
+    }
+  ],
+  "agents": [
+    {
+      "id": "28e9620c-b3f4-4d9d-96c9-2cdcaeb1e5b4",
+      "name": "Harbor Mutual Policy Guide"
+    },
+    {
+      "id": "f970dd6a-59a6-4f60-839a-9d51f9ef0d0a",
+      "name": "Harbor Mutual Claims Guide"
+    }
+  ],
+  "documents": [
+    {
+      "id": "companies/local-workspace/documents/61a6a33f-6711-4d04-a33e-833041973773",
+      "title": "Harbor Mutual — Fictional Auto Policy HM-AUTO-DEMO",
+      "revision": "4c338a4f87ad4b89b29b87216ce2289b31991a0584282b7b40446f5809bb1ce8"
+    },
+    {
+      "id": "companies/local-workspace/documents/16b4b736-fc06-44fa-ad1e-483422cfcde3",
+      "title": "Harbor Mutual — Fictional Home Policy HM-HOME-DEMO",
+      "revision": "600e77171272414895cbc85e596b6997880596a5f0ff22aeb67cad0f27cbedfa"
+    },
+    {
+      "id": "companies/local-workspace/documents/568c48d4-d6f9-4ae5-a53d-2894b4304643",
+      "title": "Harbor Mutual — Fictional Travel Policy HM-TRAVEL-DEMO",
+      "revision": "e88ec929be5da70a23c8756f211f54b7f7441759178347c33cdb13352c582ee2"
+    },
+    {
+      "id": "companies/local-workspace/documents/446ce145-9788-4996-936d-792b2be5ff6c",
+      "title": "Harbor Mutual — Fictional Claims Handling HM-CLAIMS-DEMO",
+      "revision": "30a0629165ad56b142c7527ddad2c8084445d1b7b53a3c874a83e78d39d85196"
+    }
+  ],
+  "fictional": true,
+  "replyMode": "policy_lookup",
+  "aiEnabled": false,
+  "customerPortal": "http://127.0.0.1:4173/#care",
+  "ownerInbox": "http://127.0.0.1:4173/#support"
+}

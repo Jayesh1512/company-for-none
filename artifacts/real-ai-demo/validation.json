@@ -1,0 +1,80 @@
+{
+  "observedAt": "2026-11-14T13:32:57.350Z",
+  "status": "ACTUAL_OWNER_FUNDED_E2EE_DEMO_VERIFIED",
+  "sourceHash": "84b48e89c583cede21f79c4bf1adb7a7456224a82fb9ca2c34916cd70726fde7",
+  "sourceFiles": 27,
+  "checks": {
+    "fullTests": 560,
+    "failed": 0,
+    "skipped": 0,
+    "native": 12,
+    "syntaxFiles": 173
+  },
+  "actual": {
+    "acceptedReplies": 2,
+    "ownerReviewTickets": 1,
+    "totalBilledNanoUsd": "3221160",
+    "gatewayAndModelTcb": "UpToDate",
+    "signatureKind": "provider_tee",
+    "plaintextAcceptance": "official SDK in original live call",
+    "durablePlaintextRecovery": false
+  },
+  "budget": {
+    "totalCeilingNanoUsd": "5000000000",
+    "perCallReservedMaximumNanoUsd": "100000000",
+    "noUnknownReservations": true
+  },
+  "browser": {
+    "observedAt": "2026-11-14T13:27:52.709Z",
+    "engine": "installed Playwright after explicit native automation-host-unavailable error",
+    "nativeT3ActualPaidFormSubmission": true,
+    "desktop": {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "answers": 2
+    },
+    "mobile": {
+      "width": 390,
+      "scrollWidth": 390,
+      "answers": 2,
+      "hasOwnerTokenInput": false
+    },
+    "paused": {
+      "submitDisabled": true
+    },
+    "ticketVisible": true,
+    "refreshKeptTwoAcceptedAnswers": true,
+    "financialUnchanged": true,
+    "additionalCompletions": 0,
+    "errors": [],
+    "screenshotLimit": "Full-page mobile capture followed a desktop resize and captured the sidebar transition; mobile-viewport.png is the stable fresh 390px viewport.",
+    "stableMobileSidebarRight": 0
+  },
+  "restart": {
+    "observedAt": "2026-11-14T13:32:11.148Z",
+    "acceptedAnswers": 2,
+    "persistedTicketIds": [
+      "ai-demo:2acf7ad96a2f894eae0e006cb6f479c21976bf5299ed20cfb273430fa08f47d4:ticket"
+    ],
+    "providerOperations": 2,
+    "financialVersion": 8,
+    "reservationCount": 2,
+    "reconciledReservations": 2,
+    "totalActualNanoUsd": "3221160",
+    "paused": false
+  },
+  "history": {
+    "existingAgents": 6,
+    "existingDocuments": 6,
+    "idsVersionsRevisionsUnchanged": true,
+    "frozenReviewsUnchanged": true
+  },
+  "doesNotProve": [
+    "autonomous Cloud credit acquisition",
+    "manager/backlog/developer live autonomous company loop",
+    "customer payments, purchases, payouts or refunds",
+    "mainnet publication",
+    "independent offline plaintext or TDX collateral replay"
+  ],
+  "remainingCommercialGatesUnchanged": true
+}

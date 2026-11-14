@@ -1,0 +1,26 @@
+{
+  "at": "2026-11-14T12:49:14.888752+00:00",
+  "sourceAggregateSHA256": "2cb24b95a0568c57f9b7dd797a384ce833b08d741c2875ef788e6bc68ce14cea",
+  "changedSourceFiles": 22,
+  "fullTests": 549,
+  "focusedTests": 11,
+  "nativeJBrainTests": 12,
+  "syntaxFilesAtRecordedRun": 159,
+  "failures": 0,
+  "skips": 0,
+  "browserProof": "browser-proof.json",
+  "mainPreview": "http://127.0.0.1:4173",
+  "demoPreview": "http://127.0.0.1:55386/#demo",
+  "originalCompanyPreserved": true,
+  "paidCalls": 0,
+  "externalProviderRequests": 0,
+  "financialVersion": 0,
+  "fixtures": false,
+  "recordedModelResponses": false,
+  "historicalHashes": {
+    "docs/REAL_EXECUTION_PLAN.md": "66ece30643ef99f9ed64148f8142f695b6e16a1cc40334dc06d4fcd658cf56da",
+    "docs/COMPANY_FOR_NONE_BUILD_PLAN.md": "f9d94ac4486a9d7f4a358476b3e90a5385fd0e8e1848c24ddb5324460af30c0f",
+    "docs/COMPANY_FOR_NONE_CRITIQUE.md": "d4173e8977611324d1da3e7ef0cc09ce98f16a6379848e4b88061d9a7c9cffab"
+  },
+  "liveExecutionGates": "unchanged; this proves local scope only"
+}

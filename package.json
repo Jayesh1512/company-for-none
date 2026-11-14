@@ -1,0 +1,67 @@
+{
+  "name": "autonomous-research-shop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "start": "node server.mjs",
+    "test": "node scripts/test.mjs",
+    "check": "node scripts/check.mjs",
+    "test:autonomy": "node --test test/autonomy/*.test.mjs test/rules/autonomy*.test.mjs",
+    "test:cloud": "node --test test/cloud/*.test.mjs",
+    "probe:cloud-products": "node scripts/probe-cloud-products.mjs",
+    "check:autonomy:browser": "node scripts/check-autonomy-browser.mjs",
+    "probe": "node scripts/probe-vendors.mjs",
+    "video:studio": "remotion studio walkthrough/src/index.tsx --public-dir walkthrough/public --port 3001",
+    "video:render": "remotion render walkthrough/src/index.tsx NearWalkthrough artifacts/near-product-walkthrough.mp4 --public-dir walkthrough/public --codec h264 --crf 18",
+    "video:problem:studio": "remotion studio problem-video/src/index.tsx --public-dir problem-video/public --port 3002",
+    "video:problem:prepare": "node scripts/prepare-problem-video.mjs",
+    "video:problem:render": "remotion render problem-video/src/index.tsx TheAgentProblem artifacts/agent-problem-statement.mp4 --public-dir problem-video/public --codec h264 --crf 18 --audio-codec aac --audio-bitrate 192k",
+    "setup:jbrain": "node scripts/setup-jbrain.mjs",
+    "test:native": "node scripts/test-native.mjs",
+    "demo:fixtures": "node scripts/demo.mjs",
+    "proof:cloud": "node scripts/proof-cloud.mjs",
+    "demo:e2e": "node scripts/e2e-demo.mjs",
+    "demo:e2e:controlled": "node scripts/e2e-controlled.mjs",
+    "contract:build": "node scripts/build-ledger-contract.mjs",
+    "contract:test": "node scripts/test-ledger-contract.mjs",
+    "ledger:wallet": "node scripts/create-ledger-wallet.mjs",
+    "ledger:deployment-plan": "node scripts/prepare-ledger-deployment.mjs",
+    "evidence:live": "node scripts/collect-live-evidence.mjs",
+    "evidence:verify": "node scripts/verify-live-evidence.mjs",
+    "evidence:paid": "node scripts/evidence/run-paid.mjs",
+    "evaluator:build": "node scripts/build-template-evaluator.mjs",
+    "test:mentor": "node --test test/integrations/*.test.mjs test/onchain-ledger-rules/*.test.mjs",
+    "test:ledger-fees": "node scripts/check-native-fee-sandbox.mjs",
+    "check:mentor:browser": "node scripts/check-mentor-browser.mjs",
+    "demo:local": "node scripts/local-demo.mjs",
+    "check:demo:browser": "node scripts/check-local-demo-browser.mjs"
+  },
+  "engines": {
+    "node": ">=24.22.1"
+  },
+  "dependencies": {
+    "@defuse-protocol/one-click-sdk-typescript": "0.1.26",
+    "@near-intents-agent-api/sdk": "0.9.0",
+    "@nearai/inference-sdk": "0.3.0",
+    "near-api-js": "7.5.3",
+    "pdfjs-dist": "6.5.438",
+    "yaml": "^2.9.1"
+  },
+  "devDependencies": {
+    "@remotion/cli": "4.0.542",
+    "@remotion/media": "4.0.542",
+    "binaryen": "132.0.0",
+    "near-workspaces": "5.0.0",
+    "playwright": "1.65.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.542"
+  },
+  "overrides": {
+    "near-sandbox": {
+      "tar": "7.5.23"
+    }
+  }
+}

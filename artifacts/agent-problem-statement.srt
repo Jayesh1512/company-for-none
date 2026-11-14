@@ -1,0 +1,31 @@
+1
+00:00:00,467 --> 00:00:06,866
+You want to give an AI agent one job. Research a market. Prepare a launch. Move the business forward.
+
+2
+00:00:07,967 --> 00:00:18,453
+But before the work begins, you're choosing models, connecting company knowledge, adding skills, shaping behavior, wiring services, and setting up payments.
+
+3
+00:00:19,567 --> 00:00:26,914
+The brief lives in one place. The documents live somewhere else. Every new agent asks for context you have already given.
+
+4
+00:00:28,033 --> 00:00:36,395
+More agents mean more handoffs. Different instructions. Missing sources. Conflicting answers. You become the coordinator.
+
+5
+00:00:37,500 --> 00:00:46,350
+And now, agents can spend. Which service was paid? What did inference cost? Who approved it? A useful answer is only part of the job.
+
+6
+00:00:47,467 --> 00:00:54,015
+The result? More setup. More copying. More supervision. Less time doing the work that matters.
+
+7
+00:00:55,133 --> 00:01:02,102
+Businesses need agents that share the right context, have clear responsibilities, and work within visible limits.
+
+8
+00:01:03,233 --> 00:01:07,810
+Because the goal is not to manage more AI tools. It's to get real work done.

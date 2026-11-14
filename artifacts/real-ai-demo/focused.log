@@ -1,0 +1,20 @@
+✔ explicit live-call policy accepts original SDK/decryption only; strict default and recovery stay closed (7.387917ms)
+✔ controlled provider + ACTUAL native JBrain / M01 / M03: reply, escalation, caps, revocation, unknown and restart (1163.936208ms)
+✔ the local guide shows actual component counts and separates live-only scope without false readiness (0.602417ms)
+✔ demo metadata changes presentation only; main workspace and paid execution scope remain explicit (0.75675ms)
+✔ real local demo is isolated, concurrent-open idempotent, fully usable without paid prerequisites and durable across restart (671.987291ms)
+✔ local-demo private context denies paid/provisioning/preflight/start paths and cannot be supplied through request facts (0.252584ms)
+✔ explicit null authorization and binding isolation never fall back to the main environment (1.469584ms)
+✔ demo fills durable profiles and empty organization fields, replays without duplicates and never starts execution (150.391958ms)
+✔ demo preserves existing organization and edited agent details and obeys the current kill gate (169.775209ms)
+✔ product UI offers explicit demo input without fixture seeding or simulated payment controls (123.875625ms)
+✔ explicit setup demo drafts keep entered and saved company data and contain no provider or financial configuration (0.44725ms)
+✔ demo control and fictional notice use the existing workspace and do not imply running agents or provider readiness (85.281125ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1316.548125

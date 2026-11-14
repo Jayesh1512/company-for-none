@@ -1,0 +1,32 @@
+{
+  "at": "2026-11-12T18:24:40.086Z",
+  "file": "artifacts/agent-problem-statement.mp4",
+  "durationSeconds": 68.48,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 2054,
+  "videoCodec": "h264",
+  "audioCodec": "aac",
+  "audioChannels": 2,
+  "audioSampleRate": "48000",
+  "bytes": 4100841,
+  "sha256": "166c8af124a2b50478ff5c40b7c651ca3b15bca0011121f3d5ed458dd28501d7",
+  "noProductFootage": true,
+  "noProductBranding": true,
+  "visuals": "New typography and abstract vector diagrams only",
+  "audio": "macOS Daniel synthetic narration; original generated score",
+  "sceneFramesReviewed": [
+    90,
+    375,
+    700,
+    950,
+    1250,
+    1540,
+    1780,
+    2000
+  ],
+  "sourceAudit": "artifacts/problem-video-source-check.json",
+  "decodeLog": "artifacts/problem-video-decode.log",
+  "studio": "http://localhost:3002/TheAgentProblem"
+}

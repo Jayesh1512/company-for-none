@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-11-14T07:28:53.880Z",
+  "browser": "T3 collaborative preview, fresh incognito profile",
+  "fresh": {
+    "heading": "Set up your organization",
+    "ownerFormCount": 0,
+    "ownerStatus": 200,
+    "ownerTokenStored": false,
+    "workspaceStatus": 200
+  },
+  "afterRefresh": {
+    "errorShown": false,
+    "heading": "Workspace settings",
+    "ownerFormCount": 0,
+    "ownerStatus": 200,
+    "ownerTokenStored": false,
+    "safetyStatusVisible": true,
+    "savedAgentCount": 2,
+    "workspaceStatus": 200
+  },
+  "providerEffects": 0,
+  "preview": "http://127.0.0.1:4173/#setup"
+}

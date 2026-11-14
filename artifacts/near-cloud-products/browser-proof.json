@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-11-14T06:08:05.600Z",
+  "browser": "T3 collaborative preview",
+  "mode": "isolated setup store; actual public model catalogue; no inference credentials",
+  "desktop": {
+    "actualCssViewport": 1315,
+    "checkTextMinWidth": 875.1484375,
+    "documentWidth": 1315,
+    "exceptions": [],
+    "localPlanShown": true,
+    "requestedViewportWidth": 1440,
+    "tools": 11
+  },
+  "mobile": {
+    "actualCssViewport": 356,
+    "anonymousStatus": 403,
+    "catalogModels": 64,
+    "completionSent": false,
+    "documentWidth": 356,
+    "exceptions": [],
+    "executionCode": "CLOUD_PRODUCT_VERIFICATION_REQUIRED",
+    "executionStatus": "not_submitted",
+    "localPlanShown": true,
+    "requestedViewportWidth": 390,
+    "requests": [
+      {
+        "method": "POST",
+        "url": "/api/workspace/cloud/catalog"
+      },
+      {
+        "method": "GET",
+        "url": "/api/workspace"
+      },
+      {
+        "method": "GET",
+        "url": "/api/status"
+      },
+      {
+        "method": "GET",
+        "url": "/api/workspace/operation"
+      },
+      {
+        "method": "GET",
+        "url": "/api/workspace/inference/plan"
+      },
+      {
+        "method": "GET",
+        "url": "/api/workspace/cloud"
+      },
+      {
+        "method": "POST",
+        "url": "/api/workspace/cloud/plan"
+      },
+      {
+        "method": "POST",
+        "url": "/api/workspace/cloud/execute"
+      },
+      {
+        "method": "GET",
+        "url": "/api/workspace/cloud"
+      }
+    ],
+    "toolCount": 11
+  },
+  "visualLimitation": "Native screenshot compositor duplicates the narrow capture; responsive claims use actual DOM geometry and interactions, not screenshot pixel dimensions.",
+  "moneyOrPaidInferenceExecuted": false
+}

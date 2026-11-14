@@ -1,0 +1,18 @@
+{"id":"native-jbrain","status":"passed","provider":"actual local JBrain"}
+{"id":"company-and-core-team","status":"passed","operatingMode":"none","coreAgents":2,"started":false}
+{"id":"editable-agent-profile","status":"passed"}
+{"id":"saved-and-selected-company-knowledge","status":"passed","documents":1,"revisionRecorded":true}
+{"id":"real-durable-backlog","status":"passed","improvements":1,"automaticRepairClaimed":false}
+{"id":"fresh-jbrain-observation","status":"passed","reasonCode":"JBRAIN_HEALTH_OBSERVED"}
+{"id":"public-source-read","status":"passed","reasonCode":"PUBLIC_SOURCE_OBSERVED","scope":"free public retrieval, not a generated report"}
+{"id":"unified-configuration-review","status":"passed","executionStarted":false}
+{"id":"persistent-restart","status":"passed"}
+{"id":"autonomous-execution","status":"blocked","reasonCode":"AUTONOMY_POLICY_REQUIRED","acceptedModelOutput":false,"scope":"No commercial/paid authority supplied; real gate remains active"}
+{"id":"actual-http-workspace","status":"passed","url":"http://127.0.0.1:60405/#autonomy"}
+{
+  "localSetupComplete": true,
+  "autonomousBusinessComplete": false,
+  "proof": "artifacts/near-e2e-fixes/local-demo.json",
+  "url": "http://127.0.0.1:60405/#autonomy",
+  "paidDispatches": 0
+}

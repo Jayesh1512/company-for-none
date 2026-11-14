@@ -1,0 +1,18 @@
+{
+  "observedAt": "2026-11-14T13:22:17.338Z",
+  "httpStatus": 200,
+  "status": "answered",
+  "replayed": true,
+  "answerPresent": true,
+  "before": {
+    "providerOperations": 1,
+    "financialVersion": 4,
+    "reservations": 1
+  },
+  "after": {
+    "providerOperations": 1,
+    "financialVersion": 4,
+    "reservations": 1
+  },
+  "providerRequestId": "84d7b779ef4e4f308a5707f37f2f174c"
+}

@@ -1,0 +1,169 @@
+{
+  "kind": "ledger_chain_export",
+  "puts": [],
+  "events": [],
+  "executionAllowed": false,
+  "grantsSpendingAuthority": false,
+  "schemaVersion": 1,
+  "companyHash": "9f83bd56058199fad25b2afbe9a452a01170dac5187f8546cf0d469278d962f9",
+  "records": [
+    {
+      "sequence": 1,
+      "type": "company.configured",
+      "at": "2026-11-14T07:57:35.328Z",
+      "actorHash": "527e1982f9e1e6677c37157cc13db9da6fb97d79b4ebf2a37ab0e73c408a469a",
+      "payloadHash": "b3d2badcae5032aa9517c9cab25f32a68fa447c672aaea7746ce9cf0914d61f8",
+      "previousHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "13fe8b7b365761cb7a04a1d23f2fc607bc7ee4f4e3fec4a605b05eb59ed0e7aa"
+    },
+    {
+      "sequence": 2,
+      "type": "agent.created",
+      "at": "2026-11-14T07:57:35.328Z",
+      "actorHash": "19c5745fc625ebe5b422194e8ab8f3ae78466394e5529f98832d3a06bf566dae",
+      "payloadHash": "eba9306fe0f5e4b7d0d57b59cc0df98ef426f2a9ebb462cd4add159445396929",
+      "previousHash": "13fe8b7b365761cb7a04a1d23f2fc607bc7ee4f4e3fec4a605b05eb59ed0e7aa",
+      "hash": "30ce278e2e40698a484f25dd2bfc86128e2f38d43e35c14918939bcaeca2302c"
+    },
+    {
+      "sequence": 3,
+      "type": "agent.created",
+      "at": "2026-11-14T07:57:35.328Z",
+      "actorHash": "3a5c26aae5a423ff823591dcc131999e6e9474e182de189ce91756610bfcb18d",
+      "payloadHash": "5b8656b00826d110ed60c52a5ecc4b1a19087728a3597e6efea6e8c6a9771a9e",
+      "previousHash": "30ce278e2e40698a484f25dd2bfc86128e2f38d43e35c14918939bcaeca2302c",
+      "hash": "276aefc276c2399592a682509f20e8a42a1e3516fbd1208f9ff4c82c12b7c25d"
+    },
+    {
+      "sequence": 4,
+      "type": "work.blocked",
+      "at": "2026-11-14T07:57:35.328Z",
+      "actorHash": "527e1982f9e1e6677c37157cc13db9da6fb97d79b4ebf2a37ab0e73c408a469a",
+      "payloadHash": "38a031d3a6e298bc2aac65b9661e8f591370495af355a18edbe8288d7020f09a",
+      "previousHash": "276aefc276c2399592a682509f20e8a42a1e3516fbd1208f9ff4c82c12b7c25d",
+      "hash": "88518017c62323566652015e9f932b33aa1982400e0b2ab2b50ae831eb89bf78"
+    },
+    {
+      "sequence": 5,
+      "type": "organization.updated",
+      "at": "2026-11-14T07:57:35.328Z",
+      "actorHash": "527e1982f9e1e6677c37157cc13db9da6fb97d79b4ebf2a37ab0e73c408a469a",
+      "payloadHash": "b3d2badcae5032aa9517c9cab25f32a68fa447c672aaea7746ce9cf0914d61f8",
+      "previousHash": "88518017c62323566652015e9f932b33aa1982400e0b2ab2b50ae831eb89bf78",
+      "hash": "769037444e1052e61f90d1823e3ba96f3761575497570b44b43d5eb12c48518a"
+    },
+    {
+      "sequence": 6,
+      "type": "company.configured",
+      "at": "2026-11-14T07:57:53.417Z",
+      "actorHash": "527e1982f9e1e6677c37157cc13db9da6fb97d79b4ebf2a37ab0e73c408a469a",
+      "payloadHash": "5a4a01cd5a2da3378af50cb79f371ee14833decbd9bf889e10e509986573c986",
+      "previousHash": "769037444e1052e61f90d1823e3ba96f3761575497570b44b43d5eb12c48518a",
+      "hash": "8462c65ed8c79bacefcbc780608673b8f169479a8b8a8b658511971b71c26a19"
+    },
+    {
+      "sequence": 7,
+      "type": "private.event",
+      "at": "2026-11-14T07:57:56.548Z",
+      "actorHash": "527e1982f9e1e6677c37157cc13db9da6fb97d79b4ebf2a37ab0e73c408a469a",
+      "payloadHash": "cffe246b9e2af945da269e6e4e6f6e82a7c36f3ae839c6c6b3bd52fa4b0530ce",
+      "previousHash": "8462c65ed8c79bacefcbc780608673b8f169479a8b8a8b658511971b71c26a19",
+      "hash": "2b14ebab9e4bbd02705bcfebf23e8e28be996a90cc45db56d489ee2f1b7820f5"
+    },
+    {
+      "sequence": 8,
+      "type": "company.resume",
+      "at": "2026-11-14T07:58:21.504Z",
+      "actorHash": "527e1982f9e1e6677c37157cc13db9da6fb97d79b4ebf2a37ab0e73c408a469a",
+      "payloadHash": "b650e58d1c8450f6fb900ddd1b67259fe613d5842f1a203a72d5820a92c2e239",
+      "previousHash": "2b14ebab9e4bbd02705bcfebf23e8e28be996a90cc45db56d489ee2f1b7820f5",
+      "hash": "fd7c79b9dc529420e3ac1a84e327e79e4041db379d96afd16e6ca6ac4761298c"
+    },
+    {
+      "sequence": 9,
+      "type": "company.pause",
+      "at": "2026-11-14T09:31:20.529Z",
+      "actorHash": "527e1982f9e1e6677c37157cc13db9da6fb97d79b4ebf2a37ab0e73c408a469a",
+      "payloadHash": "a1d545083ac78f7fdf89a5057b9ba995451c61fe270630035ba17fd594a74841",
+      "previousHash": "fd7c79b9dc529420e3ac1a84e327e79e4041db379d96afd16e6ca6ac4761298c",
+      "hash": "495586ab5caa7ddf3d418e4c2034f574d03e3a70de7ac7cec1e9cf4017004129"
+    },
+    {
+      "sequence": 10,
+      "type": "company.configured",
+      "at": "2026-11-14T09:31:20.563Z",
+      "actorHash": "527e1982f9e1e6677c37157cc13db9da6fb97d79b4ebf2a37ab0e73c408a469a",
+      "payloadHash": "dfd860d3d9352702fed6ec551732b4e3d5f34b251d41f68954cd5caa1e1a9554",
+      "previousHash": "495586ab5caa7ddf3d418e4c2034f574d03e3a70de7ac7cec1e9cf4017004129",
+      "hash": "b52acc97210fe1a994fdf2fe110dc11b173403df6e16d315899d867da692d5d9"
+    },
+    {
+      "sequence": 11,
+      "type": "company.replace_objective",
+      "at": "2026-11-14T09:31:20.633Z",
+      "actorHash": "527e1982f9e1e6677c37157cc13db9da6fb97d79b4ebf2a37ab0e73c408a469a",
+      "payloadHash": "6e1526a5d7931417ac050906cee6f586716a01d51d3ca634eb76efed0ec39334",
+      "previousHash": "b52acc97210fe1a994fdf2fe110dc11b173403df6e16d315899d867da692d5d9",
+      "hash": "d13dbde1ec4427139088fb4bc04d9ad4af3eb52d052ab426d27530b14353f2ad"
+    },
+    {
+      "sequence": 12,
+      "type": "agent.created",
+      "at": "2026-11-14T09:31:20.651Z",
+      "actorHash": "527e1982f9e1e6677c37157cc13db9da6fb97d79b4ebf2a37ab0e73c408a469a",
+      "payloadHash": "dea4b5961b06bd585db0c8dd755f5a079303f0d7643fdc8d489ee44339c27bb3",
+      "previousHash": "d13dbde1ec4427139088fb4bc04d9ad4af3eb52d052ab426d27530b14353f2ad",
+      "hash": "43a4b2187304aac53079c854b1701ed3f9c2f364013bc54f23fbcec7cd55d749"
+    },
+    {
+      "sequence": 13,
+      "type": "agent.created",
+      "at": "2026-11-14T09:31:20.670Z",
+      "actorHash": "527e1982f9e1e6677c37157cc13db9da6fb97d79b4ebf2a37ab0e73c408a469a",
+      "payloadHash": "298b4374c4bf5234fb289816d13aaff15eb902290ae703f5d6f04eaf1ca9125b",
+      "previousHash": "43a4b2187304aac53079c854b1701ed3f9c2f364013bc54f23fbcec7cd55d749",
+      "hash": "e986152f037d7dd51f7c105c832864e3471331cc3a9fcc33d72258d15192cc84"
+    },
+    {
+      "sequence": 14,
+      "type": "support.published",
+      "at": "2026-11-14T09:31:20.889Z",
+      "actorHash": "527e1982f9e1e6677c37157cc13db9da6fb97d79b4ebf2a37ab0e73c408a469a",
+      "payloadHash": "17701ae9a12cf6164cc1a0a8ac67af40c9a5173bf8bead52573314a0444e5e51",
+      "previousHash": "e986152f037d7dd51f7c105c832864e3471331cc3a9fcc33d72258d15192cc84",
+      "hash": "d3510fbdc15203cca3d50b00361d2fca6faa5d42086648306032f2acbb09ff5a"
+    },
+    {
+      "sequence": 15,
+      "type": "support.published",
+      "at": "2026-11-14T09:31:20.938Z",
+      "actorHash": "527e1982f9e1e6677c37157cc13db9da6fb97d79b4ebf2a37ab0e73c408a469a",
+      "payloadHash": "61f39d538eb1b07b08ce2351805cdc083e25d310ca0240ff19c58f8b3e80b7b0",
+      "previousHash": "d3510fbdc15203cca3d50b00361d2fca6faa5d42086648306032f2acbb09ff5a",
+      "hash": "3d63e0347f80764d877c43599b9907a92153506ace3247da329d82ca7fd4d3a8"
+    },
+    {
+      "sequence": 16,
+      "type": "support.opened",
+      "at": "2026-11-14T09:36:16.730Z",
+      "actorHash": "9fe7e7559aa5a6e4ba44912ec553e8574f6015e9973fceb791a57c5e59c4258b",
+      "payloadHash": "be12e54c24d602fd4f22e7cee226942ff2d5dea0330d9d0cce7769bd76721199",
+      "previousHash": "3d63e0347f80764d877c43599b9907a92153506ace3247da329d82ca7fd4d3a8",
+      "hash": "8a08d9d1b7f8390989c8c953bf6865d0e581c4e0b87ffdac2eef6a73e87b35c5"
+    },
+    {
+      "sequence": 17,
+      "type": "support.replied",
+      "at": "2026-11-14T09:36:20.927Z",
+      "actorHash": "9fe7e7559aa5a6e4ba44912ec553e8574f6015e9973fceb791a57c5e59c4258b",
+      "payloadHash": "0e379d4df597839edbe0d119781830e6868fa3ef8413f8b8ca285714720948f4",
+      "previousHash": "8a08d9d1b7f8390989c8c953bf6865d0e581c4e0b87ffdac2eef6a73e87b35c5",
+      "hash": "1bb9dbdb53632557ee47b1defad488c245d59ff6c32bf794dfaf3e5cfe505464"
+    }
+  ],
+  "head": {
+    "sequence": 17,
+    "hash": "1bb9dbdb53632557ee47b1defad488c245d59ff6c32bf794dfaf3e5cfe505464"
+  },
+  "rawDataPublished": false
+}

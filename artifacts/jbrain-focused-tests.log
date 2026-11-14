@@ -1,0 +1,17 @@
+✔ actual JBrain shares company context across permitted agents, blocks restricted and foreign documents (174.28375ms)
+✔ actual JBrain revisions persist through service/app restart, stale writes conflict and unknown YAML fields survive (163.212375ms)
+✔ task freezes permitted company revisions, generates attributed context and publishes only with its private capability (710.486042ms)
+✔ revoking access blocks fresh inference dispatch while refunds remain executable (584.564291ms)
+✔ actual accepted JBrain write with lost HTTP response recovers original receipt after restart without a second write (153.750792ms)
+✔ company document UI escapes content and missing JBrain blocks selected context without a fallback (120.413125ms)
+✔ M01 owns company scope, grant validation, bounds and kill decisions (55.632292ms)
+✔ JBrain context selection is bounded by M01 and excerpts retain revisions and truncation (262.540625ms)
+✔ a persisted workspace cannot be rebound to another company, and a rejected reopen releases its lock (63.943958ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2367.979084

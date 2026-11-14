@@ -1,0 +1,42 @@
+{
+  "accountId": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b",
+  "companyHash": "9f83bd56058199fad25b2afbe9a452a01170dac5187f8546cf0d469278d962f9",
+  "records": 2,
+  "headBefore": {
+    "companyHash": "9f83bd56058199fad25b2afbe9a452a01170dac5187f8546cf0d469278d962f9",
+    "sequence": 0,
+    "hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "ownerId": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b",
+    "writerId": null
+  },
+  "setWriterTx": "Cmh2zL2SWhm5mJ4JY23nHFFyJtLiavEV4Vfp4Bsvzb1n",
+  "appendTx": "5Xg6uasjZW4nnwWCFjP3stAaaiDtnCixc3zGvuCarhUb",
+  "appendStatus": "{\"SuccessValue\":\"eyJjb21wYW55SGFzaCI6IjlmODNiZDU2MDU4MTk5ZmFkMjViMmFmYmU5YTQ1MmEwMTE3MGRhYzUxODdmODU0NmNmMGQ0NjkyNzhkOTYyZjkiLCJzZXF1ZW5jZSI6MiwiaGFzaCI6ImFiYzFjNzQ2OGExMjk2N2ZlMzA2OTRmYWQyOTJjYWUyODhmOWEzOTRmNDY3ZjQ4ZmZiNzcyYzdhNmNhMTI2ZTkiLCJvd25lcklkIjoiNzU1YTBhNGJiNDAxNjE3OTNjMGExNzhjODliMGVkMWE4NzZkOGMwZDBiYmVhOGZlYmVjZmUyYTdkMGQ5NjYyYiIsIndyaXRlcklkIjoiNzU1YTBhNGJiNDAxNjE3OTNjMGExNzhjODliMGVkMWE4NzZkOGMwZDBiYmVhOGZlYmVjZmUyYTdkMGQ5NjYyYiJ9\"}",
+  "headAfter": {
+    "companyHash": "9f83bd56058199fad25b2afbe9a452a01170dac5187f8546cf0d469278d962f9",
+    "sequence": 2,
+    "hash": "abc1c7468a12967fe30694fad292cae288f9a394f467f48ffb772c7a6ca126e9",
+    "ownerId": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b",
+    "writerId": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b"
+  },
+  "recordsReadBack": [
+    {
+      "sequence": 1,
+      "type": "company.configured",
+      "at": "2026-11-14T13:52:42.669Z",
+      "actorHash": "527e1982f9e1e6677c37157cc13db9da6fb97d79b4ebf2a37ab0e73c408a469a",
+      "payloadHash": "302141ee7a5e0e907eb0d462dc42187d5fc4783b52852a066106801e879b494d",
+      "previousHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "e53b3f312fa3a50bd81d10dc832daaee4b4b701841d3fced33e4e1656cacdfee"
+    },
+    {
+      "sequence": 2,
+      "type": "work.completed",
+      "at": "2026-11-14T13:52:42.669Z",
+      "actorHash": "527e1982f9e1e6677c37157cc13db9da6fb97d79b4ebf2a37ab0e73c408a469a",
+      "payloadHash": "302141ee7a5e0e907eb0d462dc42187d5fc4783b52852a066106801e879b494d",
+      "previousHash": "e53b3f312fa3a50bd81d10dc832daaee4b4b701841d3fced33e4e1656cacdfee",
+      "hash": "abc1c7468a12967fe30694fad292cae288f9a394f467f48ffb772c7a6ca126e9"
+    }
+  ]
+}

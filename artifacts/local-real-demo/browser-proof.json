@@ -1,0 +1,32 @@
+{
+  "at": "2026-11-14T13:03:08.442Z",
+  "mode": "real isolated local product + native JBrain",
+  "recordedResponses": false,
+  "fixtureProviders": false,
+  "checks": [
+    "one-click isolated real local workspace",
+    "actual agent edit and durable revision",
+    "actual native JBrain document read",
+    "real cited model-free customer reply",
+    "real review ticket and private transcript refresh",
+    "actual owner escalation inbox",
+    "actual private company ledger without irrelevant live blockers",
+    "local component status separated from live prerequisites",
+    "exit returns to unchanged original company"
+  ],
+  "widths": [
+    {
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390
+    }
+  ],
+  "pageErrors": [],
+  "paidCalls": 0,
+  "providerOperations": 0,
+  "financialVersion": 0,
+  "originalStoreUnchanged": true
+}

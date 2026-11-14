@@ -1,0 +1,29 @@
+{
+  "observedAt": "2026-11-13T10:38:29.392Z",
+  "browser": "installed Playwright fallback after two T3 snapshot timeouts",
+  "mode": "setup",
+  "attestationStatus": "unavailable",
+  "reason": "CREDENTIAL_UNAVAILABLE",
+  "providerCompletionCalls": 0,
+  "paidEffects": 0,
+  "publicStatusRedacted": true,
+  "ready": false,
+  "widths": [
+    {
+      "hash": "#settings",
+      "viewport": 390,
+      "document": 390
+    },
+    {
+      "hash": "#marketplace",
+      "viewport": 390,
+      "document": 390
+    },
+    {
+      "hash": "#setup/infra",
+      "viewport": 390,
+      "document": 390
+    }
+  ],
+  "pageErrors": []
+}

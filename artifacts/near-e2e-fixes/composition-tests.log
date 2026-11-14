@@ -1,0 +1,11 @@
+✔ new Cloud read and advisory routes require owner/origin and never grant execution or create financial effects (81.735791ms)
+✔ USD5 lifetime ceiling reaches setup-only Rules without policy/credit/grants; owner credit reads stay scoped and nonadditive (92.928334ms)
+✔ private trace and owner review use real current M01 decisions; inert rejection creates no profile/code/financial effect (52.103292ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 355.509875

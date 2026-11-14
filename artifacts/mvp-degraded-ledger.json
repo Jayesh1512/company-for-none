@@ -1,0 +1,9 @@
+{
+  "observedAt": "2026-11-10T20:48:26.398Z",
+  "mode": "fixture",
+  "ledgerHttpStatus": 200,
+  "degradedNotice": true,
+  "directLedgerLoadWithoutStorefront": true,
+  "refreshPassed": true,
+  "pageErrors": []
+}

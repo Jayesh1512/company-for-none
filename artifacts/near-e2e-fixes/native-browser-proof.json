@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-11-14T08:55:51.140Z",
+  "scope": "actual native T3 Settings + explicit read-only probes",
+  "result": {
+    "attestation": "Attestation check passed\n\nverified\n\nChecked at\n2026-11-14T08:55:51.140Z\nFresh nonce binding\nVerified\nReported TCB status\nUpToDate, UpToDate\nModel attestations\n1\nResponse verification\nNot checked: this check sends no completion\nDurable plaintext binding\nunavailable\nSDK version\n0.3.0",
+    "cap": [
+      "Lifetime cost ceiling5 USD"
+    ],
+    "documentWidth": 356,
+    "errors": [],
+    "rows": 12,
+    "viewport": 356
+  },
+  "desktopMeasuredCss": {
+    "viewport": 1169,
+    "documentWidth": 1169
+  },
+  "jbrainExplicitRefresh": {
+    "before": "OBSERVATION_EXPIRED",
+    "after": "verified",
+    "ttlMs": 300000
+  },
+  "attestation": {
+    "status": "verified",
+    "gatewayTcb": "UpToDate",
+    "modelTcb": "UpToDate",
+    "modelCount": 1,
+    "completionSent": false,
+    "durablePlaintext": "unavailable"
+  },
+  "paidEffects": 0
+}

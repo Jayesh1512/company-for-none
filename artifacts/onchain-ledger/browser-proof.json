@@ -1,0 +1,16 @@
+{
+  "at": "2026-11-14T10:15:54.862Z",
+  "url": "http://127.0.0.1:4173/#autonomy/ledger",
+  "network": "mainnet-selected",
+  "mainnetTransactions": 0,
+  "paidCalls": 0,
+  "wallet": "unfunded",
+  "privateKeyVisible": false,
+  "exportedRecords": 17,
+  "rawDataExported": false,
+  "desktopWidth": 1440,
+  "mobileWidth": 390,
+  "mobileOverflow": false,
+  "mobileNavigationHidden": true,
+  "pageErrors": []
+}

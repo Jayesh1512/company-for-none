@@ -1,0 +1,84 @@
+{
+  "reviewedAt": "2026-11-14T13:41:44.917648+00:00",
+  "authorship": "unknown; shared checkpoint and file times do not establish author or approval",
+  "originalEvidenceFreeze": "6f7bbb77af86f5642d43f60b8abc2d7ed4a9f431804aca60228a4bf678499e6c",
+  "archive": ".runtime/evidence-review/20261114T134144Z",
+  "archivedSourceOnly": true,
+  "privateEnvOrGrantRead": false,
+  "originalFiles": [
+    {
+      "path": "scripts/evidence/run-paid.mjs",
+      "bytes": 12889,
+      "sha256": "aa04ee0502bb77cbdcb5e7c22722f9dfc56b2f8ffeb56c92fca53b0371de0e0d",
+      "mtimeNs": 1794661239578835065
+    },
+    {
+      "path": "scripts/evidence/catalog.mjs",
+      "bytes": 9976,
+      "sha256": "e172dc4a1121b94efe6e7494d6773af4504139acd34723dce51f45fff2bcb01e",
+      "mtimeNs": 1794661280559872269
+    },
+    {
+      "path": "scripts/evidence/model.mjs",
+      "bytes": 9392,
+      "sha256": "6978a2ef71a05c443e2d0158f278edd405b1b0596739409858c26fde2edc8403",
+      "mtimeNs": 1794661304993015780
+    },
+    {
+      "path": "scripts/evidence/checks.test.mjs",
+      "bytes": 5046,
+      "sha256": "e25bf6c741b7629cf0c7462c2299a3ec07e832453cba28eb72131092bd35427e",
+      "mtimeNs": 1794661328210162279
+    },
+    {
+      "path": "evidence/README.md",
+      "bytes": 7683,
+      "sha256": "29cda235608b7dc426eb046916d9c1f34da1c01cf357ac385e794f997a796166",
+      "mtimeNs": 1794661356953556844
+    },
+    {
+      "path": "CLAIMS.md",
+      "bytes": 7696,
+      "sha256": "7c169dfc4a164216a248c71e50c76e189b015cbdf2320808fc371eef08252ee8",
+      "mtimeNs": 1794661336387057885
+    },
+    {
+      "path": "evidence/manifest.json",
+      "bytes": 23121,
+      "sha256": "8a2f4cd4ce0910035d5e6d23ae1f401f5dd199d654e6d16ecd790b3423c85dfd",
+      "mtimeNs": 1794661336386816718
+    }
+  ],
+  "decision": "Preserve unreviewed source privately, disable paid runner, remove status-file auto-promotion, index completed approved AI trial separately.",
+  "findings": [
+    {
+      "id": "EVR01",
+      "severity": "high",
+      "finding": "CLI max-usd is compared to environment ceiling but not supplied as an enforced action/Treasury bound."
+    },
+    {
+      "id": "EVR02",
+      "severity": "high",
+      "finding": "Default fresh store per run separates accounting and one-shot history from the existing company lifetime budget; same numeric ceiling is not shared ledger exposure."
+    },
+    {
+      "id": "EVR03",
+      "severity": "high",
+      "finding": "Automatic discovery promotes paid-inference based on self-recorded MATCHED status, without independent authoritative evidence binding."
+    },
+    {
+      "id": "EVR04",
+      "severity": "medium",
+      "finding": "Component result extraction differs from current flat summary contract and infers paidCalls from presence of a result object."
+    },
+    {
+      "id": "EVR05",
+      "severity": "medium",
+      "finding": "Describe loads .env and reads the protected grant despite no-I/O wording."
+    }
+  ],
+  "paidRunnerExecuted": false,
+  "providerRequests": 0,
+  "keyCopied": false,
+  "newAuthorityGranted": false
+}

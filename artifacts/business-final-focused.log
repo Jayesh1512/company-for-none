@@ -1,0 +1,15 @@
+✔ activation publishes selected service, excludes company knowledge by default, freezes bindings and pauses sales (579.569958ms)
+✔ configured skill procurement pays once, records a licence and survives restart without another purchase (639.283084ms)
+✔ live permits recheck authorization expiry, renewal and policy caps immediately before dispatch (2.52175ms)
+✔ prepaid evidence expires and cannot be reused to replenish a consumed credit lot (41.999375ms)
+✔ activation and customer service views escape supplied text and separate demo authority (107.180209ms)
+✔ unselected wallet bucket cannot dispatch, and payment authentication schemes are explicit (72.045666ms)
+✔ live composition uses real HTTP clients: observes payment, bills inference, reconciles payout after restart, no fixture funding (499.5695ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2019.879333

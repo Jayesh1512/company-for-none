@@ -1,0 +1,19 @@
+✔ manager panel identifies its own proposal, scope copy is precise and improvement diffs stay inert (1.265ms)
+✔ the local guide shows actual component counts and separates live-only scope without false readiness (0.618167ms)
+✔ demo metadata changes presentation only; main workspace and paid execution scope remain explicit (1.039875ms)
+✔ real local demo is isolated, concurrent-open idempotent, fully usable without paid prerequisites and durable across restart (497.484875ms)
+✔ local-demo private context denies paid/provisioning/preflight/start paths and cannot be supplied through request facts (0.223375ms)
+✔ explicit null authorization and binding isolation never fall back to the main environment (1.264167ms)
+✔ demo fills durable profiles and empty organization fields, replays without duplicates and never starts execution (122.565375ms)
+✔ demo preserves existing organization and edited agent details and obeys the current kill gate (122.751041ms)
+✔ product UI offers explicit demo input without fixture seeding or simulated payment controls (121.93075ms)
+✔ explicit setup demo drafts keep entered and saved company data and contain no provider or financial configuration (0.450584ms)
+✔ demo control and fictional notice use the existing workspace and do not imply running agents or provider readiness (52.493167ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 679.702625

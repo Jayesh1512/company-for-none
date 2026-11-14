@@ -1,0 +1,42 @@
+
+> autonomous-research-shop@0.1.0 test:cloud
+> node --test test/cloud/*.test.mjs
+
+▶ all eleven real request codecs use pinned provider paths, preserve exact inputs and leave proof/cost unaccepted
+  ✔ embeddings (73.555416ms)
+  ✔ rerank (30.308792ms)
+  ✔ score (24.656291ms)
+  ✔ privacy_classify (34.860917ms)
+  ✔ privacy_redact (30.887ms)
+  ✔ responses (30.979708ms)
+  ✔ web_search (32.854291ms)
+  ✔ image_generation (38.103875ms)
+  ✔ transcription (37.071125ms)
+  ✔ vision (48.828208ms)
+  ✔ system_one (41.076167ms)
+✔ all eleven real request codecs use pinned provider paths, preserve exact inputs and leave proof/cost unaccepted (449.464291ms)
+✔ socket loss, response overflow and non-JSON errors remain unknown without a blind paid retry (68.374084ms)
+✔ missing exact plan/permit, changed request, reporting credentials and final-gate rejection send zero provider calls (14.842334ms)
+✔ unknown fields, storage, remote image fetches, management tools and invalid byte bounds reject before transport (0.3095ms)
+✔ function history retains original call metadata and requires a single matching output without executing anything (0.177375ms)
+✔ M01 command schema reaches the exact SDK wire mapping and is included in the input byte bound (0.373917ms)
+✔ the actual verifier preparation hands the frozen command schema to SDK E2EE preparation, before any completion (10.475ms)
+✔ public catalog joins current IDs and integer pricing without selecting or verifying a model (24.431166ms)
+✔ one catalog failure or malformed schema remains partial, without a cached verified fallback (5.645959ms)
+✔ reporting is explicit, read-only, tenant-bound, paged and separate from the inference credential (11.634958ms)
+✔ deprecated reporting, wrong token class, arbitrary host/tenant/filter, invalid windows fail before I/O (1.099708ms)
+✔ unsafe numeric costs and redirect responses do not become an actual zero or another-host read (4.082667ms)
+✔ owner can inspect and plan tools in setup without keys or paid effects; anonymous/cross-origin/oversized requests cannot (55.211875ms)
+✔ explicit public catalog read persists observed facts across restart but never grants readiness or model selection (62.842458ms)
+✔ M01 holds specialized execution even with live commercial config and fabricated proof/budget facts (6.638958ms)
+✔ JBrain rerank plan captures only explicit agent grants and exact revisions, with no egress or automatic write (104.614ms)
+✔ usage cursor is bound to the saved time interval and exact original IDs; financial records stay untouched (129.269584ms)
+✔ settings escapes model/provider values and shows a factual local plan without an execution button (0.5305ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 635.891959

@@ -1,0 +1,52 @@
+{
+  "checkedAt": "2026-11-10T18:18:39.750Z",
+  "mode": "read-only public probes",
+  "fundsMoved": false,
+  "inferenceCalled": false,
+  "credentialValuesReadOrRecorded": false,
+  "relevantEnvironmentVariableNames": [],
+  "event": {
+    "name": null,
+    "deadline": null,
+    "mandatoryIntegrations": null,
+    "status": "Awaiting answers already requested in the independent critique chat."
+  },
+  "integrations": [
+    {
+      "id": "intents",
+      "name": "NEAR Intents",
+      "owner": "Purchase journey lead",
+      "status": "public-read-proved",
+      "endpoint": "https://1click.chaindefuser.com/v0/tokens",
+      "httpStatus": 200,
+      "elapsedMs": 625,
+      "observation": "Public asset list returned 229 entries. No quote, deposit, payment, or refund requested.",
+      "prerequisite": "Defined approved payment amount and all-in cap, payer and recipient, verified payment route, and evidence of confirmation. Wallet/funding and applicable partner credentials must be supplied where required.",
+      "cutoff": "Phase 1 end: use explicitly simulated payment if end-to-end proof is unavailable.",
+      "source": "https://docs.agentsonintents.com/resources/asset-support"
+    },
+    {
+      "id": "near-ai",
+      "name": "NEAR AI",
+      "owner": "Agent experience lead",
+      "status": "blocked",
+      "endpoint": "https://cloud-api.near.ai/v1/models",
+      "httpStatus": 200,
+      "elapsedMs": 1113,
+      "observation": "Unauthenticated model-list probe returned 200. No inference requested. No relevant credential environment names were present at initial inspection.",
+      "prerequisite": "NEARAI_API_KEY (server-side), verified model access, and a defined approved inference amount. Model listing alone is not inference or collaboration proof.",
+      "cutoff": "Phase 1 end: retain labeled illustrative council and mark live collaboration blocked.",
+      "source": "https://github.com/nearai/inference-sdk/blob/main/examples/README.md"
+    },
+    {
+      "id": "bonfire",
+      "name": "Bonfire",
+      "owner": "Workspace lead",
+      "status": "blocked",
+      "httpStatus": null,
+      "observation": "No configured Bonfire service or credentials. Product identity and official workspace endpoint are not established; no similarly named service was assumed.",
+      "prerequisite": "Identify the intended Bonfire product/workspace and approved access method; prove source use and an approved save/reopen.",
+      "cutoff": "Phase 1 end: use the labeled local demo knowledge workspace."
+    }
+  ]
+}

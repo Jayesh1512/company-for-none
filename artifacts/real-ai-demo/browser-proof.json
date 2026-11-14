@@ -1,0 +1,26 @@
+{
+  "observedAt": "2026-11-14T13:27:52.709Z",
+  "engine": "installed Playwright after explicit native automation-host-unavailable error",
+  "nativeT3ActualPaidFormSubmission": true,
+  "desktop": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "answers": 2
+  },
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "answers": 2,
+    "hasOwnerTokenInput": false
+  },
+  "paused": {
+    "submitDisabled": true
+  },
+  "ticketVisible": true,
+  "refreshKeptTwoAcceptedAnswers": true,
+  "financialUnchanged": true,
+  "additionalCompletions": 0,
+  "errors": [],
+  "screenshotLimit": "Full-page mobile capture followed a desktop resize and captured the sidebar transition; mobile-viewport.png is the stable fresh 390px viewport.",
+  "stableMobileSidebarRight": 0
+}

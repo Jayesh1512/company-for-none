@@ -1,0 +1,2074 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-13T06:49:56.008Z",
+  "mode": "fixture",
+  "liveProven": false,
+  "disclosure": "Simulated payments, custody, credit purchases, deterministic generation and payouts. No live research/inference or real money movement. Timings do not prove the strict live/testnet target.",
+  "directory": "/Users/jys/.t3/projects/near1/.runtime/demo-F6qvGq",
+  "runs": [
+    {
+      "orderId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400",
+      "sourceAsset": "demo-usdc",
+      "status": "complete",
+      "elapsedMs": 366,
+      "mode": "fixture",
+      "sources": 3,
+      "reportHash": "6732a721a6811cbc9b134e9cea92521b775b0ccc05c6d0835e343541480bd780"
+    },
+    {
+      "orderId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57",
+      "sourceAsset": "demo-near",
+      "status": "complete",
+      "elapsedMs": 543,
+      "mode": "fixture",
+      "sources": 3,
+      "reportHash": "3ba1381ae9ebc3c7892c469e51cf665468f6003aabf38a2fed054175122b08de"
+    },
+    {
+      "orderId": "eef898fc-9966-494f-8afd-d77f3a2eda71",
+      "sourceAsset": "demo-usdc",
+      "status": "complete",
+      "elapsedMs": 797,
+      "mode": "fixture",
+      "sources": 3,
+      "reportHash": "bcaffca12691d7d5d783c4f57f6a048dc32b38bd5f874f65b9e588e766b7101c"
+    }
+  ],
+  "financial": {
+    "schemaVersion": 1,
+    "version": 31,
+    "balances": [
+      {
+        "network": "fixture",
+        "asset": "demo-usdc",
+        "decimals": 6,
+        "amount": "111880000"
+      }
+    ],
+    "protectedFunds": [
+      {
+        "id": "contributor:obligation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:0",
+        "purpose": "contributor",
+        "obligationId": "obligation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:0",
+        "orderId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400",
+        "network": "fixture",
+        "asset": "demo-usdc",
+        "decimals": 6,
+        "amount": "0"
+      },
+      {
+        "id": "refund:f1a1f0e0-ff0d-4421-ae94-373ca279e400",
+        "purpose": "refund",
+        "orderId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400",
+        "network": "fixture",
+        "asset": "demo-usdc",
+        "decimals": 6,
+        "amount": "5000000"
+      },
+      {
+        "id": "contributor:obligation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:0",
+        "purpose": "contributor",
+        "obligationId": "obligation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:0",
+        "orderId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57",
+        "network": "fixture",
+        "asset": "demo-usdc",
+        "decimals": 6,
+        "amount": "0"
+      },
+      {
+        "id": "refund:2a8f0e68-1b76-4db0-8500-587fae7f9a57",
+        "purpose": "refund",
+        "orderId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57",
+        "network": "fixture",
+        "asset": "demo-usdc",
+        "decimals": 6,
+        "amount": "5000000"
+      },
+      {
+        "id": "contributor:obligation:eef898fc-9966-494f-8afd-d77f3a2eda71:0",
+        "purpose": "contributor",
+        "obligationId": "obligation:eef898fc-9966-494f-8afd-d77f3a2eda71:0",
+        "orderId": "eef898fc-9966-494f-8afd-d77f3a2eda71",
+        "network": "fixture",
+        "asset": "demo-usdc",
+        "decimals": 6,
+        "amount": "0"
+      },
+      {
+        "id": "refund:eef898fc-9966-494f-8afd-d77f3a2eda71",
+        "purpose": "refund",
+        "orderId": "eef898fc-9966-494f-8afd-d77f3a2eda71",
+        "network": "fixture",
+        "asset": "demo-usdc",
+        "decimals": 6,
+        "amount": "5000000"
+      }
+    ],
+    "allocations": [
+      {
+        "kind": "allocation",
+        "id": "allocation:f1a1f0e0-ff0d-4421-ae94-373ca279e400",
+        "settlementId": "fixture:settlement:offer:f1a1f0e0-ff0d-4421-ae94-373ca279e400:offer",
+        "orderId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400",
+        "revenue": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "5000000"
+        },
+        "treasury": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "4000000"
+        },
+        "contributorReserve": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "1000000"
+        },
+        "obligations": [
+          {
+            "schemaVersion": 1,
+            "id": "obligation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:0",
+            "orderId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400",
+            "settlementId": "fixture:settlement:offer:f1a1f0e0-ff0d-4421-ae94-373ca279e400:offer",
+            "recipient": "fixture-contributor",
+            "shareBps": 2000,
+            "money": {
+              "network": "fixture",
+              "asset": "demo-usdc",
+              "decimals": 6,
+              "amount": "1000000"
+            },
+            "frozenPolicyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+            "completedAmount": "0",
+            "status": "due"
+          }
+        ],
+        "refundExposure": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "5000000"
+        },
+        "refundReserve": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "5000000"
+        },
+        "rounding": "contributor_floor_treasury_remainder",
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:allocate"
+      },
+      {
+        "kind": "allocation",
+        "id": "allocation:2a8f0e68-1b76-4db0-8500-587fae7f9a57",
+        "settlementId": "fixture:settlement:offer:2a8f0e68-1b76-4db0-8500-587fae7f9a57:offer",
+        "orderId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57",
+        "revenue": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "5000000"
+        },
+        "treasury": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "4000000"
+        },
+        "contributorReserve": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "1000000"
+        },
+        "obligations": [
+          {
+            "schemaVersion": 1,
+            "id": "obligation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:0",
+            "orderId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57",
+            "settlementId": "fixture:settlement:offer:2a8f0e68-1b76-4db0-8500-587fae7f9a57:offer",
+            "recipient": "fixture-contributor",
+            "shareBps": 2000,
+            "money": {
+              "network": "fixture",
+              "asset": "demo-usdc",
+              "decimals": 6,
+              "amount": "1000000"
+            },
+            "frozenPolicyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+            "completedAmount": "0",
+            "status": "due"
+          }
+        ],
+        "refundExposure": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "5000000"
+        },
+        "refundReserve": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "5000000"
+        },
+        "rounding": "contributor_floor_treasury_remainder",
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:allocate"
+      },
+      {
+        "kind": "allocation",
+        "id": "allocation:eef898fc-9966-494f-8afd-d77f3a2eda71",
+        "settlementId": "fixture:settlement:offer:eef898fc-9966-494f-8afd-d77f3a2eda71:offer",
+        "orderId": "eef898fc-9966-494f-8afd-d77f3a2eda71",
+        "revenue": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "5000000"
+        },
+        "treasury": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "4000000"
+        },
+        "contributorReserve": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "1000000"
+        },
+        "obligations": [
+          {
+            "schemaVersion": 1,
+            "id": "obligation:eef898fc-9966-494f-8afd-d77f3a2eda71:0",
+            "orderId": "eef898fc-9966-494f-8afd-d77f3a2eda71",
+            "settlementId": "fixture:settlement:offer:eef898fc-9966-494f-8afd-d77f3a2eda71:offer",
+            "recipient": "fixture-contributor",
+            "shareBps": 2000,
+            "money": {
+              "network": "fixture",
+              "asset": "demo-usdc",
+              "decimals": 6,
+              "amount": "1000000"
+            },
+            "frozenPolicyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+            "completedAmount": "0",
+            "status": "due"
+          }
+        ],
+        "refundExposure": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "5000000"
+        },
+        "refundReserve": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "5000000"
+        },
+        "rounding": "contributor_floor_treasury_remainder",
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:allocate"
+      }
+    ],
+    "obligations": [
+      {
+        "schemaVersion": 1,
+        "id": "obligation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:0",
+        "orderId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400",
+        "settlementId": "fixture:settlement:offer:f1a1f0e0-ff0d-4421-ae94-373ca279e400:offer",
+        "recipient": "fixture-contributor",
+        "shareBps": 2000,
+        "money": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "1000000"
+        },
+        "frozenPolicyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+        "completedAmount": "1000000",
+        "status": "paid",
+        "payoutActionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:payout",
+        "payoutResult": {
+          "schemaVersion": 1,
+          "status": "confirmed",
+          "mode": "fixture",
+          "simulated": true,
+          "provider": "fixture-custody",
+          "operation": {
+            "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:payout",
+            "fingerprint": "b4565d853f4813e5e49adcb31330b7cb4555787801a60500f5817d3974eab999",
+            "provider": "fixture-custody"
+          },
+          "evidence": [],
+          "providerRequestId": "fixture:M04:f1a1f0e0-ff0d-4421-ae94-373ca279e400:payout",
+          "receipt": {
+            "schemaVersion": 1,
+            "provider": "fixture-custody",
+            "source": "fixture-custody",
+            "reference": "fixture:M04:f1a1f0e0-ff0d-4421-ae94-373ca279e400:payout",
+            "observedAt": "2026-11-13T06:49:54.617Z",
+            "mode": "fixture",
+            "simulated": true,
+            "status": "confirmed",
+            "network": "fixture",
+            "recipient": "fixture-contributor",
+            "money": {
+              "network": "fixture",
+              "asset": "demo-usdc",
+              "decimals": 6,
+              "amount": "1000000"
+            },
+            "accountId": "fixture-treasury",
+            "transactionId": "fixture:tx:f1a1f0e0-ff0d-4421-ae94-373ca279e400:payout",
+            "fees": [
+              {
+                "kind": "gas",
+                "status": "known",
+                "money": {
+                  "network": "fixture",
+                  "asset": "near",
+                  "decimals": 24,
+                  "amount": "0"
+                },
+                "simulated": true
+              }
+            ]
+          },
+          "cost": {
+            "status": "actual",
+            "actualCostNanoUsd": "0",
+            "simulated": true
+          }
+        }
+      },
+      {
+        "schemaVersion": 1,
+        "id": "obligation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:0",
+        "orderId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57",
+        "settlementId": "fixture:settlement:offer:2a8f0e68-1b76-4db0-8500-587fae7f9a57:offer",
+        "recipient": "fixture-contributor",
+        "shareBps": 2000,
+        "money": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "1000000"
+        },
+        "frozenPolicyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+        "completedAmount": "1000000",
+        "status": "paid",
+        "payoutActionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:payout",
+        "payoutResult": {
+          "schemaVersion": 1,
+          "status": "confirmed",
+          "mode": "fixture",
+          "simulated": true,
+          "provider": "fixture-custody",
+          "operation": {
+            "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:payout",
+            "fingerprint": "65ad7ce2e90e7d46d1475857a1f4e0ed4001da326213fb6d866e7c168ce10b60",
+            "provider": "fixture-custody"
+          },
+          "evidence": [],
+          "providerRequestId": "fixture:M04:2a8f0e68-1b76-4db0-8500-587fae7f9a57:payout",
+          "receipt": {
+            "schemaVersion": 1,
+            "provider": "fixture-custody",
+            "source": "fixture-custody",
+            "reference": "fixture:M04:2a8f0e68-1b76-4db0-8500-587fae7f9a57:payout",
+            "observedAt": "2026-11-13T06:49:55.140Z",
+            "mode": "fixture",
+            "simulated": true,
+            "status": "confirmed",
+            "network": "fixture",
+            "recipient": "fixture-contributor",
+            "money": {
+              "network": "fixture",
+              "asset": "demo-usdc",
+              "decimals": 6,
+              "amount": "1000000"
+            },
+            "accountId": "fixture-treasury",
+            "transactionId": "fixture:tx:2a8f0e68-1b76-4db0-8500-587fae7f9a57:payout",
+            "fees": [
+              {
+                "kind": "gas",
+                "status": "known",
+                "money": {
+                  "network": "fixture",
+                  "asset": "near",
+                  "decimals": 24,
+                  "amount": "0"
+                },
+                "simulated": true
+              }
+            ]
+          },
+          "cost": {
+            "status": "actual",
+            "actualCostNanoUsd": "0",
+            "simulated": true
+          }
+        }
+      },
+      {
+        "schemaVersion": 1,
+        "id": "obligation:eef898fc-9966-494f-8afd-d77f3a2eda71:0",
+        "orderId": "eef898fc-9966-494f-8afd-d77f3a2eda71",
+        "settlementId": "fixture:settlement:offer:eef898fc-9966-494f-8afd-d77f3a2eda71:offer",
+        "recipient": "fixture-contributor",
+        "shareBps": 2000,
+        "money": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "1000000"
+        },
+        "frozenPolicyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+        "completedAmount": "1000000",
+        "status": "paid",
+        "payoutActionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:payout",
+        "payoutResult": {
+          "schemaVersion": 1,
+          "status": "confirmed",
+          "mode": "fixture",
+          "simulated": true,
+          "provider": "fixture-custody",
+          "operation": {
+            "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:payout",
+            "fingerprint": "3537bf4072d2ee0e61f8daa90b50ae576ca1bc16b98180016fa00d787a0d34e8",
+            "provider": "fixture-custody"
+          },
+          "evidence": [],
+          "providerRequestId": "fixture:M04:eef898fc-9966-494f-8afd-d77f3a2eda71:payout",
+          "receipt": {
+            "schemaVersion": 1,
+            "provider": "fixture-custody",
+            "source": "fixture-custody",
+            "reference": "fixture:M04:eef898fc-9966-494f-8afd-d77f3a2eda71:payout",
+            "observedAt": "2026-11-13T06:49:55.915Z",
+            "mode": "fixture",
+            "simulated": true,
+            "status": "confirmed",
+            "network": "fixture",
+            "recipient": "fixture-contributor",
+            "money": {
+              "network": "fixture",
+              "asset": "demo-usdc",
+              "decimals": 6,
+              "amount": "1000000"
+            },
+            "accountId": "fixture-treasury",
+            "transactionId": "fixture:tx:eef898fc-9966-494f-8afd-d77f3a2eda71:payout",
+            "fees": [
+              {
+                "kind": "gas",
+                "status": "known",
+                "money": {
+                  "network": "fixture",
+                  "asset": "near",
+                  "decimals": 24,
+                  "amount": "0"
+                },
+                "simulated": true
+              }
+            ]
+          },
+          "cost": {
+            "status": "actual",
+            "actualCostNanoUsd": "0",
+            "simulated": true
+          }
+        }
+      }
+    ],
+    "reservations": [
+      {
+        "schemaVersion": 1,
+        "id": "reservation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+        "orderId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400",
+        "purpose": "funding",
+        "accountingDay": "2026-11-13",
+        "upperBoundNanoUsd": "100000000",
+        "status": "reconciled",
+        "resource": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "100000"
+        }
+      },
+      {
+        "schemaVersion": 1,
+        "id": "reservation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:inference",
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:inference",
+        "orderId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400",
+        "purpose": "inference",
+        "accountingDay": "2026-11-13",
+        "upperBoundNanoUsd": "100000000",
+        "status": "reconciled",
+        "actualCostNanoUsd": "10000000"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "reservation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+        "orderId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57",
+        "purpose": "funding",
+        "accountingDay": "2026-11-13",
+        "upperBoundNanoUsd": "10000000",
+        "status": "reconciled",
+        "resource": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "10000"
+        }
+      },
+      {
+        "schemaVersion": 1,
+        "id": "reservation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:inference",
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:inference",
+        "orderId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57",
+        "purpose": "inference",
+        "accountingDay": "2026-11-13",
+        "upperBoundNanoUsd": "100000000",
+        "status": "reconciled",
+        "actualCostNanoUsd": "10000000"
+      },
+      {
+        "schemaVersion": 1,
+        "id": "reservation:eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+        "orderId": "eef898fc-9966-494f-8afd-d77f3a2eda71",
+        "purpose": "funding",
+        "accountingDay": "2026-11-13",
+        "upperBoundNanoUsd": "10000000",
+        "status": "reconciled",
+        "resource": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "10000"
+        }
+      },
+      {
+        "schemaVersion": 1,
+        "id": "reservation:eef898fc-9966-494f-8afd-d77f3a2eda71:inference",
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:inference",
+        "orderId": "eef898fc-9966-494f-8afd-d77f3a2eda71",
+        "purpose": "inference",
+        "accountingDay": "2026-11-13",
+        "upperBoundNanoUsd": "100000000",
+        "status": "reconciled",
+        "actualCostNanoUsd": "10000000"
+      }
+    ],
+    "refunds": [],
+    "latePayments": [],
+    "credits": {
+      "availableNanoUsd": "90000000",
+      "lots": [
+        {
+          "id": "fixture:credit:f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+          "owner": "fixture-treasury",
+          "provider": "fixture-cloud-funding",
+          "availableNanoUsd": "90000000",
+          "provenance": "agent_funded",
+          "mode": "fixture"
+        },
+        {
+          "id": "fixture:credit:2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+          "owner": "fixture-treasury",
+          "provider": "fixture-cloud-funding",
+          "availableNanoUsd": "0",
+          "provenance": "agent_funded",
+          "mode": "fixture"
+        },
+        {
+          "id": "fixture:credit:eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+          "owner": "fixture-treasury",
+          "provider": "fixture-cloud-funding",
+          "availableNanoUsd": "0",
+          "provenance": "agent_funded",
+          "mode": "fixture"
+        }
+      ]
+    },
+    "dailyCosts": {
+      "2026-11-13": "30000000"
+    },
+    "consumedPermits": [
+      {
+        "schemaVersion": 1,
+        "authorizationId": null,
+        "id": "permit:0148ad2d-b888-420a-94c3-4cc3a07d8e52",
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+        "actionFingerprint": "436677612e06df2120f585cc5b585ef7fc371444862a77fb1cff00a6fa78ad7b",
+        "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+        "policyEpoch": 1,
+        "financialVersion": 4,
+        "orderVersion": 6,
+        "recipient": "fixture-cloud",
+        "maximumMoney": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "100000"
+        },
+        "maxCostNanoUsd": "100000000",
+        "reservationId": "reservation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+        "issuedAt": "2026-11-13T06:49:54.366Z",
+        "expiresAt": "2026-11-13T06:50:04.366Z",
+        "mode": "fixture",
+        "signature": "8c423e10035e1d5d10af3e2bd4b6bd797a536d610482803c75031b23c9e30324",
+        "permit": {
+          "schemaVersion": 1,
+          "authorizationId": null,
+          "id": "permit:0148ad2d-b888-420a-94c3-4cc3a07d8e52",
+          "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+          "actionFingerprint": "436677612e06df2120f585cc5b585ef7fc371444862a77fb1cff00a6fa78ad7b",
+          "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+          "policyEpoch": 1,
+          "financialVersion": 2,
+          "orderVersion": 6,
+          "recipient": "fixture-cloud",
+          "maximumMoney": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "100000"
+          },
+          "maxCostNanoUsd": "100000000",
+          "reservationId": "reservation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+          "issuedAt": "2026-11-13T06:49:54.366Z",
+          "expiresAt": "2026-11-13T06:50:04.366Z",
+          "mode": "fixture",
+          "signature": "8c423e10035e1d5d10af3e2bd4b6bd797a536d610482803c75031b23c9e30324"
+        },
+        "authorizedFinancialVersion": 2,
+        "previousFinancialVersion": 3,
+        "consumedAt": "2026-11-13T06:49:54.388Z"
+      },
+      {
+        "schemaVersion": 1,
+        "authorizationId": null,
+        "id": "permit:d02f162e-af3f-4e1b-9b29-c253c3d88e9a",
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:inference",
+        "actionFingerprint": "9404964a4c41d6c2f1e242c8a1eff2debe8e92511893385d4fbbd8bfaea4a4e9",
+        "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+        "policyEpoch": 1,
+        "financialVersion": 7,
+        "orderVersion": 10,
+        "recipient": null,
+        "maximumMoney": null,
+        "maxCostNanoUsd": "100000000",
+        "reservationId": "reservation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:inference",
+        "issuedAt": "2026-11-13T06:49:54.455Z",
+        "expiresAt": "2026-11-13T06:50:04.455Z",
+        "mode": "fixture",
+        "signature": "5d3ab96745daddc51f8b1bfa7439b1f562eb7f6b8ddcdf1cd4cf691cff5574d7",
+        "permit": {
+          "schemaVersion": 1,
+          "authorizationId": null,
+          "id": "permit:d02f162e-af3f-4e1b-9b29-c253c3d88e9a",
+          "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:inference",
+          "actionFingerprint": "9404964a4c41d6c2f1e242c8a1eff2debe8e92511893385d4fbbd8bfaea4a4e9",
+          "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+          "policyEpoch": 1,
+          "financialVersion": 5,
+          "orderVersion": 10,
+          "recipient": null,
+          "maximumMoney": null,
+          "maxCostNanoUsd": "100000000",
+          "reservationId": "reservation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:inference",
+          "issuedAt": "2026-11-13T06:49:54.455Z",
+          "expiresAt": "2026-11-13T06:50:04.455Z",
+          "mode": "fixture",
+          "signature": "5d3ab96745daddc51f8b1bfa7439b1f562eb7f6b8ddcdf1cd4cf691cff5574d7"
+        },
+        "authorizedFinancialVersion": 5,
+        "previousFinancialVersion": 6,
+        "consumedAt": "2026-11-13T06:49:54.479Z"
+      },
+      {
+        "schemaVersion": 1,
+        "authorizationId": null,
+        "id": "permit:5f0871f1-e22a-4f6f-8c45-3b56c2c2742e",
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:payout",
+        "actionFingerprint": "b4565d853f4813e5e49adcb31330b7cb4555787801a60500f5817d3974eab999",
+        "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+        "policyEpoch": 1,
+        "financialVersion": 10,
+        "orderVersion": 15,
+        "recipient": "fixture-contributor",
+        "maximumMoney": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "1000000"
+        },
+        "maxCostNanoUsd": null,
+        "reservationId": null,
+        "issuedAt": "2026-11-13T06:49:54.568Z",
+        "expiresAt": "2026-11-13T06:50:04.568Z",
+        "mode": "fixture",
+        "signature": "e2e9ddd983e272f0189380073ee12886c825218d4456de0360b4c290f5d93242",
+        "permit": {
+          "schemaVersion": 1,
+          "authorizationId": null,
+          "id": "permit:5f0871f1-e22a-4f6f-8c45-3b56c2c2742e",
+          "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:payout",
+          "actionFingerprint": "b4565d853f4813e5e49adcb31330b7cb4555787801a60500f5817d3974eab999",
+          "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+          "policyEpoch": 1,
+          "financialVersion": 8,
+          "orderVersion": 15,
+          "recipient": "fixture-contributor",
+          "maximumMoney": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "1000000"
+          },
+          "maxCostNanoUsd": null,
+          "reservationId": null,
+          "issuedAt": "2026-11-13T06:49:54.568Z",
+          "expiresAt": "2026-11-13T06:50:04.568Z",
+          "mode": "fixture",
+          "signature": "e2e9ddd983e272f0189380073ee12886c825218d4456de0360b4c290f5d93242"
+        },
+        "authorizedFinancialVersion": 8,
+        "previousFinancialVersion": 9,
+        "consumedAt": "2026-11-13T06:49:54.608Z"
+      },
+      {
+        "schemaVersion": 1,
+        "authorizationId": null,
+        "id": "permit:e0863083-d747-413a-9fd2-655b3c2d1485",
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+        "actionFingerprint": "cd3839cf3254e2fcf40db9b0cbf08ee52b01efd32b06e55b91645e857c36fab4",
+        "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+        "policyEpoch": 1,
+        "financialVersion": 14,
+        "orderVersion": 6,
+        "recipient": "fixture-cloud",
+        "maximumMoney": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "10000"
+        },
+        "maxCostNanoUsd": "10000000",
+        "reservationId": "reservation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+        "issuedAt": "2026-11-13T06:49:54.770Z",
+        "expiresAt": "2026-11-13T06:50:04.770Z",
+        "mode": "fixture",
+        "signature": "903408b919b8254dfbc100374a4a98b5e7e32f2444bbf1f6981ecacb524f0d2e",
+        "permit": {
+          "schemaVersion": 1,
+          "authorizationId": null,
+          "id": "permit:e0863083-d747-413a-9fd2-655b3c2d1485",
+          "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+          "actionFingerprint": "cd3839cf3254e2fcf40db9b0cbf08ee52b01efd32b06e55b91645e857c36fab4",
+          "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+          "policyEpoch": 1,
+          "financialVersion": 12,
+          "orderVersion": 6,
+          "recipient": "fixture-cloud",
+          "maximumMoney": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "10000"
+          },
+          "maxCostNanoUsd": "10000000",
+          "reservationId": "reservation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+          "issuedAt": "2026-11-13T06:49:54.770Z",
+          "expiresAt": "2026-11-13T06:50:04.770Z",
+          "mode": "fixture",
+          "signature": "903408b919b8254dfbc100374a4a98b5e7e32f2444bbf1f6981ecacb524f0d2e"
+        },
+        "authorizedFinancialVersion": 12,
+        "previousFinancialVersion": 13,
+        "consumedAt": "2026-11-13T06:49:54.808Z"
+      },
+      {
+        "schemaVersion": 1,
+        "authorizationId": null,
+        "id": "permit:d7acc2c1-65ce-4821-9aa5-925f94bb5f31",
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:inference",
+        "actionFingerprint": "12773091e33d29426e6fec56aed325c33afb3cf4593e0315f89da86ed617463a",
+        "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+        "policyEpoch": 1,
+        "financialVersion": 17,
+        "orderVersion": 10,
+        "recipient": null,
+        "maximumMoney": null,
+        "maxCostNanoUsd": "100000000",
+        "reservationId": "reservation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:inference",
+        "issuedAt": "2026-11-13T06:49:54.901Z",
+        "expiresAt": "2026-11-13T06:50:04.901Z",
+        "mode": "fixture",
+        "signature": "1b96df84576e8313f0c3ac1d3c892f6b19142c82296cddd1119b93e539fd39eb",
+        "permit": {
+          "schemaVersion": 1,
+          "authorizationId": null,
+          "id": "permit:d7acc2c1-65ce-4821-9aa5-925f94bb5f31",
+          "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:inference",
+          "actionFingerprint": "12773091e33d29426e6fec56aed325c33afb3cf4593e0315f89da86ed617463a",
+          "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+          "policyEpoch": 1,
+          "financialVersion": 15,
+          "orderVersion": 10,
+          "recipient": null,
+          "maximumMoney": null,
+          "maxCostNanoUsd": "100000000",
+          "reservationId": "reservation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:inference",
+          "issuedAt": "2026-11-13T06:49:54.901Z",
+          "expiresAt": "2026-11-13T06:50:04.901Z",
+          "mode": "fixture",
+          "signature": "1b96df84576e8313f0c3ac1d3c892f6b19142c82296cddd1119b93e539fd39eb"
+        },
+        "authorizedFinancialVersion": 15,
+        "previousFinancialVersion": 16,
+        "consumedAt": "2026-11-13T06:49:54.944Z"
+      },
+      {
+        "schemaVersion": 1,
+        "authorizationId": null,
+        "id": "permit:cfb76258-00d9-4bb2-87e2-fb9ffaa353b1",
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:payout",
+        "actionFingerprint": "65ad7ce2e90e7d46d1475857a1f4e0ed4001da326213fb6d866e7c168ce10b60",
+        "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+        "policyEpoch": 1,
+        "financialVersion": 20,
+        "orderVersion": 15,
+        "recipient": "fixture-contributor",
+        "maximumMoney": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "1000000"
+        },
+        "maxCostNanoUsd": null,
+        "reservationId": null,
+        "issuedAt": "2026-11-13T06:49:55.071Z",
+        "expiresAt": "2026-11-13T06:50:05.071Z",
+        "mode": "fixture",
+        "signature": "ecf679d1105443fe69b00c43d24d83598291e259440f75e0b4c58af291792a75",
+        "permit": {
+          "schemaVersion": 1,
+          "authorizationId": null,
+          "id": "permit:cfb76258-00d9-4bb2-87e2-fb9ffaa353b1",
+          "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:payout",
+          "actionFingerprint": "65ad7ce2e90e7d46d1475857a1f4e0ed4001da326213fb6d866e7c168ce10b60",
+          "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+          "policyEpoch": 1,
+          "financialVersion": 18,
+          "orderVersion": 15,
+          "recipient": "fixture-contributor",
+          "maximumMoney": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "1000000"
+          },
+          "maxCostNanoUsd": null,
+          "reservationId": null,
+          "issuedAt": "2026-11-13T06:49:55.071Z",
+          "expiresAt": "2026-11-13T06:50:05.071Z",
+          "mode": "fixture",
+          "signature": "ecf679d1105443fe69b00c43d24d83598291e259440f75e0b4c58af291792a75"
+        },
+        "authorizedFinancialVersion": 18,
+        "previousFinancialVersion": 19,
+        "consumedAt": "2026-11-13T06:49:55.127Z"
+      },
+      {
+        "schemaVersion": 1,
+        "authorizationId": null,
+        "id": "permit:7b79a03a-c8d1-4d11-afda-e87076184e20",
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+        "actionFingerprint": "2f0be8e69b0608b11f76cd7fb1a0dcdabbd39f8f4118fb41fc96f61127c36582",
+        "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+        "policyEpoch": 1,
+        "financialVersion": 24,
+        "orderVersion": 6,
+        "recipient": "fixture-cloud",
+        "maximumMoney": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "10000"
+        },
+        "maxCostNanoUsd": "10000000",
+        "reservationId": "reservation:eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+        "issuedAt": "2026-11-13T06:49:55.342Z",
+        "expiresAt": "2026-11-13T06:50:05.342Z",
+        "mode": "fixture",
+        "signature": "82afa1df21756617acd27e7c20bfcf6c141bb8016a57b063081dafd66bbf90fb",
+        "permit": {
+          "schemaVersion": 1,
+          "authorizationId": null,
+          "id": "permit:7b79a03a-c8d1-4d11-afda-e87076184e20",
+          "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+          "actionFingerprint": "2f0be8e69b0608b11f76cd7fb1a0dcdabbd39f8f4118fb41fc96f61127c36582",
+          "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+          "policyEpoch": 1,
+          "financialVersion": 22,
+          "orderVersion": 6,
+          "recipient": "fixture-cloud",
+          "maximumMoney": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "10000"
+          },
+          "maxCostNanoUsd": "10000000",
+          "reservationId": "reservation:eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+          "issuedAt": "2026-11-13T06:49:55.342Z",
+          "expiresAt": "2026-11-13T06:50:05.342Z",
+          "mode": "fixture",
+          "signature": "82afa1df21756617acd27e7c20bfcf6c141bb8016a57b063081dafd66bbf90fb"
+        },
+        "authorizedFinancialVersion": 22,
+        "previousFinancialVersion": 23,
+        "consumedAt": "2026-11-13T06:49:55.386Z"
+      },
+      {
+        "schemaVersion": 1,
+        "authorizationId": null,
+        "id": "permit:4a24b513-fe60-4bee-9546-1467c578090a",
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:inference",
+        "actionFingerprint": "dc6600bed96a9c9887f546ab23a32dd9707632899755da1d8c9fe731506eac63",
+        "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+        "policyEpoch": 1,
+        "financialVersion": 27,
+        "orderVersion": 10,
+        "recipient": null,
+        "maximumMoney": null,
+        "maxCostNanoUsd": "100000000",
+        "reservationId": "reservation:eef898fc-9966-494f-8afd-d77f3a2eda71:inference",
+        "issuedAt": "2026-11-13T06:49:55.506Z",
+        "expiresAt": "2026-11-13T06:50:05.506Z",
+        "mode": "fixture",
+        "signature": "2959fce5eaaa9fa4d834736e823532478e5795cdb6eb5dfd7946e7042780068c",
+        "permit": {
+          "schemaVersion": 1,
+          "authorizationId": null,
+          "id": "permit:4a24b513-fe60-4bee-9546-1467c578090a",
+          "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:inference",
+          "actionFingerprint": "dc6600bed96a9c9887f546ab23a32dd9707632899755da1d8c9fe731506eac63",
+          "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+          "policyEpoch": 1,
+          "financialVersion": 25,
+          "orderVersion": 10,
+          "recipient": null,
+          "maximumMoney": null,
+          "maxCostNanoUsd": "100000000",
+          "reservationId": "reservation:eef898fc-9966-494f-8afd-d77f3a2eda71:inference",
+          "issuedAt": "2026-11-13T06:49:55.506Z",
+          "expiresAt": "2026-11-13T06:50:05.506Z",
+          "mode": "fixture",
+          "signature": "2959fce5eaaa9fa4d834736e823532478e5795cdb6eb5dfd7946e7042780068c"
+        },
+        "authorizedFinancialVersion": 25,
+        "previousFinancialVersion": 26,
+        "consumedAt": "2026-11-13T06:49:55.565Z"
+      },
+      {
+        "schemaVersion": 1,
+        "authorizationId": null,
+        "id": "permit:2605ca53-92f6-42d6-b41b-480f00dbf1a2",
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:payout",
+        "actionFingerprint": "3537bf4072d2ee0e61f8daa90b50ae576ca1bc16b98180016fa00d787a0d34e8",
+        "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+        "policyEpoch": 1,
+        "financialVersion": 30,
+        "orderVersion": 15,
+        "recipient": "fixture-contributor",
+        "maximumMoney": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "1000000"
+        },
+        "maxCostNanoUsd": null,
+        "reservationId": null,
+        "issuedAt": "2026-11-13T06:49:55.827Z",
+        "expiresAt": "2026-11-13T06:50:05.827Z",
+        "mode": "fixture",
+        "signature": "7faf2951c1b34876347cd6bcc2c3af7dac623e658bed9d5e66634b0890a9d69d",
+        "permit": {
+          "schemaVersion": 1,
+          "authorizationId": null,
+          "id": "permit:2605ca53-92f6-42d6-b41b-480f00dbf1a2",
+          "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:payout",
+          "actionFingerprint": "3537bf4072d2ee0e61f8daa90b50ae576ca1bc16b98180016fa00d787a0d34e8",
+          "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+          "policyEpoch": 1,
+          "financialVersion": 28,
+          "orderVersion": 15,
+          "recipient": "fixture-contributor",
+          "maximumMoney": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "1000000"
+          },
+          "maxCostNanoUsd": null,
+          "reservationId": null,
+          "issuedAt": "2026-11-13T06:49:55.827Z",
+          "expiresAt": "2026-11-13T06:50:05.827Z",
+          "mode": "fixture",
+          "signature": "7faf2951c1b34876347cd6bcc2c3af7dac623e658bed9d5e66634b0890a9d69d"
+        },
+        "authorizedFinancialVersion": 28,
+        "previousFinancialVersion": 29,
+        "consumedAt": "2026-11-13T06:49:55.902Z"
+      }
+    ],
+    "approvedPlans": [
+      {
+        "authorizationId": null,
+        "actionId": "fixture:bootstrap",
+        "fingerprint": "2e7b18c9f79bf9156e30fa0f4e61ad7d26b74f922250910ac1e8b5e269bb2876",
+        "actionFingerprint": "2e7b18c9f79bf9156e30fa0f4e61ad7d26b74f922250910ac1e8b5e269bb2876",
+        "plan": {
+          "kind": "bootstrap",
+          "receiptId": "fixture:bootstrap",
+          "money": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "100000000"
+          },
+          "provenance": "fixture_initial_balance",
+          "mode": "fixture"
+        },
+        "policyEpoch": 1,
+        "inputVersion": 0,
+        "appliedVersion": 1
+      },
+      {
+        "authorizationId": null,
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:allocate",
+        "fingerprint": "75144336d88282ce6d8986434d0e561bd605f8a4b19397b207ad12e5d141266c",
+        "actionFingerprint": "75144336d88282ce6d8986434d0e561bd605f8a4b19397b207ad12e5d141266c",
+        "plan": {
+          "kind": "allocation",
+          "id": "allocation:f1a1f0e0-ff0d-4421-ae94-373ca279e400",
+          "settlementId": "fixture:settlement:offer:f1a1f0e0-ff0d-4421-ae94-373ca279e400:offer",
+          "orderId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400",
+          "revenue": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "5000000"
+          },
+          "treasury": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "4000000"
+          },
+          "contributorReserve": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "1000000"
+          },
+          "obligations": [
+            {
+              "schemaVersion": 1,
+              "id": "obligation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:0",
+              "orderId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400",
+              "settlementId": "fixture:settlement:offer:f1a1f0e0-ff0d-4421-ae94-373ca279e400:offer",
+              "recipient": "fixture-contributor",
+              "shareBps": 2000,
+              "money": {
+                "network": "fixture",
+                "asset": "demo-usdc",
+                "decimals": 6,
+                "amount": "1000000"
+              },
+              "frozenPolicyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+              "completedAmount": "0",
+              "status": "due"
+            }
+          ],
+          "refundExposure": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "5000000"
+          },
+          "refundReserve": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "5000000"
+          },
+          "rounding": "contributor_floor_treasury_remainder"
+        },
+        "policyEpoch": 1,
+        "inputVersion": 1,
+        "appliedVersion": 2
+      },
+      {
+        "authorizationId": null,
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+        "fingerprint": "436677612e06df2120f585cc5b585ef7fc371444862a77fb1cff00a6fa78ad7b",
+        "actionFingerprint": "436677612e06df2120f585cc5b585ef7fc371444862a77fb1cff00a6fa78ad7b",
+        "plan": {
+          "kind": "reservation",
+          "reservation": {
+            "schemaVersion": 1,
+            "id": "reservation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+            "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+            "orderId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400",
+            "purpose": "funding",
+            "accountingDay": "2026-11-13",
+            "upperBoundNanoUsd": "100000000",
+            "status": "reserved",
+            "resource": {
+              "network": "fixture",
+              "asset": "demo-usdc",
+              "decimals": 6,
+              "amount": "100000"
+            }
+          }
+        },
+        "policyEpoch": 1,
+        "inputVersion": 2,
+        "appliedVersion": 3
+      },
+      {
+        "authorizationId": null,
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding_record",
+        "fingerprint": "a45a2cde300e3b6ccf7796cfab9e9791349e3fea85927c77e1d8c82bc7150535",
+        "actionFingerprint": "a45a2cde300e3b6ccf7796cfab9e9791349e3fea85927c77e1d8c82bc7150535",
+        "plan": {
+          "kind": "funding",
+          "receiptId": "fixture:M06:f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+          "reservationId": "reservation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+          "cashSpent": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "100000"
+          },
+          "credit": {
+            "id": "fixture:credit:f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+            "owner": "fixture-treasury",
+            "provider": "fixture-cloud-funding",
+            "availableNanoUsd": "100000000",
+            "provenance": "agent_funded",
+            "mode": "fixture"
+          },
+          "reservationStatus": "reconciled"
+        },
+        "policyEpoch": 1,
+        "inputVersion": 4,
+        "appliedVersion": 5
+      },
+      {
+        "authorizationId": null,
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:inference",
+        "fingerprint": "9404964a4c41d6c2f1e242c8a1eff2debe8e92511893385d4fbbd8bfaea4a4e9",
+        "actionFingerprint": "9404964a4c41d6c2f1e242c8a1eff2debe8e92511893385d4fbbd8bfaea4a4e9",
+        "plan": {
+          "kind": "reservation",
+          "reservation": {
+            "schemaVersion": 1,
+            "id": "reservation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:inference",
+            "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:inference",
+            "orderId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400",
+            "purpose": "inference",
+            "accountingDay": "2026-11-13",
+            "upperBoundNanoUsd": "100000000",
+            "status": "reserved"
+          }
+        },
+        "policyEpoch": 1,
+        "inputVersion": 5,
+        "appliedVersion": 6
+      },
+      {
+        "authorizationId": null,
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:consumption",
+        "fingerprint": "a92055e04b9b1cc6a94e30da7e09988713c02264a108edc2410967931c1458f1",
+        "actionFingerprint": "a92055e04b9b1cc6a94e30da7e09988713c02264a108edc2410967931c1458f1",
+        "plan": {
+          "kind": "consumption",
+          "receiptId": "fixture:M07:f1a1f0e0-ff0d-4421-ae94-373ca279e400:inference",
+          "reservationId": "reservation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:inference",
+          "actualCostNanoUsd": "10000000",
+          "creditId": "fixture:credit:f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+          "remainingCreditNanoUsd": "90000000",
+          "accountingDay": "2026-11-13",
+          "reservationStatus": "reconciled",
+          "boundExceeded": false,
+          "remedyRequired": false
+        },
+        "policyEpoch": 1,
+        "inputVersion": 7,
+        "appliedVersion": 8
+      },
+      {
+        "authorizationId": null,
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:payout",
+        "fingerprint": "b4565d853f4813e5e49adcb31330b7cb4555787801a60500f5817d3974eab999",
+        "actionFingerprint": "b4565d853f4813e5e49adcb31330b7cb4555787801a60500f5817d3974eab999",
+        "plan": {
+          "kind": "payout",
+          "obligationId": "obligation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:0",
+          "recipient": "fixture-contributor",
+          "money": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "1000000"
+          },
+          "completedAmount": "1000000",
+          "status": "pending"
+        },
+        "policyEpoch": 1,
+        "inputVersion": 8,
+        "appliedVersion": 9
+      },
+      {
+        "authorizationId": null,
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:allocate",
+        "fingerprint": "99a5fd31bc3c9bfedef48b684294e3bedc93dd6d40b0f063c04624daf3419c06",
+        "actionFingerprint": "99a5fd31bc3c9bfedef48b684294e3bedc93dd6d40b0f063c04624daf3419c06",
+        "plan": {
+          "kind": "allocation",
+          "id": "allocation:2a8f0e68-1b76-4db0-8500-587fae7f9a57",
+          "settlementId": "fixture:settlement:offer:2a8f0e68-1b76-4db0-8500-587fae7f9a57:offer",
+          "orderId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57",
+          "revenue": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "5000000"
+          },
+          "treasury": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "4000000"
+          },
+          "contributorReserve": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "1000000"
+          },
+          "obligations": [
+            {
+              "schemaVersion": 1,
+              "id": "obligation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:0",
+              "orderId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57",
+              "settlementId": "fixture:settlement:offer:2a8f0e68-1b76-4db0-8500-587fae7f9a57:offer",
+              "recipient": "fixture-contributor",
+              "shareBps": 2000,
+              "money": {
+                "network": "fixture",
+                "asset": "demo-usdc",
+                "decimals": 6,
+                "amount": "1000000"
+              },
+              "frozenPolicyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+              "completedAmount": "0",
+              "status": "due"
+            }
+          ],
+          "refundExposure": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "5000000"
+          },
+          "refundReserve": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "5000000"
+          },
+          "rounding": "contributor_floor_treasury_remainder"
+        },
+        "policyEpoch": 1,
+        "inputVersion": 11,
+        "appliedVersion": 12
+      },
+      {
+        "authorizationId": null,
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+        "fingerprint": "cd3839cf3254e2fcf40db9b0cbf08ee52b01efd32b06e55b91645e857c36fab4",
+        "actionFingerprint": "cd3839cf3254e2fcf40db9b0cbf08ee52b01efd32b06e55b91645e857c36fab4",
+        "plan": {
+          "kind": "reservation",
+          "reservation": {
+            "schemaVersion": 1,
+            "id": "reservation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+            "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+            "orderId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57",
+            "purpose": "funding",
+            "accountingDay": "2026-11-13",
+            "upperBoundNanoUsd": "10000000",
+            "status": "reserved",
+            "resource": {
+              "network": "fixture",
+              "asset": "demo-usdc",
+              "decimals": 6,
+              "amount": "10000"
+            }
+          }
+        },
+        "policyEpoch": 1,
+        "inputVersion": 12,
+        "appliedVersion": 13
+      },
+      {
+        "authorizationId": null,
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding_record",
+        "fingerprint": "b336af5caefb1299843078dce22f1b0f6a7ebb403c6b3ab58ec58a16735cc624",
+        "actionFingerprint": "b336af5caefb1299843078dce22f1b0f6a7ebb403c6b3ab58ec58a16735cc624",
+        "plan": {
+          "kind": "funding",
+          "receiptId": "fixture:M06:2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+          "reservationId": "reservation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+          "cashSpent": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "10000"
+          },
+          "credit": {
+            "id": "fixture:credit:2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+            "owner": "fixture-treasury",
+            "provider": "fixture-cloud-funding",
+            "availableNanoUsd": "10000000",
+            "provenance": "agent_funded",
+            "mode": "fixture"
+          },
+          "reservationStatus": "reconciled"
+        },
+        "policyEpoch": 1,
+        "inputVersion": 14,
+        "appliedVersion": 15
+      },
+      {
+        "authorizationId": null,
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:inference",
+        "fingerprint": "12773091e33d29426e6fec56aed325c33afb3cf4593e0315f89da86ed617463a",
+        "actionFingerprint": "12773091e33d29426e6fec56aed325c33afb3cf4593e0315f89da86ed617463a",
+        "plan": {
+          "kind": "reservation",
+          "reservation": {
+            "schemaVersion": 1,
+            "id": "reservation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:inference",
+            "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:inference",
+            "orderId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57",
+            "purpose": "inference",
+            "accountingDay": "2026-11-13",
+            "upperBoundNanoUsd": "100000000",
+            "status": "reserved"
+          }
+        },
+        "policyEpoch": 1,
+        "inputVersion": 15,
+        "appliedVersion": 16
+      },
+      {
+        "authorizationId": null,
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:consumption",
+        "fingerprint": "66a7664a680382bef5c8ac39d84e61819ec879be833b2762c32e9c16b3e43c2f",
+        "actionFingerprint": "66a7664a680382bef5c8ac39d84e61819ec879be833b2762c32e9c16b3e43c2f",
+        "plan": {
+          "kind": "consumption",
+          "receiptId": "fixture:M07:2a8f0e68-1b76-4db0-8500-587fae7f9a57:inference",
+          "reservationId": "reservation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:inference",
+          "actualCostNanoUsd": "10000000",
+          "creditId": "fixture:credit:2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+          "remainingCreditNanoUsd": "0",
+          "accountingDay": "2026-11-13",
+          "reservationStatus": "reconciled",
+          "boundExceeded": false,
+          "remedyRequired": false
+        },
+        "policyEpoch": 1,
+        "inputVersion": 17,
+        "appliedVersion": 18
+      },
+      {
+        "authorizationId": null,
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:payout",
+        "fingerprint": "65ad7ce2e90e7d46d1475857a1f4e0ed4001da326213fb6d866e7c168ce10b60",
+        "actionFingerprint": "65ad7ce2e90e7d46d1475857a1f4e0ed4001da326213fb6d866e7c168ce10b60",
+        "plan": {
+          "kind": "payout",
+          "obligationId": "obligation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:0",
+          "recipient": "fixture-contributor",
+          "money": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "1000000"
+          },
+          "completedAmount": "1000000",
+          "status": "pending"
+        },
+        "policyEpoch": 1,
+        "inputVersion": 18,
+        "appliedVersion": 19
+      },
+      {
+        "authorizationId": null,
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:allocate",
+        "fingerprint": "0d64aba8464120445023c3fbf15efed8971b40b1a699f192c27de5c2cc94d76d",
+        "actionFingerprint": "0d64aba8464120445023c3fbf15efed8971b40b1a699f192c27de5c2cc94d76d",
+        "plan": {
+          "kind": "allocation",
+          "id": "allocation:eef898fc-9966-494f-8afd-d77f3a2eda71",
+          "settlementId": "fixture:settlement:offer:eef898fc-9966-494f-8afd-d77f3a2eda71:offer",
+          "orderId": "eef898fc-9966-494f-8afd-d77f3a2eda71",
+          "revenue": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "5000000"
+          },
+          "treasury": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "4000000"
+          },
+          "contributorReserve": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "1000000"
+          },
+          "obligations": [
+            {
+              "schemaVersion": 1,
+              "id": "obligation:eef898fc-9966-494f-8afd-d77f3a2eda71:0",
+              "orderId": "eef898fc-9966-494f-8afd-d77f3a2eda71",
+              "settlementId": "fixture:settlement:offer:eef898fc-9966-494f-8afd-d77f3a2eda71:offer",
+              "recipient": "fixture-contributor",
+              "shareBps": 2000,
+              "money": {
+                "network": "fixture",
+                "asset": "demo-usdc",
+                "decimals": 6,
+                "amount": "1000000"
+              },
+              "frozenPolicyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+              "completedAmount": "0",
+              "status": "due"
+            }
+          ],
+          "refundExposure": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "5000000"
+          },
+          "refundReserve": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "5000000"
+          },
+          "rounding": "contributor_floor_treasury_remainder"
+        },
+        "policyEpoch": 1,
+        "inputVersion": 21,
+        "appliedVersion": 22
+      },
+      {
+        "authorizationId": null,
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+        "fingerprint": "2f0be8e69b0608b11f76cd7fb1a0dcdabbd39f8f4118fb41fc96f61127c36582",
+        "actionFingerprint": "2f0be8e69b0608b11f76cd7fb1a0dcdabbd39f8f4118fb41fc96f61127c36582",
+        "plan": {
+          "kind": "reservation",
+          "reservation": {
+            "schemaVersion": 1,
+            "id": "reservation:eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+            "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+            "orderId": "eef898fc-9966-494f-8afd-d77f3a2eda71",
+            "purpose": "funding",
+            "accountingDay": "2026-11-13",
+            "upperBoundNanoUsd": "10000000",
+            "status": "reserved",
+            "resource": {
+              "network": "fixture",
+              "asset": "demo-usdc",
+              "decimals": 6,
+              "amount": "10000"
+            }
+          }
+        },
+        "policyEpoch": 1,
+        "inputVersion": 22,
+        "appliedVersion": 23
+      },
+      {
+        "authorizationId": null,
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:funding_record",
+        "fingerprint": "95b47e389df8ad72b3b3c767492318dc61e112029a2419376b8243e6de037cfc",
+        "actionFingerprint": "95b47e389df8ad72b3b3c767492318dc61e112029a2419376b8243e6de037cfc",
+        "plan": {
+          "kind": "funding",
+          "receiptId": "fixture:M06:eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+          "reservationId": "reservation:eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+          "cashSpent": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "10000"
+          },
+          "credit": {
+            "id": "fixture:credit:eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+            "owner": "fixture-treasury",
+            "provider": "fixture-cloud-funding",
+            "availableNanoUsd": "10000000",
+            "provenance": "agent_funded",
+            "mode": "fixture"
+          },
+          "reservationStatus": "reconciled"
+        },
+        "policyEpoch": 1,
+        "inputVersion": 24,
+        "appliedVersion": 25
+      },
+      {
+        "authorizationId": null,
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:inference",
+        "fingerprint": "dc6600bed96a9c9887f546ab23a32dd9707632899755da1d8c9fe731506eac63",
+        "actionFingerprint": "dc6600bed96a9c9887f546ab23a32dd9707632899755da1d8c9fe731506eac63",
+        "plan": {
+          "kind": "reservation",
+          "reservation": {
+            "schemaVersion": 1,
+            "id": "reservation:eef898fc-9966-494f-8afd-d77f3a2eda71:inference",
+            "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:inference",
+            "orderId": "eef898fc-9966-494f-8afd-d77f3a2eda71",
+            "purpose": "inference",
+            "accountingDay": "2026-11-13",
+            "upperBoundNanoUsd": "100000000",
+            "status": "reserved"
+          }
+        },
+        "policyEpoch": 1,
+        "inputVersion": 25,
+        "appliedVersion": 26
+      },
+      {
+        "authorizationId": null,
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:consumption",
+        "fingerprint": "564b3945f48f4a854d9cda97b104436586f1cb42f14835373dc47ce3e5f24fa8",
+        "actionFingerprint": "564b3945f48f4a854d9cda97b104436586f1cb42f14835373dc47ce3e5f24fa8",
+        "plan": {
+          "kind": "consumption",
+          "receiptId": "fixture:M07:eef898fc-9966-494f-8afd-d77f3a2eda71:inference",
+          "reservationId": "reservation:eef898fc-9966-494f-8afd-d77f3a2eda71:inference",
+          "actualCostNanoUsd": "10000000",
+          "creditId": "fixture:credit:eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+          "remainingCreditNanoUsd": "0",
+          "accountingDay": "2026-11-13",
+          "reservationStatus": "reconciled",
+          "boundExceeded": false,
+          "remedyRequired": false
+        },
+        "policyEpoch": 1,
+        "inputVersion": 27,
+        "appliedVersion": 28
+      },
+      {
+        "authorizationId": null,
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:payout",
+        "fingerprint": "3537bf4072d2ee0e61f8daa90b50ae576ca1bc16b98180016fa00d787a0d34e8",
+        "actionFingerprint": "3537bf4072d2ee0e61f8daa90b50ae576ca1bc16b98180016fa00d787a0d34e8",
+        "plan": {
+          "kind": "payout",
+          "obligationId": "obligation:eef898fc-9966-494f-8afd-d77f3a2eda71:0",
+          "recipient": "fixture-contributor",
+          "money": {
+            "network": "fixture",
+            "asset": "demo-usdc",
+            "decimals": 6,
+            "amount": "1000000"
+          },
+          "completedAmount": "1000000",
+          "status": "pending"
+        },
+        "policyEpoch": 1,
+        "inputVersion": 28,
+        "appliedVersion": 29
+      }
+    ],
+    "receipts": [
+      {
+        "id": "receipt:fixture:bootstrap",
+        "fingerprint": "8540455e067f01910b2b897bca750a696c8dcd9e90875b93d5e500fcb866a90a",
+        "actionId": "fixture:bootstrap"
+      },
+      {
+        "id": "settlement:fixture:settlement:offer:f1a1f0e0-ff0d-4421-ae94-373ca279e400:offer",
+        "fingerprint": "da8a28c6b2bd7af2f655e2a651cdb50f831312d3dee3a062ebf5d4b6e11d77a8",
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:allocate"
+      },
+      {
+        "id": "receipt:fixture:M06:f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+        "fingerprint": "b33aaeb6dcd676279fb7add26f3e0e48b034a3ac01b2ed2633291c7402696c06",
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding_record"
+      },
+      {
+        "id": "receipt:fixture:M07:f1a1f0e0-ff0d-4421-ae94-373ca279e400:inference",
+        "fingerprint": "89405e0e0315e118ae35eccd8f93517b08003912089a18ae891fa84a9a39478e",
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:consumption"
+      },
+      {
+        "id": "payout-confirmed:f1a1f0e0-ff0d-4421-ae94-373ca279e400:payout"
+      },
+      {
+        "id": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:payout:db4e1f6c22ee5a4750489386de8e9204f4d0355f9e3cb0309207b32b837b2b8c"
+      },
+      {
+        "id": "settlement:fixture:settlement:offer:2a8f0e68-1b76-4db0-8500-587fae7f9a57:offer",
+        "fingerprint": "11d8f91e96e394591f75a539060a5c3a0cb858df22cf53798751bf3422863d82",
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:allocate"
+      },
+      {
+        "id": "receipt:fixture:M06:2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+        "fingerprint": "9c36a10ad1840ffcd6a2df27b0f5f11066cd2f3da01938f597073b48d6328d1a",
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding_record"
+      },
+      {
+        "id": "receipt:fixture:M07:2a8f0e68-1b76-4db0-8500-587fae7f9a57:inference",
+        "fingerprint": "cc3c5a9aa3846b34d90a88c65f268c16d2643a45984ce90175dcbb28bd48ef5b",
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:consumption"
+      },
+      {
+        "id": "payout-confirmed:2a8f0e68-1b76-4db0-8500-587fae7f9a57:payout"
+      },
+      {
+        "id": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:payout:84d0deea2d33bfda5b073f8cee4821ed957fd5e0973bd6ab38bc9455b6d5f4f3"
+      },
+      {
+        "id": "settlement:fixture:settlement:offer:eef898fc-9966-494f-8afd-d77f3a2eda71:offer",
+        "fingerprint": "4ec412a807bb66de9dedf5cf1b5aa37ed6f51fbfc2070d638c31282e7712d7ea",
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:allocate"
+      },
+      {
+        "id": "receipt:fixture:M06:eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+        "fingerprint": "2851e354645659f60f8add7b0075302260da67cf178c162d153d823e4560d71f",
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:funding_record"
+      },
+      {
+        "id": "receipt:fixture:M07:eef898fc-9966-494f-8afd-d77f3a2eda71:inference",
+        "fingerprint": "0328dba77305d05910a926dff006db15ed01aa914511b901cdd5c04137ca6b51",
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:consumption"
+      },
+      {
+        "id": "payout-confirmed:eef898fc-9966-494f-8afd-d77f3a2eda71:payout"
+      },
+      {
+        "id": "eef898fc-9966-494f-8afd-d77f3a2eda71:payout:5c41d1087a00dc77a11144f6fa45a7d5f4305cecdce25c3bf1b355e4222b78bb"
+      }
+    ],
+    "providerObservations": [],
+    "balanceReconciliations": [],
+    "reconciliationHistory": [],
+    "openingRecords": [],
+    "economicMovements": []
+  },
+  "ledger": {
+    "schemaVersion": 1,
+    "entries": [
+      {
+        "id": "fixture:bootstrap:fixture.bootstrap:0",
+        "sequence": 1,
+        "type": "fixture.bootstrap",
+        "category": "seed",
+        "at": "2026-11-13T06:49:54.296Z",
+        "status": "confirmed",
+        "mode": "fixture",
+        "money": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "100000000"
+        },
+        "actionId": "fixture:bootstrap"
+      },
+      {
+        "id": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:allocate:obligation.due:0",
+        "sequence": 2,
+        "type": "obligation.due",
+        "category": "obligation",
+        "at": "2026-11-13T06:49:54.344Z",
+        "status": "due",
+        "mode": "fixture",
+        "money": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "1000000"
+        },
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:allocate",
+        "obligationId": "obligation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:0"
+      },
+      {
+        "id": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:allocate:sale.confirmed:0",
+        "sequence": 3,
+        "type": "sale.confirmed",
+        "category": "sale",
+        "at": "2026-11-13T06:49:54.344Z",
+        "status": "confirmed",
+        "mode": "fixture",
+        "money": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "5000000"
+        },
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:allocate"
+      },
+      {
+        "id": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding:reservation.recorded:0",
+        "sequence": 4,
+        "type": "reservation.recorded",
+        "category": "reservation",
+        "at": "2026-11-13T06:49:54.373Z",
+        "status": "reserved",
+        "mode": "fixture",
+        "upperBoundNanoUsd": "100000000",
+        "reservationId": "reservation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+        "accountingDay": "2026-11-13"
+      },
+      {
+        "id": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding_record:funding.confirmed:0",
+        "sequence": 5,
+        "type": "funding.confirmed",
+        "category": "funding",
+        "at": "2026-11-13T06:49:54.416Z",
+        "status": "confirmed",
+        "mode": "fixture",
+        "money": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "100000"
+        },
+        "reservationId": "reservation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding",
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:funding_record",
+        "expenseCategory": "cash_to_credit",
+        "creditNanoUsd": "100000000"
+      },
+      {
+        "id": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:inference:reservation.recorded:0",
+        "sequence": 6,
+        "type": "reservation.recorded",
+        "category": "reservation",
+        "at": "2026-11-13T06:49:54.463Z",
+        "status": "reserved",
+        "mode": "fixture",
+        "upperBoundNanoUsd": "100000000",
+        "reservationId": "reservation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:inference",
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:inference",
+        "accountingDay": "2026-11-13"
+      },
+      {
+        "id": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:consumption:inference.consumed:0",
+        "sequence": 7,
+        "type": "inference.consumed",
+        "category": "consumption",
+        "at": "2026-11-13T06:49:54.511Z",
+        "status": "confirmed",
+        "mode": "fixture",
+        "costNanoUsd": "10000000",
+        "reservationId": "reservation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:inference",
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:consumption",
+        "expenseCategory": "inference",
+        "accountingDay": "2026-11-13"
+      },
+      {
+        "id": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:payout:payout.confirmed:0",
+        "sequence": 8,
+        "type": "payout.confirmed",
+        "category": "payout",
+        "at": "2026-11-13T06:49:54.630Z",
+        "status": "confirmed",
+        "mode": "fixture",
+        "money": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "1000000"
+        },
+        "actionId": "f1a1f0e0-ff0d-4421-ae94-373ca279e400:payout",
+        "obligationId": "obligation:f1a1f0e0-ff0d-4421-ae94-373ca279e400:0"
+      },
+      {
+        "id": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:allocate:obligation.due:0",
+        "sequence": 9,
+        "type": "obligation.due",
+        "category": "obligation",
+        "at": "2026-11-13T06:49:54.737Z",
+        "status": "due",
+        "mode": "fixture",
+        "money": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "1000000"
+        },
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:allocate",
+        "obligationId": "obligation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:0"
+      },
+      {
+        "id": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:allocate:sale.confirmed:0",
+        "sequence": 10,
+        "type": "sale.confirmed",
+        "category": "sale",
+        "at": "2026-11-13T06:49:54.737Z",
+        "status": "confirmed",
+        "mode": "fixture",
+        "money": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "5000000"
+        },
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:allocate"
+      },
+      {
+        "id": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding:reservation.recorded:0",
+        "sequence": 11,
+        "type": "reservation.recorded",
+        "category": "reservation",
+        "at": "2026-11-13T06:49:54.783Z",
+        "status": "reserved",
+        "mode": "fixture",
+        "upperBoundNanoUsd": "10000000",
+        "reservationId": "reservation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+        "accountingDay": "2026-11-13"
+      },
+      {
+        "id": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding_record:funding.confirmed:0",
+        "sequence": 12,
+        "type": "funding.confirmed",
+        "category": "funding",
+        "at": "2026-11-13T06:49:54.855Z",
+        "status": "confirmed",
+        "mode": "fixture",
+        "money": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "10000"
+        },
+        "reservationId": "reservation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding",
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:funding_record",
+        "expenseCategory": "cash_to_credit",
+        "creditNanoUsd": "10000000"
+      },
+      {
+        "id": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:inference:reservation.recorded:0",
+        "sequence": 13,
+        "type": "reservation.recorded",
+        "category": "reservation",
+        "at": "2026-11-13T06:49:54.916Z",
+        "status": "reserved",
+        "mode": "fixture",
+        "upperBoundNanoUsd": "100000000",
+        "reservationId": "reservation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:inference",
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:inference",
+        "accountingDay": "2026-11-13"
+      },
+      {
+        "id": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:consumption:inference.consumed:0",
+        "sequence": 14,
+        "type": "inference.consumed",
+        "category": "consumption",
+        "at": "2026-11-13T06:49:54.992Z",
+        "status": "confirmed",
+        "mode": "fixture",
+        "costNanoUsd": "10000000",
+        "reservationId": "reservation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:inference",
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:consumption",
+        "expenseCategory": "inference",
+        "accountingDay": "2026-11-13"
+      },
+      {
+        "id": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:payout:payout.confirmed:0",
+        "sequence": 15,
+        "type": "payout.confirmed",
+        "category": "payout",
+        "at": "2026-11-13T06:49:55.156Z",
+        "status": "confirmed",
+        "mode": "fixture",
+        "money": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "1000000"
+        },
+        "actionId": "2a8f0e68-1b76-4db0-8500-587fae7f9a57:payout",
+        "obligationId": "obligation:2a8f0e68-1b76-4db0-8500-587fae7f9a57:0"
+      },
+      {
+        "id": "eef898fc-9966-494f-8afd-d77f3a2eda71:allocate:obligation.due:0",
+        "sequence": 16,
+        "type": "obligation.due",
+        "category": "obligation",
+        "at": "2026-11-13T06:49:55.300Z",
+        "status": "due",
+        "mode": "fixture",
+        "money": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "1000000"
+        },
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:allocate",
+        "obligationId": "obligation:eef898fc-9966-494f-8afd-d77f3a2eda71:0"
+      },
+      {
+        "id": "eef898fc-9966-494f-8afd-d77f3a2eda71:allocate:sale.confirmed:0",
+        "sequence": 17,
+        "type": "sale.confirmed",
+        "category": "sale",
+        "at": "2026-11-13T06:49:55.300Z",
+        "status": "confirmed",
+        "mode": "fixture",
+        "money": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "5000000"
+        },
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:allocate"
+      },
+      {
+        "id": "eef898fc-9966-494f-8afd-d77f3a2eda71:funding:reservation.recorded:0",
+        "sequence": 18,
+        "type": "reservation.recorded",
+        "category": "reservation",
+        "at": "2026-11-13T06:49:55.358Z",
+        "status": "reserved",
+        "mode": "fixture",
+        "upperBoundNanoUsd": "10000000",
+        "reservationId": "reservation:eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+        "accountingDay": "2026-11-13"
+      },
+      {
+        "id": "eef898fc-9966-494f-8afd-d77f3a2eda71:funding_record:funding.confirmed:0",
+        "sequence": 19,
+        "type": "funding.confirmed",
+        "category": "funding",
+        "at": "2026-11-13T06:49:55.446Z",
+        "status": "confirmed",
+        "mode": "fixture",
+        "money": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "10000"
+        },
+        "reservationId": "reservation:eef898fc-9966-494f-8afd-d77f3a2eda71:funding",
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:funding_record",
+        "expenseCategory": "cash_to_credit",
+        "creditNanoUsd": "10000000"
+      },
+      {
+        "id": "eef898fc-9966-494f-8afd-d77f3a2eda71:inference:reservation.recorded:0",
+        "sequence": 20,
+        "type": "reservation.recorded",
+        "category": "reservation",
+        "at": "2026-11-13T06:49:55.527Z",
+        "status": "reserved",
+        "mode": "fixture",
+        "upperBoundNanoUsd": "100000000",
+        "reservationId": "reservation:eef898fc-9966-494f-8afd-d77f3a2eda71:inference",
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:inference",
+        "accountingDay": "2026-11-13"
+      },
+      {
+        "id": "eef898fc-9966-494f-8afd-d77f3a2eda71:consumption:inference.consumed:0",
+        "sequence": 21,
+        "type": "inference.consumed",
+        "category": "consumption",
+        "at": "2026-11-13T06:49:55.657Z",
+        "status": "confirmed",
+        "mode": "fixture",
+        "costNanoUsd": "10000000",
+        "reservationId": "reservation:eef898fc-9966-494f-8afd-d77f3a2eda71:inference",
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:consumption",
+        "expenseCategory": "inference",
+        "accountingDay": "2026-11-13"
+      },
+      {
+        "id": "eef898fc-9966-494f-8afd-d77f3a2eda71:payout:payout.confirmed:0",
+        "sequence": 22,
+        "type": "payout.confirmed",
+        "category": "payout",
+        "at": "2026-11-13T06:49:55.937Z",
+        "status": "confirmed",
+        "mode": "fixture",
+        "money": {
+          "network": "fixture",
+          "asset": "demo-usdc",
+          "decimals": 6,
+          "amount": "1000000"
+        },
+        "actionId": "eef898fc-9966-494f-8afd-d77f3a2eda71:payout",
+        "obligationId": "obligation:eef898fc-9966-494f-8afd-d77f3a2eda71:0"
+      }
+    ],
+    "totals": [
+      {
+        "network": "fixture",
+        "asset": "demo-usdc",
+        "decimals": 6,
+        "amounts": {
+          "seed:confirmed": "100000000",
+          "obligation:due": "3000000",
+          "sale:confirmed": "15000000",
+          "funding:confirmed": "120000",
+          "payout:confirmed": "3000000"
+        }
+      }
+    ],
+    "costs": {
+      "consumption:confirmed": "30000000"
+    },
+    "checkpoint": 22,
+    "disclosureStatus": "approved",
+    "policyVersion": "dcb123398fc3af26893a3c1db89864dd427cf9f00971d5dd8434b7281cefa39a",
+    "reconciliation": "recorded",
+    "updatedAt": "2026-11-13T06:49:55.937Z"
+  },
+  "liveGates": [
+    "Demo payments and inference",
+    "Live funds require separate authorization"
+  ]
+}

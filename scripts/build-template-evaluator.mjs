@@ -1,0 +1,13 @@
+import {spawnSync} from 'node:child_process';
+import {readFile,mkdir,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+const run=(args)=>{const p=spawnSync('cargo',args,{stdio:'inherit'});if(p.status!==0)throw Error('Evaluator build failed. Install Rust and wasm32-wasip2 with rustup, then rerun.');};
+const manifest='contracts/template-evaluator/Cargo.toml';
+run(['build','--locked','--release','--manifest-path',manifest]);
+run(['build','--locked','--release','--target','wasm32-wasip2','--manifest-path',manifest]);
+const sha=b=>createHash('sha256').update(b).digest('hex');
+const wasm=await readFile('contracts/template-evaluator/target/wasm32-wasip2/release/company-template-evaluator.wasm');
+await mkdir('artifacts/mentor-implementation',{recursive:true});
+await writeFile('artifacts/mentor-implementation/template-evaluator.wasm',wasm);
+const record={evaluator:'company-template-additive-v1',target:'wasm32-wasip2',rustc:spawnSync('rustc',['--version'],{encoding:'utf8'}).stdout.trim(),sourceHash:sha(await readFile('contracts/template-evaluator/src/main.rs')),lockHash:sha(await readFile('contracts/template-evaluator/Cargo.lock')),wasmHash:sha(wasm),wasmBytes:wasm.length,deployed:false,executionProven:false,reproducibility:'Locked dependencies and recorded compiler; cross-machine byte reproducibility not yet established.'};
+await writeFile('artifacts/mentor-implementation/evaluator-manifest.json',JSON.stringify(record,null,2)+'\n');console.log(JSON.stringify(record));

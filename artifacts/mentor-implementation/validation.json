@@ -1,0 +1,42 @@
+{
+  "at": "2026-11-14T12:17:15.700346+00:00",
+  "sourceManifest": "source-manifest.json",
+  "sourceAggregateSHA256": "1bc3e202a2f5b4e221f379f7bced724e5cde7e8873accb080dc961bac6befd3b",
+  "sourceFiles": 264,
+  "fullTests": 544,
+  "focusedTests": 44,
+  "nativeJBrainTests": 12,
+  "syntaxFiles": 151,
+  "failures": 0,
+  "skips": 0,
+  "sandboxFeeChecks": 5,
+  "browserProof": "browser-proof.json",
+  "paidProviderCalls": 0,
+  "publicAccountCreations": 0,
+  "mainnetWrites": 0,
+  "fundedLiveComplete": false,
+  "cloudCredentialCheck": {
+    "configuredAndLoaderAvailable": true,
+    "valuePrinted": false,
+    "credentialedRequestSent": false,
+    "providerValidityOrCreditVerified": false
+  },
+  "frozenHistoricalHashes": {
+    "docs/REAL_EXECUTION_PLAN.md": "66ece30643ef99f9ed64148f8142f695b6e16a1cc40334dc06d4fcd658cf56da",
+    "docs/COMPANY_FOR_NONE_BUILD_PLAN.md": "f9d94ac4486a9d7f4a358476b3e90a5385fd0e8e1848c24ddb5324460af30c0f",
+    "docs/COMPANY_FOR_NONE_CRITIQUE.md": "d4173e8977611324d1da3e7ef0cc09ce98f16a6379848e4b88061d9a7c9cffab"
+  },
+  "mainPreviewRestart": {
+    "source": "coordinator reported exact preservation; root GET /api/status and /api/workspace/near-integrations independently200",
+    "sameStorePreserved": true,
+    "company": "Northstar Care",
+    "profiles": 6,
+    "documents": 6,
+    "supportServices": 2,
+    "providerProbes": 0,
+    "paidActions": 0,
+    "integrationPlans": 0,
+    "integrationRuns": 0,
+    "enabledIntegrationActions": 0
+  }
+}

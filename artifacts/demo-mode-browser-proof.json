@@ -1,0 +1,21 @@
+{
+  "at": "2026-11-12T10:45:01.378Z",
+  "url": "http://127.0.0.1:4173/#setup/org",
+  "browser": "Installed Playwright Chromium (T3 snapshot timed out twice)",
+  "checks": [
+    "Desktop button click populates organization, 3 agents, profiles and skills, actual JBrain document",
+    "Mobile button repeat and reload preserve data without duplicates",
+    "Existing agents, task history and organization data preserved",
+    "Setup reviews remain explicit",
+    "Shared document appears on Company Brain stage",
+    "390px mobile and 1440px desktop without horizontal overflow",
+    "No page exceptions"
+  ],
+  "agentCount": 6,
+  "brainDocuments": 1,
+  "mode": "fictional samples; simulated infrastructure; actual local JBrain; no paid calls",
+  "screenshots": [
+    ".impeccable/review/demo-mode-desktop.png",
+    ".impeccable/review/demo-mode-mobile.png"
+  ]
+}

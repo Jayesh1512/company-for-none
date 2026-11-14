@@ -1,0 +1,14 @@
+{
+  "id": "REPLACE_WITH_NEW_AUTHORIZATION_ID",
+  "companyId": "local-workspace",
+  "mode": "live",
+  "policyVersion": "REPLACE_WITH_CURRENT_RULES_POLICY_HASH",
+  "expiresAt": "2000-01-01T00:00:00Z",
+  "actions": ["organization_manage", "organization_setup_review", "company_activate", "agent_manage", "agent_task", "resource_bind", "service_order", "knowledge_import", "knowledge_manage", "knowledge_context", "offer", "settlement", "allocate", "research", "evidence", "inference", "report", "deliver", "payout", "refund", "procurement", "next", "complete"],
+  "recipients": ["REPLACE_WITH_CONTRIBUTOR_ACCOUNT", "REPLACE_WITH_APPROVED_CUSTOMER_REFUND_ADDRESS"],
+  "maxRequestNanoUsd": "100000000",
+  "dailyInferenceCapNanoUsd": "1000000000",
+  "maxTotalCash": {"network":"near:mainnet","asset":"nep141:usdt.tether-token.near","decimals":6,"amount":"10000000"},
+  "capital": {"id":"REPLACE_WITH_CAPITAL_RECEIPT_ID","status":"confirmed","owner":"REPLACE_WITH_AGENT_ACCOUNT","provider":"owner_capital","reference":"REPLACE_WITH_VERIFIED_DEPOSIT_REFERENCE","money":{"network":"near:mainnet","asset":"nep141:usdt.tether-token.near","decimals":6,"amount":"10000000"}},
+  "credit": {"id":"REPLACE_WITH_PREPAID_CREDIT_RECEIPT_ID","status":"confirmed","owner":"REPLACE_WITH_AGENT_ACCOUNT","provider":"near-ai-cloud","provenance":"owner_prepaid","reference":"REPLACE_WITH_OWNER_CREDIT_RECEIPT_REFERENCE","availableNanoUsd":"1000000000","expiresAt":"2000-01-01T00:00:00Z"}
+}

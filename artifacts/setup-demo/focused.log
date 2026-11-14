@@ -1,0 +1,23 @@
+✔ one atomic setup defaults to Company for none, aligns organization and creates editable real core agents without starting work (225.039333ms)
+✔ stale versions, replay collisions and insufficient capacity cannot partially configure organization or duplicate the team (88.623209ms)
+✔ finishing records only current configuration review; profile changes invalidate it without financial or lifecycle resets (120.763209ms)
+✔ unified API rejects authority/actor fields and preserves existing objective and running-company controls (81.781834ms)
+✔ one setup surface shows configured editable agents, optional brain and canonical legacy links without a mode-choice fork (73.36825ms)
+✔ fresh product permits authenticated zero-budget setup with no seeded agents, funds or provider effects (225.608833ms)
+✔ read-only probe uses server scope and private evidence; request URLs, money and anonymous probes cannot run (79.256292ms)
+✔ economic store rejects changed treasury, network, settlement token and balance domain without mutating history (138.948041ms)
+✔ unconfigured workspace can select a commercial identity once before economic work; profile transition remains explicit (134.323125ms)
+✔ product dependency graph cannot load fixture factories, canned reports or fictional onboarding (9.668584ms)
+✔ demo fills durable profiles and empty organization fields, replays without duplicates and never starts execution (298.872291ms)
+✔ demo preserves existing organization and edited agent details and obeys the current kill gate (155.33675ms)
+✔ product UI offers explicit demo input without fixture seeding or simulated payment controls (144.25025ms)
+✔ explicit setup demo drafts keep entered and saved company data and contain no provider or financial configuration (0.3785ms)
+✔ demo control and fictional notice use the existing workspace and do not imply running agents or provider readiness (31.710375ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 744.039541

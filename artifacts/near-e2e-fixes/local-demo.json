@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-14T08:47:47.588Z",
+  "mode": "actual-isolated-local-setup",
+  "fictionalBusinessInput": true,
+  "localSetupComplete": true,
+  "autonomousBusinessComplete": false,
+  "simulatedProviders": false,
+  "paidDispatches": 0,
+  "financialVersion": 0,
+  "orders": 0,
+  "approvedTotalDemoBudgetUsd": "5",
+  "runtimeTotalCeilingNanoUsd": "5000000000",
+  "store": "/Users/jys/.t3/projects/near1/.runtime/e2e-demo-5yolTu",
+  "url": "http://127.0.0.1:4185/#autonomy",
+  "steps": [
+    {
+      "id": "native-jbrain",
+      "status": "passed",
+      "provider": "actual local JBrain"
+    },
+    {
+      "id": "company-and-core-team",
+      "status": "passed",
+      "operatingMode": "none",
+      "coreAgents": 2,
+      "started": false
+    },
+    {
+      "id": "editable-agent-profile",
+      "status": "passed"
+    },
+    {
+      "id": "saved-and-selected-company-knowledge",
+      "status": "passed",
+      "documents": 1,
+      "revisionRecorded": true
+    },
+    {
+      "id": "real-durable-backlog",
+      "status": "passed",
+      "improvements": 1,
+      "automaticRepairClaimed": false
+    },
+    {
+      "id": "fresh-jbrain-observation",
+      "status": "passed",
+      "reasonCode": "JBRAIN_HEALTH_OBSERVED"
+    },
+    {
+      "id": "public-source-read",
+      "status": "passed",
+      "reasonCode": "PUBLIC_SOURCE_OBSERVED",
+      "scope": "free public retrieval, not a generated report"
+    },
+    {
+      "id": "unified-configuration-review",
+      "status": "passed",
+      "executionStarted": false
+    },
+    {
+      "id": "persistent-restart",
+      "status": "passed"
+    },
+    {
+      "id": "autonomous-execution",
+      "status": "blocked",
+      "reasonCode": "AUTONOMY_POLICY_REQUIRED",
+      "acceptedModelOutput": false,
+      "scope": "No commercial/paid authority supplied; real gate remains active"
+    },
+    {
+      "id": "actual-http-workspace",
+      "status": "passed",
+      "url": "http://127.0.0.1:4185/#autonomy"
+    }
+  ]
+}

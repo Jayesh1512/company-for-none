@@ -1,0 +1,227 @@
+{
+  "evidenceLevel": "controlled-sdk-output-proof-and-billing",
+  "liveProviderEvidence": false,
+  "trace": {
+    "improvements": [
+      {
+        "improvementId": "pipeline:gap:a7960004836c559b26bc4ee1",
+        "targetId": "pipeline:template:75bacfeb9e0a8eda",
+        "state": "promoted",
+        "failureCode": "MISSING_MIDDLE_NAME",
+        "occurrences": 1,
+        "reasonCode": null,
+        "steps": [
+          {
+            "kind": "gap_reported",
+            "sequence": 17,
+            "at": "2026-11-11T12:00:02.000Z",
+            "actorId": "pipeline:objective:1:root:1:command:0:agent",
+            "workId": "pipeline:objective:1:root:1:command:0:work",
+            "causationId": "pipeline:objective:1:root:1:command:0:work:1:command:0",
+            "failureCode": "MISSING_MIDDLE_NAME",
+            "summary": "Contract requires middleName but the template has none.",
+            "origin": [
+              {
+                "workId": "pipeline:objective:1:root",
+                "actorId": "pipeline:manager",
+                "kind": "manager",
+                "topic": "Review the name template and address its gap"
+              },
+              {
+                "workId": "pipeline:objective:1:root:1:command:0:work",
+                "actorId": "pipeline:objective:1:root:1:command:0:agent",
+                "kind": "specialist",
+                "topic": "Inspect the name template"
+              }
+            ]
+          },
+          {
+            "kind": "backlog_triage",
+            "sequence": null,
+            "at": "2026-11-11T12:00:02.000Z",
+            "actorId": "pipeline:backlog",
+            "workId": "pipeline:gap:a7960004836c559b26bc4ee1:triage",
+            "state": "completed"
+          },
+          {
+            "kind": "developer_delegated",
+            "sequence": null,
+            "at": "2026-11-11T12:00:03.000Z",
+            "actorId": "pipeline:gap:a7960004836c559b26bc4ee1:triage:1:command:0:agent",
+            "workId": "pipeline:gap:a7960004836c559b26bc4ee1:triage:1:command:0:work",
+            "state": "completed"
+          },
+          {
+            "kind": "candidate_proposed",
+            "sequence": 32,
+            "at": "2026-11-11T12:00:04.000Z",
+            "actorId": "pipeline:gap:a7960004836c559b26bc4ee1:triage:1:command:0:agent",
+            "workId": "pipeline:gap:a7960004836c559b26bc4ee1:triage:1:command:0:work",
+            "causationId": "pipeline:gap:a7960004836c559b26bc4ee1:triage:1:command:0:work:1:command:0",
+            "candidateRevisionId": "pipeline:gap:a7960004836c559b26bc4ee1:candidate:aa69063da8e11928",
+            "candidateHash": "aa69063da8e1192884c878ffa8f4976a14704c4d882b641d1302127fbe886545"
+          },
+          {
+            "kind": "fixed_evaluation",
+            "sequence": 34,
+            "at": "2026-11-11T12:00:05.000Z",
+            "actorId": "fixed-evaluator",
+            "workId": null,
+            "causationId": "evaluation:pipeline:gap:a7960004836c559b26bc4ee1:evaluation:aa69063da8e1192884c8",
+            "evaluationId": "pipeline:gap:a7960004836c559b26bc4ee1:evaluation:aa69063da8e1192884c8",
+            "evaluatorVersion": "company-template-additive-v1",
+            "evaluatorHash": "7f01049b4065cf038b381ce87ee3dbaefc6a59d93498d5281b17b0589c8f6680",
+            "baselinePassed": false,
+            "candidatePassed": true,
+            "repaired": true,
+            "preservesFields": true
+          },
+          {
+            "kind": "head_promoted",
+            "sequence": 35,
+            "at": "2026-11-11T12:00:05.000Z",
+            "actorId": "M01",
+            "workId": null,
+            "causationId": "pipeline:gap:a7960004836c559b26bc4ee1:evaluation:aa69063da8e1192884c8:auto-promote",
+            "priorRevision": "pipeline:template:75bacfeb9e0a8eda:revision:1",
+            "newRevision": "pipeline:template:75bacfeb9e0a8eda:revision:2",
+            "revisionId": "pipeline:template:75bacfeb9e0a8eda:revision:2"
+          },
+          {
+            "kind": "future_context",
+            "sequence": null,
+            "at": null,
+            "revisionId": "pipeline:template:75bacfeb9e0a8eda:revision:2",
+            "workItems": [
+              {
+                "workId": "pipeline:objective:1:root",
+                "actorId": "pipeline:manager",
+                "kind": "manager",
+                "state": "completed"
+              },
+              {
+                "workId": "pipeline:gap:a7960004836c559b26bc4ee1:triage",
+                "actorId": "pipeline:backlog",
+                "kind": "backlog",
+                "state": "completed"
+              },
+              {
+                "workId": "pipeline:gap:a7960004836c559b26bc4ee1:triage:1:command:0:work",
+                "actorId": "pipeline:gap:a7960004836c559b26bc4ee1:triage:1:command:0:agent",
+                "kind": "developer",
+                "state": "completed"
+              }
+            ],
+            "observed": true
+          }
+        ],
+        "complete": true,
+        "missing": []
+      }
+    ],
+    "agents": [
+      {
+        "agentId": "pipeline:manager",
+        "name": "Company manager",
+        "role": "manager",
+        "createdSequence": 3,
+        "runs": [
+          {
+            "runId": "pipeline:objective:1:root:run:1",
+            "workId": "pipeline:objective:1:root",
+            "startedSequence": 7,
+            "causationId": "claim:pipeline:objective:1:root:1:5b82bed8fa4df04e51cf",
+            "stoppedSequence": 12,
+            "stopReason": "WAITING_FOR_CHILDREN",
+            "remoteCancelled": false
+          },
+          {
+            "runId": "pipeline:objective:1:root:run:2",
+            "workId": "pipeline:objective:1:root",
+            "startedSequence": 50,
+            "causationId": "claim:pipeline:objective:1:root:8:bc045abe6867e184e0a8",
+            "stoppedSequence": 54,
+            "stopReason": "WORK_COMPLETED",
+            "remoteCancelled": false
+          }
+        ],
+        "updates": []
+      },
+      {
+        "agentId": "pipeline:backlog",
+        "name": "Company backlog",
+        "role": "backlog",
+        "createdSequence": 4,
+        "runs": [
+          {
+            "runId": "pipeline:gap:a7960004836c559b26bc4ee1:triage:run:1",
+            "workId": "pipeline:gap:a7960004836c559b26bc4ee1:triage",
+            "startedSequence": 21,
+            "causationId": "claim:pipeline:gap:a7960004836c559b26bc4ee1:triage:1:1ca1fc3dbfcfc30df714",
+            "stoppedSequence": 26,
+            "stopReason": "WAITING_FOR_CHILDREN",
+            "remoteCancelled": false
+          },
+          {
+            "runId": "pipeline:gap:a7960004836c559b26bc4ee1:triage:run:2",
+            "workId": "pipeline:gap:a7960004836c559b26bc4ee1:triage",
+            "startedSequence": 44,
+            "causationId": "claim:pipeline:gap:a7960004836c559b26bc4ee1:triage:8:8950572aefda091a43af",
+            "stoppedSequence": 48,
+            "stopReason": "WORK_COMPLETED",
+            "remoteCancelled": false
+          }
+        ],
+        "updates": []
+      },
+      {
+        "agentId": "pipeline:objective:1:root:1:command:0:agent",
+        "name": "Document executive",
+        "role": "specialist",
+        "createdSequence": 11,
+        "runs": [
+          {
+            "runId": "pipeline:objective:1:root:1:command:0:work:run:1",
+            "workId": "pipeline:objective:1:root:1:command:0:work",
+            "startedSequence": 14,
+            "causationId": "claim:pipeline:objective:1:root:1:command:0:work:1:51e5906d6e37e5a13955",
+            "stoppedSequence": 19,
+            "stopReason": "WORK_COMPLETED",
+            "remoteCancelled": false
+          }
+        ],
+        "updates": []
+      },
+      {
+        "agentId": "pipeline:gap:a7960004836c559b26bc4ee1:triage:1:command:0:agent",
+        "name": "Template developer",
+        "role": "developer",
+        "createdSequence": 25,
+        "runs": [
+          {
+            "runId": "pipeline:gap:a7960004836c559b26bc4ee1:triage:1:command:0:work:run:1",
+            "workId": "pipeline:gap:a7960004836c559b26bc4ee1:triage:1:command:0:work",
+            "startedSequence": 29,
+            "causationId": "claim:pipeline:gap:a7960004836c559b26bc4ee1:triage:1:command:0:work:1:751cc95c8f6737b2206e",
+            "stoppedSequence": 33,
+            "stopReason": "BATCH_COMPLETE",
+            "remoteCancelled": false
+          },
+          {
+            "runId": "pipeline:gap:a7960004836c559b26bc4ee1:triage:1:command:0:work:run:2",
+            "workId": "pipeline:gap:a7960004836c559b26bc4ee1:triage:1:command:0:work",
+            "startedSequence": 37,
+            "causationId": "claim:pipeline:gap:a7960004836c559b26bc4ee1:triage:1:command:0:work:6:9188f5b3c1fca6588415",
+            "stoppedSequence": 41,
+            "stopReason": "WORK_COMPLETED",
+            "remoteCancelled": false
+          }
+        ],
+        "updates": []
+      }
+    ],
+    "blockers": [],
+    "rejectedCommands": [],
+    "causalOrder": true
+  }
+}

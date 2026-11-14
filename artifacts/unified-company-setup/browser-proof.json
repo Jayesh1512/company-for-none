@@ -1,0 +1,64 @@
+{
+  "checkedAt": "2026-11-14T07:50:10.896Z",
+  "mode": "isolated actual HTTP/browser setup",
+  "functionalOnly": false,
+  "screenshotsCaptured": true,
+  "providerEffects": 0,
+  "orders": 0,
+  "financialVersion": 0,
+  "agents": 2,
+  "defaultOperatingMode": "none",
+  "editableProfilesPersisted": true,
+  "reviewDoesNotStart": true,
+  "canonicalOrganizationAligned": true,
+  "backlogItems": 1,
+  "contextSelectionRoute": true,
+  "refreshStable": true,
+  "crossSiteStatus": 403,
+  "tokenEntryRequired": false,
+  "consoleExceptions": [],
+  "scans": [
+    {
+      "name": "operations-desktop",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "bodyWidth": 1440,
+      "heading": "Fictional operations QA"
+    },
+    {
+      "name": "setup-desktop",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "bodyWidth": 1440,
+      "heading": "Set up your organization"
+    },
+    {
+      "name": "operations-mobile",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390,
+      "heading": "Fictional operations QA"
+    },
+    {
+      "name": "agents-mobile",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390,
+      "heading": "Fictional operations QA"
+    },
+    {
+      "name": "ledger-mobile",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390,
+      "heading": "Fictional operations QA"
+    },
+    {
+      "name": "setup-mobile",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390,
+      "heading": "Set up your organization"
+    }
+  ]
+}

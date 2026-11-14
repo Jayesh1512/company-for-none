@@ -1,0 +1,61 @@
+{
+  "checkedAt": "2026-11-14T07:52:13.870Z",
+  "files": [
+    {
+      "file": "src/autonomy/facts.mjs",
+      "sha256": "057fc77c5fbd9bdfcdaa6bc794872852a09e6a083fdb20e1d0aee5b0cf101137"
+    },
+    {
+      "file": "src/autonomy/plans.mjs",
+      "sha256": "bdd7d8258bc29f839b58f14d3fab26ba4f49ec683df93d207a9147e5cea1cad0"
+    },
+    {
+      "file": "src/autonomy/index.mjs",
+      "sha256": "f7b41abf7f06ee4a98d667466935c86673be5c7969efd4d1a092aed716f09905"
+    },
+    {
+      "file": "src/rules/autonomy.mjs",
+      "sha256": "94c56041927c9a5ed9de270ceacd430b23e34b21c74564d72ba11253244e823f"
+    },
+    {
+      "file": "src/rules/index.mjs",
+      "sha256": "fd8afc71b68513a9719745b7bfa8842fc18a307a682692b881b870a0dabcba34"
+    },
+    {
+      "file": "src/web/index.mjs",
+      "sha256": "dcaad9a915197b2947a8e5a5917e928b27b01875a92cde2b4681fc054ec34c40"
+    },
+    {
+      "file": "public/autonomy-intent.js",
+      "sha256": "63fe8aaf58c6742fa4b8bc1ab3fa9d4b42d5b4fd424fe84e991b49f5cf1a1f0f"
+    },
+    {
+      "file": "public/company-setup.js",
+      "sha256": "11c46d3194b6dfd19e94aa80915b5e5032d23e5bb3583de80d433df593ea48c8"
+    },
+    {
+      "file": "public/autonomy.js",
+      "sha256": "1139f18f208090156d74c549c717e2c81f2bf0a6b7b472d9a1d365f771765328"
+    },
+    {
+      "file": "public/workspace.js",
+      "sha256": "b1f930a8aa0a6ad3a4501a694ff2b059b15c6e2ded6a24b4e3a9aa53ff234a45"
+    },
+    {
+      "file": "public/app.js",
+      "sha256": "482e908de713e6b3f10b757225ff46a7dcf2b69dfa52c91d4e8dcd3bf29f74cb"
+    },
+    {
+      "file": "public/autonomy.css",
+      "sha256": "1bffff23f77f5db0e09df0b01479b5c5ceef8e7e07e2bc62bd34ccca54d617f1"
+    },
+    {
+      "file": "scripts/check-autonomy-browser.mjs",
+      "sha256": "e5ab92e83b53afa6f1893db0b02fec674bc34fda85f9b0ade75f2fa355385962"
+    },
+    {
+      "file": "test/autonomy/company-setup.test.mjs",
+      "sha256": "822f9f6c6908e8a0dee7c8f53e3af3882f0defbba0631a31ff58f1ea53036887"
+    }
+  ]
+}

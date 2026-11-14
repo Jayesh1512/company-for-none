@@ -1,0 +1,13 @@
+✔ one atomic setup defaults to Company for none, aligns organization and creates editable real core agents without starting work (66.202417ms)
+✔ stale versions, replay collisions and insufficient capacity cannot partially configure organization or duplicate the team (50.589333ms)
+✔ finishing records only current configuration review; profile changes invalidate it without financial or lifecycle resets (59.71975ms)
+✔ unified API rejects authority/actor fields and preserves existing objective and running-company controls (59.079041ms)
+✔ one setup surface shows configured editable agents, optional brain and canonical legacy links without a mode-choice fork (41.690542ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 448.080417

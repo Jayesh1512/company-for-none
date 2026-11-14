@@ -1,0 +1,18 @@
+{
+  "observedAt": "2026-11-14T06:01:07.059Z",
+  "mode": "actual-public-catalog-read",
+  "endpoints": [
+    "https://cloud-api.near.ai/v1/models",
+    "https://cloud-api.near.ai/v1/model/list?limit=1000&offset=0"
+  ],
+  "modelCount": 64,
+  "modelsWithPricing": 64,
+  "complete": true,
+  "issues": [],
+  "completionSent": false,
+  "credentialsUsed": false,
+  "grantsSpendingAuthority": false,
+  "selectedModelChanged": false,
+  "attestationVerified": false,
+  "chargeBoundsVerified": false
+}

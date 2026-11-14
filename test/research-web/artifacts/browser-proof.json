@@ -1,0 +1,25 @@
+{
+  "mode": "fixture",
+  "browser": "cached Playwright chromium headless fallback after T3 transport unavailable",
+  "observedAt": "2026-11-10T20:48:25.043Z",
+  "orderId": "9f9fb12e-111b-4df3-a61d-e877dd320899",
+  "sourceAsset": "demo-near",
+  "checks": [
+    "create",
+    "quote",
+    "fixture-payment",
+    "run",
+    "private-report",
+    "3 source references",
+    "payment progress",
+    "mobile report no horizontal overflow",
+    "mobile ledger no horizontal overflow",
+    "mobile storefront no horizontal overflow",
+    "public ledger private question redacted",
+    "unauthorized report 403",
+    "unauthorized owner 403",
+    "refresh preserves order without financial duplicate"
+  ],
+  "ledgerRows": 22,
+  "pageErrors": []
+}

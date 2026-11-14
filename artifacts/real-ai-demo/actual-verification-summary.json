@@ -1,0 +1,68 @@
+{
+  "observedAt": "2026-11-14T13:31:33.812Z",
+  "rawEvidence": "retained privately; not copied here",
+  "records": [
+    {
+      "runId": "ai-demo:3de9eab0435f18aaaf3a8cd432027289f91ad958aa0e4b5314cbdfba5aaffaf4",
+      "providerRequestId": "84d7b779ef4e4f308a5707f37f2f174c",
+      "model": "Qwen/Qwen3.8-27B",
+      "elapsedMs": 65150,
+      "sdk": {
+        "name": "@nearai/inference-sdk",
+        "version": "0.3.0",
+        "nodeEntry": true
+      },
+      "gatewayTcb": "UpToDate",
+      "modelTcbs": [
+        "UpToDate"
+      ],
+      "noncesVerified": true,
+      "signatureKind": "provider_tee",
+      "wireSignatureVerified": true,
+      "processVerificationStatus": "verified",
+      "plaintextBindingStatus": "verified",
+      "durableReplayStatus": "unavailable",
+      "acceptanceScope": "live-process-e2ee",
+      "requestBytesHash": "9e4d045a5fbed272727d545f003234b23baeee340b69f076dde89094eaf1104b",
+      "responseBytesHash": "f8c7e652ef197ac6c5d2cfe34b02bfd0a937aff5555d1da882142acfa6dff05b",
+      "responsePlaintextHash": "450dba58f7b154a6047924b05e40ca7306087f0cbc1d73bc2c8b197d7ade1dee",
+      "cost": {
+        "status": "confirmed",
+        "actualCostNanoUsd": "1621380",
+        "reasonCode": "APPROVED"
+      },
+      "status": "answered"
+    },
+    {
+      "runId": "ai-demo:2acf7ad96a2f894eae0e006cb6f479c21976bf5299ed20cfb273430fa08f47d4",
+      "providerRequestId": "824660b4728447d8b225d3853765aa99",
+      "model": "Qwen/Qwen3.8-27B",
+      "elapsedMs": 35348,
+      "sdk": {
+        "name": "@nearai/inference-sdk",
+        "version": "0.3.0",
+        "nodeEntry": true
+      },
+      "gatewayTcb": "UpToDate",
+      "modelTcbs": [
+        "UpToDate"
+      ],
+      "noncesVerified": true,
+      "signatureKind": "provider_tee",
+      "wireSignatureVerified": true,
+      "processVerificationStatus": "verified",
+      "plaintextBindingStatus": "verified",
+      "durableReplayStatus": "unavailable",
+      "acceptanceScope": "live-process-e2ee",
+      "requestBytesHash": "571924041d17d25afcfeab2f74ed5e2c40364f380e0cfe3b13a66516e3ac87da",
+      "responseBytesHash": "47e79d2930baeb122a34c8819c8cc6e7097fdaf8675b5fe7596828bb124c5f82",
+      "responsePlaintextHash": "cffcb7c3c00512c9816940d9f14735e04702791eaab51d5361b7158a8876f442",
+      "cost": {
+        "status": "confirmed",
+        "actualCostNanoUsd": "1599780",
+        "reasonCode": "APPROVED"
+      },
+      "status": "escalated"
+    }
+  ]
+}

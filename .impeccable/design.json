@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-11T06:35:23.015449+00:00",
+  "title": "Design System: Near Agent Workspace",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Burnt orange"
+      },
+      "page": {
+        "role": "neutral",
+        "displayName": "Quiet working surface"
+      },
+      "rail": {
+        "role": "neutral",
+        "displayName": "Charcoal rail"
+      }
+    },
+    "shadows": [
+      {
+        "name": "help-dialog",
+        "value": "0 18px 60px #00000026",
+        "purpose": "Native help dialog only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "drawer",
+        "value": "transform .18s ease",
+        "purpose": "Mobile navigation state; removed under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1500px"
+      },
+      {
+        "name": "compact",
+        "value": "1150px"
+      },
+      {
+        "name": "no-rail",
+        "value": "900px"
+      },
+      {
+        "name": "mobile",
+        "value": "700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "html": "<button class=\"ds-primary\">Create agent</button>",
+      "css": ".ds-primary{background:var(--accent);color:#fff;padding:7px 12px;border:1px solid var(--accent);border-radius:6px;font:550 12px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;min-height:35px}.ds-primary:hover{background:var(--accent-hover)}.ds-primary:focus-visible{outline:2px solid var(--focus);outline-offset:3px}"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "html": "<button class=\"ds-secondary\">Browse marketplace</button>",
+      "css": ".ds-secondary{background:#fff;color:var(--ink);padding:7px 12px;border:1px solid var(--line);border-radius:6px;font:550 12px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif}.ds-secondary:hover{background:var(--sidebar)}.ds-secondary:focus-visible{outline:2px solid var(--focus);outline-offset:3px}"
+    },
+    {
+      "name": "Text field",
+      "kind": "input",
+      "html": "<input class=\"ds-input\" placeholder=\"Agent name\" aria-label=\"Agent name\">",
+      "css": ".ds-input{background:#fff;color:var(--ink);padding:10px 12px;border:1px solid var(--line);border-radius:6px;font:12px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;caret-color:var(--accent)}.ds-input:focus-visible{outline:2px solid var(--focus);outline-offset:3px}"
+    },
+    {
+      "name": "Navigation link",
+      "kind": "nav",
+      "html": "<a class=\"ds-nav\" href=\"#agents\">Agents</a>",
+      "css": ".ds-nav{display:block;background:var(--sidebar);color:var(--ink);padding:8px 10px;border-radius:6px;font:600 13px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;text-decoration:none}.ds-nav:hover{background:#e5e8e2}.ds-nav:focus-visible{outline:2px solid var(--focus)}"
+    },
+    {
+      "name": "Skill tag",
+      "kind": "chip",
+      "html": "<span class=\"ds-chip\">Evidence review</span>",
+      "css": ".ds-chip{display:inline-block;font:10px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;padding:3px 7px;background:#f3f5f1;border-radius:4px;color:var(--muted)}"
+    },
+    {
+      "name": "Agent card",
+      "kind": "card",
+      "html": "<article class=\"ds-card\"><strong>Market researcher</strong><p>A focused role with assigned skills.</p></article>",
+      "css": ".ds-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:21px;font:14px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;color:var(--ink)}.ds-card p{font-size:12px;color:var(--muted)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A familiar agent workspace",
+    "overview": "User-pinned Paperclip-style agent management with persistent navigation and a real roster.",
+    "keyCharacteristics": [
+      "Compact sans-serif",
+      "Quiet surfaces",
+      "Clear current action",
+      "Real persisted status"
+    ],
+    "rules": [
+      {
+        "name": "The Action Rule",
+        "body": "Reserve primary-color filled buttons for the current create, save, assign or approval action.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Make Agents, Marketplace and Create agent immediately findable.",
+      "Derive counts from persisted records."
+    ],
+    "donts": [
+      "Invent expert endorsements or live provider connections."
+    ]
+  }
+}

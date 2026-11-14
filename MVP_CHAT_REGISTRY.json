@@ -1,0 +1,527 @@
+{
+  "objective": "Working Autonomous Business research-shop MVP",
+  "rootThreadId": "mcp:be9af1f4-d61f-43be-829e-349caf627657",
+  "coordinator": {
+    "threadId": "mcp:6ba88ce4-e20a-47be-8ca3-7c71af821fdd",
+    "projectId": "30ca2142-305e-4ced-9c66-58e0ae3bbd64",
+    "modelSelection": {
+      "instanceId": "codex",
+      "model": "gpt-6.1-sol",
+      "options": [
+        {
+          "id": "reasoningEffort",
+          "value": "high"
+        },
+        {
+          "id": "serviceTier",
+          "value": "default"
+        }
+      ]
+    },
+    "runId": "run:thread:mcp%3A6ba88ce4-e20a-47be-8ca3-7c71af821fdd:ordinal:1",
+    "status": "local_integrated_verified_strict_live_blocked",
+    "task": "coordinator",
+    "modules": [
+      "M10"
+    ]
+  },
+  "workers": [
+    {
+      "threadId": "thread:mcp:f99d1b8a-cf44-4b37-8896-6bbfc3c96c7f:near1-mvp-parallel-build-workers-20261111-r1:0",
+      "runId": "run:thread:thread%3Amcp%3Af99d1b8a-cf44-4b37-8896-6bbfc3c96c7f%3Anear1-mvp-parallel-build-workers-20261111-r1%3A0:ordinal:1",
+      "status": "delivered_sdk_components",
+      "title": "Research Shop — Rules (M01)",
+      "createdBy": "agent",
+      "creationSource": "mcp",
+      "providerInstanceId": "codex",
+      "model": "gpt-6.1-sol",
+      "task": "rules",
+      "modules": [
+        "M01"
+      ],
+      "owned": [
+        "src/rules/",
+        "config.yaml",
+        "config.example.yaml",
+        "test/rules/",
+        "handoffs/rules.md"
+      ],
+      "latestCompanyForNone": {
+        "status": "WORKER_DONE",
+        "focusedPassed": 138,
+        "freezeSha256": "c61728e61114112ef3094789e7857961e1d013dd797b66e6060730d5e2d1347b",
+        "handoff": "handoffs/rules.md"
+      }
+    },
+    {
+      "threadId": "thread:mcp:f99d1b8a-cf44-4b37-8896-6bbfc3c96c7f:near1-mvp-parallel-build-workers-20261111-r1:1",
+      "runId": "run:thread:thread%3Amcp%3Af99d1b8a-cf44-4b37-8896-6bbfc3c96c7f%3Anear1-mvp-parallel-build-workers-20261111-r1%3A1:ordinal:1",
+      "status": "delivered_sdk_components",
+      "title": "Research Shop — State & Money (M02 M03 M09)",
+      "createdBy": "agent",
+      "creationSource": "mcp",
+      "providerInstanceId": "codex",
+      "model": "gpt-6.1-sol",
+      "task": "state-money",
+      "modules": [
+        "M02",
+        "M03",
+        "M09"
+      ],
+      "owned": [
+        "src/journal/",
+        "src/treasury/",
+        "src/payouts/",
+        "test/state-money/",
+        "handoffs/state-money.md"
+      ]
+    },
+    {
+      "threadId": "thread:mcp:f99d1b8a-cf44-4b37-8896-6bbfc3c96c7f:near1-mvp-parallel-build-workers-20261111-r1:2",
+      "runId": "run:thread:thread%3Amcp%3Af99d1b8a-cf44-4b37-8896-6bbfc3c96c7f%3Anear1-mvp-parallel-build-workers-20261111-r1%3A2:ordinal:1",
+      "status": "delivered_sdk_components",
+      "title": "Research Shop — Integrations (M04 M05 M06 M07)",
+      "createdBy": "agent",
+      "creationSource": "mcp",
+      "providerInstanceId": "codex",
+      "model": "gpt-6.1-sol",
+      "task": "integrations",
+      "modules": [
+        "M04",
+        "M05",
+        "M06",
+        "M07"
+      ],
+      "owned": [
+        "src/custody/",
+        "src/payments/",
+        "src/cloud-funding/",
+        "src/inference/",
+        "test/integrations-adapters/",
+        "docs/INTEGRATION_EVIDENCE.md",
+        "handoffs/integrations.md"
+      ]
+    },
+    {
+      "threadId": "thread:mcp:f99d1b8a-cf44-4b37-8896-6bbfc3c96c7f:near1-mvp-parallel-build-workers-20261111-r1:3",
+      "runId": "run:thread:thread%3Amcp%3Af99d1b8a-cf44-4b37-8896-6bbfc3c96c7f%3Anear1-mvp-parallel-build-workers-20261111-r1%3A3:ordinal:1",
+      "status": "delivered",
+      "title": "Research Shop — Research, Ledger & UI (M08 M11 M12)",
+      "createdBy": "agent",
+      "creationSource": "mcp",
+      "providerInstanceId": "codex",
+      "model": "gpt-6.1-sol",
+      "task": "research-web",
+      "modules": [
+        "M08",
+        "M11",
+        "M12"
+      ],
+      "owned": [
+        "src/research/",
+        "src/ledger/",
+        "src/web/",
+        "public/",
+        "test/research-web/",
+        "handoffs/research-web.md"
+      ]
+    }
+  ],
+  "coordinationProtocol": "docs/MVP_PARALLEL_BUILD.md",
+  "productPlan": "BUILD_PLAN.md",
+  "ownershipMode": "Shared checkout, explicitly non-overlapping edits; coordinator owns shared contracts and composition.",
+  "handoff": "Coordinator now owns this registry and MVP_STATUS.md.",
+  "liveGates": [
+    "Verified spendable route, signed quote/settlement and pre-deposit refund principal/fees/domain remain open",
+    "Provider receipt/watermark attribution and independent Agent execution proof remain open",
+    "Durable Cloud TEE/response verification, hard charge bounds, credentials and numerical caps remain open",
+    "Autonomous Cloud acquisition and real supplier entitlement remain unsupported/unproven"
+  ],
+  "validation": {
+    "tests": 256,
+    "failed": 0,
+    "syntaxFiles": 74,
+    "mode": "setup",
+    "previewUrl": "http://127.0.0.1:4173/#settings",
+    "previewDataDirectory": ".runtime/product-r2-preview",
+    "demoEvidence": "artifacts/mvp-demo.json",
+    "browserEvidence": "artifacts/near-sdk-browser-proof.json",
+    "workspaceBrowserEvidence": "artifacts/workspace-browser-proof.json",
+    "skipped": 0,
+    "nativeTests": 12,
+    "testsEvidence": "artifacts/near-integration-sdk-tests.log",
+    "nativeEvidence": "artifacts/real-execution-r2-native.log",
+    "sdkEvidence": "artifacts/near-integration-sdk-evidence.json"
+  },
+  "latestProductDirection": "Real-only product composition: empty owner-authenticated organization/agent workspace; marketplace authored templates/skills/services; actual local JBrain; no fixture fallback or implicit commercial policy. Test-only fixtures and historical journals preserved.",
+  "companyForNone": {
+    "plan": "docs/COMPANY_FOR_NONE_BUILD_PLAN.md",
+    "planRevision": 2,
+    "planSha256": "f9d94ac4486a9d7f4a358476b3e90a5385fd0e8e1848c24ddb5324460af30c0f",
+    "critique": "docs/COMPANY_FOR_NONE_CRITIQUE.md",
+    "review": "ready_local_all_recorded_findings_closed",
+    "stage": "delivered_local_reviewed",
+    "controlledLoop": "passing_actual_request_envelope_and_fixed_evaluator",
+    "liveReasoning": "blocked_durable_plaintext_proof_and_funded_authority",
+    "liveCommerce": "blocked_provider_routes_and_evidence",
+    "newChatsCreated": false,
+    "checks": {
+      "testsPassed": 287,
+      "testsFailed": 0,
+      "testsSkipped": 0,
+      "nativePassed": 12,
+      "syntaxFiles": 85,
+      "focusedReviewerPassed": 28
+    },
+    "rulesFreezeSha256": "c61728e61114112ef3094789e7857961e1d013dd797b66e6060730d5e2d1347b",
+    "sourceManifest": "artifacts/company-for-none/source-manifest.json",
+    "sourceManifestSha256": "c07176d7d523d296f2d6912f2b0074d566e9c7ae1bdaee120c99282e54f88d0c",
+    "browserProof": "artifacts/company-for-none/browser-proof.json",
+    "handoff": "handoffs/company-for-none.md",
+    "previewUrl": "http://127.0.0.1:4173/#autonomy/setup",
+    "previewMode": "setup",
+    "previewPreserved": true
+  },
+  "nearCloudProducts": {
+    "status": "implemented_protocols_and_owner_views_execution_gated",
+    "updatedAt": "2026-11-14",
+    "products": 11,
+    "checks": {
+      "broadPassed": 316,
+      "focusedPassed": 29,
+      "nativePassed": 12,
+      "syntaxFiles": 95,
+      "failed": 0,
+      "skipped": 0
+    },
+    "actualPublicModels": 64,
+    "paidProviderCalls": 0,
+    "sourceManifest": "artifacts/near-cloud-products/source-manifest.json",
+    "handoff": "handoffs/near-cloud-products.md",
+    "preview": "http://127.0.0.1:4173/#settings",
+    "ownershipHandoffs": [
+      "M01 completed handoff; coordinator additive Rules integration",
+      "src/inference/index.mjs prior handoff retained",
+      "src/inference/verification.mjs scoped schema mapping transfer confirmed2026-11-14"
+    ],
+    "gates": [
+      "Specialized response proof and accepted-output binding",
+      "Native search aggregate token/service-call bound",
+      "Current G6 durable E2EE plaintext/replay",
+      "Attributable credit, exact funded authority and enforceable bounds",
+      "Movement, settlement, refunds and supplier entitlement"
+    ]
+  },
+  "localWorkspaceAccess": {
+    "status": "automatic_direct_local_browser_access",
+    "date": "2026-11-14",
+    "ownerTokenUi": false,
+    "browserCredentialStorage": false,
+    "checks": {
+      "regressionPassed": 321,
+      "focusedPassed": 18,
+      "nativePassed": 12,
+      "syntaxFiles": 96,
+      "failed": 0,
+      "skipped": 0
+    },
+    "remoteProtection": "socket/host/origin/fetch metadata; proxy headers excluded; optional disable + protected bearer",
+    "evidence": "artifacts/local-workspace-access/",
+    "preview": "http://127.0.0.1:4173/#setup"
+  },
+  "unifiedCompanySetup": {
+    "status": "local_verified_live_gated",
+    "date": "2026-11-14",
+    "flow": [
+      "Define company",
+      "Review agents",
+      "Company brain",
+      "Boundaries & infra",
+      "Review & finish"
+    ],
+    "defaultNewOperatingMode": "none",
+    "profileEdits": [
+      "name",
+      "role",
+      "instructions",
+      "skillIds"
+    ],
+    "finishStartsExecution": false,
+    "checks": {
+      "tests": 326,
+      "failures": 0,
+      "skipped": 0,
+      "focused": 5,
+      "nativeJbrain": 12,
+      "syntaxFiles": 98,
+      "browser": "actual isolated desktop1440/mobile390 passed"
+    },
+    "evidence": "artifacts/unified-company-setup/",
+    "contract": "docs/UNIFIED_COMPANY_SETUP.md",
+    "preview": "http://127.0.0.1:4173/#setup",
+    "savedPreviewStateUnchanged": true,
+    "providerEffects": 0
+  },
+  "setupDemo": {
+    "status": "restored_explicit_drafts_only",
+    "date": "2026-11-14",
+    "button": "top-right Demo mode",
+    "autoWrites": 0,
+    "checks": {
+      "tests": 328,
+      "failures": 0,
+      "skipped": 0,
+      "focused": 15,
+      "syntaxFiles": 99,
+      "browser": "desktop1440/mobile390 isolated full flow + native preview button passed"
+    },
+    "evidence": "artifacts/setup-demo/",
+    "preview": "http://127.0.0.1:4173/#setup/org",
+    "nativeSavedWorkspaceUnchanged": true
+  },
+  "currentSonnetE2ERound": {
+    "registry": "MVP_SONNET_E2E_REGISTRY.json",
+    "budgetUsd": "5",
+    "status": "local_integrated_verified_strict_live_blocked",
+    "workers": [
+      {
+        "id": "S1",
+        "threadId": "mcp:f27336fc-bb1d-4db1-bfd9-b94794283276",
+        "title": "NEAR E2E — Setup, Readiness & Rules — GPT-6.1-Sol",
+        "status": "handoff_integrated",
+        "handoff": "handoffs/e2e-setup-sonnet.md"
+      },
+      {
+        "id": "S2",
+        "threadId": "mcp:691bd9a4-61bd-47b9-a5ee-4bf33b7d6c9f",
+        "title": "NEAR E2E — Cloud Inference & TEE Proof — GPT-6.1-Sol",
+        "status": "implementation_complete_supported_sdk_live_blocker",
+        "handoff": "handoffs/e2e-inference-sonnet.md"
+      },
+      {
+        "id": "S3",
+        "threadId": "mcp:77a5f646-2485-47e1-9f9c-c674731d99ee",
+        "title": "NEAR E2E — Cloud Tools & Knowledge — GPT-6.1-Sol",
+        "status": "handoff_integrated",
+        "handoff": "handoffs/e2e-tools-sonnet.md"
+      },
+      {
+        "id": "S4",
+        "threadId": "mcp:cb92584a-c2a9-41ec-9731-b2a6e4e9d6d7",
+        "title": "NEAR E2E — 1Click Payments & Refunds — GPT-6.1-Sol",
+        "status": "handoff_integrated",
+        "handoff": "handoffs/e2e-payments-sonnet.md"
+      },
+      {
+        "id": "S5",
+        "threadId": "mcp:795dd7cd-1b4c-4b60-8e01-86b24c856512",
+        "title": "NEAR E2E — Agent Wallet & Custody Proof — GPT-6.1-Sol",
+        "status": "handoff_integrated",
+        "handoff": "handoffs/e2e-custody-sonnet.md"
+      },
+      {
+        "id": "S6",
+        "threadId": "mcp:35e5acf3-e7ef-43ad-aa5e-750f317672b2",
+        "title": "NEAR E2E — Credit Funding & Marketplace — GPT-6.1-Sol",
+        "status": "handoff_integrated",
+        "handoff": "handoffs/e2e-funding-sonnet.md"
+      },
+      {
+        "id": "S7",
+        "threadId": "mcp:e2b04c01-dfaf-4cfd-aa9c-4d1fe30078c1",
+        "title": "NEAR E2E — Autonomous Company Loop — GPT-6.1-Sol",
+        "status": "handoff_integrated",
+        "handoff": "handoffs/e2e-autonomy-sonnet.md"
+      }
+    ],
+    "currentModel": "gpt-6.1-sol",
+    "modelSwitchRequestedByUser": true,
+    "verification": {
+      "fullTests": 468,
+      "failures": 0,
+      "skipped": 0,
+      "nativeJbrain": 12,
+      "controlledPipeline": 13,
+      "syntaxFiles": 120,
+      "browser": "isolated desktop1440/mobile390 + actual native Settings/health/attestation passed",
+      "realPaidRun": false,
+      "evidence": "artifacts/near-e2e-fixes/",
+      "result": "docs/NEAR_E2E_RESULT.md"
+    },
+    "budget": {
+      "currency": "USD",
+      "totalMaximum": "5",
+      "actualPlusPending": true,
+      "authorizedAccount": null,
+      "authorizedNetwork": null,
+      "transferPurchaseScope": null,
+      "actualUsd": "0",
+      "pendingUsd": "0",
+      "runtimeCeilingNanoUsd": "5000000000",
+      "privateEnvUpperBoundPersisted": true,
+      "grantsSpendingAuthority": false
+    },
+    "preview": {
+      "workspace": "http://127.0.0.1:4173/#settings",
+      "actualLocalDemo": "http://127.0.0.1:4185/#autonomy"
+    }
+  },
+  "latestDocumentation": {
+    "threadId": "mcp:f0af8ea5-853a-4290-be84-9984bb962a54",
+    "model": "gpt-6.1-sol",
+    "status": "WORKER_DONE",
+    "task": "Company for None guide and actual public live-evidence documentation",
+    "owned": [
+      "docs/COMPANY_FOR_NONE_GUIDE.md",
+      "README.md",
+      "PRODUCT.md",
+      "MVP_STATUS.md",
+      "docs/CUSTOMER_CARE.md",
+      "docs/NEAR_ONCHAIN_LEDGER.md",
+      "docs/LIVE_EVIDENCE.md"
+    ],
+    "runtimeChangesAllowed": false,
+    "guide": "docs/COMPANY_FOR_NONE_GUIDE.md",
+    "relativeLinksChecked": 54,
+    "headingAnchorsCheckedByWorker": 7,
+    "guideSha256": "211a96059eb9c873363499541196a4a4c100470af1f1b56a7a40c97d83824ddc",
+    "runtimeChanges": false,
+    "relativeLinksAndHeadingAnchorsChecked": 73,
+    "liveEvidence": "docs/LIVE_EVIDENCE.md",
+    "liveEvidenceSha256": "eb61198c129153d3191aca35bdfb312e262c49ae272b4ad48d37324165626cf1"
+  },
+  "latestLiveEvidence": {
+    "collectedAt": "2026-11-14T10:50:52.539Z",
+    "directory": "artifacts/live-evidence/2026-11-14-readonly-r1",
+    "documentation": "docs/LIVE_EVIDENCE.md",
+    "publicResponseCount": 9,
+    "cloudAttestation": {
+      "status": "verified",
+      "gatewayTcb": "UpToDate",
+      "modelTcb": "UpToDate",
+      "deploymentProvenance": "not_checked",
+      "completionSent": false
+    },
+    "dryQuote": {
+      "httpStatus": 201,
+      "signature": "verified",
+      "trustRoot": "sdk-default-manager-public-key",
+      "settlementVerified": false
+    },
+    "offlineVerification": {
+      "journalReopened": true,
+      "originalQuote": "verified",
+      "syntheticSignedAmountTamper": "rejected",
+      "networkIO": false,
+      "teeAttestationReverified": false
+    },
+    "syntaxFilesPassed": 138,
+    "historicalFullTestCountNotRerun": 512,
+    "spendUsd": "0",
+    "mainnetTransactionsSent": 0,
+    "paidInferenceCalls": 0,
+    "scoreChangeClaimed": false
+  },
+  "latestMentorImplementation": {
+    "status": "LOCAL_COMPONENT_INCREMENT_DELIVERED_LIVE_GATED",
+    "guide": "docs/MENTOR_IMPLEMENTATION.md",
+    "handoff": "handoffs/mentor-implementation.md",
+    "sourceManifest": "artifacts/mentor-implementation/source-manifest.json",
+    "sourceAggregateSHA256": "1bc3e202a2f5b4e221f379f7bced724e5cde7e8873accb080dc961bac6befd3b",
+    "sourceFiles": 264,
+    "validation": {
+      "fullTests": 544,
+      "focusedTests": 44,
+      "nativeJBrainTests": 12,
+      "syntaxFiles": 151,
+      "failures": 0,
+      "skips": 0,
+      "actualLocalSandboxFeeChecks": 5,
+      "browserWidths": [
+        1440,
+        390
+      ],
+      "providerPaidCalls": 0,
+      "mainnetWrites": 0
+    },
+    "preview": {
+      "url": "http://127.0.0.1:4173/#settings",
+      "restart": "coordinator normal same-store restart; company/profile/document/service IDs and revisions preserved",
+      "profiles": 6,
+      "documents": 6,
+      "supportServices": 2
+    },
+    "openGates": [
+      "production native fee/signing-envelope verifier and exact identity/grant/funding/deployment",
+      "Cloud G6 supported durable plaintext, actual credit and bounded paid authority",
+      "independent confidential settlement/refund/movement proof",
+      "actual supplier entitlement and autonomous Cloud acquisition",
+      "OutLayer production proof acquisition/verifier and deployed exact evaluator",
+      "PingPay public seller/resource/accounting/private delivery binding",
+      "verified near.social write/readback and exact publication authority",
+      "connected NEAR wallet and explicit scoped-key/account route choice"
+    ],
+    "noNewChats": true,
+    "noAuthorityOrAllowanceIncrease": true
+  },
+  "latestLocalRealDemo": {
+    "status": "ACTUAL_LOCAL_FLOW_READY",
+    "scope": "user-selected real local profiles/knowledge/cited replies/escalation/private ledger; no recorded model or provider fixtures",
+    "guide": "docs/LOCAL_REAL_DEMO.md",
+    "handoff": "handoffs/local-real-demo.md",
+    "sourceManifest": "artifacts/local-real-demo/source-manifest.json",
+    "sourceAggregateSHA256": "2cb24b95a0568c57f9b7dd797a384ce833b08d741c2875ef788e6bc68ce14cea",
+    "changedSourceFiles": 22,
+    "validation": {
+      "fullTests": 549,
+      "focusedTests": 11,
+      "nativeJBrainTests": 12,
+      "syntaxFilesAtRun": 159,
+      "failures": 0,
+      "skips": 0,
+      "browserCheckpoints": 9,
+      "browserWidths": [
+        1440,
+        390
+      ],
+      "pageErrors": 0,
+      "providerOperations": 0,
+      "financialVersion": 0
+    },
+    "mainPreview": "http://127.0.0.1:4173",
+    "demoPreview": "http://127.0.0.1:55386/#demo",
+    "mainDataPreserved": {
+      "company": "Northstar Care",
+      "profiles": 6,
+      "documents": 6,
+      "supportServices": 2,
+      "sortedIDsAndRevisionsExact": true,
+      "preservationSource": "coordinator before/after persistent store digest + root read-only verification"
+    },
+    "demoData": {
+      "profiles": 4,
+      "documents": 4,
+      "services": 2,
+      "brain": "actual native JBrain"
+    },
+    "authority": "private M01 local-only restrictions, null credentials/authorizations, zero-call intent; no paid/live authority",
+    "historicalLiveGates": "unchanged"
+  },
+  "latestRealAiDemo": {
+    "status": "OWNER_FUNDED_LIVE_AI_VERIFIED",
+    "updatedAt": "2026-11-14T13:32:57.227Z",
+    "entry": "http://127.0.0.1:4173/#demo",
+    "scope": "Explicit user-approved E2EE live-call verification; HOLD/no automatic paid retry on loss; separate from strict commercial G6",
+    "implementation": "handoffs/real-ai-demo.md",
+    "documentation": "docs/REAL_AI_DEMO.md",
+    "evidence": "artifacts/real-ai-demo/validation.json",
+    "acceptedActualProviderReplies": 2,
+    "actualOwnerTickets": 1,
+    "actualBilledNanoUsd": "3221160",
+    "maxTotalNanoUsd": "5000000000",
+    "fullTestsPassed": 560,
+    "nativeTestsPassed": 12,
+    "strictAutonomousBusinessComplete": false,
+    "paymentsPurchasesOrMainnetEffects": false
+  }
+}

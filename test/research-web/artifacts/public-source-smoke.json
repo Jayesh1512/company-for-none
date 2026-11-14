@@ -1,0 +1,16 @@
+{
+  "check": "Read-only M08 public retrieval using an M01-approved research specification",
+  "url": "https://www.iana.org/help/example-domains",
+  "observedAt": "2026-11-10T20:28:21.009Z",
+  "mode": "public-retrieval",
+  "decision": "allow",
+  "bytes": 6774,
+  "extractedCharacters": 1263,
+  "extractedTextSha256": "c5299f24f92ac5c520ed393388501d7e3114c26dc74aa3b137e953c82006dee9",
+  "publishedAt": null,
+  "errors": [],
+  "limitsFrom": "M01 researchSpec via createRules.evaluate(research)",
+  "inferenceCalls": 0,
+  "fundingCalls": 0,
+  "limitations": "Transport smoke only. Does not establish a live research-quality report, paid inference, autonomous funding, or vendor financial behavior. The source publication date remains unknown."
+}

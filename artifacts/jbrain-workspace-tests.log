@@ -1,0 +1,13 @@
+✔ create and list multiple agents persists metadata and skills across restart without granting financial authority (84.314875ms)
+✔ agent pause/draft and kill gates are decided by Rules; stale metadata edits conflict (51.547375ms)
+✔ template creation and service task feed immutable agent guidance into existing Rules-governed report execution (539.774333ms)
+✔ workspace API validates local access, mutation origin and unsupported profile/capability fields (38.114166ms)
+✔ agent workspace and marketplace render user-supplied text inertly with real create/assign/install routes (52.334708ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 872.01675

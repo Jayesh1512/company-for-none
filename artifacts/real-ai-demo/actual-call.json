@@ -1,0 +1,47 @@
+{
+  "observedAt": "2026-11-14T13:13:46.554Z",
+  "httpStatus": 200,
+  "elapsedMs": 6968,
+  "scope": "ACTUAL_PROVIDER_ATTEMPT",
+  "result": {
+    "id": "ai-demo:53d95e922c7909d0020c80e3bd0ecc7f253fee44e8a0195306457855233a96a0",
+    "companyId": "local-workspace",
+    "inputFingerprint": "62fb854d6b5e95b98058a0e9e4285b1e7876cb995f4423548a8aab5cca60344f",
+    "question": "Explain the collision deductible in plain English. Does this policy excerpt by itself decide whether my particular accident is covered?",
+    "agentId": "28e9620c-b3f4-4d9d-96c9-2cdcaeb1e5b4",
+    "agentVersion": 1,
+    "requestFingerprint": "c49bee72f17c904c606cdf309ddb0102bdab08273c275741a6e68bd73ef87fef",
+    "status": "not_submitted",
+    "createdAt": "2026-11-14T13:13:39.598Z",
+    "updatedAt": "2026-11-14T13:13:46.533Z",
+    "cost": {
+      "status": "pending",
+      "maximumNanoUsd": "100000000"
+    },
+    "trace": [
+      {
+        "step": "agent-assigned",
+        "at": "2026-11-14T13:13:39.598Z",
+        "agentId": "28e9620c-b3f4-4d9d-96c9-2cdcaeb1e5b4"
+      },
+      {
+        "step": "native-knowledge-read",
+        "at": "2026-11-14T13:13:39.598Z",
+        "documentCount": 1
+      }
+    ],
+    "reasonCode": "api.http_status",
+    "answer": null,
+    "citations": [],
+    "sources": [
+      {
+        "id": "companies/local-workspace/documents/61a6a33f-6711-4d04-a33e-833041973773",
+        "title": "Harbor Mutual — Fictional Auto Policy HM-AUTO-DEMO",
+        "revision": "4c338a4f87ad4b89b29b87216ce2289b31991a0584282b7b40446f5809bb1ce8"
+      }
+    ],
+    "acceptance": "live-process-e2ee",
+    "offlinePlaintextRecovery": false,
+    "fundingSource": "owner-cloud-key"
+  }
+}

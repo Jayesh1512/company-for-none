@@ -1,0 +1,577 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-14T14:41:06.866Z",
+  "grantsSpendingAuthority": false,
+  "scope": "Evidence index; checksums and labels are not cryptographic proof of every claim.",
+  "artifacts": [
+    {
+      "id": "public-manifest",
+      "path": "artifacts/live-evidence/2026-11-14-readonly-r1/manifest.json",
+      "kind": "public_capture",
+      "command": "node scripts/collect-live-evidence.mjs --network mainnet --account <public-account> --model Qwen/Qwen3.8-27B",
+      "doesNotProve": "A manifest is a record of collection, not independent cryptographic proof of all its fields.",
+      "trustScope": "LIVE_PUBLIC",
+      "bytes": 6441,
+      "sha256": "6cf27faac9babbc7deb67e98c923a76ecd123d572491230d1138535fbb8309d4",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "dry-exchange",
+      "path": "artifacts/live-evidence/2026-11-14-readonly-r1/intents-dry-quote-exchange.json",
+      "kind": "public_capture",
+      "command": "node scripts/collect-live-evidence.mjs (dry:true quote only)",
+      "doesNotProve": "Only SDK-signed quote fields are authenticated; transport/status is not settlement.",
+      "trustScope": "LIVE_PUBLIC",
+      "bytes": 2666,
+      "sha256": "b17224a81e77fdaf6883ccd310d5c62562bad953d6ba9ec9c8c1504346fc2c04",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "dry-summary",
+      "path": "artifacts/live-evidence/2026-11-14-readonly-r1/intents-dry-quote-summary.json",
+      "kind": "public_capture",
+      "command": "Official1Click SDK0.1.26 production-root verification during collection",
+      "doesNotProve": "Saved verification booleans are not trusted by the offline cryptographic replay.",
+      "trustScope": "LIVE_PUBLIC",
+      "bytes": 1682,
+      "sha256": "ff08907e025865645bf2e8616a74a27cb20ff798fe235a1a107f5efc04380a57",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "cloud-summary",
+      "path": "artifacts/live-evidence/2026-11-14-readonly-r1/cloud-attestation-summary.json",
+      "kind": "public_capture",
+      "command": "Official Cloud SDK0.3.0 anonymous preflight during collection",
+      "doesNotProve": "Only original live preflight verified TEE; the offline command cannot reverify collateral or plaintext.",
+      "trustScope": "LIVE_PUBLIC",
+      "bytes": 2174,
+      "sha256": "8b2d6fa275935adff08e954aba30b95fa7ae1b67bf1d3bc89e137d9c01c9b657",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "cloud-summary-checksum",
+      "path": "artifacts/live-evidence/2026-11-14-readonly-r1/cloud-attestation-summary.json.sha256",
+      "kind": "public_capture",
+      "command": "SHA256 of the recorded public summary",
+      "doesNotProve": "A checksum establishes byte integrity, not TEE verification or freshness.",
+      "trustScope": "LIVE_PUBLIC",
+      "bytes": 97,
+      "sha256": "350a537716988eac5b7d8f32179e42eece2fa5dc19551ea560e19d57e67a65c3",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "quote-summary-checksum",
+      "path": "artifacts/live-evidence/2026-11-14-readonly-r1/intents-dry-quote-summary.json.sha256",
+      "kind": "public_capture",
+      "command": "SHA256 of the recorded public summary",
+      "doesNotProve": "A checksum is not a quote signature or settlement proof.",
+      "trustScope": "LIVE_PUBLIC",
+      "bytes": 97,
+      "sha256": "973ee66c0a8fdfae02da20934ee9d6df77cf7f6d291070db1d3e0445a6d271cd",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "original-offline-check",
+      "path": "artifacts/live-evidence/2026-11-14-readonly-r1/offline-verification.json",
+      "kind": "local_execution",
+      "command": "node scripts/verify-live-evidence.mjs artifacts/live-evidence/2026-11-14-readonly-r1",
+      "doesNotProve": "Historical log only; the evidence verifier repeats actual signature verification in a temporary copy.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 2790,
+      "sha256": "6608641c7ecdc1aa363288e586bb13892055680b2ab508630f0c6421c0c6d678",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "sandbox-fees",
+      "path": "artifacts/mentor-implementation/sandbox-native-fees.json",
+      "kind": "local_execution",
+      "command": "node scripts/check-native-fee-sandbox.mjs",
+      "doesNotProve": "Actual local nearcore, disposable test funds and synthetic USD conversion; no mainnet execution.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 1583,
+      "sha256": "40e634ce85c56f1c120367b102798cc7187db934b436b1c061998ec9b08b72fc",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "sandbox-log",
+      "path": "artifacts/mentor-implementation/sandbox-native-fees.log",
+      "kind": "local_execution",
+      "command": "node scripts/check-native-fee-sandbox.mjs",
+      "doesNotProve": "A historical test log is not by itself public-chain proof.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 1594,
+      "sha256": "ea7c0ad8a9c68d07102490f4cc9649d56d3d6adadd16e36bdaa2b32c568363f5",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "contract-build",
+      "path": "artifacts/onchain-ledger/contract-manifest.json",
+      "kind": "local_execution",
+      "command": "npm run contract:build",
+      "doesNotProve": "Compilation/hash does not establish deployed code or authority.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 214,
+      "sha256": "2711d3a064ac38d7fa2e5545fc70a7964958ca851d55a2ce7cdb873403d9c040",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "protocol-tests",
+      "path": "artifacts/mentor-implementation/focused-tests.log",
+      "kind": "controlled_test",
+      "command": "npm run test:mentor",
+      "doesNotProve": "Local injected provider/signing/proof ports; not a live funded protocol.",
+      "trustScope": "CONTROLLED",
+      "bytes": 5253,
+      "sha256": "c91b33e2fb8c975cc06bf89d08601d108298cb798934694a3774844956497146",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "demo-browser",
+      "path": "artifacts/local-real-demo/browser-proof.json",
+      "kind": "local_execution",
+      "command": "node scripts/check-local-demo-browser.mjs",
+      "observedAt": "2026-11-14T12:37:24.432Z",
+      "doesNotProve": "Actual isolated product/browser/native JBrain; model-free, no provider or financial operation.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 890,
+      "sha256": "6fe195b3d3764d8bc15c42850bb687c19fe0b57885e9fab908f2b024a092815c",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "demo-validation",
+      "path": "artifacts/local-real-demo/validation.json",
+      "kind": "local_execution",
+      "command": "Recorded root local-demo increment validation; see docs/LOCAL_REAL_DEMO.md",
+      "observedAt": "2026-11-14T12:49:14.888752+00:00",
+      "doesNotProve": "Historical recorded suite/browser/main preservation result; not rerun by this evidence builder and not funded execution.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 1022,
+      "sha256": "f04b9070378c3808cb4b07b053e14b7af5ac3c036090ce07b7caec9ffd4bf3e4",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "evidence-checks",
+      "path": "evidence/checks.log",
+      "kind": "controlled_test",
+      "command": "node --test scripts/evidence/checks.test.mjs",
+      "doesNotProve": "Synthetic validator/secret-pattern negative cases; not a live attack or provider proof.",
+      "trustScope": "CONTROLLED",
+      "bytes": 1473,
+      "sha256": "9f62c51440e391e39e6a51e640cfe404606f693231c75c843500b1a66f5822e1",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "ai-demo-answer",
+      "path": "artifacts/real-ai-demo/actual-call-r2.json",
+      "kind": "paid_provider",
+      "command": "Completed approved owner AI demo request; historical record only, not an instruction to repeat",
+      "observedAt": "2026-11-14T13:19:03.850Z",
+      "doesNotProve": "Sanitized projection of an actual original-call SDK-verified E2EE answer; no offline original plaintext/attestation replay.",
+      "trustScope": "LIVE_PAID",
+      "bytes": 3673,
+      "sha256": "5223f80543ac94eb91d8dd0faa9174495ddb5228002fa875a2e8c22ac09c2d72",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "ai-demo-escalation",
+      "path": "artifacts/real-ai-demo/actual-escalation.json",
+      "kind": "paid_provider",
+      "command": "Completed approved owner AI demo via native browser form; historical record only",
+      "observedAt": "2026-11-14T13:26:22.752Z",
+      "doesNotProve": "Actual model refusal/citations/local owner ticket; no real insurer approval, payment or general autonomous company loop.",
+      "trustScope": "LIVE_PAID",
+      "bytes": 5307,
+      "sha256": "00b8e2f7fc9bb716555990033c47e6364a43357a6e4dc21db703a2e3c3d484aa",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "ai-demo-verification",
+      "path": "artifacts/real-ai-demo/actual-verification-summary.json",
+      "kind": "paid_provider",
+      "command": "Sanitized original SDK finding extraction; raw original frames retained privately",
+      "observedAt": "2026-11-14T13:31:33.812Z",
+      "doesNotProve": "Saved summary booleans are not independently reverified cryptography; durableReplayStatus remains unavailable.",
+      "trustScope": "LIVE_PAID",
+      "bytes": 2441,
+      "sha256": "d72a36f703b82f4b5f8b724f8154ef61e5b9b90f59dff322547246e0827518d5",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "ai-demo-outcomes",
+      "path": "artifacts/real-ai-demo/actual-outcomes.json",
+      "kind": "paid_provider",
+      "command": "Recorded approved trial outcome and bill summary",
+      "observedAt": "2026-11-14T13:26:22.809Z",
+      "doesNotProve": "Owner-key expenses only; no credit opening, autonomous funding, customer revenue or supplier purchase.",
+      "trustScope": "LIVE_PAID",
+      "bytes": 354,
+      "sha256": "bcea97a6891d562e79ab3157a6d2e470ce169429785f13cb253d56dccf2e50ca",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "ai-demo-restart",
+      "path": "artifacts/real-ai-demo/actual-restart.json",
+      "kind": "paid_provider",
+      "command": "Recorded same-store restart and original request replay; no additional completion",
+      "observedAt": "2026-11-14T13:22:17.338Z",
+      "doesNotProve": "Trusted journal replay of a committed answer; not original plaintext decryption after a pre-acceptance crash.",
+      "trustScope": "LIVE_PAID",
+      "bytes": 389,
+      "sha256": "eccc8cf5d555b294863441913c5592cebca8c5cc195039545e5bc14d6f1f7159",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "ai-demo-validation",
+      "path": "artifacts/real-ai-demo/validation.json",
+      "kind": "paid_provider",
+      "command": "Recorded completed real AI demo validation; full560/native12/syntax173 not rerun by evidence verifier",
+      "observedAt": "2026-11-14T13:32:57.350Z",
+      "doesNotProve": "Actual two-call trial plus controlled regression tests; public raw TEE/ciphertext/collateral replay is not supplied.",
+      "trustScope": "LIVE_PAID",
+      "bytes": 2442,
+      "sha256": "c5185eec47e2270fba4c8b22d524d6f65ebe47c3c57247a24de27f7df6cfaf13",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "ai-demo-source",
+      "path": "artifacts/real-ai-demo/source-manifest.json",
+      "kind": "local_execution",
+      "command": "Recorded27-file real AI increment hash manifest",
+      "observedAt": "2026-11-14T13:32:57.348Z",
+      "doesNotProve": "Source/byte binding and recorded implementation version; not provider execution or an immutable whole repository.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 4519,
+      "sha256": "7ba1007e705c10d975b6ce2946720953f21670ae80b7e27bf532fb9fc24ba644",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "unreviewed-runner-review",
+      "path": "evidence/reviews/paid-runner-review.json",
+      "kind": "local_execution",
+      "command": "Read-only source audit and exact-source private archive; paid runner not executed",
+      "doesNotProve": "Authorship of shared edits is unknown. Disabling an unsafe runner is not a new paid execution or authority.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 3060,
+      "sha256": "4eba51a0a05c58025cd30351fdabde20a21afd01cd5d70ed80c5ee50b1d6ab86",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "capture-cloud-models",
+      "path": "artifacts/live-evidence/2026-11-14-readonly-r1/cloud-models.response.json",
+      "kind": "public_capture",
+      "command": "GET https://cloud-api.near.ai/v1/models",
+      "observedAt": "2026-11-14T10:50:52.542Z",
+      "doesNotProve": "Original recorded endpoint response; HTTP200 can contain RPC errors. Integrity is not independent semantic/provider proof.",
+      "trustScope": "LIVE_PUBLIC",
+      "bytes": 65690,
+      "sha256": "a95e1981f3e0ebfed90a4efe57e1fee218acf28f7f2f80469abb8eb898a61f25",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "capture-cloud-pricing",
+      "path": "artifacts/live-evidence/2026-11-14-readonly-r1/cloud-pricing.response.json",
+      "kind": "public_capture",
+      "command": "GET https://cloud-api.near.ai/v1/model/list?limit=1000&offset=0",
+      "observedAt": "2026-11-14T10:50:52.547Z",
+      "doesNotProve": "Original recorded endpoint response; HTTP200 can contain RPC errors. Integrity is not independent semantic/provider proof.",
+      "trustScope": "LIVE_PUBLIC",
+      "bytes": 79330,
+      "sha256": "e8363cc5f10d2e7759f98991d358a91f9744f52a0d2796a8f1420880335f821c",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "capture-cloud-services",
+      "path": "artifacts/live-evidence/2026-11-14-readonly-r1/cloud-services.response.json",
+      "kind": "public_capture",
+      "command": "GET https://cloud-api.near.ai/v1/services",
+      "observedAt": "2026-11-14T10:50:52.547Z",
+      "doesNotProve": "Original recorded endpoint response; HTTP200 can contain RPC errors. Integrity is not independent semantic/provider proof.",
+      "trustScope": "LIVE_PUBLIC",
+      "bytes": 341,
+      "sha256": "9fbefe2173622190811043bcac7831d5e987381c6e0b0c25b28b53c7ec5ee2e3",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "capture-intents-tokens",
+      "path": "artifacts/live-evidence/2026-11-14-readonly-r1/intents-tokens.response.json",
+      "kind": "public_capture",
+      "command": "GET https://1click.chaindefuser.com/v0/tokens",
+      "observedAt": "2026-11-14T10:50:52.547Z",
+      "doesNotProve": "Original recorded endpoint response; HTTP200 can contain RPC errors. Integrity is not independent semantic/provider proof.",
+      "trustScope": "LIVE_PUBLIC",
+      "bytes": 58892,
+      "sha256": "c8f688c8dad8758b7cd14376e8ba18da3f99f01a41b9fbd4edb127ea032c39bb",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "capture-agent-api-schema",
+      "path": "artifacts/live-evidence/2026-11-14-readonly-r1/agent-api-schema.response.json",
+      "kind": "public_capture",
+      "command": "GET https://api.agentsonintents.com/openapi.json",
+      "observedAt": "2026-11-14T10:50:52.549Z",
+      "doesNotProve": "Original recorded endpoint response; HTTP200 can contain RPC errors. Integrity is not independent semantic/provider proof.",
+      "trustScope": "LIVE_PUBLIC",
+      "bytes": 330456,
+      "sha256": "e3903669d7195101cbefb8efc12e2d360e50182d058ffb56f17b35b7963a4372",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "capture-agent-public-tee-info",
+      "path": "artifacts/live-evidence/2026-11-14-readonly-r1/agent-public-tee-info.response.json",
+      "kind": "public_capture",
+      "command": "GET https://api.agentsonintents.com/tee/info",
+      "observedAt": "2026-11-14T10:50:52.549Z",
+      "doesNotProve": "Original recorded endpoint response; HTTP200 can contain RPC errors. Integrity is not independent semantic/provider proof.",
+      "trustScope": "LIVE_PUBLIC",
+      "bytes": 49529,
+      "sha256": "94998b20cc2ed19e32a249ad5b8e8b7213bf4a5615b56b8d2170ce0b11edc9f3",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "capture-near-mainnet-status",
+      "path": "artifacts/live-evidence/2026-11-14-readonly-r1/near-mainnet-status.response.json",
+      "kind": "public_capture",
+      "command": "POST https://rpc.mainnet.near.org",
+      "observedAt": "2026-11-14T10:50:52.549Z",
+      "doesNotProve": "Original recorded endpoint response; HTTP200 can contain RPC errors. Integrity is not independent semantic/provider proof.",
+      "trustScope": "LIVE_PUBLIC",
+      "bytes": 4885,
+      "sha256": "e207be8c0bd291137d5f8cb218ec9277b904bbacf1f1e902fa3e85b552e8b384",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "capture-deployment-wallet",
+      "path": "artifacts/live-evidence/2026-11-14-readonly-r1/deployment-wallet.response.json",
+      "kind": "public_capture",
+      "command": "POST https://rpc.mainnet.near.org",
+      "observedAt": "2026-11-14T10:50:52.550Z",
+      "doesNotProve": "Original recorded endpoint response; HTTP200 can contain RPC errors. Integrity is not independent semantic/provider proof.",
+      "trustScope": "LIVE_PUBLIC",
+      "bytes": 447,
+      "sha256": "e3e858675363e8426def9cc5e4e7b6031618424ad6c8d37ae2c4b9c74b3c067f",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "capture-near-mainnet-final-block",
+      "path": "artifacts/live-evidence/2026-11-14-readonly-r1/near-mainnet-final-block.response.json",
+      "kind": "public_capture",
+      "command": "POST https://rpc.mainnet.near.org",
+      "observedAt": "2026-11-14T10:50:52.550Z",
+      "doesNotProve": "Original recorded endpoint response; HTTP200 can contain RPC errors. Integrity is not independent semantic/provider proof.",
+      "trustScope": "LIVE_PUBLIC",
+      "bytes": 18730,
+      "sha256": "b3513c99e2d2ed66448be1861ed7eb7c36d2a405c23df1a35963304108c4a75f",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "fresh-care-local",
+      "path": "evidence/runs/2026-11-14T12-49-11-380Z/care-local.log",
+      "kind": "local_execution",
+      "command": "node --test --test-reporter=spec test/customer-care-domain/support.test.mjs",
+      "observedAt": "2026-11-14T12:49:14.133Z",
+      "doesNotProve": "Actual isolated native JBrain and local application; fictional data, no model/provider/paid effect.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 1454,
+      "sha256": "6a3b41e2062d69f8e4e2c5f82777812da992a98f8c0b82081853c45a76b7ff77",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "fresh-healing-controlled",
+      "path": "evidence/runs/2026-11-14T12-49-11-380Z/healing-controlled.log",
+      "kind": "controlled_test",
+      "command": "node --test --test-reporter=spec test/autonomy/pipeline.test.mjs",
+      "observedAt": "2026-11-14T12:49:27.901Z",
+      "doesNotProve": "Controlled SDK output, proof, credit and billing; native JBrain/local orchestration do not turn this into real paid reasoning.",
+      "trustScope": "CONTROLLED",
+      "bytes": 8020,
+      "sha256": "36123281959012bfdb1fb6279f0e99cf9906c88a3d1bdcc6cc4787797250f779",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "fresh-protocol-controlled",
+      "path": "evidence/runs/2026-11-14T12-49-11-380Z/protocol-controlled.log",
+      "kind": "controlled_test",
+      "command": "node --test --test-reporter=spec test/integrations/native-writer.test.mjs",
+      "observedAt": "2026-11-14T12:49:28.515Z",
+      "doesNotProve": "Controlled HTTP/signing-envelope facts; no public-chain transaction or production grant.",
+      "trustScope": "CONTROLLED",
+      "bytes": 691,
+      "sha256": "5044ddf38ac006ec94d9f59a63b3b29020c357489117f3c4a5b47dce6d8f12c8",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "latest-local",
+      "path": "evidence/latest-local.json",
+      "kind": "local_execution",
+      "command": "node scripts/evidence/run-local.mjs",
+      "doesNotProve": "Run metadata; each child log retains its own scope. This file does not upgrade controlled proof.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 3178,
+      "sha256": "c0fa89f8837eb91022b28e2ddf2d974a71774bda892a46b2ed82bfa6fb9dc4cb",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "actual-care-scenario",
+      "path": "evidence/runs/2026-11-14T12-49-11-380Z/care-scenario.json",
+      "kind": "local_execution",
+      "command": "node scripts/evidence/care-scenario.mjs evidence/runs/2026-11-14T12-49-11-380Z/care-scenario.json",
+      "observedAt": "2026-11-14T12:49:28.516Z",
+      "doesNotProve": "Actual isolated native JBrain/cited answer/ticket/restart; fictional data and no model/provider/financial effect.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 3650,
+      "sha256": "8567184ec21a49156df41d38a018f45cad244cf8a04ac40e27293b17b0474f47",
+      "timestampBasis": "recorded-source-observation"
+    }
+  ],
+  "claims": [
+    {
+      "id": "quote-signature",
+      "claim": "A captured real dry quote verifies against the official SDK production root.",
+      "status": "OBSERVED",
+      "evidence": [
+        "public-manifest",
+        "dry-exchange",
+        "dry-summary",
+        "original-offline-check"
+      ],
+      "verify": "node scripts/evidence/verify.mjs",
+      "doesNotProve": "No swap, current price, settlement, refund or funded business result."
+    },
+    {
+      "id": "cloud-preflight",
+      "claim": "The recorded live SDK run verified fresh gateway/model nonces, UpToDate TCB and gateway TLS binding.",
+      "status": "OBSERVED",
+      "evidence": [
+        "cloud-summary",
+        "public-manifest"
+      ],
+      "verify": "node scripts/evidence/verify.mjs",
+      "doesNotProve": "Offline verification checks summary integrity only. Deployment provenance was not checked; no completion or accepted plaintext."
+    },
+    {
+      "id": "public-discovery",
+      "claim": "Nine public endpoint responses and their exact bytes were recorded.",
+      "status": "OBSERVED",
+      "evidence": [
+        "public-manifest"
+      ],
+      "verify": "node scripts/evidence/verify.mjs",
+      "doesNotProve": "Reachability/catalogues do not establish funds, owner authority, enforcement or provider execution."
+    },
+    {
+      "id": "sandbox-fees",
+      "claim": "The compiled ledger executed locally and final nearcore receipts covered successful and billed failed calls.",
+      "status": "OBSERVED",
+      "evidence": [
+        "sandbox-fees",
+        "sandbox-log",
+        "contract-build"
+      ],
+      "verify": "node scripts/check-native-fee-sandbox.mjs",
+      "doesNotProve": "Sandbox accounts/funds and test USD rate are not public-chain deployment or actual USD expenditure."
+    },
+    {
+      "id": "native-protocol",
+      "claim": "Controlled client/Rules/Treasury tests cover fee reservations, current stop, original recovery and no blind resend.",
+      "status": "OBSERVED",
+      "evidence": [
+        "protocol-tests",
+        "fresh-protocol-controlled"
+      ],
+      "verify": "npm run test:mentor",
+      "doesNotProve": "Injected signing/proof facts are not a production signer, verified grant or mainnet transaction."
+    },
+    {
+      "id": "customer-care",
+      "claim": "Isolated native-JBrain tests exercise exact citations, persistent tickets, access isolation, revocation and restart.",
+      "status": "OBSERVED",
+      "evidence": [
+        "fresh-care-local",
+        "actual-care-scenario"
+      ],
+      "verify": "node scripts/evidence/run-local.mjs",
+      "doesNotProve": "Fictional policies and local model-free lookup are not insurance coverage or paid/private AI reasoning."
+    },
+    {
+      "id": "controlled-healing",
+      "claim": "A full controlled-SDK pipeline exercises the company repair and future-context chain.",
+      "status": "OBSERVED",
+      "evidence": [
+        "fresh-healing-controlled"
+      ],
+      "verify": "node scripts/evidence/run-local.mjs",
+      "doesNotProve": "Injected model output/proof/billing are CONTROLLED, even when Journal, Rules, Treasury and native JBrain are real."
+    },
+    {
+      "id": "isolated-demo",
+      "claim": "The separate real local demo exercises editable agents, native knowledge, cited replies, tickets and its private ledger without changing the main company.",
+      "status": "OBSERVED",
+      "evidence": [
+        "demo-browser",
+        "demo-validation"
+      ],
+      "verify": "node scripts/check-local-demo-browser.mjs",
+      "doesNotProve": "Local model-free product execution only. No paid AI, provider operation, money movement or public-chain action."
+    },
+    {
+      "id": "evidence-integrity",
+      "claim": "Evidence-layer negative tests reject altered bytes, controlled-to-live relabelling, claim promotion, unsafe paths and selected credential patterns.",
+      "status": "OBSERVED",
+      "evidence": [
+        "evidence-checks"
+      ],
+      "verify": "node --test scripts/evidence/checks.test.mjs",
+      "doesNotProve": "Metadata checks and a heuristic scan do not establish provider truth or guarantee absence of every secret."
+    },
+    {
+      "id": "accepted-private-output",
+      "claim": "Actual paid private model output accepted with durable original plaintext verification.",
+      "status": "HELD",
+      "evidence": [],
+      "verify": null,
+      "doesNotProve": "Not established. SDK0.3.0 durable plaintext recovery, trusted credit, exact authority and numerical bounds remain gates."
+    },
+    {
+      "id": "paid-inference",
+      "claim": "Two actual owner-funded Cloud E2EE calls produced a cited answer and owner escalation, with original-call SDK verification and reconciled bills.",
+      "status": "OBSERVED",
+      "evidence": [
+        "ai-demo-answer",
+        "ai-demo-escalation",
+        "ai-demo-verification",
+        "ai-demo-outcomes",
+        "ai-demo-restart",
+        "ai-demo-validation",
+        "ai-demo-source"
+      ],
+      "verify": "node scripts/evidence/verify.mjs",
+      "doesNotProve": "Approved live-process-e2ee scope only; crash before acceptance holds without automatic paid retry. Offline checks validate sanitized-record consistency, not private TEE/signature/plaintext replay. Strict commercial G6, autonomous company reasoning, payments, acquisition and mainnet remain open."
+    },
+    {
+      "id": "mainnet-ledger",
+      "claim": "A public mainnet contract and exact company checkpoint have been deployed and independently reconciled.",
+      "status": "BLOCKED",
+      "evidence": [
+        "public-manifest"
+      ],
+      "verify": null,
+      "doesNotProve": "Not established. The last captured account query is UNKNOWN_ACCOUNT; production native fee/signing-envelope proof and funded authority remain absent."
+    },
+    {
+      "id": "funded-commerce",
+      "claim": "Customer settlement, delivery, refund/payout and supplier acquisition completed with independently verified evidence.",
+      "status": "BLOCKED",
+      "evidence": [],
+      "verify": null,
+      "doesNotProve": "Not established. Provider SUCCESS, signed quotes and task artifacts cannot stand in for monetary finality or reusable licences."
+    },
+    {
+      "id": "outlayer-production-proof",
+      "claim": "A production OutLayer verifier acquires and independently validates exact remote evaluator execution.",
+      "status": "NOT_IMPLEMENTED",
+      "evidence": [],
+      "verify": null,
+      "doesNotProve": "The compiled evaluator and conditional HTTPS client do not implement this proof producer."
+    }
+  ]
+}

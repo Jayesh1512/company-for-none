@@ -1,0 +1,21 @@
+{
+  "writerId": "c65dfd852ac424c967951a7f3e2d6ee3153374822c30a4a484345ee5bbf456fc",
+  "scopedKey": "ed25519:8HgWz4PcwSLhUvUKqk9yjKh6yUHedPeauCmHZFs7Wwxx",
+  "fullKey": "ed25519:EMLrHH5GKMp2wJd89ZTkbS9Rr1mnmQXvMZtm7sZ7ZUrw",
+  "topUpWriterTx": "GaAHsGEycYiCYvvj7DPQAYiRiwoxrYcaMRcYysTm4XKu",
+  "appendTx": "GsQhBsCknFXwGTHjdMtSqWPHuyVBZgK31AqufopeUK7d",
+  "headAfter": {
+    "companyHash": "9f83bd56058199fad25b2afbe9a452a01170dac5187f8546cf0d469278d962f9",
+    "sequence": 4,
+    "hash": "386ab87d853bf2c8c240a84559e3e9cbc314eeb16fd89038b6f3bc9d8c2d00d4",
+    "ownerId": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b",
+    "writerId": "c65dfd852ac424c967951a7f3e2d6ee3153374822c30a4a484345ee5bbf456fc"
+  },
+  "scopeCheck": "REJECTED: Access key requires full access",
+  "writerKeys": [
+    {
+      "publicKey": "ed25519:8HgWz4PcwSLhUvUKqk9yjKh6yUHedPeauCmHZFs7Wwxx",
+      "permission": "FunctionCall(append)"
+    }
+  ]
+}

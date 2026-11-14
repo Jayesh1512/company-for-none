@@ -1,0 +1,5 @@
+
+> autonomous-research-shop@0.1.0 check
+> node scripts/check.mjs
+
+Syntax checked 38 JavaScript files.

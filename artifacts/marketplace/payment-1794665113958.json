@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "kind": "marketplace-x402-payment",
+  "paidAt": "2026-11-14T14:05:13.955Z",
+  "challenge": {
+    "amount": "500000",
+    "asset": "17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+    "maxTimeoutSeconds": 780,
+    "network": "near:mainnet",
+    "payTo": "ea667f5f496e60033bf8075cce4793efdeba28d74d116ef95848324347f539fc",
+    "scheme": "exact"
+  },
+  "payer": "e17d480f28ef0c3f39c7b3a12bdf80acfa2e2282a5e7a2eae3f019510ce6e8d4",
+  "taskId": "0de69385-54a4-4e1f-bd34-c4155f532242",
+  "taskState": "TASK_STATE_COMPLETED",
+  "artifacts": [
+    {
+      "artifactId": "22860aa4-1e10-48bd-90fb-97f72dd0869a",
+      "name": "deliverable.md",
+      "parts": [
+        {
+          "text": "**NEAR mainnet in one line:** A scalable, sharded layer-1 blockchain with sub-second finality and near-zero fees, optimized for developer-friendliness and AI-scale throughput.\n\n**Sharding design name:** NEAR Protocol's sharding design is called **Nightshade**."
+        }
+      ]
+    }
+  ],
+  "rawResponse": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+      "task": {
+        "artifacts": [
+          {
+            "artifactId": "22860aa4-1e10-48bd-90fb-97f72dd0869a",
+            "name": "deliverable.md",
+            "parts": [
+              {
+                "text": "**NEAR mainnet in one line:** A scalable, sharded layer-1 blockchain with sub-second finality and near-zero fees, optimized for developer-friendliness and AI-scale throughput.\n\n**Sharding design name:** NEAR Protocol's sharding design is called **Nightshade**."
+              }
+            ]
+          }
+        ],
+        "contextId": "6f448345-268e-47ed-aaaf-de303854f1e8",
+        "id": "0de69385-54a4-4e1f-bd34-c4155f532242",
+        "status": {
+          "message": {
+            "messageId": "ca62abae-a485-4a09-af71-99043d3ebcbe",
+            "parts": [
+              {
+                "text": "NEAR mainnet in one line\nIn one sentence, what is NEAR Protocol's sharding design called?"
+              }
+            ],
+            "role": "ROLE_USER"
+          },
+          "state": "TASK_STATE_COMPLETED",
+          "timestamp": "2026-11-14T14:05:12.930339+00:00"
+        }
+      }
+    }
+  }
+}

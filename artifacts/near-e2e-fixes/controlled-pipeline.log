@@ -1,0 +1,21 @@
+✔ real pipeline: brief → manager → specialist → gap → backlog → developer → fixed evaluation → future context, with one causal lifecycle trace (6687.211792ms)
+✔ without durable plaintext proof the same real pipeline accepts zero commands and holds visibly (1011.670125ms)
+✔ unchanged missing Cloud preparation access survives restart without burning counters; explicit owner resume rechecks once (1010.408959ms)
+✔ restart plus lease expiry between a verified result and command admission recovers the original result once: no resend, no duplicate agent, loop still completes (6169.624666ms)
+✔ current kill between verified result and command admission stops all commands; unkill never resends and recovers the original result (4346.419875ms)
+✔ successive crashes recover the latest admitted batch prefix without duplicate effects or repeated cost (2256.553666ms)
+✔ lost original output stays unknown and reserved across restart, kill and owner pause without resending (478.914708ms)
+✔ delayed original bill keeps reservation and prevents complete_work after restart without replacement inference (593.905833ms)
+✔ actual native JBrain outage records one trusted blocker and survives restart without burning a claim (402.764666ms)
+✔ changed bound persona blocks before inference without counter burn and a real catalog repair rechecks once (528.376709ms)
+✔ corrupt active revision records a context-resolution blocker without inference or repeated claims (504.091458ms)
+✔ unsupported instructions require current owner review and affect future named-profile context only (1854.628041ms)
+✔ host-code proposals remain inert after explicit acknowledgement; rejection writes no active revision (2415.445958ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28388.472042

@@ -1,0 +1,13 @@
+{
+  "observedAt": "2026-11-14T13:32:11.148Z",
+  "acceptedAnswers": 2,
+  "persistedTicketIds": [
+    "ai-demo:2acf7ad96a2f894eae0e006cb6f479c21976bf5299ed20cfb273430fa08f47d4:ticket"
+  ],
+  "providerOperations": 2,
+  "financialVersion": 8,
+  "reservationCount": 2,
+  "reconciledReservations": 2,
+  "totalActualNanoUsd": "3221160",
+  "paused": false
+}

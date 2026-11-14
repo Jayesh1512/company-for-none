@@ -1,0 +1,50 @@
+{
+  "recordedAt": "2026-11-14T12:54:17.986439+00:00",
+  "scope": "Evidence layer only. No product runtime/config/package modifications. Existing main preview restart/open was separately authorized and reported.",
+  "manifest": "evidence/manifest.json",
+  "claimIndex": "CLAIMS.md",
+  "artifactsVerified": 28,
+  "claimsChecked": 13,
+  "offlineSignatureReplay": {
+    "productionRoot": "verified",
+    "journalReopened": true,
+    "syntheticSignedAmountTamper": "rejected",
+    "networkIO": false,
+    "teeReverifiedOffline": false
+  },
+  "localSuites": {
+    "actualNativeJBrainDomainTests": 11,
+    "controlledHealingPipelineTests": 13,
+    "controlledNativeProtocolTests": 5,
+    "totalPass": 29,
+    "fail": 0,
+    "skip": 0,
+    "latestRun": "evidence/latest-local.json"
+  },
+  "actualCareScenario": {
+    "fictional": true,
+    "modelFree": true,
+    "exactNativeCitation": true,
+    "actualTicket": true,
+    "journalReopened": true,
+    "replayNoDuplicate": true,
+    "wrongTokenDenied": true,
+    "publicProviderCalls": 0
+  },
+  "integrityTests": {
+    "pass": 9,
+    "fail": 0,
+    "skip": 0,
+    "log": "evidence/checks.log"
+  },
+  "ownedSyntaxFiles": 7,
+  "ownedSourceSHA256": "6f7bbb77af86f5642d43f60b8abc2d7ed4a9f431804aca60228a4bf678499e6c",
+  "sourceHashAlgorithm": "sorted scripts/evidence/*.mjs relative path + NUL + bytes + NUL",
+  "relativeLinksChecked": 22,
+  "secretScan": "Selected public evidence and claim index only; heuristic, not a full repository/history scan or guarantee. Public NEAR signature fields are distinct from private-key contexts.",
+  "fullSuiteRerun": false,
+  "paidCalls": 0,
+  "mainnetTransactions": 0,
+  "spendingAuthorityGranted": false,
+  "scoreIncreaseClaimed": false
+}

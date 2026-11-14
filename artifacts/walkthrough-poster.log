@@ -1,0 +1,22 @@
+Bundling 6%
+Bundling 21%
+Bundling 32%
+Bundling 43%
+Bundling 54%
+Bundling 65%
+Bundling 70%
+Bundling 75%
+Bundling 80%
+Bundling 85%
+Bundling 91%
+Bundling 98%
+Bundling 100%
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/jys/.t3/projects/near1/node_modules/.cache/webpack/remotion-production-4.0.542/9452864905903c525ed28c4ceae23ad7/0.pack_' -> '/Users/jys/.t3/projects/near1/node_modules/.cache/webpack/remotion-production-4.0.542/9452864905903c525ed28c4ceae23ad7/0.pack'
+Getting composition
+Composition          NearWalkthrough
+Format               png
+Output               artifacts/walkthrough-poster.png
+Rendered 0/1
+Rendered 0/1
+Rendered 1/1
++                    artifacts/walkthrough-poster.png

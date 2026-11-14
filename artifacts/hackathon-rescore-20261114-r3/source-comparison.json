@@ -1,0 +1,8 @@
+{
+  "at": "2026-11-14T12:58:22.280901+00:00",
+  "completedDemoSourceManifest": "artifacts/local-real-demo/source-manifest.json",
+  "fileCount": 22,
+  "aggregateSHA256": "2cb24b95a0568c57f9b7dd797a384ce833b08d741c2875ef788e6bc68ce14cea",
+  "changedManifestPaths": [],
+  "inFlightLiveAIWorkCredited": false
+}

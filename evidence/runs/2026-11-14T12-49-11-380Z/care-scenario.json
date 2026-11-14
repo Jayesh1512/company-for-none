@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-11-14T12:49:11.675Z",
+  "trustScope": "LIVE_LOCAL",
+  "fictional": true,
+  "replyMode": "policy_lookup",
+  "aiEnabled": false,
+  "previewUsed": false,
+  "scenario": "actual native JBrain cited lookup -> no-match escalation -> owner inbox -> journal reopen/idempotent replay",
+  "question": "What is the auto collision deductible?",
+  "questionSha256": "16b6bbb20659674a035b654789f11903c52c7432d452374b5b1427f961a79399",
+  "answer": {
+    "text": "Fictional insurance policy lookup. These are source excerpts, not an AI-generated answer or a claim, coverage, legal or medical decision.\n\n[Harbor Mutual — Fictional Auto Policy HM-AUTO-DEMO — Auto collision deductible]\nFor this fictional auto example, collision damage has an illustrative deductible of 500 demo dollars per incident. A policy excerpt cannot decide whether an actual incident is covered. Only a human owner review can address an individual scenario.",
+    "reasonCode": "SUPPORT_POLICY_EXCERPTS",
+    "textSha256": "3d56c439da4fde44bb16cdab387f898d7bfe479dcd4a0618d4cbbff11fa6d27b",
+    "citations": [
+      {
+        "documentId": "companies/evidence-care/documents/7dd94b24-2b1f-4802-b848-9503db96efb0",
+        "title": "Harbor Mutual — Fictional Auto Policy HM-AUTO-DEMO",
+        "revision": "98f8e171f664ebe8267a74fb3fa199da5111de2ea6711eb1410526232d15a24f",
+        "canonicalMarkdownFingerprint": "d7178da5728f5256532108b596ed4c870100f88b7a08e1a66e12d15d032cd538",
+        "sourceMarkdownSha256": "98f8e171f664ebe8267a74fb3fa199da5111de2ea6711eb1410526232d15a24f",
+        "excerpt": "For this fictional auto example, collision damage has an illustrative deductible of 500 demo dollars per incident. A policy excerpt cannot decide whether an actual incident is covered. Only a human owner review can address an individual scenario.",
+        "excerptSha256": "fb93d3596e92b925dcc2420a84b82ee63453a4871bc18fb94a5755cc5554689b",
+        "exactNativeSourceMatch": true
+      }
+    ]
+  },
+  "escalation": {
+    "question": "Quantum banana spaceship warranty",
+    "questionSha256": "29a48eb5909c8be12a44edb05b88255b775a84ecc6a88e95f3e8d6376e9bcb4d",
+    "reasonCode": "SUPPORT_NO_MATCH_ESCALATED",
+    "ticketId": "support:evidence-care:support_reply:a7664d66f4bcb1d8a69c1f6d355aaf7ab327983c9deeaea75bb37690ac879d89:ticket",
+    "ticketInActualOwnerInbox": true
+  },
+  "journalReopened": true,
+  "replayCreatedNoMessages": true,
+  "wrongTokenDenied": true,
+  "nativeLoopbackRequests": 28,
+  "providerOperations": 0,
+  "orders": 0,
+  "financialRecordCreated": false,
+  "paidCalls": 0,
+  "publicChainTransactions": 0,
+  "events": [
+    {
+      "sequence": 1,
+      "type": "agent.created",
+      "at": "2026-11-14T12:49:11.481Z"
+    },
+    {
+      "sequence": 2,
+      "type": "agent.created",
+      "at": "2026-11-14T12:49:11.490Z"
+    },
+    {
+      "sequence": 3,
+      "type": "support.published",
+      "at": "2026-11-14T12:49:11.618Z"
+    },
+    {
+      "sequence": 4,
+      "type": "support.published",
+      "at": "2026-11-14T12:49:11.629Z"
+    },
+    {
+      "sequence": 5,
+      "type": "support.opened",
+      "at": "2026-11-14T12:49:11.638Z"
+    },
+    {
+      "sequence": 6,
+      "type": "support.replied",
+      "at": "2026-11-14T12:49:11.651Z"
+    },
+    {
+      "sequence": 7,
+      "type": "support.replied",
+      "at": "2026-11-14T12:49:11.661Z"
+    },
+    {
+      "sequence": 8,
+      "type": "support.escalated",
+      "at": "2026-11-14T12:49:11.661Z"
+    }
+  ],
+  "limitations": "Fictional insurance data; model-free local execution; no customer approval, model inference, settlement or funded service."
+}

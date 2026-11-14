@@ -1,0 +1,45 @@
+{
+  "attempted": true,
+  "httpStatus": 201,
+  "illustrativeInput": true,
+  "request": {
+    "dry": true,
+    "swapType": "EXACT_INPUT",
+    "slippageTolerance": 100,
+    "originAsset": "nep141:17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+    "depositType": "ORIGIN_CHAIN",
+    "destinationAsset": "nep141:wrap.near",
+    "amount": "1000000",
+    "refundTo": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b",
+    "refundType": "ORIGIN_CHAIN",
+    "recipient": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b",
+    "recipientType": "DESTINATION_CHAIN",
+    "deadline": "2026-11-14T11:06:05.931Z"
+  },
+  "requestDryEcho": true,
+  "signature": {
+    "source": "local-sdk",
+    "sdk": {
+      "name": "@defuse-protocol/one-click-sdk-typescript",
+      "version": "0.1.26",
+      "trustRoot": "sdk-default-manager-public-key"
+    },
+    "trustRoot": "sdk-default-manager-public-key",
+    "evidenceRef": "private:c47c433aae57bc120da620e8cd8a380c4b6825e29b14640d79f0cbfe3084b0ef",
+    "observedAt": "2026-11-14T10:51:06.768Z",
+    "scope": "quote-envelope-only",
+    "settlementVerified": false,
+    "mutableStatusVerified": false,
+    "id": "payment-signature:983480926b0c3117caa9f43e755bcb1efb1d98b167129de6f6f2e20c168f7b84",
+    "status": "verified",
+    "reasonCode": "SIGNED_QUOTE_FIELDS_VERIFIED",
+    "signedPayloadHash": "B3dqisZ9kPWttVcQzfGe8YS7DqUQX3NVfFf1Zn7FUBdy",
+    "timestamp": "2026-11-14T10:51:06.130Z"
+  },
+  "depositInstructionsAccepted": false,
+  "settlementVerified": false,
+  "transactionSent": false,
+  "spendAuthorized": false,
+  "quoteAmountIn": "1000000",
+  "quoteAmountOut": "299584203871025390624999"
+}

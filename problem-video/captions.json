@@ -1,0 +1,58 @@
+[
+  {
+    "text": "You want to give an AI agent one job. Research a market. Prepare a launch. Move the business forward.",
+    "startMs": 466.6666666666667,
+    "endMs": 6866.187666666667,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "But before the work begins, you're choosing models, connecting company knowledge, adding skills, shaping behavior, wiring services, and setting up payments.",
+    "startMs": 7966.666666666667,
+    "endMs": 18452.895666666667,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "The brief lives in one place. The documents live somewhere else. Every new agent asks for context you have already given.",
+    "startMs": 19566.666666666668,
+    "endMs": 26913.56266666667,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "More agents mean more handoffs. Different instructions. Missing sources. Conflicting answers. You become the coordinator.",
+    "startMs": 28033.333333333336,
+    "endMs": 36395.208333333336,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "And now, agents can spend. Which service was paid? What did inference cost? Who approved it? A useful answer is only part of the job.",
+    "startMs": 37500,
+    "endMs": 46350.042,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "The result? More setup. More copying. More supervision. Less time doing the work that matters.",
+    "startMs": 47466.66666666667,
+    "endMs": 54014.79166666667,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Businesses need agents that share the right context, have clear responsibilities, and work within visible limits.",
+    "startMs": 55133.333333333336,
+    "endMs": 62101.64633333334,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Because the goal is not to manage more AI tools. It's to get real work done.",
+    "startMs": 63233.333333333336,
+    "endMs": 67810.20833333334,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

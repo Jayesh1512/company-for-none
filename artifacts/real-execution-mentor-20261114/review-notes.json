@@ -1,0 +1,26 @@
+{
+  "reviewedAt": "2026-11-14T12:31:46.911430+00:00",
+  "mentorSessionTurns": 8,
+  "mentorCalls": 1,
+  "agentCreditsUsed": 1,
+  "rawResponse": "mentor-response.json",
+  "scope": "Advice only; no runtime changes, provider probes, paid model calls, transactions, provisioning, security-route change or submission.",
+  "priorities": [
+    "Complete independently verified production native signing/fee-envelope producer for selected Agent API route; do not substitute deployment-owner signing.",
+    "Prepare conservative native gas/storage/USD upper bounds and exact reviewed deployment/write scope; then obtain necessary concrete authorities/funding.",
+    "One separately authorized bounded Cloud completion can be recorded as real held evidence without falsely accepting business output; current credit/cost/policy gates must pass first.",
+    "Keep a reproducible evidence bundle, original operation recovery and controlled-vs-live labels."
+  ],
+  "correctionsAndLimits": [
+    "A Sandbox fee plus a current mainnet gas price is not an exact future transaction bill or independent signing-envelope proof. Include storage, approved upper bounds, fresh native/USD evidence and eventual actual receipts.",
+    "Creating any signature is not blanket no-authority local work. Only public unsigned preparation can proceed without the selected exact signer/owner authority; never import a local signing fallback for the operational Agent API route.",
+    "The newly configured Cloud key has not been authenticated or credited in our financial state. USD5 total cap alone is not a one-shot call authorization or verified numerical charge bound.",
+    "A paid held-output evidence call cannot be used to bypass the production component request authorization, current bounds/credit and final-gate requirements.",
+    "Process-only plaintext acceptance or a non-E2EE route would be a changed security policy requiring an explicit reviewed decision and implementation, not an SDK bugfix or implied approval.",
+    "The existing collector/verifier already captures real public attestation/dry quote and offline signature rejection; repeating these is lower value than proving the missing authorized critical path.",
+    "A public transaction hash is not enough: verify exact account/contract/code/call/result and original receipt costs, and label a failed billed transaction as failure."
+  ],
+  "mainnetSelectionUnchanged": true,
+  "usd5CeilingUnchanged": true,
+  "scoreIncreaseClaimed": false
+}

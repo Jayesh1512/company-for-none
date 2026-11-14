@@ -1,0 +1,33 @@
+{
+  "agents": [
+    {
+      "id": "ba1da4e3-c8dc-495b-9ce0-35115c9f295d",
+      "version": 1
+    },
+    {
+      "id": "84f90e2e-d1a9-4acb-b754-044e5fa34c33",
+      "version": 1
+    },
+    {
+      "id": "local-workspace:manager",
+      "version": 1
+    },
+    {
+      "id": "local-workspace:backlog",
+      "version": 1
+    }
+  ],
+  "companyId": "local-workspace",
+  "knowledge": [
+    {
+      "id": "companies/local-workspace/documents/594a712b-ccaa-4b90-8d2f-5acf2cdaeb5b",
+      "revision": "cb729ab0f6d066f85a89b62103e2c6e6b1be1b7b3eb2baf3a7c8c397826771f4"
+    },
+    {
+      "id": "companies/local-workspace/documents/c75784c3-08aa-4ccb-91f1-b06ad12a9c11",
+      "revision": "cb729ab0f6d066f85a89b62103e2c6e6b1be1b7b3eb2baf3a7c8c397826771f4"
+    }
+  ],
+  "orders": [],
+  "events": 8
+}

@@ -1,0 +1,14 @@
+✔ Markdown/text import previews real bytes with provenance, bounded text and no journal or financial mutation (55.980458ms)
+✔ actual isolated PDF parser extracts selectable text and rejects fake, unreadable and excessive-page documents (775.694791ms)
+✔ import rejects oversized, binary, unsupported and malformed uploads without saving (32.678292ms)
+✔ website preview reuses public-only transport and retains source facts, including failures (28.609125ms)
+✔ import obeys current Rules kill, workspace access and mutation-origin gates (28.670709ms)
+✔ company knowledge editor presents four real source options, escaped preview and truthful limits (28.111584ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1032.865

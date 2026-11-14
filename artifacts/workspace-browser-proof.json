@@ -1,0 +1,28 @@
+{
+  "observedAt": "2026-11-11T06:28:53.442Z",
+  "mode": "fixture",
+  "agentId": "50a7bfd7-ac3c-46fb-9735-e12b048d31d9",
+  "taskId": "1852c076-8e3a-488e-a541-3e3d71ac7eec",
+  "agentCount": 2,
+  "checks": [
+    "persisted-agent-roster",
+    "template-prefill",
+    "create-agent-prior-pass",
+    "pause-disables-task-control",
+    "resume-agent",
+    "skill-install-prior-pass",
+    "service-task-prior-pass",
+    "approve-and-run",
+    "private-report",
+    "restore-private-task-key",
+    "refresh-persistence",
+    "agent-search",
+    "marketplace-tabs-search",
+    "mobile-drawer",
+    "mobile-390-no-overflow",
+    "full-width-mobile-search"
+  ],
+  "pageErrors": [],
+  "reportMobileCaptureOrderId": "f44ded87-da3c-4c08-a98b-329a2460b83c",
+  "captureNote": "Recaptured report from an initially mobile context with animations disabled; sidebar fully offscreen. Added actual user1280 viewport."
+}

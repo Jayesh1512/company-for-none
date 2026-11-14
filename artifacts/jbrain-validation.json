@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-11-11T08:06:13.876Z",
+  "preview": "http://127.0.0.1:4173/#knowledge",
+  "provider": "actual local JBrain Rust service",
+  "binary": "/Users/jys/.t3/projects/jbrain/target/release/jbrain",
+  "binarySha256": "be7c5d88ebbdaa1a4aa768c33ac76a507c0d2ff0c4147a452cb454d1b3f98b01",
+  "dataDirectory": ".runtime/preview-20261111/company-brain",
+  "brainDirectoryMode": "700",
+  "tokenFileMode": "600",
+  "checks": {
+    "totalTests": 136,
+    "passed": 136,
+    "failed": 0,
+    "skipped": 0,
+    "focusedKnowledgeTests": 9,
+    "syntaxFiles": 43,
+    "browser": "desktop/mobile create, grants, context, run, report share, second-agent reuse; zero exceptions"
+  },
+  "evidence": {
+    "tests": "artifacts/jbrain-tests.log",
+    "focused": "artifacts/jbrain-focused-tests.log",
+    "syntax": "artifacts/jbrain-check.log",
+    "browser": "artifacts/jbrain-browser-proof.json",
+    "design": "artifacts/jbrain-design-detect.json"
+  },
+  "limits": [
+    "Single-owner local workspace; no production tenant authentication",
+    "Whole-brain token remains server-side; app M01 enforces document grants",
+    "Financial and report generation execution remains fixture",
+    "Only model-free JBrain endpoints used; no optional answer-model calls",
+    "Company context is owner-supplied background, distinct from required public evidence"
+  ]
+}

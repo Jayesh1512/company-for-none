@@ -1,0 +1,17 @@
+{
+  "at": "2026-11-14T10:05:10.510Z",
+  "network": "local-near-sandbox",
+  "publicChainTransactions": 0,
+  "realFundsSpent": 0,
+  "wasmSha256": "ea91b9966ae583d82d56e06af98be07bd28d643809ba9877a6f6b24dd2f71f77",
+  "checks": [
+    "compiled real WASM validates and stores2 exact chained event records",
+    "public view returns exact stored safe records",
+    "exact replay appends zero duplicate records",
+    "foreign signer rejected on actual chain",
+    "tampered payload hash fails atomically",
+    "partial overlap cannot reissue or splice records",
+    "foreign company and unauthorized writer rotation rejected",
+    "owner revocation immediately stops old writer without removing history"
+  ]
+}

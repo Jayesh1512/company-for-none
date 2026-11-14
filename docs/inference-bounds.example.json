@@ -1,0 +1,8 @@
+{
+  "model": "SELECT_A_CURRENT_NEAR_CLOUD_MODEL",
+  "reference": "LINK_TO_VERIFIED_CURRENT_PROVIDER_PRICING_AND_TOKEN_SEMANTICS",
+  "validUntil": "2000-01-01T00:00:00Z",
+  "completionTokensIncludeReasoning": true,
+  "inputNanoUsdPerMillionTokens": "0",
+  "outputNanoUsdPerMillionTokens": "0"
+}

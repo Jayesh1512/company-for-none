@@ -1,0 +1,24 @@
+✔ business dispatch uses prepared verifier once and persists proof; restart returns original outcome (48.713417ms)
+✔ failed preflight and mismatched request never dispatch; final Rules refusal preserves no-submit (27.76625ms)
+✔ actual pinned SDK Node entry and public attestation/signature helpers load without a provider call (437.3935ms)
+✔ public attestation preflight needs no inference key; paid preparation still fails before SDK I/O (34.012208ms)
+✔ private capture stores exact request/response/signature bytes before SDK parsing; excludes credentials (3.687083ms)
+✔ capture overflow or persistence failure prevents forwarding bytes for parsing (0.323375ms)
+✔ prepared final-gate callback starts transport synchronously once and exposes immutable wire hash (0.154584ms)
+✔ restart replay executes actual SDK Ed25519/wire helpers but never trusts saved TCB/proof booleans (38.121083ms)
+✔ one-byte/whitespace changes, missing signature, signer rotation and policy replay cannot be verified (84.676875ms)
+✔ read-only preflight/prepare without explicit spec, private journal or limits fails before any SDK/provider I/O (0.149291ms)
+✔ documented Cloud completion HTTP payload, inference-id cost lookup and delayed billing (44.162208ms)
+✔ HTTP acceptance followed by socket loss stays unknown and never repeats paid POST (42.528459ms)
+✔ OutLayer protected credential precedes final gate; native transfer finality verified through read-only NEAR tx (27.407292ms)
+✔ Intents exact-output HTTP request captures raw envelope and refuses unsigned deposit instructions (90.170208ms)
+✔ Agent API SUCCESS and intent hash remain unknown without proof verification and do not repeat a transfer (31.159375ms)
+✔ Agent audit port binds exact admitted provider body and still cannot promote money movement (31.525292ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 655.360333
