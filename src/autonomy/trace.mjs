@@ -48,6 +48,24 @@ export function buildLifecycleTrace(view){
  }
  const blockers=(view.work??[]).filter(w=>!TERMINAL.includes(w.state)&&BLOCKED.includes(w.state)&&w.reasonCode).map(w=>({workId:w.id,actorId:w.actorId,kind:w.kind,state:w.state,...explainBlock(w.reasonCode)}));
  const rejected=events.filter(e=>e.type==='command.rejected').map(e=>({sequence:e.sequence,commandId:e.data.causationId??null,workId:e.data.workId??null,...explainBlock(e.data.reasonCode)}));
- return {improvements,agents:[...ledger.values()],blockers,rejectedCommands:rejected,
+ // Delegation lineage: who started whom, resolved to readable identities locally.
+ // On chain these identities are hashed commitments, not raw ids or names.
+ const delegations=events.filter(e=>e.type==='agent.delegated').map(e=>({
+  sequence:e.sequence,
+  parentAgentId:e.data.parentAgentId??null,
+  parentName:e.data.parentName??agents.get(e.data.parentAgentId)?.name??null,
+  parentRole:e.data.parentRole??agents.get(e.data.parentAgentId)?.autonomyRole??null,
+  childAgentId:e.data.childAgentId??null,
+  childName:e.data.childName??agents.get(e.data.childAgentId)?.name??null,
+  childRole:e.data.childRole??null,
+  kind:e.data.kind??null,topic:e.data.topic??null,
+  workId:e.data.workId??null,parentWorkId:e.data.parentWorkId??null,objectiveId:e.data.objectiveId??null,
+  reused:e.data.reused===true,
+ }));
+ const spendEvents=events.filter(e=>['spend.requested','spend.completed','spend.refused'].includes(e.type)).map(e=>({
+  sequence:e.sequence,type:e.type,agentId:e.data.actorId??null,asset:e.data.asset??null,amount:e.data.amount??null,
+  purpose:e.data.purpose??null,txHash:e.data.txHash??null,reasonCode:e.data.reasonCode??null,
+ }));
+ return {improvements,agents:[...ledger.values()],delegations,spendEvents,blockers,rejectedCommands:rejected,
   causalOrder:improvements.every(i=>{const s=i.steps.filter(x=>x.sequence!==null).map(x=>x.sequence);return s.every((n,k)=>k===0||n>=s[k-1]);})};
 }

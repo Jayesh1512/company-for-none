@@ -1,0 +1,31 @@
+{
+  "companyId": "local-workspace",
+  "at": "2026-11-14T16:01:34.384Z",
+  "steps": {
+    "allowedSwap": {
+      "id": "spend:d6902f313b2a1e3d:23df2d76",
+      "kind": "swap",
+      "request": {
+        "origin_asset": "nep141:17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+        "destination_asset": "nep141:wrap.near",
+        "amount": "100000",
+        "confidential": true
+      },
+      "correlationId": "op_QSJ7w0duwGb3apfKeduxzOSOrAjkVlxqpZTGeNr9o4Y",
+      "status": "SUCCESS",
+      "failureCode": null,
+      "txHash": null,
+      "observedAt": "2026-11-14T16:02:21.668Z",
+      "terminal": true
+    },
+    "overLimit": {
+      "status": "REFUSED",
+      "code": "policy_transaction_limit_exceeded",
+      "message": "This amount is above the account policy's per-transaction limit for the asset it spends (for a swap, the one it sells). Nothing was recorded. Send a smaller amount, or ask the owner to raise limits.per_transaction with policy_update."
+    },
+    "ledger": {
+      "correlationId": "op_rMBEvCBj1tUlKn-x3q9eNGoXj_hPlxm2ZzTRr4h3jLI",
+      "txHash": "CbpCUfScNg8LXD1afUg1FkcTHLL6aQQ3fQDodmdcdz1R"
+    }
+  }
+}
