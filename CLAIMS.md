@@ -140,14 +140,32 @@ Verify/reproduce: `node scripts/evidence/verify.mjs`
 
 Limit: Approved live-process-e2ee scope only; crash before acceptance holds without automatic paid retry. Offline checks validate sanitized-record consistency, not private TEE/signature/plaintext replay. Strict commercial G6, autonomous company reasoning, payments, acquisition and mainnet remain open.
 
-<!-- claim:mainnet-ledger:BLOCKED -->
-## mainnet-ledger — BLOCKED
+<!-- claim:mainnet-ledger:OBSERVED -->
+## mainnet-ledger — OBSERVED
 
-A public mainnet contract and exact company checkpoint have been deployed and independently reconciled.
+The company ledger contract is deployed on NEAR mainnet, hash-chained, and written by the Agent API agent account; chain state is re-read from public RPC.
 
-- **LIVE_PUBLIC**: [public-manifest](artifacts/live-evidence/2026-11-14-readonly-r1/manifest.json)
+- **LIVE_LOCAL**: [mainnet-deployment](artifacts/onchain-ledger/mainnet-deployment.json)
+- **LIVE_LOCAL**: [mainnet-ledger-write](artifacts/onchain-ledger/mainnet-ledger-write.json)
+- **LIVE_LOCAL**: [mainnet-scoped-writer](artifacts/onchain-ledger/mainnet-scoped-writer.json)
+- **LIVE_LOCAL**: [mainnet-agent-api-append](artifacts/onchain-ledger/mainnet-agent-api-append.json)
 
-Limit: Not established. The last captured account query is UNKNOWN_ACCOUNT; production native fee/signing-envelope proof and funded authority remain absent.
+Verify/reproduce: `node scripts/verify-mainnet-evidence.mjs`
+
+Limit: Records are commitments, not proof of business truth. Routine app publishing still needs a verified native fee/signing envelope and exact operation authority. The artifacts are local records; only the verify command reaches public RPC.
+
+<!-- claim:loop-spend:OBSERVED -->
+## loop-spend — OBSERVED
+
+One autonomy-loop turn, decided by a real NEAR AI Cloud completion, executed a 0.025 USDC spend through the Agent API under the owner-signed grant and committed spend.requested/spend.completed to the mainnet ledger.
+
+- **LIVE_LOCAL**: [loop-receipt](artifacts/mainnet-proof/loop-receipt.json)
+- **LIVE_LOCAL**: [loop-spend-e2e](artifacts/mainnet-proof/loop-spend-e2e.json)
+- **LIVE_LOCAL**: [agent-spend-proof](artifacts/mainnet-proof/agent-spend-proof.json)
+
+Verify/reproduce: `node scripts/verify-loop-receipt.mjs`
+
+Limit: The swap is confidential (USDC to wNEAR) and has no public transaction: the public proof is the ledger commitment, not fund movement. Not a customer sale, revenue, supplier payment or Cloud credit purchase, despite the model-written purpose text. Reasoning was paid from the owner key outside treasury reservations; the spend amount is a few cents.
 
 <!-- claim:funded-commerce:BLOCKED -->
 ## funded-commerce — BLOCKED
@@ -156,7 +174,7 @@ Customer settlement, delivery, refund/payout and supplier acquisition completed 
 
 - No established evidence for this outcome.
 
-Limit: Not established. Provider SUCCESS, signed quotes and task artifacts cannot stand in for monetary finality or reusable licences.
+Limit: Not established. No customer paid us, nothing was delivered for payment, no refund/payout ran and no supplier was acquired by the loop. The loop-spend, marketplace and swap records show outbound spending only; provider SUCCESS, signed quotes and task artifacts cannot stand in for monetary finality or reusable licences.
 
 <!-- claim:outlayer-production-proof:NOT_IMPLEMENTED -->
 ## outlayer-production-proof — NOT_IMPLEMENTED

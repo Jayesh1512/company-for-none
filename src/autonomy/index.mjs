@@ -47,6 +47,8 @@ export function createAutonomy({journal, rules, internalWork, companyId, clock =
       if(outcome.decision.plan?.commandType==='spend' && spendExecutor){
         const spendId=outcome.decision.plan.spendId;
         if(spendId){
+          // Commit spend.requested (and anything before it) first, so the chain reads requested -> completed.
+          if(ledgerAutoCommit){try{await ledgerAutoCommit.tick();}catch{/* retried next tick */}}
           try{await spendExecutor.execute(spendId);}
           catch(error){blocked=blocked??{decision:{status:'hold',reasonCode:error.code??'SPEND_EXECUTION_FAILED'}};}
         }

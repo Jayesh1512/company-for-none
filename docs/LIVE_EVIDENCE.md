@@ -11,6 +11,8 @@ Collected **14 November 2026, 10:50:52.539–10:51:06.842 UTC**. Run ID: `2026-1
 
 The [manifest](../artifacts/live-evidence/2026-11-14-readonly-r1/manifest.json) records **USD0**, no credentials used, no paid inference, no swap/transfer submission, no mainnet transaction and no account creation. The existing lifetime USD5 ceiling is unchanged. No official score increase or completion of the paid business path is claimed.
 
+> **Scope note:** this page describes only the earlier read-only run. Later Agent API confidential swaps (0.1 and 0.025 USDC) did reach `SUCCESS`; see [MAINNET_EVIDENCE.md](MAINNET_EVIDENCE.md#8-loop-driven-spend-through-the-agent-api). They are confidential, so no public settlement transaction exists, and the dry quote here is unrelated to them.
+
 ## Evidence files and exact scope
 
 All public files are under [artifacts/live-evidence/2026-11-14-readonly-r1](../artifacts/live-evidence/2026-11-14-readonly-r1/). The manifest binds nine public HTTP responses to exact byte lengths and SHA-256 hashes, with method, URL, request body, status and observation time. RPC uses read-only POST methods; the quote POST is explicitly dry. Neither submits a transaction.

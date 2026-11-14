@@ -1,0 +1,19 @@
+{
+  "label": "CLOUD reasoning + LIVE execution",
+  "companyId": "local-workspace",
+  "at": "2026-11-14T16:39:33.176Z",
+  "spendAmount": "25000",
+  "steps": {
+    "tick": 1,
+    "spendRequest": {
+      "state": "completed",
+      "asset": "nep141:17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+      "amount": "25000",
+      "txHash": null,
+      "providerStatus": "SUCCESS",
+      "reasonCode": null
+    },
+    "ledgerAutoCommitTx": "2cR5faXTtgRDe9hKahxcQEMfhAGX7oGr1LyLCHi42AMx",
+    "delegations": []
+  }
+}

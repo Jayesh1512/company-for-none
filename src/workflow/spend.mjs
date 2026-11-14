@@ -36,11 +36,15 @@ export function createSpendExecutor({journal, agentSpend, ledger = null, company
 
   /** Natural-language purpose -> structured request the port can execute. */
   function toPortRequest(req) {
-    // The agent names an asset and amount. A supplierRef means "pay this
-    // supplier" (transfer); otherwise treat it as an in-account swap between
-    // the two policy assets, which needs no destination.
+    // A supplierRef means "pay this supplier" (transfer). Otherwise swap into the
+    // other configured asset; a swap must move between TWO DIFFERENT assets or the
+    // provider refuses it with validation_failed.
     if (req.supplierRef) return {kind: 'transfer', asset: req.asset, amount: req.amount, destination: req.supplierRef};
-    return {kind: 'swap', asset: req.asset, amount: req.amount, destination: req.destinationAsset ?? req.asset};
+    const USDC = 'nep141:17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1';
+    const WRAP = 'nep141:wrap.near';
+    const destination = req.destinationAsset ?? (req.asset === USDC ? WRAP : USDC);
+    if (destination === req.asset) throw Object.assign(new Error('SPEND_SWAP_ASSETS_IDENTICAL'), {code: 'SPEND_SWAP_ASSETS_IDENTICAL'});
+    return {kind: 'swap', asset: req.asset, amount: req.amount, destination};
   }
 
   async function execute(spendId) {
@@ -82,11 +86,13 @@ export function createSpendExecutor({journal, agentSpend, ledger = null, company
     // verify the whole loop from the repo + explorer.
     let ledgerTx = null;
     if (succeeded && ledger?.append) {
+      // The committed data is persisted verbatim so anyone can recompute the on-chain
+      // payload commitment from the journal (see scripts/verify-loop-receipt.mjs).
+      const committed = {type: 'spend.completed', data: {companyId, actorId: recorded.actorId, spendId: recorded.id, asset: recorded.asset, amount: recorded.amount, purpose: recorded.purpose, txHash: recorded.txHash}};
       try {
-        ledgerTx = await ledger.append([{
-          type: 'spend.completed',
-          data: {companyId, actorId: recorded.actorId, spendId: recorded.id, asset: recorded.asset, amount: recorded.amount, purpose: recorded.purpose, txHash: recorded.txHash},
-        }]);
+        ledgerTx = await ledger.append([committed]);
+        const linked = {...recorded, ledgerCommit: {...committed, committedAt: now(), txHash: ledgerTx?.txHash ?? null, correlationId: ledgerTx?.correlationId ?? null}, updatedAt: now()};
+        await journal.transaction({actionId: `spend:${req.id}:ledger`, fingerprint: fingerprint(linked)}, tx => {tx.put('spendRequests', req.id, linked); return null;});
       } catch {
         ledgerTx = null; // Ledger failure never fabricates a spend result.
       }

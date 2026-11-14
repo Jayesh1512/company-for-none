@@ -1,0 +1,139 @@
+{
+  "schema": "loop-receipt/v1",
+  "label": "CLOUD reasoning + LIVE execution",
+  "generatedAt": "2026-11-14T16:40:44.437Z",
+  "companyId": "local-workspace",
+  "reasoning": {
+    "mode": "cloud",
+    "model": "Qwen/Qwen3.8-27B",
+    "providerRequestId": "6d4770b33e3347bebf6a4199cfa67f7c",
+    "attempt": 1,
+    "transport": "near-ai-cloud e2ee",
+    "signatureKind": "provider_tee",
+    "responseSignatureVerified": true,
+    "usage": {
+      "prompt_tokens": 234,
+      "total_tokens": 677,
+      "completion_tokens": 443,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "reasoning_tokens": 352,
+      "completion_tokens_details": {
+        "reasoning_tokens": 352
+      }
+    },
+    "promptSha256": "a909d17423ae52501f9e82eb65b408ff79725143f43f0d4f7e89294359075b90",
+    "responseSha256": "36e12ab9c033422de3da25382277a07c5861fd449bdbc5014030c91549b40dca",
+    "funding": "owner NEAR_AI_API_KEY, direct (outside product treasury reservations)",
+    "command": {
+      "type": "spend",
+      "asset": "nep141:17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+      "amount": "25000",
+      "purpose": "Buy inference credits for customer-care chatbot support."
+    }
+  },
+  "spend": {
+    "id": "local-workspace:objective:1:root:1:command:0:spend",
+    "asset": "nep141:17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+    "amount": "25000",
+    "purpose": "Buy inference credits for customer-care chatbot support.",
+    "state": "completed",
+    "providerStatus": "SUCCESS",
+    "correlationId": "op_CeDN5uzQNvRU0WhxQcrCRlp7fshlihBC4MWmLKzjn4w",
+    "spentAt": "2026-11-14T16:40:24.078Z"
+  },
+  "ledger": {
+    "network": "mainnet",
+    "contractId": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b",
+    "signerId": "b2c5b8f31edf4dfb2560eb14397c8d61656c9f34c4f644077ed08a991fd9fc75",
+    "commits": [
+      {
+        "type": "agent.created",
+        "journalSequence": 2,
+        "data": {
+          "companyId": "local-workspace",
+          "actorId": "local-workspace:manager",
+          "taskId": null,
+          "causationId": "autonomy:local-workspace:autonomy_bootstrap:bootstrap"
+        }
+      },
+      {
+        "type": "agent.created",
+        "journalSequence": 3,
+        "data": {
+          "companyId": "local-workspace",
+          "actorId": "local-workspace:backlog",
+          "taskId": null,
+          "causationId": "autonomy:local-workspace:autonomy_bootstrap:bootstrap"
+        }
+      },
+      {
+        "type": "work.blocked",
+        "journalSequence": 4,
+        "data": {
+          "companyId": "local-workspace",
+          "actorId": "owner",
+          "taskId": null,
+          "causationId": "autonomy:local-workspace:autonomy_bootstrap:bootstrap",
+          "workId": "local-workspace:objective:1:root",
+          "reasonCode": "OWNER_START_REQUIRED"
+        }
+      },
+      {
+        "type": "agent.started",
+        "journalSequence": 6,
+        "data": {
+          "companyId": "local-workspace",
+          "actorId": "local-workspace:manager",
+          "taskId": "local-workspace:objective:1:root",
+          "causationId": "claim:local-workspace:objective:1:root:1:d1bcbf2d8f78483d51e2",
+          "workId": "local-workspace:objective:1:root",
+          "runId": "local-workspace:objective:1:root:run:1"
+        }
+      },
+      {
+        "type": "spend.requested",
+        "journalSequence": 7,
+        "data": {
+          "companyId": "local-workspace",
+          "actorId": "local-workspace:manager",
+          "taskId": "local-workspace:objective:1:root",
+          "causationId": "local-workspace:objective:1:root:1:command:0",
+          "spendId": "local-workspace:objective:1:root:1:command:0:spend",
+          "workId": "local-workspace:objective:1:root",
+          "asset": "nep141:17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+          "amount": "25000"
+        }
+      },
+      {
+        "type": "agent.stopped",
+        "journalSequence": 8,
+        "data": {
+          "companyId": "local-workspace",
+          "actorId": "local-workspace:manager",
+          "taskId": "local-workspace:objective:1:root",
+          "causationId": "local-workspace:objective:1:root:1:command:0",
+          "workId": "local-workspace:objective:1:root",
+          "runId": "local-workspace:objective:1:root:run:1",
+          "reasonCode": "WAITING_FOR_CHILDREN",
+          "remoteCancelled": false
+        }
+      },
+      {
+        "type": "spend.completed",
+        "data": {
+          "companyId": "local-workspace",
+          "actorId": "local-workspace:manager",
+          "spendId": "local-workspace:objective:1:root:1:command:0:spend",
+          "asset": "nep141:17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+          "amount": "25000",
+          "purpose": "Buy inference credits for customer-care chatbot support.",
+          "txHash": null
+        },
+        "txHash": "VsMbQdnVXAk2aJrVne2fZhnyTaPmS9fXhYi4Up6f3NT",
+        "correlationId": "op_wWV-54-Ig1u9m6KZQLtnoeo2Q2Saq03Z3DD-HQbM8tc"
+      }
+    ]
+  }
+}

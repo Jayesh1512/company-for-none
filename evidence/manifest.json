@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-14T14:41:06.866Z",
+  "generatedAt": "2026-11-14T16:44:37.490Z",
   "grantsSpendingAuthority": false,
   "scope": "Evidence index; checksums and labels are not cryptographic proof of every claim.",
   "artifacts": [
@@ -254,6 +254,86 @@
       "bytes": 3060,
       "sha256": "4eba51a0a05c58025cd30351fdabde20a21afd01cd5d70ed80c5ee50b1d6ab86",
       "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "mainnet-deployment",
+      "path": "artifacts/onchain-ledger/mainnet-deployment.json",
+      "kind": "local_execution",
+      "command": "scripts/deploy-ledger-mainnet.mjs; recheck with node scripts/verify-mainnet-evidence.mjs",
+      "doesNotProve": "Local record of the deploy transaction; chain state is established only by the live verifier.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 1120,
+      "sha256": "57aabfa283c26c5b62f07d39bfdf81c4a6356d1a7cb52e8dfc78bb819d8a2a52",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "mainnet-ledger-write",
+      "path": "artifacts/onchain-ledger/mainnet-ledger-write.json",
+      "kind": "local_execution",
+      "command": "scripts/write-ledger-record.mjs",
+      "doesNotProve": "Local record of an owner-signed append; not business truth.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 2415,
+      "sha256": "0ab9f4711636d8ad0a753b9151d17ed7da8a5d3f679e2927c95fe5f572f270ec",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "mainnet-scoped-writer",
+      "path": "artifacts/onchain-ledger/mainnet-scoped-writer.json",
+      "kind": "local_execution",
+      "command": "scripts/setup-scoped-writer.mjs",
+      "doesNotProve": "Scoped append key (since retired); proves key scope, not payment or business activity.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 942,
+      "sha256": "d31b2b6adc08ff34829047559a961a76eba587fc13e69b05b074eb5e349e4a1b",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "mainnet-agent-api-append",
+      "path": "artifacts/onchain-ledger/mainnet-agent-api-append.json",
+      "kind": "local_execution",
+      "command": "scripts/agent-api-append.mjs",
+      "doesNotProve": "One Agent API native append; routine app publishing remains gated.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 2146,
+      "sha256": "b24fc509e9fa61955496ac893827a4be6321d64188205c0ca82f6a7777e338fd",
+      "timestampBasis": "historical-artifact-no-observation-time-asserted"
+    },
+    {
+      "id": "loop-receipt",
+      "path": "artifacts/mainnet-proof/loop-receipt.json",
+      "kind": "local_execution",
+      "command": "node scripts/loop-spend-e2e.mjs; verify with node scripts/verify-loop-receipt.mjs",
+      "observedAt": "2026-11-14T16:40:44.437Z",
+      "doesNotProve": "Decision/spend fields are recorded assertions; the verifier recomputes ledger payload hashes against public mainnet but the confidential swap itself is not publicly observable.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 5079,
+      "sha256": "ba26ea6a512a70165f7448a30b9f6384dc64671a9cc2b1e11d99fafd4014c1aa",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "loop-spend-e2e",
+      "path": "artifacts/mainnet-proof/loop-spend-e2e.json",
+      "kind": "local_execution",
+      "command": "node scripts/loop-spend-e2e.mjs",
+      "observedAt": "2026-11-14T16:39:33.176Z",
+      "doesNotProve": "Step summary of the same run; adds no independent proof.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 529,
+      "sha256": "974251371531582ece16d3e400310578f0d49c9ae3074c581f23c5e67a1413ee",
+      "timestampBasis": "recorded-source-observation"
+    },
+    {
+      "id": "agent-spend-proof",
+      "path": "artifacts/mainnet-proof/agent-spend-proof.json",
+      "kind": "local_execution",
+      "command": "node scripts/agent-spend-proof.mjs",
+      "observedAt": "2026-11-14T16:01:34.384Z",
+      "doesNotProve": "One allowed 0.1 USDC confidential swap and one policy-refused over-limit request; not a business transaction.",
+      "trustScope": "LIVE_LOCAL",
+      "bytes": 1156,
+      "sha256": "00e3c1208873a884898bc06fcbbcfbdfd6d50a0f7593053f81ffb1bc6390a672",
+      "timestampBasis": "recorded-source-observation"
     },
     {
       "id": "capture-cloud-models",
@@ -549,13 +629,28 @@
     },
     {
       "id": "mainnet-ledger",
-      "claim": "A public mainnet contract and exact company checkpoint have been deployed and independently reconciled.",
-      "status": "BLOCKED",
+      "claim": "The company ledger contract is deployed on NEAR mainnet, hash-chained, and written by the Agent API agent account; chain state is re-read from public RPC.",
+      "status": "OBSERVED",
       "evidence": [
-        "public-manifest"
+        "mainnet-deployment",
+        "mainnet-ledger-write",
+        "mainnet-scoped-writer",
+        "mainnet-agent-api-append"
       ],
-      "verify": null,
-      "doesNotProve": "Not established. The last captured account query is UNKNOWN_ACCOUNT; production native fee/signing-envelope proof and funded authority remain absent."
+      "verify": "node scripts/verify-mainnet-evidence.mjs",
+      "doesNotProve": "Records are commitments, not proof of business truth. Routine app publishing still needs a verified native fee/signing envelope and exact operation authority. The artifacts are local records; only the verify command reaches public RPC."
+    },
+    {
+      "id": "loop-spend",
+      "claim": "One autonomy-loop turn, decided by a real NEAR AI Cloud completion, executed a 0.025 USDC spend through the Agent API under the owner-signed grant and committed spend.requested/spend.completed to the mainnet ledger.",
+      "status": "OBSERVED",
+      "evidence": [
+        "loop-receipt",
+        "loop-spend-e2e",
+        "agent-spend-proof"
+      ],
+      "verify": "node scripts/verify-loop-receipt.mjs",
+      "doesNotProve": "The swap is confidential (USDC to wNEAR) and has no public transaction: the public proof is the ledger commitment, not fund movement. Not a customer sale, revenue, supplier payment or Cloud credit purchase, despite the model-written purpose text. Reasoning was paid from the owner key outside treasury reservations; the spend amount is a few cents."
     },
     {
       "id": "funded-commerce",
@@ -563,7 +658,7 @@
       "status": "BLOCKED",
       "evidence": [],
       "verify": null,
-      "doesNotProve": "Not established. Provider SUCCESS, signed quotes and task artifacts cannot stand in for monetary finality or reusable licences."
+      "doesNotProve": "Not established. No customer paid us, nothing was delivered for payment, no refund/payout ran and no supplier was acquired by the loop. The loop-spend, marketplace and swap records show outbound spending only; provider SUCCESS, signed quotes and task artifacts cannot stand in for monetary finality or reusable licences."
     },
     {
       "id": "outlayer-production-proof",

@@ -58,12 +58,12 @@ Scripts: `scripts/deploy-ledger-mainnet.mjs`, `scripts/write-ledger-record.mjs`.
 | `Delete_Key` remove full access | LIVE_PUBLIC | [`FPVgbFSQ6CqLFMtBYi4QKcAAz1WaMYwZGZ6ruXiAWyt`](https://nearblocks.io/txns/FPVgbFSQ6CqLFMtBYi4QKcAAz1WaMYwZGZ6ruXiAWyt) |
 | `append` signed by the scoped key | LIVE_PUBLIC | [`GsQhBsCknFXwGTHjdMtSqWPHuyVBZgK31AqufopeUK7d`](https://nearblocks.io/txns/GsQhBsCknFXwGTHjdMtSqWPHuyVBZgK31AqufopeUK7d) |
 
-- Scope proof: a `Transfer` from that key was **rejected** way `Access key requires full access` (`scopeCheck` in the artifact).
+- Scope proof: a `Transfer` from that key was **rejected** with `Access key requires full access` (`scopeCheck` in the artifact).
 - Final key listing: only `FunctionCall(append)` remains.
 
 Evidence: `artifacts/onchain-ledger/mainnet-scoped-writer.json`. Script: `scripts/setup-scoped-writer.mjs`.
 
-## 3. Dedicted marketplace payer (mentor item 3)
+## 3. Dedicated marketplace payer (mentor item 3)
 
 - New payer `e17d480f…` funded with 1.0 USDC on NEAR; payment signed by that account, not the deploy key.
 - Finding: the marketplace x402 endpoint **rejects function-call keys** (`invalid_exact_near_function_call_key_not_allowed`), so payer isolation is by **account**, not key scope. This is documented provider behaviour, not an oversight.
@@ -84,7 +84,8 @@ Evidence: `artifacts/marketplace/payment-*.json`.
 
 ## 5. NEAR Intents 1Click swap (NEAR → USDC)
 
-- Real `wrap.near` `near_deposit` then `ft_transfer` to a 1Click deposit address (after `storage_deposit` registration), status `SUCCESS`, ~2.33 USDC on NEAR delivered.
+- Reported: `wrap.near` `near_deposit` then `ft_transfer` to a 1Click deposit address (after `storage_deposit` registration), status `SUCCESS`, ~2.33 USDC on NEAR delivered.
+- **Label: run-note only.** No artifact, deposit address or transaction hash from this swap was retained in the repository, and no script checks it. Treat it as unverified here. The retained, checkable swaps are the two Agent API confidential swaps in section 8.
 - Fixed a real gotcha: 1Click deposit addresses must be registered on wNEAR before the NEP-141 transfer.
 
 Script: `scripts/swap-near-to-usdc.mjs`.
@@ -121,12 +122,42 @@ Scripts: `scripts/agent-api-create.mjs`, `scripts/agent-api-whoami.mjs`, `script
 
 Evidence: `artifacts/mainnet-proof/cloud-inference-item5.json`, `cloud-run-summary.json`.
 
+## 8. Loop-driven spend through the Agent API
+
+| Step | Label | Reference |
+| --- | --- | --- |
+| Decision: real NEAR AI Cloud completion (`Qwen/Qwen3.8-27B`, E2EE, signature verified) chose one `spend` command | LOCAL_ARTIFACT | provider request `6d4770b3…`, [`loop-receipt.json`](../artifacts/mainnet-proof/loop-receipt.json) |
+| Autonomy loop executes it via Agent API under the owner grant: 25000 raw USDC (**0.025 USDC**) | LOCAL_ARTIFACT, re-readable with `NEAR_INTENTS_AGENT_API_KEY` (LIVE_AUTHED) | correlation `op_CeDN5uzQ…`, status `SUCCESS` |
+| Loop auto-commits `spend.requested` (seq 21) and `spend.completed` (seq 20) plus agent lifecycle events | LIVE_PUBLIC | [`VsMbQdnVXAk2…`](https://nearblocks.io/txns/VsMbQdnVXAk2aJrVne2fZhnyTaPmS9fXhYi4Up6f3NT) |
+| Earlier proof: allowed 0.1 USDC swap `SUCCESS`; over-limit request **refused** by policy | LOCAL_ARTIFACT | [`agent-spend-proof.json`](../artifacts/mainnet-proof/agent-spend-proof.json) |
+
+```sh
+node scripts/verify-loop-receipt.mjs   # read-only; 18/18 at last run (14 LIVE_PUBLIC)
+```
+
+The verifier recomputes each committed event's payload hash with the product's own function and finds it in the contract's hash-chained records, then checks the ledger transaction is FINAL, successful and an `append()` signed by the agent. Reproduce the run itself with `node scripts/loop-spend-e2e.mjs` (needs owner credentials and spends real funds; `--controlled` supplies the decision instead of a model, `--reason-only` spends nothing).
+
+## Payment inventory: what moved and how to check it
+
+| Movement | Amount | Counterparty | Publicly checkable? |
+| --- | --- | --- | --- |
+| Marketplace x402 task `c41a599b…` | 0.5 USDC | market.near.ai | Chain tx not retained in artifact; task completion is a LOCAL_ARTIFACT |
+| Marketplace x402 task `0de69385…` | 0.5 USDC | market.near.ai | Same |
+| Agent API confidential swap (allowed case) | 0.1 USDC → wNEAR | Intents | No: confidential, no public tx |
+| Loop-driven confidential swap | 0.025 USDC → wNEAR | Intents | No; only its ledger commitment is public |
+| 1Click NEAR→USDC swap | ~2.33 USDC received | Intents | No artifact retained (section 5) |
+| Ledger `append()` calls | gas only | the ledger contract | Yes, FINAL txs |
+
+**There are zero customer-paid transactions and zero payments received.** Every row is outbound spending by us. Provider `SUCCESS` and a ledger commitment are not monetary finality.
+
 ## What each item does **not** prove
 
 - Ledger records are **commitments**, not proof of business truth; raw data stays off chain.
 - The marketplace payment buys one task result; it is **not** a reusable skill/persona licence.
 - The Cloud call is real inference over **fictional** company documents; it is not a real insurer decision, and offline plaintext replay is unavailable.
 - No capital, credit lot, autonomous Cloud purchase, customer sale, payout or refund is created or claimed.
+- The loop spend is a confidential swap of cents. Its purpose text ("buy inference credits") is model-written and describes no purchase that occurred.
+- Confidential swaps have no public transaction, so a third party cannot confirm funds moved from the chain alone.
 - Payer/writer isolation is by **account**; the writer key scope is the only key-level control proven here.
 
 ## Full list of `artifacts` for this increment
@@ -139,4 +170,7 @@ artifacts/onchain-ledger/mainnet-agent-api-append.json
 artifacts/marketplace/payment-*.json
 artifacts/mainnet-proof/cloud-inference-item5.json
 artifacts/mainnet-proof/cloud-run-summary.json
+artifacts/mainnet-proof/loop-receipt.json
+artifacts/mainnet-proof/loop-spend-e2e.json
+artifacts/mainnet-proof/agent-spend-proof.json
 ```
