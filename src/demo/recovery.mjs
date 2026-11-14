@@ -22,7 +22,7 @@ export function createRecovery({app,authorization,credential,clock=()=>new Date(
  const now=()=>new Date(clock()).toISOString();
  const evaluator=outlayerEvaluator??createRecoveryEvaluator({journal,binding:outlayerBinding,resolveSecret,verifyExecution:verifyOutlayerExecution,transport:outlayerTransport,clock});
  async function evaluate(spec,stage){
-  const jobId=`recovery:${get().attempt??1}:${stage}`;
+  const jobId=`recovery:${scenarioId}:${get().attempt??1}:${stage}`;
   let observation,evidence;
   try{
    const remote=await evaluator.evaluate({...spec,jobId});
