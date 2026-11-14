@@ -5,9 +5,9 @@ import {DEFAULT_INTENT,AUTONOMY_LIMITS,validateAutonomyPolicy} from './autonomy-
 import {verifyInferenceEvidence,plaintextHash as hashOriginalOutput} from './verification.mjs';
 import {organizationDecision} from './setup.mjs';
 
-export const COMMANDS=Object.freeze(['delegate','request_resource','propose_service','report_gap','propose_patch','propose_change','complete_work']);
+export const COMMANDS=Object.freeze(['delegate','request_resource','propose_service','report_gap','spend','propose_patch','propose_change','complete_work']);
 export const COMMAND_SCHEMA=Object.freeze({delegate:{required:['type','kind','role','topic','instructions'],optional:['skillIds','knowledgeIds','toolIds','targetIds','targetId','improvementId'],kind:['developer','specialist']},request_resource:{required:['type','listingId','version']},propose_service:{required:['type','baseListingId','title','inputs','deliverable']},report_gap:{required:['type','targetId','failureCode','summary']},propose_patch:{required:['type','improvementId','targetId','baseRevision','operations'],operations:[{type:'add_field',name:'identifier',required:'boolean?'},{type:'require_field',name:'identifier'}]},propose_change:{required:['type','improvementId','targetId','kind','rationale','proposedText'],kind:['instructions','host_code']},complete_work:{required:['type','summary','deliverable']}});
-const MATRIX={manager:['delegate','request_resource','propose_service','report_gap','complete_work'],backlog:['delegate','report_gap','complete_work'],developer:['propose_patch','propose_change','request_resource','report_gap','complete_work'],specialist:['request_resource','report_gap','complete_work']};
+const MATRIX={manager:['delegate','request_resource','propose_service','report_gap','spend','complete_work'],backlog:['delegate','report_gap','complete_work'],developer:['propose_patch','propose_change','request_resource','report_gap','spend','complete_work'],specialist:['request_resource','report_gap','spend','complete_work']};
 const CLOSED=new Set(['completed','cancelled','superseded','failed']);
 const DRIVER={version:'company-template-additive-v1',tests:['required_fields','preserve_fields','unique_fields','safe_identifiers','reject_missing_required','render_all_required']};
 const EVALUATOR_HASH='7f01049b4065cf038b381ce87ee3dbaefc6a59d93498d5281b17b0589c8f6680';
@@ -75,12 +75,13 @@ export function trustedAutonomyScope(action,ctx,{allowAccepted=true}={}){
 }
 
 export function validateCommand(command){
- const shapes={delegate:[['type','kind','role','topic','instructions','skillIds','knowledgeIds','toolIds','targetIds','targetId','improvementId'],['type','kind','role','topic','instructions']],request_resource:[['type','listingId','version']],propose_service:[['type','baseListingId','title','inputs','deliverable']],report_gap:[['type','targetId','failureCode','summary']],propose_patch:[['type','improvementId','targetId','baseRevision','operations']],propose_change:[['type','improvementId','targetId','kind','rationale','proposedText']],complete_work:[['type','summary','deliverable']]};
+ const shapes={delegate:[['type','kind','role','topic','instructions','skillIds','knowledgeIds','toolIds','targetIds','targetId','improvementId'],['type','kind','role','topic','instructions']],request_resource:[['type','listingId','version']],propose_service:[['type','baseListingId','title','inputs','deliverable']],report_gap:[['type','targetId','failureCode','summary']],spend:[['type','asset','amount','purpose','supplierRef'],['type','asset','amount','purpose']],propose_patch:[['type','improvementId','targetId','baseRevision','operations']],propose_change:[['type','improvementId','targetId','kind','rationale','proposedText']],complete_work:[['type','summary','deliverable']]};
  const shape=shapes[command?.type];if(!shape||!exact(command,shape[0],shape[1]??shape[0]))return false;
  if(command.type==='delegate')return ['specialist','developer'].includes(command.kind)&&['role','topic','instructions'].every(k=>text(command[k],k==='instructions'?12000:2000))&&['skillIds','knowledgeIds','toolIds','targetIds'].every(k=>command[k]===undefined||Array.isArray(command[k])&&command[k].length<=64&&command[k].every(x=>text(x,512)));
  if(command.type==='request_resource')return text(command.listingId,200)&&text(command.version,100);
  if(command.type==='propose_service')return text(command.baseListingId,200)&&text(command.title,160)&&text(command.deliverable)&&(text(command.inputs,2000)||Array.isArray(command.inputs)&&command.inputs.length<=16&&command.inputs.every(x=>text(x,200)));
  if(command.type==='report_gap')return text(command.targetId,512)&&text(command.summary)&&typeof command.failureCode==='string'&&/^[A-Z0-9_]{1,80}$/.test(command.failureCode);
+ if(command.type==='spend')return text(command.asset,256)&&typeof command.amount==='string'&&/^[1-9][0-9]{0,30}$/.test(command.amount)&&text(command.purpose,512)&&(command.supplierRef===undefined||text(command.supplierRef,512));
  if(command.type==='propose_change')return ['improvementId','targetId'].every(k=>text(command[k],512))&&['instructions','host_code'].includes(command.kind)&&text(command.rationale,4000)&&text(command.proposedText,12000);
  if(command.type==='complete_work')return text(command.summary)&&text(command.deliverable,12000);
  return ['improvementId','targetId','baseRevision'].every(k=>text(command[k],512))&&Array.isArray(command.operations)&&command.operations.length>0&&command.operations.length<=32&&command.operations.every(o=>exact(o,['type','name','required'],['type','name'])&&['add_field','require_field'].includes(o.type)&&ident(o.name)&&(o.required===undefined||typeof o.required==='boolean'));
@@ -427,6 +428,15 @@ function command(action,ctx){
   if(scoped(ctx.data.improvements,ctx.companyId).filter(x=>x.state==='owner_review').length>=20)return hold('OWNER_REVIEW_QUEUE_FULL');
   const changeProposal={kind:cmd.kind,targetId:cmd.targetId,rationale:cmd.rationale,rationaleHash:hash(cmd.rationale),proposedText:cmd.proposedText,proposedTextHash:hash(cmd.proposedText),admission:{workId:w.id,runId:run.id,actorId:agent.id,profileRevision:agent.version,commandId:id,commandHash:hash(cmd),policyVersion:ctx.policyVersion}};
   puts.push(put('improvements',changed(ctx,improvement,{state:'owner_review',reasonCode:'OWNER_REVIEW_REQUIRED',changeProposal}),improvement));events.push(emit('improvement.owner_review_requested',{improvementId:improvement.id,targetId:cmd.targetId,kind:cmd.kind}));
+ }else if(cmd.type==='spend'){
+  // A policy-bounded NEAR spend proposed by the agent. No money moves here;
+  // the admitted record is executed by the real Agent API spend port under
+  // M01 admission and M03 reservation, then reconciled back into this work.
+  if(!['manager','specialist','developer'].includes(role))return deny('SPEND_ROLE_DENIED');
+  const openSpend=scoped(ctx.data.work,ctx.companyId).some(x=>x.id!==w.id&&x.kind==='spend'&&!CLOSED.has(x.state));if(openSpend)return hold('SPEND_IN_FLIGHT');
+  const spend={id:`${id}:spend`,companyId:ctx.companyId,workId:w.id,actorId:agent.id,asset:cmd.asset,amount:cmd.amount,purpose:cmd.purpose,supplierRef:cmd.supplierRef??null,state:'proposed',reasonCode:'SPEND_EXECUTION_REQUIRED',admission:{workId:w.id,runId:run.id,actorId:agent.id,profileRevision:agent.version,commandId:id,commandHash:hash(cmd),policyVersion:ctx.policyVersion}};
+  puts.push(put('spendRequests',spend));events.push(emit('spend.requested',{spendId:spend.id,workId:w.id,asset:cmd.asset,amount:cmd.amount}));
+  puts.push(put('agentWork',changed(ctx,w,{state:'waiting',reasonCode:'SPEND_EXECUTION_REQUIRED'}),w));
  }else if(cmd.type==='complete_work'){
   const children=scoped(ctx.data.work,ctx.companyId).filter(x=>x.parentWorkId===w.id);if(children.some(x=>x.state!=='completed')||['pending','unknown'].includes(w.providerStatus)||w.costStatus&&w.costStatus!=='actual')return hold('WORK_DEPENDENCIES_UNRESOLVED');
   puts.push(put('agentWork',changed(ctx,w,{state:'completed',deliverable:cmd.deliverable,lease:null}),w));events.push(emit('work.completed',{workId:w.id,summary:cmd.summary}));

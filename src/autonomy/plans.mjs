@@ -1,6 +1,6 @@
 import {ContractError, fingerprint} from '../contracts.mjs';
 
-const NAMESPACES = new Set(['organization','autonomousCompanies','companyObjectives','agents','agentWork','agentRuns','improvements','companyTargetHeads','companyRevisions','companyTemplateContracts','improvementEvaluations','resourceRequests','serviceDrafts']);
+const NAMESPACES = new Set(['organization','autonomousCompanies','companyObjectives','agents','agentWork','agentRuns','improvements','companyTargetHeads','companyRevisions','companyTemplateContracts','improvementEvaluations','resourceRequests','serviceDrafts','spendRequests']);
 const fail = code => {throw new ContractError(code,code);};
 
 /** Exact local plan executor. The synchronous Rules recheck is the last local

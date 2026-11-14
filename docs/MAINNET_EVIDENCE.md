@@ -109,7 +109,7 @@ Scripts: `scripts/agent-api-create.mjs`, `scripts/agent-api-whoami.mjs`, `script
 
 - Owner-selected policy: **`live-verified-hold-on-loss`** (route b). Encrypted E2EE reply, fresh-nonce TEE handling, verified in the original call; **offline plaintext recovery unavailable** by design.
 - One real call: model `Qwen/Qwen3.8-27B`, answer accepted with an exact citation, provider completion `89ea7023…`, inference `41239757…`.
-- Cost **632,050 nanoUSD ($0.000632)**, secured under the $0.10 bound and reconciled; the store totals within the $5 lifetime ceiling.
+- Cost **632,050 nanoUSD ($0.000632)**, under the $0.10 per-call bound and reconciled. Three recorded demo calls total **3,853,210 nanoUSD ($0.00385321)**, all reconciled, within the $5 lifetime ceiling.
 
 | Claim | Value |
 | --- | --- |
