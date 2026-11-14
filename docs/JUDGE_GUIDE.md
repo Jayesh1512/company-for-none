@@ -21,8 +21,8 @@ The [missing-address scenario](RECOVERY_EXECUTION.md) supplies a second recorded
 Prerequisites: Git, network access and Node 24.22.1 or later. These current verifier paths ran without installing npm dependencies. Do not copy a private `.env` into the checkout for this route.
 
 ```sh
-git clone https://github.com/Jayesh1512/company-for-none.git
-cd company-for-none
+git clone https://github.com/Jayesh1512/company-for-none.git CompanyOs
+cd CompanyOs
 node scripts/verify-mainnet-evidence.mjs
 node scripts/verify-loop-receipt.mjs
 ```

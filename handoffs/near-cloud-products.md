@@ -22,7 +22,7 @@ User requested implementation of the products discussed from the current NEAR Cl
 - T3 collaborative preview: isolated temporary setup store and non-production test owner token; actual catalogue refresh64; local privacy plan; execute not_submitted; anonymous403; zero page exceptions. No horizontal overflow at actual CSS widths1315/356 (requested1440/390). Native screenshot compositing duplicated narrow captures; `browser-proof.json` records geometry/interaction evidence instead of relying on pixel dimensions. Two bounded visual passes; no extra redesign.
 - Postman1.73.0 was present, but status command unsupported and provider discovery lacked authorization. No login/install/publish. Reused this repo's actual Node HTTP protocol-test pattern; no Postman simulation/live paid claim.
 
-Source manifest: `artifacts/near-cloud-products/source-manifest.json`, SHA256 `0e85b1a96e9da01c82e3e647e978e62e3e83313945e343a274fad7f0ff7721ab`. Old Company-for-none source freeze/check counts remain historical, not this integration's hash.
+Source manifest: `artifacts/near-cloud-products/source-manifest.json`, SHA256 `0e85b1a96e9da01c82e3e647e978e62e3e83313945e343a274fad7f0ff7721ab`. Old CompanyOs source freeze/check counts remain historical, not this integration's hash.
 
 ## Honest exit and next gates
 

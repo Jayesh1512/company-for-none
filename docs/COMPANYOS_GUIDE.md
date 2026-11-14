@@ -82,7 +82,7 @@ A **lease** gives one worker temporary ownership. A **fence** invalidates an old
 
 An **unknown effect** means a provider may already have acted. The company keeps its original identity and reservation, reads that operation and reconciles it. It does not blindly resend or buy again. An unchanged missing prerequisite does not consume another step on every timer tick. Owner interventions are specific: repair access, decide an instruction proposal, resolve an escalation, review a changed resource, roll back, or replace an exhausted objective when allowed. A new objective never erases old financial obligations.
 
-See the [reviewed contracts](COMPANY_FOR_NONE_CONTRACTS.md), [current autonomy handoff](../handoffs/e2e-autonomy-sonnet.md) and [internal workflow](../src/workflow/internal.mjs) for exact recovery rules.
+See the [reviewed contracts](COMPANYOS_CONTRACTS.md), [current autonomy handoff](../handoffs/e2e-autonomy-sonnet.md) and [internal workflow](../src/workflow/internal.mjs) for exact recovery rules.
 
 ## How it upgrades
 
@@ -148,7 +148,7 @@ The subsequent public-evidence collector/verifier passes **138 syntax files**. T
 
 ## Owner setup and practical next actions
 
-1. Open [setup](http://127.0.0.1:4173/#setup). Define the company, customer, desired outcome and first objective. Review and edit the real profiles. New companies default to Company for none.
+1. Open [setup](http://127.0.0.1:4173/#setup). Define the company, customer, desired outcome and first objective. Review and edit the real profiles. New companies default to CompanyOs.
 2. Add approved documents in [Company knowledge](http://127.0.0.1:4173/#knowledge). Grant each role access. While paused, select its bounded autonomous context under [Company operations → Agents](http://127.0.0.1:4173/#autonomy/agents).
 3. Review boundaries and infrastructure, then finish setup. Owner policy sets technical ceilings; UI intent can only narrow them. Setup works with no budget. Start is a separate intent, subject to current readiness.
 4. Use [operations](http://127.0.0.1:4173/#autonomy) to inspect work, its responsible agent, blockers, improvements, resource requests and service drafts. Pause before accepting instruction changes. Use the private [company ledger](http://127.0.0.1:4173/#autonomy/ledger) for lifecycle/effect history and exact revision links.
@@ -165,7 +165,7 @@ Those inputs do not solve unsupported provider guarantees or the remaining signi
 
 **Use port 4173 for the current customer-care company.** Port **4185** belongs to the earlier separate setup-only E2E demonstration. It is not this customer-care instance. Its controlled command, `npm run demo:e2e:controlled`, is a labelled test composition. [Run instructions](../README.md#run) and [setup contracts](UNIFIED_COMPANY_SETUP.md) explain the local environment.
 
-The [reviewed build plan](COMPANY_FOR_NONE_BUILD_PLAN.md), [critique](COMPANY_FOR_NONE_CRITIQUE.md) and [real-execution plan](REAL_EXECUTION_PLAN.md) remain historical review records. This guide describes the current product and its status; it does not revise those plans or their approvals.
+The [reviewed build plan](COMPANYOS_BUILD_PLAN.md), [critique](COMPANYOS_CRITIQUE.md) and [real-execution plan](REAL_EXECUTION_PLAN.md) remain historical review records. This guide describes the current product and its status; it does not revise those plans or their approvals.
 
 
 The later [mentor implementation increment](MENTOR_IMPLEMENTATION.md) records fresh544-test,44-focused,12-native and151-syntax checks, plus actual local Sandbox fee parsing and isolated desktop/mobile Settings QA. It adds exact provider request preparation and unsigned account/key/feed review paths. No new live reasoning, sale, entitlement, account, grant or public-chain effect is claimed. The earlier512/138 counts above retain their historical scope.

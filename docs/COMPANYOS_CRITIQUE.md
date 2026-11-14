@@ -1,6 +1,8 @@
-# Company for none — independent critique
+# CompanyOs — independent critique
 
-14 November 2026. Review of the complete 152-line revision 1 of `docs/COMPANY_FOR_NONE_BUILD_PLAN.md`.
+> Naming update: project labels and document paths use CompanyOs. Recorded review hashes refer to the original revisions in Git history.
+
+14 November 2026. Review of the complete 152-line revision 1 of `docs/COMPANYOS_BUILD_PLAN.md`.
 
 Reviewed SHA-256: `fd9821cc2bfd52f4dc82a78e97f8472fecb2aead7449678b5b932c7c2106ccf1`.
 
@@ -106,7 +108,7 @@ Important existing constraints:
 
 **Unsupported assumption:** A new `mode` field and pause method are enough to coexist with manual setup and the current setup/live/fixture binding. The four autonomous steps also differ from the existing six-step manual requirements. The proposed method/API lists do not clearly provide resume, objective completion/replacement, or agent retirement behavior.
 
-**Failure / impact:** Choosing Company for none attempts to change the economic store mode, duplicates the bootstrap pair, overwrites existing agents or continues background work after switching back. Resume may require a fake second bootstrap or reopen an already exhausted objective.
+**Failure / impact:** Choosing CompanyOs attempts to change the economic store mode, duplicates the bootstrap pair, overwrites existing agents or continues background work after switching back. Resume may require a fake second bootstrap or reopen an already exhausted objective.
 
 **Required disposition:** Name the independent operating mode explicitly (`one`/`none` or equivalent) and retain execution mode/economic identity unchanged. Define owner start/resume/pause and manual↔autonomous transitions, with versions and policy gates, including unknown effects. Existing manually created profiles are not automatically assigned internal authority. Keep manager/backlog identities stable on bootstrap replay; decide which specialists are reused/retired and ensure they consume limits honestly. Autonomous onboarding derives its own actual readiness from four steps; optional company documents do not become mandatory through the old six-step reviewer. Objective replacement cannot erase costs, counters, outstanding dependencies or prior evidence.
 
@@ -173,7 +175,7 @@ In particular, instruction edits remain proposed/owner-review until an adequate 
 
 The plan still matches SHA-256 `f9d94ac4486a9d7f4a358476b3e90a5385fd0e8e1848c24ddb5324460af30c0f`. Runtime was actively changing during this review; findings identify the inspected functions and original line anchors rather than treating this as a frozen release certification. Only this critique was edited by the reviewer.
 
-Evidence independently checked: current coordinator/M01 source and contracts; **17/17 focused tests, zero skips**, using `node --test test/autonomy/*.test.mjs test/rules/autonomy*.test.mjs`; two isolated recovery probes; an installed-persona context probe; and the supplied desktop/mobile screenshots plus `artifacts/company-for-none/browser-proof.json`. Tests/probes use temporary isolated stores, with no provider calls. The focused result predates the subsequent corrective handoffs and is not the coordinator's final broad-suite result.
+Evidence independently checked: current coordinator/M01 source and contracts; **17/17 focused tests, zero skips**, using `node --test test/autonomy/*.test.mjs test/rules/autonomy*.test.mjs`; two isolated recovery probes; an installed-persona context probe; and the supplied desktop/mobile screenshots plus `artifacts/companyos/browser-proof.json`. Tests/probes use temporary isolated stores, with no provider calls. The focused result predates the subsequent corrective handoffs and is not the coordinator's final broad-suite result.
 
 The controlled loop is useful evidence: actual journal transitions, dependency handling, fixed baseline/candidate tests, promotion and restart run in real modules. However, `test/helpers/autonomy-fixtures.mjs` supplies an explicitly synthetic accepted-proposal port, bypassing internal inference/preparation, and its proposal callback can read the full journal/catalog. It cannot establish that the real agent receives usable inputs, that paid reservations reconcile, or that an original provider result resumes after a crash. Keep that distinction in the handoff.
 
@@ -264,7 +266,7 @@ No new generic user decision is needed for these corrections. They implement the
 
 ## Narrow closure recheck — 14 November 2026, before final M01 freeze
 
-Plan hash remains `f9d94ac4486a9d7f4a358476b3e90a5385fd0e8e1848c24ddb5324460af30c0f`. Independently ran the current focused coordinator/M01 autonomy suites: **26 passed, 0 failed, 0 skipped**. Read the coordinator's broad `artifacts/company-for-none/tests.log`: **285 passed, 0 failed, 0 skipped**. The broad log precedes the final M01 changes and is not certification of later source. No new visual sweep, provider calls or runtime edits were performed.
+Plan hash remains `f9d94ac4486a9d7f4a358476b3e90a5385fd0e8e1848c24ddb5324460af30c0f`. Independently ran the current focused coordinator/M01 autonomy suites: **26 passed, 0 failed, 0 skipped**. Read the coordinator's broad `artifacts/companyos/tests.log`: **285 passed, 0 failed, 0 skipped**. The broad log precedes the final M01 changes and is not certification of later source. No new visual sweep, provider calls or runtime edits were performed.
 
 - **CFN-F01: closed for the recorded defect.** The actual internal-work/native-JBrain integration test repeats the same original pending-cost result after a time change and after reopening the store, preserving observation identities and one generation. SDK findings, completion and billing are explicitly controlled ports; native JBrain, Rules, Treasury, inference adapter and internal workflow are actual modules.
 - **CFN-F03: closed for the missing-input contract.** `internalRequest` now serializes company brief/customer/outcome, objective, scoped dependency deliverables, gap/improvement, baseline/required-field contract, eligible catalog identities and command schema. Input bytes are counted. The controlled proposer now receives only `{request}` from actual `agent_prepare`; it no longer reads the journal. Its loop verifies the envelope and actual fixed-driver promotion/future context/root completion/restart. This establishes usable inputs and mechanics, not real model judgment.
@@ -287,7 +289,7 @@ Verified the final M01 handoff at the top of `handoffs/rules.md`. Independently 
 Post-freeze verification:
 
 - **Independently executed:** `node --test test/autonomy/*.test.mjs test/rules/autonomy*.test.mjs` — **28 passed, 0 failed, 0 skipped**. This includes actual native-JBrain/internal-work consumer tests, strict proof holds, final dispatch fences, selected/revoked knowledge, bounded request-only controlled improvement, asynchronous preparation races, and the final recovery regressions.
-- **Read completed coordinator post-freeze logs:** `artifacts/company-for-none/tests.log` — **287 passed, 0 failed, 0 skipped**; `native.log` — **12 passed, 0 failed, 0 skipped**; `check.log` — **85 JavaScript files syntax checked**. These replace the earlier 285-test figure. The reviewer did not independently rerun those three broad commands.
+- **Read completed coordinator post-freeze logs:** `artifacts/companyos/tests.log` — **287 passed, 0 failed, 0 skipped**; `native.log` — **12 passed, 0 failed, 0 skipped**; `check.log` — **85 JavaScript files syntax checked**. These replace the earlier 285-test figure. The reviewer did not independently rerun those three broad commands.
 - **Independently repeated the original second-recovery reproduction after correction:** command replay returned allow/replayed, final command completed the company, and exactly two original draft records remained. The committed regression additionally verifies unchanged cumulative model-call/result-byte counts.
 
 **CFN-F02 closure:** `recoverResult` now carries the latest trusted contiguous admitted command prefix through the original result's recovery chain, checks work/effect/candidate/source and command hashes, and preserves immutable original proof provenance. A recovery-only frame still denies preparation/inference. The final regression exercises two successive expiries and recoveries, replay and completion without duplicate drafts/accounting. No-intent recovery still requires authoritative absence of adapter and financial intent and fences the prior worker; existing intent remains reconciliation-only. The final preparation race tests preserve the latest callback and reject delayed stale preparation.

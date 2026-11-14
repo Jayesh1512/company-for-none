@@ -1,6 +1,6 @@
 # NEAR Cloud products
 
-Implementation contract, 14 November 2026. This is an additive integration, not a change to the frozen Company for none or real-execution plans.
+Implementation contract, 14 November 2026. This is an additive integration, not a change to the frozen CompanyOs or real-execution plans.
 
 ## Scope and authority
 

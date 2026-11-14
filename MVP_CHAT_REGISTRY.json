@@ -46,7 +46,7 @@
         "test/rules/",
         "handoffs/rules.md"
       ],
-      "latestCompanyForNone": {
+      "latestCompanyOs": {
         "status": "WORKER_DONE",
         "focusedPassed": 138,
         "freezeSha256": "c61728e61114112ef3094789e7857961e1d013dd797b66e6060730d5e2d1347b",
@@ -154,11 +154,11 @@
     "sdkEvidence": "artifacts/near-integration-sdk-evidence.json"
   },
   "latestProductDirection": "Real-only product composition: empty owner-authenticated organization/agent workspace; marketplace authored templates/skills/services; actual local JBrain; no fixture fallback or implicit commercial policy. Test-only fixtures and historical journals preserved.",
-  "companyForNone": {
-    "plan": "docs/COMPANY_FOR_NONE_BUILD_PLAN.md",
+  "companyOs": {
+    "plan": "docs/COMPANYOS_BUILD_PLAN.md",
     "planRevision": 2,
     "planSha256": "f9d94ac4486a9d7f4a358476b3e90a5385fd0e8e1848c24ddb5324460af30c0f",
-    "critique": "docs/COMPANY_FOR_NONE_CRITIQUE.md",
+    "critique": "docs/COMPANYOS_CRITIQUE.md",
     "review": "ready_local_all_recorded_findings_closed",
     "stage": "delivered_local_reviewed",
     "controlledLoop": "passing_actual_request_envelope_and_fixed_evaluator",
@@ -174,10 +174,10 @@
       "focusedReviewerPassed": 28
     },
     "rulesFreezeSha256": "c61728e61114112ef3094789e7857961e1d013dd797b66e6060730d5e2d1347b",
-    "sourceManifest": "artifacts/company-for-none/source-manifest.json",
+    "sourceManifest": "artifacts/companyos/source-manifest.json",
     "sourceManifestSha256": "c07176d7d523d296f2d6912f2b0074d566e9c7ae1bdaee120c99282e54f88d0c",
-    "browserProof": "artifacts/company-for-none/browser-proof.json",
-    "handoff": "handoffs/company-for-none.md",
+    "browserProof": "artifacts/companyos/browser-proof.json",
+    "handoff": "handoffs/companyos.md",
     "previewUrl": "http://127.0.0.1:4173/#autonomy/setup",
     "previewMode": "setup",
     "previewPreserved": true
@@ -370,9 +370,9 @@
     "threadId": "mcp:f0af8ea5-853a-4290-be84-9984bb962a54",
     "model": "gpt-6.1-sol",
     "status": "WORKER_DONE",
-    "task": "Company for None guide and actual public live-evidence documentation",
+    "task": "CompanyOs guide and actual public live-evidence documentation",
     "owned": [
-      "docs/COMPANY_FOR_NONE_GUIDE.md",
+      "docs/COMPANYOS_GUIDE.md",
       "README.md",
       "PRODUCT.md",
       "MVP_STATUS.md",
@@ -381,7 +381,7 @@
       "docs/LIVE_EVIDENCE.md"
     ],
     "runtimeChangesAllowed": false,
-    "guide": "docs/COMPANY_FOR_NONE_GUIDE.md",
+    "guide": "docs/COMPANYOS_GUIDE.md",
     "relativeLinksChecked": 54,
     "headingAnchorsCheckedByWorker": 7,
     "guideSha256": "211a96059eb9c873363499541196a4a4c100470af1f1b56a7a40c97d83824ddc",

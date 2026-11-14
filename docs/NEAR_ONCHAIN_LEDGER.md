@@ -1,6 +1,6 @@
 # Company ledger on NEAR
 
-For the company operating model and consolidated capability status, see [How CompanyOs works](COMPANY_FOR_NONE_GUIDE.md). This page specifies the ledger implementation, mainnet evidence and remaining routine-publishing work.
+For the company operating model and consolidated capability status, see [How CompanyOs works](COMPANYOS_GUIDE.md). This page specifies the ledger implementation, mainnet evidence and remaining routine-publishing work.
 
 The contract is **deployed on NEAR mainnet**, with six linked records in the recorded evidence and the Agent API agent account as operational writer. Deployment, scoped-key writes and the Agent API append were performed through separately invoked scripts. Routine app publishing remains gated on a verified native fee/signing envelope and exact current authority. See [transactions, read-only verification and limits](MAINNET_EVIDENCE.md).
 

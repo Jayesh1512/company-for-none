@@ -1,6 +1,6 @@
 # M01 Rules handoff
 
-## Current Company for none handoff — 14 November 2026 — source frozen
+## Current CompanyOs handoff — 14 November 2026 — source frozen
 
 **WORKER_DONE.** Implemented the assigned M01 scope after reading the full reviewed revision2 plan (`f9d94ac4486a9d7f4a358476b3e90a5385fd0e8e1848c24ddb5324460af30c0f`) and critique recheck. Edited only `src/rules/`, `test/rules/` and this handoff. No config demonstration changes, other-owner edits, new chats/agents, external vendor/paid calls, funds, accounts or deployment. Older sections below are historical and retain their earlier counts.
 
@@ -9,7 +9,7 @@
 ### Files, authority and local plans
 
 - Added `src/rules/autonomy-policy.mjs`, `autonomy.mjs`, `autonomy-inference.mjs`; integrated through existing `index.mjs`, `config.mjs`, `policies.mjs` and `components.mjs`. `createRules({getAutonomyFacts,getAgentAuthorization,...})` uses private current facts; engine methods and canonical `status`/`plan.kind` remain unchanged. `autonomyDecision` is exported. No provider client or second balance/config authority was added.
-- Optional strict `config.autonomy` has the exact technical ceiling keys in `docs/COMPANY_FOR_NONE_CONTRACTS.md`: agents, open work, depth, steps/calls/creations/input/result/retry budgets, resource and patch kinds. Company UI intent can only narrow it. No policy means `AUTONOMY_POLICY_REQUIRED` for internal admission; owner setup/bootstrap/inspection remain usable without money or SDK access. All financial permission still requires the existing explicit live policy/authorization, actual bounds, scoped credit and strict proof.
+- Optional strict `config.autonomy` has the exact technical ceiling keys in `docs/COMPANYOS_CONTRACTS.md`: agents, open work, depth, steps/calls/creations/input/result/retry budgets, resource and patch kinds. Company UI intent can only narrow it. No policy means `AUTONOMY_POLICY_REQUIRED` for internal admission; owner setup/bootstrap/inspection remain usable without money or SDK access. All financial permission still requires the existing explicit live policy/authorization, actual bounds, scoped credit and strict proof.
 - Trusted facts now include the agreed company/objective/profile/work/run/improvement/head/revision/contract/evaluation/catalog/resource/service records plus `contexts`, `internalResults`, current `documents`, actual SDK `operations`, and current private `financial`. Request facts cannot replace these records or claim an actor, evaluation pass, receipt or owner role.
 - Local mutation plans are exact `{kind,puts:[{namespace,id,value,expectedVersion}],events:[{type,data}],grantsSpendingAuthority:false}`. The coordinator writer applies only these with CAS and re-evaluates at the commit boundary. Holds carry exact blocker/evidence transitions where appropriate; unchanged external blockers return a read-only hold. All new profiles/work/objectives/runs/revisions have injected-clock ISO timestamps. Existing manual profiles and economic identity are preserved.
 

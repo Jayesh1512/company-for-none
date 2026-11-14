@@ -1,6 +1,8 @@
-# Company for none — integration contracts
+# CompanyOs — integration contracts
 
-Reviewed plan: revision2, SHA256 `f9d94ac4486a9d7f4a358476b3e90a5385fd0e8e1848c24ddb5324460af30c0f`. Critique: `COMPANY_FOR_NONE_CRITIQUE.md`. This guide records runtime vocabulary, not a second policy source.
+> Naming update: project labels and document paths use CompanyOs. Recorded review hashes refer to the original revisions in Git history.
+
+Reviewed plan: revision2, SHA256 `f9d94ac4486a9d7f4a358476b3e90a5385fd0e8e1848c24ddb5324460af30c0f`. Critique: `COMPANYOS_CRITIQUE.md`. This guide records runtime vocabulary, not a second policy source.
 
 M01 owns decisions and exact state transitions. Coordinator owns mechanics. All stores use the existing journal; provider accounting remains M03.
 

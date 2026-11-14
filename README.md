@@ -8,7 +8,7 @@ An owner defines the purpose, approved knowledge, operating policy and initial b
 
 Northstar Care, our fictional insurance customer-service organization, is the hackathon example. **CompanyOs is the platform; insurance is one instance.** Research services, document services and other customer-facing agent businesses are intended applications of the same operating model, not separate products already demonstrated.
 
-[Judge's guide](docs/JUDGE_GUIDE.md) · [Payment evidence](docs/MAINNET_EVIDENCE.md) · [Organization guide](docs/COMPANY_FOR_NONE_GUIDE.md) · [Recovery evidence](docs/RECOVERY_EXECUTION.md)
+[Judge's guide](docs/JUDGE_GUIDE.md) · [Payment evidence](docs/MAINNET_EVIDENCE.md) · [Organization guide](docs/COMPANYOS_GUIDE.md) · [Recovery evidence](docs/RECOVERY_EXECUTION.md)
 
 ## How a living organization works
 
@@ -126,8 +126,8 @@ Exact versions and call sites are in [package.json](package.json) and the linked
 ## Verify without spending
 
 ```sh
-git clone https://github.com/Jayesh1512/company-for-none.git
-cd company-for-none
+git clone https://github.com/Jayesh1512/company-for-none.git CompanyOs
+cd CompanyOs
 node scripts/verify-mainnet-evidence.mjs
 node scripts/verify-loop-receipt.mjs
 ```
@@ -146,7 +146,7 @@ npm run dev
 
 Open the application in your browser and use the company setup wizard to define the company and review its agents, knowledge and boundaries. Ordinary startup seeds no sample organization or spending authority. A new domain needs its own approved documents, service configuration and permitted resource connections; the platform does not supply those automatically.
 
-The latest **Open demo** flow opens a fresh, prefilled company setup wizard for review, then the agency marketplace; it is a model-free local demonstration, not a paid autonomous run. The separate actual-AI and recovery paths require explicit credentials and budget authorization. Follow the [organization guide](docs/COMPANY_FOR_NONE_GUIDE.md), [local-access documentation](docs/LOCAL_WORKSPACE_ACCESS.md) and [recovery setup](docs/RECOVERY_EXECUTION.md).
+The latest **Open demo** flow opens a fresh, prefilled company setup wizard for review, then the agency marketplace; it is a model-free local demonstration, not a paid autonomous run. The separate actual-AI and recovery paths require explicit credentials and budget authorization. Follow the [organization guide](docs/COMPANYOS_GUIDE.md), [local-access documentation](docs/LOCAL_WORKSPACE_ACCESS.md) and [recovery setup](docs/RECOVERY_EXECUTION.md).
 
 ## Engineering checks and current limits
 

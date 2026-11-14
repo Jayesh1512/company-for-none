@@ -24,7 +24,7 @@ The [mentor implementation increment](docs/MENTOR_IMPLEMENTATION.md) adds real p
 
 Agent-managed operation is the default for new companies. Owner-managed operation keeps owner-managed team assembly and work. “None” means bounded agent operation; the owner remains responsible for policy, budget, client authority and exceptional decisions. Neither mode selection nor a saved role gives an agent arbitrary permission.
 
-The [current product guide](docs/COMPANY_FOR_NONE_GUIDE.md) explains the day-to-day flow, roles, healing, upgrades, buying and owner actions. Its [capability/status table](docs/COMPANY_FOR_NONE_GUIDE.md#current-capability-and-status) is the concise current boundary. Historical plans remain review records.
+The [current product guide](docs/COMPANYOS_GUIDE.md) explains the day-to-day flow, roles, healing, upgrades, buying and owner actions. Its [capability/status table](docs/COMPANYOS_GUIDE.md#current-capability-and-status) is the concise current boundary. Historical plans remain review records.
 
 ## Operating Context
 
@@ -56,7 +56,7 @@ Actual public-provider evidence collected 14 November: official SDK0.1.26/defaul
 
 Offline disk-reopen verifies that actual production-signed quote; an explicitly synthetic amount change with a recomputed wire checksum fails signature verification. No network I/O or offline TEE re-verification occurs. The collector/verifier increment passes138 syntax files. The512-test broad suite below remains historical and was not rerun.
 
-Recorded integrated baseline: **512 tests passed, 0 failed, 0 skipped; 136 JavaScript syntax files; 17 focused on-chain policy/HTTP/wallet checks; 8 actual local Sandbox checks on nearcore 2.6.2 and 2.14.1**. Existing ledger browser proof covers desktop 1440/mobile 390 without errors or overflow. Actual care/native-JBrain source/restart/privacy checks are separate from synthetic SDK/proof/credit/billing pipeline tests. [Evidence/status table](docs/COMPANY_FOR_NONE_GUIDE.md#current-capability-and-status), [on-chain artifacts](artifacts/onchain-ledger/) and [customer-care artifacts](artifacts/customer-care/) retain their exact scope. These checks were not rerun for this prose refresh.
+Recorded integrated baseline: **512 tests passed, 0 failed, 0 skipped; 136 JavaScript syntax files; 17 focused on-chain policy/HTTP/wallet checks; 8 actual local Sandbox checks on nearcore 2.6.2 and 2.14.1**. Existing ledger browser proof covers desktop 1440/mobile 390 without errors or overflow. Actual care/native-JBrain source/restart/privacy checks are separate from synthetic SDK/proof/credit/billing pipeline tests. [Evidence/status table](docs/COMPANYOS_GUIDE.md#current-capability-and-status), [on-chain artifacts](artifacts/onchain-ledger/) and [customer-care artifacts](artifacts/customer-care/) retain their exact scope. These checks were not rerun for this prose refresh.
 
 ## Product Principles
 
@@ -73,4 +73,4 @@ User-pinned Paperclip-style work management: persistent sidebar, compact type, l
 
 ## Open Live Gates
 
-The guide’s [current status table](docs/COMPANY_FOR_NONE_GUIDE.md#current-capability-and-status) centralizes the remaining gates. The main distinction is implementation versus evidence/input: supported durable original plaintext replay/proof, scoped credentials/credit and price/work authority are needed for accepted reasoning; purchase/licence capabilities and the production native fee/signing-envelope producer still need implementation/verification; shared Treasury reservation and final dispatch are now wired. Public nonce/TCB preflight, local service replies, a funded wallet or a key alone cannot close these gaps. The [owner checklist](docs/COMPANY_FOR_NONE_GUIDE.md#owner-setup-and-practical-next-actions) collects actual client, jurisdiction, disclosure, escalation and protected provider inputs.
+The guide’s [current status table](docs/COMPANYOS_GUIDE.md#current-capability-and-status) centralizes the remaining gates. The main distinction is implementation versus evidence/input: supported durable original plaintext replay/proof, scoped credentials/credit and price/work authority are needed for accepted reasoning; purchase/licence capabilities and the production native fee/signing-envelope producer still need implementation/verification; shared Treasury reservation and final dispatch are now wired. Public nonce/TCB preflight, local service replies, a funded wallet or a key alone cannot close these gaps. The [owner checklist](docs/COMPANYOS_GUIDE.md#owner-setup-and-practical-next-actions) collects actual client, jurisdiction, disclosure, escalation and protected provider inputs.

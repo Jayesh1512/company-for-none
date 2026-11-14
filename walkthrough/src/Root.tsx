@@ -3,7 +3,7 @@ import {AbsoluteFill,Composition,Folder,Series,interpolate,staticFile,useCurrent
 import {Video} from '@remotion/media';
 const ink='#222825',accent='#c64b2c',paper='#f1f3ef';
 const clamp={extrapolateLeft:'clamp',extrapolateRight:'clamp'} as const;
-const Brand=()=> <div style={{display:'flex',alignItems:'center',gap:15,fontSize:30,fontWeight:650,letterSpacing:-1}}><span style={{display:'grid',placeItems:'center',width:46,height:46,background:ink,color:'white',borderRadius:10,fontSize:26}}>N</span><span>near<span style={{fontWeight:400,color:'#68716b'}}> / workspace</span></span></div>;
+const Brand=()=> <div style={{display:'flex',alignItems:'center',gap:15,fontSize:30,fontWeight:650,letterSpacing:-1}}><span style={{display:'grid',placeItems:'center',width:46,height:46,background:ink,color:'white',borderRadius:10,fontSize:26}}>C</span><span>CompanyOs<span style={{fontWeight:400,color:'#68716b'}}> / workspace</span></span></div>;
 const DemoBadge=()=> <div style={{fontSize:19,fontWeight:600,letterSpacing:1.3,color:'#a63b22',background:'#f7e6dc',padding:'13px 19px',borderRadius:24}}>LOCAL DEMO · SIMULATED EXECUTION</div>;
 export const Opening=()=>{
  const frame=useCurrentFrame();const {fps}=useVideoConfig();
@@ -38,7 +38,7 @@ export const Chapter=({src,step,eyebrow,title,description,caption}:ChapterProps)
 export const Closing=()=>{
  const frame=useCurrentFrame();const {fps}=useVideoConfig();
  return <AbsoluteFill style={{background:ink,color:'#f5f7f2',fontFamily:'Arial, sans-serif',padding:'66px 88px'}}>
-  <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}><div style={{fontSize:32,letterSpacing:-1}}>near / workspace</div><DemoBadge/></div>
+  <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}><div style={{fontSize:32,letterSpacing:-1}}>CompanyOs / workspace</div><DemoBadge/></div>
   <div style={{marginTop:225,opacity:interpolate(frame,[0,.5*fps],[0,1],clamp)}}>
    <div style={{fontSize:104,lineHeight:1.08,letterSpacing:-5,fontWeight:600}}>Create. Equip. Assign.</div>
    <div style={{fontSize:38,color:'#b4c0b6',maxWidth:1300,lineHeight:1.4,marginTop:36}}>Your agents, reusable templates and skills,<br/>and focused services — in one workspace.</div>
@@ -66,7 +66,7 @@ export const Walkthrough=()=>{
  </Series>;
 };
 export const RemotionRoot=()=> <>
- <Composition id="NearWalkthrough" component={Walkthrough} durationInFrames={2370} fps={30} width={1920} height={1080} defaultProps={{}}/>
+ <Composition id="CompanyOsWalkthrough" component={Walkthrough} durationInFrames={2370} fps={30} width={1920} height={1080} defaultProps={{}}/>
  <Folder name="Scenes">
   <Composition id="Opening" component={Opening} durationInFrames={120} fps={30} width={1920} height={1080} defaultProps={{}}/>
   <Composition id="AgentRoster" component={Chapter} durationInFrames={150} fps={30} width={1920} height={1080} defaultProps={{src:'recordings/agents.mp4',step:'01',eyebrow:'YOUR WORKSPACE',title:'Meet your\nagent team.',description:'See every agent, its role, skills and recent work.',caption:'Start with a clear view of the team you already have.'}}/>

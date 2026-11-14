@@ -71,7 +71,7 @@ if (step === 'create') {
   };
 
   const generated = await api.generateIntent(
-    {type: 'agent_create', name: 'CompanyOs ledger writer', external_user_id: 'company-for-none', owner: {type: 'near', account_id: payerId, public_key: ownerPublicKey}, policy},
+    {type: 'agent_create', name: 'CompanyOs ledger writer', external_user_id: env.COMPANYOS_EXTERNAL_USER_ID || 'companyos', owner: {type: 'near', account_id: payerId, public_key: ownerPublicKey}, policy},
     {idempotencyKey: createIdempotencyKey()},
   );
   console.log('correlation_id:', generated.correlation_id, '| agent_id:', generated.agent_id, '| standard:', generated.intent.standard);

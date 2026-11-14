@@ -1,6 +1,6 @@
 # Northstar Care — fictional insurance customer-care company
 
-For the company operating model, healing, upgrades, resource buying and current status, start with [How CompanyOs works](COMPANY_FOR_NONE_GUIDE.md). This page details the working local customer-care path.
+For the company operating model, healing, upgrades, resource buying and current status, start with [How CompanyOs works](COMPANYOS_GUIDE.md). This page details the working local customer-care path.
 
 Open the [customer portal](http://127.0.0.1:4173/#care), [owner inbox](http://127.0.0.1:4173/#support), or [local marketplace](http://127.0.0.1:4173/#marketplace).
 

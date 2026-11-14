@@ -1,6 +1,6 @@
 # Unified company setup
 
-Organization setup and Company for none now use one active flow at `/#setup`:
+Organization setup and CompanyOs now use one active flow at `/#setup`:
 
 1. Define company.
 2. Review agents.

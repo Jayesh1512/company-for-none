@@ -1,10 +1,12 @@
-# Company for none — build plan
+# CompanyOs — build plan
+
+> Naming update: project labels and document paths use CompanyOs. Recorded review hashes refer to the original revisions in Git history.
 
 Revision 2 · 14 November 2026 · Status: critique dispositions written; awaiting exact-hash recheck. Product implementation has not started.
 
 ## 1. Outcome and scope
 
-Add a dedicated **Company for none** mode beside **Company for one**. The owner defines a company once, supplies its knowledge and operating constraints, and supervises its agents through an operations view. A manager delegates work, a permanent backlog agent tracks gaps, and developer agents propose tested improvements. Agents can request marketplace resources and prepare services for sale. Every consequential step has a persistent, attributable company record.
+Add a dedicated **CompanyOs** mode beside **Company for one**. The owner defines a company once, supplies its knowledge and operating constraints, and supervises its agents through an operations view. A manager delegates work, a permanent backlog agent tracks gaps, and developer agents propose tested improvements. Agents can request marketplace resources and prepare services for sale. Every consequential step has a persistent, attributable company record.
 
 The user's organisation diagram is the interaction reference: company brief → manager and executive work → shared company intelligence → detected gap → backlog → developer → tested correction → future work uses the new revision. A persistent backlog agent is also created at bootstrap. A manager creates specialist/executive/developer agents only when an admitted task needs them.
 
@@ -27,7 +29,7 @@ Implement local orchestration and truthful blocked states now. Test autonomous r
 
 ### Entry and setup
 
-Organisation setup starts with two choices: **Company for one — I assemble and manage the team** and **Company for none — agents organise the work**. Existing organisations retain their current mode until an explicit owner change; no automatic conversion or overwrite of current agents.
+Organisation setup starts with two choices: **Company for one — I assemble and manage the team** and **CompanyOs — agents organise the work**. Existing organisations retain their current mode until an explicit owner change; no automatic conversion or overwrite of current agents.
 
 Autonomous setup has four steps:
 
@@ -38,7 +40,7 @@ Autonomous setup has four steps:
 
 ### Operations view — the primary autonomous screen
 
-Keep the existing sidebar, compact type, quiet light surfaces and restrained orange action colour. Add **Company for none** as a clear navigation destination, with a selected-company name and persistent operating state.
+Keep the existing sidebar, compact type, quiet light surfaces and restrained orange action colour. Add **CompanyOs** as a clear navigation destination, with a selected-company name and persistent operating state.
 
 The first viewport answers: **What is the company trying to achieve? Who is working now? What is blocked?** Its main area is a work queue grouped by current status, with task topic, responsible agent, next action, duration and evidence link. A narrow side panel shows the manager's latest recorded decision and the next blocker. A compact team lane shows the manager → backlog → specialists, with textual parent relationships available without a graph. No animated fictional activity or meaningless pulse counters.
 
@@ -130,13 +132,13 @@ Private operational logs and public accounting projection are separate views ove
 | D — marketplace and operations UI | Free resource install, paid request/blocked states, service draft/existing-order links, autonomous setup and all six operations views. | Honest source-of-truth status, desktop/mobile/accessibility and zero secret leaks. |
 | E — integration evidence | Relevant full tests, syntax/native checks, bounded browser QA, README/status/API changes and exact evidence matrix. | Distinguish local implementation, controlled test loop, real free provider proof and unproved paid autonomy. |
 
-Coordinator owns plan/contracts/new `src/autonomy/`, app/workflow/server composition, UI, tests and integration docs. M01 changes require explicit ownership handoff from the existing Rules thread (currently done); use the same thread for review or concrete changes, never new chats. Other workers' modules remain untouched unless a concrete handoff occurs. Critique owns new `docs/COMPANY_FOR_NONE_CRITIQUE.md`. No package/dependency additions anticipated. Preserve `.runtime/product-r2-preview`, owner token, JBrain and historical ledgers; existing preview restarts only after stable integration.
+Coordinator owns plan/contracts/new `src/autonomy/`, app/workflow/server composition, UI, tests and integration docs. M01 changes require explicit ownership handoff from the existing Rules thread (currently done); use the same thread for review or concrete changes, never new chats. Other workers' modules remain untouched unless a concrete handoff occurs. Critique owns new `docs/COMPANYOS_CRITIQUE.md`. No package/dependency additions anticipated. Preserve `.runtime/product-r2-preview`, owner token, JBrain and historical ledgers; existing preview restarts only after stable integration.
 
 Owner-only endpoints proposed under `/api/workspace/autonomy`: GET view with bounded tab/cursor query; POST configure/bootstrap/pause/advance/gaps; GET improvement detail; POST explicit rollback request. Route names and schemas documented before UI binding. No HTTP endpoint accepts a trusted SDK finding, arbitrary ledger event, arbitrary test verdict, shell code or agent-owner access context.
 
 ## 11. Acceptance checks
 
-1. Existing organisation loads in manual mode unchanged. Owner can select Company for none, save a brief and bootstrap exactly one manager and backlog pair even after request replay/restart. Company and actor identity cannot be forged or crossed.
+1. Existing organisation loads in manual mode unchanged. Owner can select CompanyOs, save a brief and bootstrap exactly one manager and backlog pair even after request replay/restart. Company and actor identity cannot be forged or crossed.
 2. No credentials/policy: company setup, roles, backlog and ledger work; objective is blocked with its genuine cause; no transport call, paid reservation or fake agent-running event.
 3. Controlled test reasoner: manager delegates a topic, specialist appears, local free skill/persona is selected by actual catalog revision, work transitions are durable and traceable. This test reasoner is never imported by product composition.
 4. Gap case: repeated missing-middle-name failures map to one backlog item; developer proposal fails unsupported scope/negative tests or passes the real fixed evaluator; promotion updates future template revision, existing tasks remain frozen, rollback and revision conflict are tested.
@@ -149,7 +151,7 @@ Owner-only endpoints proposed under `/api/workspace/autonomy`: GET view with bou
 
 ## 12. Completion statement to use
 
-Report what was built, which loop ran under controlled tests, what ran against real JBrain/public attestation, and what remains blocked for paid live autonomy. If actual planning, paid procurement or verified customer delivery cannot run under current provider facts, say so explicitly in UI and handoff. Do not label this full live Company for none merely because the dashboard and persisted profiles work.
+Report what was built, which loop ran under controlled tests, what ran against real JBrain/public attestation, and what remains blocked for paid live autonomy. If actual planning, paid procurement or verified customer delivery cannot run under current provider facts, say so explicitly in UI and handoff. Do not label this full live CompanyOs merely because the dashboard and persisted profiles work.
 
 ## 13. Required review dispositions — binding implementation contracts
 

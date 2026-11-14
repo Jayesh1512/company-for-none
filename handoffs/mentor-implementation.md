@@ -23,7 +23,7 @@ Owner endpoints: `/api/workspace/near-integrations` plus `prepare`, `execute`, `
 - `npm run test:native`:12pass,0fail/skip. `npm run check`:151JS source files.
 - `node scripts/check-native-fee-sandbox.mjs`:5checks against actual compiled Rust contract/local nearcore RPC. Actual success and failed call burn gas; changed args rejected. Sandbox test funds and its example USD rate are not live economic evidence. Prior Sandbox artifact/history unchanged.
 - Actual isolated setup-only product browser: request preparation, disabled execution, refresh retaining one plan, unsigned account/key plan, cross-site403, actual1440/390 no overflow or page exceptions. No fixture providers, orders, provider operations or financial records. T3 native was attempted first; after explicit automation-host-unavailable error, repository Playwright supplied final captures. Its earlier native CSS measurements1315/356 are recorded as such.
-- Three historical reviewed hashes unchanged: REAL_EXECUTION_PLAN `66ece306…56da`; COMPANY_FOR_NONE_BUILD_PLAN `f9d94ac4…0c0f`; COMPANY_FOR_NONE_CRITIQUE `d4173e89…ffab`.
+- Three historical reviewed hashes unchanged: REAL_EXECUTION_PLAN `66ece306…56da`; COMPANYOS_BUILD_PLAN `f9d94ac4…0c0f`; COMPANYOS_CRITIQUE `d4173e89…ffab`.
 
 ## Strict live limitations
 

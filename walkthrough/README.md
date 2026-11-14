@@ -1,6 +1,6 @@
 # Product walkthrough
 
-`artifacts/near-product-walkthrough.mp4` is a 79-second, 1920×1080, 30 fps H.264 walkthrough built with Remotion. It is silent with burned-in chapter captions. Footage records actual local product interactions; pauses are edited for pacing.
+`artifacts/companyos-legacy-walkthrough.mp4` is a 79-second, 1920×1080, 30 fps H.264 walkthrough built with Remotion. It is silent with burned-in chapter captions. Footage records actual local product interactions; pauses are edited for pacing.
 
 The flow covers the agent roster, a marketplace template, creating Opportunity analyst, adding a reusable skill, selecting a service, writing a task brief, approving its local run, reading the private report, task history and the public ledger.
 
@@ -16,7 +16,7 @@ npm run video:studio
 npm run video:render
 ```
 
-Studio: http://localhost:3001/NearWalkthrough. The timeline has one authored node per clip, plus opening and closing scenes. Each source clip is under `walkthrough/public/recordings/`. The same root package and lockfile serve the product and the video.
+Studio: http://localhost:3001/CompanyOsWalkthrough. The timeline has one authored node per clip, plus opening and closing scenes. Each source clip is under `walkthrough/public/recordings/`. The same root package and lockfile serve the product and the video.
 
 If using an existing compatible Chrome binary, pass `-- --browser-executable /absolute/path/to/chrome` to the render command. Otherwise Remotion manages its browser download.
 
