@@ -39,6 +39,16 @@ Missing repairs hold the run before promotion and retry. Model-written schemas,
 citations, and intake values still have to satisfy the selected frozen contract.
 Both scenarios retain the same six-call/$0.60 owner-funded inference ceiling.
 
+The real `missing-address` run on 14 November 2026 completed all six NEAR AI
+Cloud calls, revised the native JBrain runbook, promoted the additive address
+field after the fixed tests passed, and retried the same customer question.
+Provider bills totalled **$0.00776905**, with no pending reservations. The saved
+[live run](../artifacts/recovery-missing-address/live-run.json) contains the role
+plan, provider request IDs, SDK verification references, revision changes, and
+costs. Both evaluations explicitly record `local-fallback` because OutLayer was
+unconfigured. This artifact proves the live model/repair path; it does not claim
+verified remote WASM execution or durable offline plaintext replay.
+
 `npm run evaluator:build` builds native and WASI binaries and records the WASM
 hash in `artifacts/mentor-implementation/evaluator-manifest.json`. Building the
 binary does not deploy it or prove remote execution. No live OutLayer call is
