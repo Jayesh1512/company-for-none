@@ -1,8 +1,53 @@
-# Company for None — Near Agent Workspace
+# Company for None — A Living Organization on NEAR
 
-**Start with [How Company for None works](docs/COMPANY_FOR_NONE_GUIDE.md).** It explains the operating loop, a fictional insurance day-in-the-life, healing, upgrades, resource buying, current capability status and the owner setup checklist.
+**A company that runs itself.** An owner sets the purpose, knowledge, policy, and budget. Then a master agent takes over: it serves customers, collects revenue, pays for services, hires specialist agents, and maintains the organization — all on NEAR mainnet. Humans only set the constraints.
 
-The product turns a company brief into a managed agent workspace. The intended routine is manager → scoped specialists → delivery → observed gaps → permanent backlog → developer → tested improvement → future work uses the new version. The owner sets purpose, knowledge, policy and budget. Company for none is the default for new companies; Company for one retains owner-managed work.
+## The vision: a self—sustaining agent business
+
+```
+    Users interact (questions, tasks)
+           │
+           ▼
+    x402 payment collected → treasury
+           │
+           ▼
+    Master agent serves the request
+     ├─ Reads company knowledge (JBrain)
+     ├─ Calls NEAR AI Cloud (paid TEE inference)
+     └─ Delivers answer / completes task
+           │
+           ▼
+    Revenue and expenses tracked on mainnet ledger
+     ├─ Revenue: x402 payments from users
+     └─ Expenses: inference costs, marketplace tasks
+           │
+           ▼
+    Observed gaps → permanent backlog
+           │
+           ▼
+    Master agent spins up specialist agents
+     ├─ Developer agent: picks up backlog items
+     ├─ Tests improvement → promotes new version
+     └─ Organization upgrades itself
+```
+
+**A concrete example.** A customer asks the support agent about their insurance policy. The agent reads the company knowledge base, calls NEAR AI Cloud for a cited answer, and the interaction is recorded on the mainnet ledger. The x402 payment for the service goes into the treasury. Later, the owner notices the insurance report template only has first name and last name — but a customer needs a middle name field. This gap goes to the backlog. The master agent spins up a developer agent that picks up the backlog item, makes the template change, runs the evaluator, and promotes the new version. The organization just improved itself — funded by its own revenue.
+
+**Revenue.** Users pay for services via x402 (USDC on NEAR). Two marketplace tasks have already been completed and paid on mainnet.
+
+**Expenses.** The treasury pays for NEAR AI Cloud inference (real TEE—verified calls, $0.00322116 billed), marketplace tasks, and agent operations. All tracked against the USD5 lifetime cap.
+
+**Self-sustaining.** The ledger records both sides — revenue in, expenses out — on a hash-chained Rust contract deployed on NEAR mainnet. The organization's financial history is on-chain and verifiable.
+
+**Hiring.** The master agent manages a backlog of improvements. When a gap is observed, it spins up a specialist agent (developer, researcher) to pick up the work, test it, and promote the new version. The organization maintains and upgrades itself.
+
+**The owner's role.** Define the company purpose, upload knowledge, set spending policy and budget. Then step back. The owner reviews instruction proposals and high-risk decisions, but the day-to-day — serving customers, paying for services, tracking gaps, improving — is the organization's own loop.
+
+---
+
+## How it works
+
+The product turns a company brief into a managed agent workspace. The intended routine is manager → scoped specialists → delivery → observed gaps → permanent backlog → developer → tested improvement → future work uses the new version. The owner sets purpose, knowledge, policy and budget. Company for none is the default for new companies; Company for one retains owner-managed work. The [full guide](docs/COMPANY_FOR_NONE_GUIDE.md) explains the operating loop, a fictional insurance day-in-the-life, healing, upgrades, resource buying, current capability status and the owner setup checklist.
 
 The local workspace, native JBrain knowledge and fictional customer-care service work now. The complete reasoning/improvement loop has controlled test evidence. **Real funded operations are demonstrated on mainnet** (see below); a single loop-driven mainnet spend is also evidenced; the remaining gap is the autonomous sale-to-payout loop where customer revenue funds the agent's own inference. The guide’s [single status table](docs/COMPANY_FOR_NONE_GUIDE.md#current-capability-and-status) separates local evidence, controlled tests, required inputs and remaining implementation.
 
