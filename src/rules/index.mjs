@@ -227,7 +227,12 @@ export function createRules(options = {}) {
       const denied=liveGate(action,facts,config,policyVersion,options.getAuthorization?.(),nowMs(),options.companyId);if(denied)return denied;
       const runtime=runtimeFacts();
       if(COMMERCIAL_READINESS.has(action.type)){
-        const blocked=requireCapabilities(readiness(runtime));if(blocked)return blocked;
+        // A payment/order step needs the live payment route only. The refund route is
+        // enforced per-quote by freezeServiceRefundRoute (the quote fails closed without
+        // a complete, priced remedy), so it is not a separate standing capability. The
+        // deliverable's own capabilities are still enforced by their own effects.
+        const needed=['offer','settlement'].includes(action.type)?['payments_route']:CAPABILITIES;
+        const blocked=requireCapabilities(readiness(runtime),needed);if(blocked)return blocked;
       }
       if(EFFECTS.has(action.type)){
         const ceiling=ceilingBlock(action,facts,config,authorizations());if(ceiling)return ceiling;

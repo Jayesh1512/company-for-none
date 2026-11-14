@@ -81,9 +81,12 @@ export function createPaymentsAdapter(options = {}) {
         for (const field of ['dry', 'slippageTolerance', 'swapType', 'originAsset', 'destinationAsset', 'amount', 'recipient', 'recipientType', 'refundTo', 'refundType', 'depositType', 'deadline']) {
           if (raw.quoteRequest?.[field] !== expectedQuote[field]) throw new Error('INVALID_PROVIDER_QUOTE');
         }
+        // The provider (1Click) sets its own quote deadline; it is routinely longer than
+        // the invoice TTL, which the offer enforces separately. Only require the quote to
+        // still be valid now, never that its deadline fit inside the invoice window.
         if (!atomic(raw.quote?.amountIn) || raw.quote.amountOut !== offer.price.amount ||
           !raw.quote.depositAddress || !finiteDate(raw.quote.deadline) ||
-          Date.parse(raw.quote.deadline) > Date.parse(expiresAt) || Date.parse(raw.quote.deadline) <= new Date(clock()).getTime()) throw new Error('INVALID_PROVIDER_QUOTE');
+          Date.parse(raw.quote.deadline) <= new Date(clock()).getTime()) throw new Error('INVALID_PROVIDER_QUOTE');
         requiredInput = { ...sourceAsset, amount: raw.quote.amountIn };
         // Frozen BEFORE deposit instructions are returned: a missing remedy route blocks the quote.
         const frozen = await freezeServiceRefundRoute({ client, signatures, offer, sourceAsset, treasury: recipient, refundTo, paidAmount: raw.quote.amountIn,

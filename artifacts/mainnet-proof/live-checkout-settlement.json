@@ -1,0 +1,41 @@
+{
+  "kind": "live-checkout-settlement",
+  "at": "2026-11-14T17:33:21.253Z",
+  "assurance": "provider-status-success + final on-chain deposit tx; independent onchain-final money-movement port NOT wired (adapter records unknown/SETTLEMENT_PROOF_UNAVAILABLE)",
+  "providerStatus": "SUCCESS",
+  "depositedAmount": "32701123378677153558940",
+  "depositedUsd": "0.101373482474",
+  "offer": {
+    "price": {
+      "network": "near:mainnet",
+      "asset": "nep141:17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+      "decimals": 6,
+      "amount": "100000"
+    },
+    "treasury": "e17d480f28ef0c3f39c7b3a12bdf80acfa2e2282a5e7a2eae3f019510ce6e8d4"
+  },
+  "customer": "755a0a4bb40161793c0a178c89b0ed1a876d8c0d0bbea8febecfe2a7d0d9662b",
+  "depositAddress": "89dcbabb92537f6ec367b005990758cbe26aa8a110371d910c8d4d4951768b02",
+  "nearTxs": [
+    {
+      "hash": "3k7d2NbkpVhhL4KP3eQDVWHNsAzzZykDz1vKLbWaEVPn",
+      "finality": "FINAL",
+      "receiver": "89dcbabb92537f6ec367b005990758cbe26aa8a110371d910c8d4d4951768b02"
+    },
+    {
+      "hash": "C38WNjPVnBeQNHGFicRBmRUhZzshUdJ4vS6nvUPnrz9k",
+      "finality": "FINAL",
+      "receiver": "intents.near"
+    },
+    {
+      "hash": "xNQPzzqaKDYnp3wBkJT8C9zhfZaZ86prewFZqYNJPG6",
+      "finality": "FINAL",
+      "receiver": "intents.near"
+    }
+  ],
+  "depositTxFinal": true,
+  "ledger": {
+    "correlationId": "op_yG9ID5bBvASoEtbAeP9Q79HqIS9BovI_-_SoOLHqKwg",
+    "txHash": "68Wy7NvsrKQpnAGPu1ySZ7GYY1STm4CD5ou5FmauV8fb"
+  }
+}
