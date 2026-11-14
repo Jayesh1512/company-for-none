@@ -6,6 +6,7 @@ import path from 'node:path';
 import {createApp} from '../../src/app.mjs';
 import {createRules} from '../../src/rules/index.mjs';
 import {createRecoveryRules,RECOVERY_LIMITS,RECOVERY_SPEC} from '../../src/rules/recovery.mjs';
+import {recoveryScenario,DEFAULT_RECOVERY_SCENARIO} from '../../src/demo/recovery-scenarios.mjs';
 import {createRecovery,RECOVERY_COMPANY,RECOVERY_SOURCE} from '../../src/demo/recovery.mjs';
 import {readAutonomyFacts} from '../../src/autonomy/facts.mjs';
 import {catalog} from '../../src/workspace/catalog.mjs';
@@ -16,11 +17,12 @@ import {startNativeJBrain} from '../helpers/native-jbrain.mjs';
 
 // Only these tests replace the model transport and SDK findings. Production
 // composition imports no test helper, synthetic signature or reasoner.
-async function fixture(t,{invalidPatch=false,invalidCitation=false,proofFailure=false,preflightFailure=false,pendingBill=false,remoteEvaluation=false}={}){
+async function fixture(t,{invalidPatch=false,invalidCitation=false,proofFailure=false,preflightFailure=false,pendingBill=false,remoteEvaluation=false,scenarioId=DEFAULT_RECOVERY_SCENARIO,delegates=['knowledge_curator','template_developer']}={}){
+ const scenario=recoveryScenario(scenarioId);
  const directory=await mkdtemp(path.join(os.tmpdir(),'near-recovery-')),brain=await startNativeJBrain(path.join(directory,'brain'));let app,calls=0;
  const authorization={id:'test-only-owner-grant',enabled:true,companyId:RECOVERY_COMPANY,model:RECOVERY_LIMITS.model,maxTotalNanoUsd:RECOVERY_LIMITS.maxTotalNanoUsd,responseAcceptance:'live-verified-hold-on-loss',credentialHash:'TEST',expiresAt:new Date(Date.now()+3600000).toISOString()};
  const facts=()=>{const s=app?.journal.get('recoveryScenarios','intake'),head=s&&app.journal.get('companyTargetHeads',s.targetId);return {authorization,credentialHash:'TEST',runs:app?.journal.list('recoveryRuns')??[],agents:app?.journal.list('agents')??[],documents:app?.journal.list('companyKnowledgeDocuments')??[],verificationResults:app?.journal.list('inferenceVerification')??[],sourceId:s?.sourceId,pricing:app?.journal.get('recoveryPricing','current'),head,baseline:head&&app.journal.get('companyRevisions',head.revisionId),contract:app?.journal.list('companyTemplateContracts').find(c=>c.targetId===s?.targetId),candidate:app?.journal.get('recoveryCandidates','current'),evaluation:app?.journal.get('improvementEvaluations','recovery:fixed-evaluation')};};
- const rules=createRecoveryRules({base:createRules({companyId:RECOVERY_COMPANY,setupOnly:true,getAutonomyFacts:()=>readAutonomyFacts({journal:app?.journal,catalog,companyId:RECOVERY_COMPANY})}),companyId:RECOVERY_COMPANY,facts});
+ const rules=createRecoveryRules({scenarioId,base:createRules({companyId:RECOVERY_COMPANY,setupOnly:true,getAutonomyFacts:()=>readAutonomyFacts({journal:app?.journal,catalog,companyId:RECOVERY_COMPANY})}),companyId:RECOVERY_COMPANY,facts});
  app=await createApp({companyId:RECOVERY_COMPANY,directory:path.join(directory,'company'),configPath:'',rules,jbrainUrl:brain.url,jbrainToken:brain.token,ledgerWalletPublicFile:'',ledgerBinding:null,ownerToken:'',ownerTokenFile:''});
  t.after(async()=>{await app.close();await brain.close();await rm(directory,{recursive:true,force:true});});
  const verificationFactory=()=>({async prepare({action,request}){
@@ -30,12 +32,12 @@ async function fixture(t,{invalidPatch=false,invalidCitation=false,proofFailure=
   const persist=async proof=>app.journal.transaction({actionId:proof.id,fingerprint:fingerprint(proof)},tx=>{tx.put('inferenceVerification',proof.id,proof);return null;});await persist(pre);
   return async()=>{
    calls++;const role=app.journal.list('recoveryRuns').find(r=>r.id+':inference'===action.id).role,doc=JSON.parse(request.messages[1].content).documents[0];
-   const values={manager:{summary:'Delegate the customer request.',delegate:['support']},support_before:{summary:'Runbook lacks contact instructions.',answer:'Owner review is required because the runbook does not document contact preference.',escalate:true,citations:[]},backlog:{summary:'The runbook and template need separate repairs.',delegate:['knowledge_curator','template_developer']},knowledge_curator:{summary:'Use the exact approved process.',excerpt:RECOVERY_SOURCE},template_developer:{summary:'Add the frozen mandatory field.',operations:[{type:'add_field',name:invalidPatch?'bankAccount':'contactPreference',required:true}]},support_after:{summary:'Current knowledge and template support a complete intake.',answer:'Record portal or email as contactPreference. This creates a local review ticket only.',escalate:false,citations:[{documentId:doc.id,quote:invalidCitation?'Invented provider statement':RECOVERY_SOURCE}],intake:{policyReference:'HM-AUTO-DEMO',incidentSummary:'Parked vehicle damage',contactPreference:'portal'}}};
+   const values={manager:{summary:'Delegate the customer request.',delegate:['support']},support_before:{summary:'Runbook lacks contact instructions.',answer:'Owner review is required because the runbook does not document contact preference.',escalate:true,citations:[]},backlog:{summary:'The runbook and template need separate repairs.',delegate:delegates},knowledge_curator:{summary:'Use the exact approved process.',excerpt:scenario.source},template_developer:{summary:'Add the frozen mandatory field.',operations:[{type:'add_field',name:invalidPatch?'bankAccount':scenario.gap.field,required:true}]},support_after:{summary:'Current knowledge and template support a complete intake.',answer:'Record portal or email as contactPreference. This creates a local review ticket only.',escalate:false,citations:[{documentId:doc.id,quote:invalidCitation?'Invented provider statement':scenario.source}],intake:scenario.intake}};
    const output=JSON.stringify(values[role]),proof={...pre,id:action.id+':response',stage:'response',status:proofFailure?'unavailable':'verified',signatureKind:'provider_tee',wireSignatureVerified:true,responseBytesHash:'b'.repeat(64),plaintextBindingStatus:'verified',durableReplayStatus:'unavailable',processVerificationStatus:'verified',acceptanceScope:'live-process-e2ee',responsePlaintextHash:plaintextHash(output)};await persist(proof);
    return {status:'confirmed',provider:'near-ai-cloud',mode:'live',inferenceId:'TEST-'+role,providerRequestId:'TEST-'+role,proof,generation:{output}};
   };
  }});
- const recovery=createRecovery({app,authorization,credential:'TEST-ONLY',...(remoteEvaluation?{outlayerEvaluator:{async evaluate(spec){return {status:'confirmed',providerRequestId:'test-call-id',proof:{evidenceRef:'private:test-only-execution'},attestationEvidenceRef:'private:test-only-attestation',responseEvidenceRef:'private:test-only-response',output:evaluateTemplateChange(spec)};}}}:{}),verificationFactory,cloudClient:{async costs(id){return {requests:[{requestId:id,costNanoUsd:pendingBill?'0':'1000'}]};}},readModels:async()=>({data:{data:[{id:RECOVERY_LIMITS.model,context_length:262144,max_output_length:65536,pricing:{input:0.04,output:1.35,request:'0'}}]}})});
+ const recovery=createRecovery({app,authorization,scenarioId,credential:'TEST-ONLY',...(remoteEvaluation?{outlayerEvaluator:{async evaluate(spec){return {status:'confirmed',providerRequestId:'test-call-id',proof:{evidenceRef:'private:test-only-execution'},attestationEvidenceRef:'private:test-only-attestation',responseEvidenceRef:'private:test-only-response',output:evaluateTemplateChange(spec)};}}}:{}),verificationFactory,cloudClient:{async costs(id){return {requests:[{requestId:id,costNanoUsd:pendingBill?'0':'1000'}]};}},readModels:async()=>({data:{data:[{id:RECOVERY_LIMITS.model,context_length:262144,max_output_length:65536,pricing:{input:0.04,output:1.35,request:'0'}}]}})});
  await recovery.seed();
  return {app,rules,recovery,authorization,facts,get calls(){return calls;},async run(){await recovery.start();const end=Date.now()+15000;while(recovery.busy&&Date.now()<end)await new Promise(r=>setTimeout(r,10));assert.equal(recovery.busy,false);return recovery.view();}};
 }
@@ -91,4 +93,20 @@ test('recovery uses remote observations and retains call and attestation referen
 });
 test('an unconfigured OutLayer records explicit local fallback evidence for both evaluations',async t=>{
  const f=await fixture(t),result=await f.run();assert.equal(result.scenario.state,'completed');assert.equal(result.evaluations.length,2);for(const e of result.evaluations){assert.equal(e.source,'local-fallback');assert.equal(e.reasonCode,'OUTLAYER_PROJECT_BINDING_REQUIRED');assert.equal(e.callId,null);}
+});
+
+test('missing address uses the same repair loop with the model choosing developer before curator',async t=>{
+ const f=await fixture(t,{scenarioId:'missing-address',delegates:['template_developer','knowledge_curator']}),result=await f.run();assert.equal(result.scenario.state,'completed',JSON.stringify(result.scenario));assert.equal(result.scenario.definitionId,'missing-address');assert.equal(result.scenario.after.intake.address,'42 Example Street, Demo City');assert.equal(f.calls,6);
+ const starts=result.events.filter(e=>e.type==='work.started').map(e=>e.data.workId.split(':').at(-1));assert.deepEqual(starts,['manager','support_before','backlog','template_developer','knowledge_curator','support_after']);
+ const evaluation=f.app.journal.get('improvementEvaluations','recovery:fixed-evaluation');assert.equal(evaluation.observation.repaired,true);assert.equal(f.app.journal.get('recoveryCandidates','current').body.fields.at(-1).name,'address');
+ const before=result.runs.find(r=>r.role==='support_before'),after=result.runs.find(r=>r.role==='support_after');assert.notEqual(before.documents[0].revision,after.documents[0].revision);
+});
+for(const delegates of [['knowledge_curator'],['template_developer']])test('a valid partial backlog plan runs only selected roles and holds the incomplete recovery '+delegates,async t=>{
+ const f=await fixture(t,{delegates}),result=await f.run();assert.equal(result.scenario.state,'held');assert.equal(result.scenario.reasonCode,'RECOVERY_REPAIR_INCOMPLETE');assert.equal(f.calls,4);assert.equal(result.runs.some(r=>r.role==='support_after'),false);assert.equal(result.events.some(e=>e.type==='improvement.promoted'),false);
+});
+for(const delegates of [['manager'],['knowledge_curator','knowledge_curator'],'knowledge_curator',[]])test('invalid model delegations are rejected before any repair '+JSON.stringify(delegates),async t=>{
+ const f=await fixture(t,{delegates}),result=await f.run();assert.equal(result.scenario.reasonCode,'RECOVERY_DELEGATION_INVALID');assert.equal(f.calls,3);assert.equal(f.app.journal.list('recoveryCandidates').length,0);
+});
+test('scenario selection is bounded and an existing journal cannot be silently repurposed',async t=>{
+ assert.throws(()=>recoveryScenario('unknown'),{code:'RECOVERY_SCENARIO_UNKNOWN'});assert.throws(()=>recoveryScenario('__proto__'),{code:'RECOVERY_SCENARIO_UNKNOWN'});const f=await fixture(t);const other=createRecovery({app:f.app,scenarioId:'missing-address'});await assert.rejects(other.seed(),{code:'RECOVERY_SCENARIO_MISMATCH'});
 });

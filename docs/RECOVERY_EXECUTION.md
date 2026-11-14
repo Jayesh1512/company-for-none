@@ -23,6 +23,22 @@ the failure reason, call ID, proof, and attestation/response artifact references
 These records are available in the private recovery API's `evaluations` array.
 Raw response and attestation bytes stay in private journal artifacts.
 
+Two scenario definitions share this loop:
+
+```sh
+node scripts/recovery-demo.mjs --scenario contact-preference --port 4187 --start
+node scripts/recovery-demo.mjs --scenario missing-address --port 4188 --start
+```
+
+Each scenario uses a separate default runtime directory, preserving earlier
+evidence. Reusing a directory for another scenario is rejected. The source,
+customer question, gap, required evidence, and allowed additive repair operations
+live in `src/demo/recovery-scenarios.mjs`. The backlog model chooses a nonempty
+subset and order from the allowed repair roles; the executor follows that list.
+Missing repairs hold the run before promotion and retry. Model-written schemas,
+citations, and intake values still have to satisfy the selected frozen contract.
+Both scenarios retain the same six-call/$0.60 owner-funded inference ceiling.
+
 `npm run evaluator:build` builds native and WASI binaries and records the WASM
 hash in `artifacts/mentor-implementation/evaluator-manifest.json`. Building the
 binary does not deploy it or prove remote execution. No live OutLayer call is
