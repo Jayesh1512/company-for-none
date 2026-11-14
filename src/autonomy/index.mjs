@@ -10,7 +10,7 @@ const pick = (value, fields = []) => Object.fromEntries(fields.filter(k => Objec
 
 /** Mechanics only. Every state transition and projection comes from M01.
  * No provider, shell, owner token, fixture or synthetic model output here. */
-export function createAutonomy({journal, rules, internalWork, companyId, clock = () => new Date()}) {
+export function createAutonomy({journal, rules, internalWork, companyId, clock = () => new Date(), spendExecutor = null, ledgerAutoCommit = null}) {
   let queue = Promise.resolve(), stopped = false;
   const serial = fn => { const work = queue.then(fn); queue = work.catch(() => {}); return work; };
   const company = () => journal.get('autonomousCompanies', companyId);
@@ -41,6 +41,16 @@ export function createAutonomy({journal, rules, internalWork, companyId, clock =
       const outcome=await apply(action,{}, {allowHold:true});
       if(outcome.decision.status!=='allow'){blocked=outcome;break;}
       progressed ||= !outcome.replayed;
+      // An admitted `spend` command records a spendRequests entry; run it through the
+      // real Agent API spend port now, inside the same advance. The port only
+      // executes; M01/M03 already admitted it. A port failure never fabricates a result.
+      if(outcome.decision.plan?.commandType==='spend' && spendExecutor){
+        const spendId=outcome.decision.plan.spendId;
+        if(spendId){
+          try{await spendExecutor.execute(spendId);}
+          catch(error){blocked=blocked??{decision:{status:'hold',reasonCode:error.code??'SPEND_EXECUTION_FAILED'}};}
+        }
+      }
     }
     return {attempted:true,progressed,blocked};
   }
@@ -102,6 +112,9 @@ export function createAutonomy({journal, rules, internalWork, companyId, clock =
     }),
     advance(access) { return serial(async () => {
       if (stopped) return {stopped:true};
+      // Flush any autonomy events recorded since the last flush to the on-chain
+      // ledger. Independent of the tick's own result and idempotent across restarts.
+      const flushLedger=async()=>{ if(ledgerAutoCommit){ try{ await ledgerAutoCommit.tick(); }catch{ /* ledger down: retried next tick */ } } };
       // Owner access is needed for HTTP advance. Background ticks use the durable
       // company start intent and Rules' private facts, never a fabricated owner.
       if (access) await api.view(access);
@@ -117,7 +130,7 @@ export function createAutonomy({journal, rules, internalWork, companyId, clock =
       for (const work of pending) {
         if(['completed','failed','canceled','cancelled','superseded'].includes(work.state))continue;
         const direct=await runAccepted(work);
-        if(direct.progressed)return {...(direct.blocked??{}),progressed:true,workId:work.id};
+        if(direct.progressed){await flushLedger();return {...(direct.blocked??{}),progressed:true,workId:work.id};}
         if(direct.blocked){blockedResult=direct.blocked;continue;}
         if(direct.attempted)continue;
         if (!['queued','waiting','blocked','accepted','preparing','prepared','dispatching','pending','unknown','reconciling','proof_held'].includes(work.state)) continue;
@@ -143,6 +156,7 @@ export function createAutonomy({journal, rules, internalWork, companyId, clock =
         }
         return withCommands(outcome,work.id);
       }
+      await flushLedger();
       return blockedResult??{idle:true};
     }); },
     tick: () => api.advance(),

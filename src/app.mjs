@@ -26,6 +26,10 @@ import {createOnchainLedger,readLedgerFacts} from './onchain/index.mjs';
 import {wasmCodeHash} from './onchain/rpc.mjs';
 import {createHash} from 'node:crypto';
 import {createAgentLedgerWriter} from './onchain/agent-writer.mjs';
+import {createAgentSpendPort} from './custody/agent-spend.mjs';
+import {createSpendExecutor} from './workflow/spend.mjs';
+import {createLedgerCommitter} from './onchain/ledger-commit.mjs';
+import {createLedgerAutoCommit} from './onchain/ledger-autocommit.mjs';
 import { createKnowledgeImporter } from './knowledge/import.mjs';
 import { createWorkflow } from './workflow/index.mjs';
 import {createInternalWork} from './workflow/internal.mjs';
@@ -113,7 +117,33 @@ export async function createApp(options={}) {
   const customerCare=createCustomerCare({journal,rules,workspace,knowledge,jbrainClient:knowledgeClient,companyId,clock});
   const aiDemo=createAiDemo({journal,rules,treasury,knowledge,providers,companyId,clock,...(options.loadCloudVerification?{loadVerification:options.loadCloudVerification}:{}),...(options.aiDemoReadProvider?{readProvider:options.aiDemoReadProvider}:{})});
   const internalWork=createInternalWork({journal,rules,treasury,inference,knowledge,catalog,companyId,clock,getAgentAuthorization:providers.getAgentAuthorization});
-  const autonomy=createAutonomy({journal,rules,internalWork,companyId,clock});
+  // Real agent spend + on-chain ledger auto-commit, wired only when the Agent API
+  // and ledger contract are configured. Both are injected so an unconfigured
+  // deployment behaves exactly as before (no port, no spend, no chain writes).
+  // Secrets are resolved lazily so an unconfigured or test deployment never calls
+  // resolveSecret at construction. Configured only when the Agent API id, a grant
+  // ref and a ledger contract are present; anything missing keeps the graph inert.
+  const agentApiBaseUrl=options.agentApiBaseUrl??process.env.NEAR_INTENTS_AGENT_API_URL;
+  const agentConfigured=Boolean(providers.agentId&&providers.grantRef&&providers.resolveSecret&&ledgerBinding?.contractId&&options.enableAgentSpend!==false);
+  let spendExecutor=null,ledgerAutoCommit=null;
+  if(agentConfigured){
+    let sdkApi=null;
+    const resolve=async()=>{
+      const apiKey=await providers.resolveSecret(providers.agentSecretRef),grantToken=await providers.resolveSecret(providers.grantRef);
+      if(!apiKey||!grantToken)throw Object.assign(new Error('AGENT_CREDENTIALS_UNAVAILABLE'),{code:'AGENT_CREDENTIALS_UNAVAILABLE'});
+      if(!sdkApi){const {createAgentApi}=await import('@near-intents-agent-api/sdk');sdkApi=createAgentApi({apiKey,baseUrl:agentApiBaseUrl});}
+      return {apiKey,grantToken,api:sdkApi};
+    };
+    // The port takes resolved values; wrap it so the first real spend resolves lazily.
+    const agentSpend={
+      capability:()=>({provider:'near-agent-api',configured:true,kinds:['swap','transfer'],grantsSpendingAuthority:false,evidenceLevel:'provider-http'}),
+      async spend(request){const {apiKey,grantToken}=await resolve();return createAgentSpendPort({apiKey,baseUrl:agentApiBaseUrl,agentId:providers.agentId,grantToken}).spend(request);},
+    };
+    const committer={async append(events){const {api,grantToken}=await resolve();return createLedgerCommitter({api,agentId:providers.agentId,grantToken,contractId:ledgerBinding.contractId,companyId}).append(events);},async head(){const {api,grantToken}=await resolve();return createLedgerCommitter({api,agentId:providers.agentId,grantToken,contractId:ledgerBinding.contractId,companyId}).head();}};
+    spendExecutor=createSpendExecutor({journal,agentSpend,companyId,ledger:committer});
+    ledgerAutoCommit=createLedgerAutoCommit({journal,committer,companyId});
+  }
+  const autonomy=createAutonomy({journal,rules,internalWork,companyId,clock,spendExecutor,ledgerAutoCommit});
   await workspace.initialize();
   if(options.initializeWorkspace)await options.initializeWorkspace({workspace,journal,rules});
   await knowledge.recover();

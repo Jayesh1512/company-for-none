@@ -461,7 +461,7 @@ function command(action,ctx){
   if(index<0)puts.push(put('agentWork',next,w));else puts[index]=put('agentWork',next,w);
   events.push(emit('agent.stopped',{actorId:agent.id,workId:w.id,runId:run.id,reasonCode:next.state==='waiting'?'WAITING_FOR_CHILDREN':'BATCH_COMPLETE',remoteCancelled:false}));
  }
- return allow({plan:plan(action,ctx,puts,events,{commandId:id,commandHash:hash(cmd)})});
+ return allow({plan:plan(action,ctx,puts,events,{commandId:id,commandHash:hash(cmd),commandType:cmd.type,...(cmd.type==='spend'?{spendId:`${id}:spend`}:{})})});
 }
 
 export function autonomyDecision(action,facts,ctx){
