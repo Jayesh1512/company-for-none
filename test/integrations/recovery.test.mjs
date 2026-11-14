@@ -10,12 +10,13 @@ import {createRecovery,RECOVERY_COMPANY,RECOVERY_SOURCE} from '../../src/demo/re
 import {readAutonomyFacts} from '../../src/autonomy/facts.mjs';
 import {catalog} from '../../src/workspace/catalog.mjs';
 import {fingerprint} from '../../src/contracts.mjs';
+import {evaluateTemplateChange} from '../../src/autonomy/evaluation.mjs';
 import {plaintextHash} from '../../src/rules/verification.mjs';
 import {startNativeJBrain} from '../helpers/native-jbrain.mjs';
 
 // Only these tests replace the model transport and SDK findings. Production
 // composition imports no test helper, synthetic signature or reasoner.
-async function fixture(t,{invalidPatch=false,invalidCitation=false,proofFailure=false,preflightFailure=false,pendingBill=false}={}){
+async function fixture(t,{invalidPatch=false,invalidCitation=false,proofFailure=false,preflightFailure=false,pendingBill=false,remoteEvaluation=false}={}){
  const directory=await mkdtemp(path.join(os.tmpdir(),'near-recovery-')),brain=await startNativeJBrain(path.join(directory,'brain'));let app,calls=0;
  const authorization={id:'test-only-owner-grant',enabled:true,companyId:RECOVERY_COMPANY,model:RECOVERY_LIMITS.model,maxTotalNanoUsd:RECOVERY_LIMITS.maxTotalNanoUsd,responseAcceptance:'live-verified-hold-on-loss',credentialHash:'TEST',expiresAt:new Date(Date.now()+3600000).toISOString()};
  const facts=()=>{const s=app?.journal.get('recoveryScenarios','intake'),head=s&&app.journal.get('companyTargetHeads',s.targetId);return {authorization,credentialHash:'TEST',runs:app?.journal.list('recoveryRuns')??[],agents:app?.journal.list('agents')??[],documents:app?.journal.list('companyKnowledgeDocuments')??[],verificationResults:app?.journal.list('inferenceVerification')??[],sourceId:s?.sourceId,pricing:app?.journal.get('recoveryPricing','current'),head,baseline:head&&app.journal.get('companyRevisions',head.revisionId),contract:app?.journal.list('companyTemplateContracts').find(c=>c.targetId===s?.targetId),candidate:app?.journal.get('recoveryCandidates','current'),evaluation:app?.journal.get('improvementEvaluations','recovery:fixed-evaluation')};};
@@ -34,7 +35,7 @@ async function fixture(t,{invalidPatch=false,invalidCitation=false,proofFailure=
    return {status:'confirmed',provider:'near-ai-cloud',mode:'live',inferenceId:'TEST-'+role,providerRequestId:'TEST-'+role,proof,generation:{output}};
   };
  }});
- const recovery=createRecovery({app,authorization,credential:'TEST-ONLY',verificationFactory,cloudClient:{async costs(id){return {requests:[{requestId:id,costNanoUsd:pendingBill?'0':'1000'}]};}},readModels:async()=>({data:{data:[{id:RECOVERY_LIMITS.model,context_length:262144,max_output_length:65536,pricing:{input:0.04,output:1.35,request:'0'}}]}})});
+ const recovery=createRecovery({app,authorization,credential:'TEST-ONLY',...(remoteEvaluation?{outlayerEvaluator:{async evaluate(spec){return {status:'confirmed',providerRequestId:'test-call-id',proof:{evidenceRef:'private:test-only-execution'},attestationEvidenceRef:'private:test-only-attestation',responseEvidenceRef:'private:test-only-response',output:evaluateTemplateChange(spec)};}}}:{}),verificationFactory,cloudClient:{async costs(id){return {requests:[{requestId:id,costNanoUsd:pendingBill?'0':'1000'}]};}},readModels:async()=>({data:{data:[{id:RECOVERY_LIMITS.model,context_length:262144,max_output_length:65536,pricing:{input:0.04,output:1.35,request:'0'}}]}})});
  await recovery.seed();
  return {app,rules,recovery,authorization,facts,get calls(){return calls;},async run(){await recovery.start();const end=Date.now()+15000;while(recovery.busy&&Date.now()<end)await new Promise(r=>setTimeout(r,10));assert.equal(recovery.busy,false);return recovery.view();}};
 }
@@ -83,4 +84,11 @@ test('revoked live context prevents reuse, excessive bills are held, and a chang
  assert.equal(f.rules.evaluate({id:'test-context',type:'recovery_accept',runId:support.id},{access:owner}).reasonCode,'RECOVERY_CONTEXT_CHANGED');
  assert.equal(f.rules.evaluate({id:'test-bill',type:'recovery_cost',runId:support.id},{access:owner,financial:f.app.treasury.snapshot()}).reasonCode,'PROVIDER_COST_BOUND_BREACH');
  assert.equal(f.rules.evaluate({id:'test-repromote',type:'recovery_promote',runId:developer.id},{access:owner}).reasonCode,'RECOVERY_REPAIR_NOT_PROVEN');
+});
+
+test('recovery uses remote observations and retains call and attestation references in artifacts',async t=>{
+ const f=await fixture(t,{remoteEvaluation:true}),result=await f.run();assert.equal(result.scenario.state,'completed');assert.equal(result.evaluations.length,2);for(const e of result.evaluations){assert.equal(e.source,'outlayer');assert.equal(e.callId,'test-call-id');assert.equal(e.attestationEvidenceRef,'private:test-only-attestation');}assert.equal(f.app.journal.get('improvementEvaluations','recovery:fixed-evaluation').execution.source,'outlayer');
+});
+test('an unconfigured OutLayer records explicit local fallback evidence for both evaluations',async t=>{
+ const f=await fixture(t),result=await f.run();assert.equal(result.scenario.state,'completed');assert.equal(result.evaluations.length,2);for(const e of result.evaluations){assert.equal(e.source,'local-fallback');assert.equal(e.reasonCode,'OUTLAYER_PROJECT_BINDING_REQUIRED');assert.equal(e.callId,null);}
 });

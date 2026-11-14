@@ -5,7 +5,7 @@ import {randomBytes,createHash} from 'node:crypto';
 import {loadEnvFile} from 'node:process';
 import {parseArgs} from 'node:util';
 import path from 'node:path';
-import {fileURLToPath} from 'node:url';
+import {fileURLToPath,pathToFileURL} from 'node:url';
 import {createApp} from '../src/app.mjs';
 import {createRules} from '../src/rules/index.mjs';
 import {createRecoveryRules,RECOVERY_LIMITS} from '../src/rules/recovery.mjs';
@@ -15,7 +15,7 @@ import {catalog} from '../src/workspace/catalog.mjs';
 import {startServer} from '../server.mjs';
 
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const {values}=parseArgs({options:{port:{type:'string',default:'4187'},start:{type:'boolean'},directory:{type:'string'}}});
+const {values}=parseArgs({options:{port:{type:'string',default:'4187'},start:{type:'boolean'},directory:{type:'string'},'outlayer-verifier':{type:'string'}}});
 try{loadEnvFile(path.join(root,'.env'));}catch(e){if(e.code!=='ENOENT')throw e;}
 const credential=process.env.NEAR_AI_API_KEY;
 if(!credential)throw Error('Configure NEAR_AI_API_KEY privately before starting the live recovery workspace.');
@@ -38,7 +38,9 @@ try{
  const rules=createRecoveryRules({base,companyId:RECOVERY_COMPANY,facts:()=>{const s=app?.journal.get('recoveryScenarios','intake'),head=s&&app.journal.get('companyTargetHeads',s.targetId);return {authorization,credentialHash,runs:app?.journal.list('recoveryRuns')??[],agents:app?.journal.list('agents')??[],documents:app?.journal.list('companyKnowledgeDocuments')??[],verificationResults:app?.journal.list('inferenceVerification')??[],sourceId:s?.sourceId,pricing:app?.journal.get('recoveryPricing','current'),head,baseline:head&&app.journal.get('companyRevisions',head.revisionId),contract:app?.journal.list('companyTemplateContracts').find(c=>c.targetId===s?.targetId),candidate:app?.journal.get('recoveryCandidates','current'),evaluation:app?.journal.get('improvementEvaluations','recovery:fixed-evaluation')};}});
  app=await createApp({directory:path.join(directory,'company'),companyId:RECOVERY_COMPANY,configPath:'',rules,jbrainUrl:brainUrl,jbrainToken:token,ownerToken:'',ownerTokenFile:'',accountId:'',agentId:'',ledgerBinding:null,ledgerWalletPublicFile:'',sourceUrls:[],getAuthorization:()=>null,getAgentAuthorization:()=>null,getComponentAuthorization:()=>null,getLedgerAuthorization:()=>null,getIntegrationAuthorization:()=>null,getInferenceBounds:()=>null,resolveSecret:async()=>null});
  if(authorization.credentialHash!==credentialHash){authorization.credentialHash=credentialHash;await writeFile(authorizationFile,JSON.stringify(authorization,null,2)+'\n',{mode:0o600});await app.journal.transaction({actionId:'recovery:credential-binding:'+credentialHash,fingerprint:credentialHash},tx=>{tx.append('recovery.credential_updated',{companyId:RECOVERY_COMPANY,actorId:'owner',summary:'Reloaded the privately updated NEAR AI credential. Limits and prior operations are unchanged.'});return null;});}
- const recovery=createRecovery({app,authorization,credential});await recovery.seed();await recovery.recover();
+ const outlayerBinding=process.env.SHOP_OUTLAYER_PROJECT_OWNER?{projectOwner:process.env.SHOP_OUTLAYER_PROJECT_OWNER,projectName:process.env.SHOP_OUTLAYER_PROJECT_NAME,versionHash:process.env.SHOP_OUTLAYER_VERSION_HASH,computeMicroUsd:process.env.SHOP_OUTLAYER_COMPUTE_MICRO_USD??'1000',networkId:process.env.SHOP_OUTLAYER_NETWORK??'mainnet',paymentKeyOwner:process.env.SHOP_OUTLAYER_PAYMENT_KEY_OWNER,paymentKeyNonce:Number(process.env.SHOP_OUTLAYER_PAYMENT_KEY_NONCE)}:null;
+ const verifyOutlayerExecution=values['outlayer-verifier']?(await import(pathToFileURL(path.resolve(values['outlayer-verifier'])).href)).verifyExecution:undefined;
+ const recovery=createRecovery({app,authorization,credential,outlayerBinding,verifyOutlayerExecution,resolveSecret:async ref=>ref==='OUTLAYER_PAYMENT_KEY'?process.env.OUTLAYER_PAYMENT_KEY:null});await recovery.seed();await recovery.recover();
  const original=app.web.handle.bind(app.web);app.web.handle=(request,transport)=>new URL(request.url).pathname.startsWith('/api/workspace/recovery')?recovery.handle(request,transport):original(request,transport);
  runtime=await startServer({app,port:Number(values.port),host:'127.0.0.1',localOwnerAccess:true,enableLocalDemo:false});
  console.log(JSON.stringify({url:runtime.url+'/recovery.html',ledger:runtime.url+'/#autonomy/ledger',mode:'live-near-ai-recovery',model:RECOVERY_LIMITS.model,maxCalls:RECOVERY_LIMITS.maxCalls,maxTotalUsd:Number(RECOVERY_LIMITS.maxTotalNanoUsd)/1e9,state:recovery.view().scenario.state}));

@@ -5,6 +5,7 @@ import {createNearCloudClient} from '../inference/http.mjs';
 import {readCloudJson} from '../cloud/http.mjs';
 import {RECOVERY_LIMITS as limits,RECOVERY_SPEC} from '../rules/recovery.mjs';
 import {evaluateTemplateChange} from '../autonomy/evaluation.mjs';
+import {createRecoveryEvaluator} from './recovery-evaluator.mjs';
 
 export const RECOVERY_COMPANY='near-ai-recovery';
 export const RECOVERY_SOURCE='Every fictional claim intake must include policyReference, incidentSummary, and contactPreference. The contactPreference must be portal or email. If contactPreference is missing, the intake is incomplete. A complete intake creates a local review ticket only; it never approves a claim.';
@@ -23,9 +24,25 @@ const instructions={
 
 /** Real NEAR model work. No recorded responses, fake SDK evidence, fake credit,
  * fake bills or timers that manufacture a successful lifecycle. */
-export function createRecovery({app,authorization,credential,clock=()=>new Date(),verificationFactory,cloudClient,readModels}={}){
+export function createRecovery({app,authorization,credential,clock=()=>new Date(),verificationFactory,cloudClient,readModels,outlayerEvaluator,outlayerBinding,resolveSecret,verifyOutlayerExecution,outlayerTransport}={}){
  const {journal,rules,workspace,knowledge,treasury,autonomy}=app,companyId=RECOVERY_COMPANY,access={role:'owner',verified:true,companyId};
  const now=()=>new Date(clock()).toISOString();
+ const evaluator=outlayerEvaluator??createRecoveryEvaluator({journal,binding:outlayerBinding,resolveSecret,verifyExecution:verifyOutlayerExecution,transport:outlayerTransport,clock});
+ async function evaluate(spec,stage){
+  const jobId=`recovery:${get().attempt??1}:${stage}`;
+  let observation,evidence;
+  try{
+   const remote=await evaluator.evaluate({...spec,jobId});
+   if(remote.status!=='confirmed'||!remote.proof||fingerprint(remote.output)!==fingerprint(evaluateTemplateChange(spec)))fail('OUTLAYER_EXECUTION_PROOF_REQUIRED');
+   observation=remote.output;evidence={source:'outlayer',callId:remote.providerRequestId,proof:remote.proof,attestationEvidenceRef:remote.attestationEvidenceRef,responseEvidenceRef:remote.responseEvidenceRef};
+  }catch(error){
+   observation=evaluateTemplateChange(spec);const remote=journal.get('recoveryOutlayerJobs',jobId);
+   evidence={source:'local-fallback',reasonCode:error.code??'OUTLAYER_UNAVAILABLE',callId:remote?.callId??null,attestationEvidenceRef:remote?.attestationEvidenceRef??null};
+  }
+  const value={id:jobId,stage,observation,...evidence};
+  await journal.transaction({actionId:jobId+':observation',fingerprint:fingerprint(value)},tx=>{tx.put('recoveryEvaluations',jobId,value);tx.append('recovery.evaluation_observed',{companyId,stage,...evidence});});
+  return {observation,evidence};
+ }
  let busy=false;
  const get=()=>journal.get('recoveryScenarios','intake');
  const currentRuns=()=>journal.list('recoveryRuns').filter(r=>(r.attempt??0)===(get()?.attempt??0));
@@ -107,7 +124,7 @@ export function createRecovery({app,authorization,credential,clock=()=>new Date(
   await price();const s=get(),head=journal.get('companyTargetHeads',s.targetId),baseline=journal.get('companyRevisions',head.revisionId),contract=journal.list('companyTemplateContracts').find(c=>c.targetId===s.targetId);
   await model('manager',[s.runbookId],{baseline:baseline.body,contract});
   const before=await model('support_before',[s.runbookId]);
-  const observed=evaluateTemplateChange({baseline:baseline.body,candidate:baseline.body,contract});
+  const {observation:observed}=await evaluate({baseline:baseline.body,candidate:baseline.body,contract},'baseline');
   if(observed.baseline.passed||!before.escalate)fail('RECOVERY_BASELINE_DID_NOT_FAIL');
   const gap=await autonomy.recordGap({targetId:s.targetId,failureCode:'MISSING_CONTACT_PREFERENCE',summary:'The support runbook cannot answer contact preference requirements and the intake template omits the frozen mandatory field.'},access,'recovery-observed-gap');
   await update('failure',{before,baselineObservation:observed,improvementId:gap.decision.plan.improvementId},'recovery.failure_observed',{actorId:journal.get('recoveryActors','support').agentId,summary:'Support escalated the unknown requirement. The fixed evaluator independently rejected the baseline intake template.',improvementId:gap.decision.plan.improvementId,targetId:s.targetId});
@@ -119,7 +136,8 @@ export function createRecovery({app,authorization,credential,clock=()=>new Date(
   await update('knowledge',{knowledgeBefore:meta.revision,knowledgeAfter:updated.revision},'knowledge.revised',{actorId:journal.get('recoveryActors','knowledge_curator').agentId,targetId:updated.id,priorRevision:meta.revision,newRevision:updated.revision,summary:'The curator’s exact approved-source excerpt was saved to native JBrain.'});
   const proposed=await model('template_developer',[s.sourceId],{baseline:baseline.body,contract});
   const candidate={id:s.targetId+':revision:2',companyId,targetId:s.targetId,kind:'template',scope:'company',version:2,parentRevision:baseline.id,body:{fields:[...baseline.body.fields,...proposed.operations.map(o=>({name:o.name,required:o.required}))]}};candidate.hash=fingerprint(candidate.body);
-  const evaluation={id:'recovery:fixed-evaluation',companyId,source:'fixed-evaluator',targetId:s.targetId,baseRevision:baseline.id,improvementId:get().improvementId,observation:evaluateTemplateChange({baseline:baseline.body,candidate:candidate.body,contract}),version:1};
+  const evaluated=await evaluate({baseline:baseline.body,candidate:candidate.body,contract},'candidate');
+  const evaluation={id:'recovery:fixed-evaluation',companyId,source:'fixed-evaluator',targetId:s.targetId,baseRevision:baseline.id,improvementId:get().improvementId,observation:evaluated.observation,execution:evaluated.evidence,version:1};
   await journal.transaction({actionId:'recovery:candidate',fingerprint:fingerprint({candidate,evaluation})},tx=>{tx.put('recoveryCandidates','current',candidate);tx.put('improvementEvaluations',evaluation.id,evaluation);event(tx,'improvement.proposed',{actorId:journal.get('recoveryActors','template_developer').agentId,targetId:s.targetId,improvementId:get().improvementId,newRevision:candidate.id,summary:proposed.summary});event(tx,'improvement.evaluated',{actorId:'fixed-evaluator',targetId:s.targetId,improvementId:get().improvementId,summary:`Same frozen tests: baseline ${evaluation.observation.baseline.passed?'passed':'failed'}, candidate ${evaluation.observation.candidate.passed?'passed':'failed'}.`});return null;});
   const developer=currentRuns().find(r=>r.role==='template_developer');
   decision('promote',developer);
@@ -131,7 +149,7 @@ export function createRecovery({app,authorization,credential,clock=()=>new Date(
  }
  function view(){
   const state=get(),runs=journal.list('recoveryRuns');
-  return {scenario:state,canRetry:canRetry(),limits,live:true,busy,agents:journal.list('recoveryActors').map(a=>({...a,agent:journal.get('agents',a.agentId)})),runs:runs.map(r=>({id:r.id,attempt:r.attempt??0,role:r.role,actorId:r.actorId,state:r.state,reasonCode:r.reasonCode,value:r.value,createdAt:r.createdAt,completedAt:r.completedAt,documents:r.documents.map(d=>({id:d.id,title:d.title,revision:d.revision})),model:r.request.model,providerRequestId:r.result?.providerRequestId,inferenceId:r.result?.inferenceId,proof:r.result?.proof?{status:r.result.proof.status,signatureKind:r.result.proof.signatureKind,acceptanceScope:r.result.proof.acceptanceScope,durableReplayStatus:r.result.proof.durableReplayStatus,evidenceRef:r.result.proof.evidenceRef}:null,billing:r.billing})),events:journal.events().filter(e=>e.data.companyId===companyId).map(e=>({sequence:e.sequence,type:e.type,at:e.at,data:Object.fromEntries(['actorId','agentId','workId','summary','reasonCode','targetId','priorRevision','newRevision','costNanoUsd','improvementId'].filter(k=>e.data[k]!==undefined).map(k=>[k,e.data[k]]))})),financial:{reservedNanoUsd:treasury.snapshot().reservations.filter(r=>!['reconciled','released'].includes(r.status)).reduce((sum,r)=>sum+BigInt(r.upperBoundNanoUsd),0n).toString(),actualNanoUsd:Object.values(treasury.snapshot().dailyCosts).reduce((sum,v)=>sum+BigInt(v),0n).toString()}};
+  return {evaluations:journal.list('recoveryEvaluations'),scenario:state,canRetry:canRetry(),limits,live:true,busy,agents:journal.list('recoveryActors').map(a=>({...a,agent:journal.get('agents',a.agentId)})),runs:runs.map(r=>({id:r.id,attempt:r.attempt??0,role:r.role,actorId:r.actorId,state:r.state,reasonCode:r.reasonCode,value:r.value,createdAt:r.createdAt,completedAt:r.completedAt,documents:r.documents.map(d=>({id:d.id,title:d.title,revision:d.revision})),model:r.request.model,providerRequestId:r.result?.providerRequestId,inferenceId:r.result?.inferenceId,proof:r.result?.proof?{status:r.result.proof.status,signatureKind:r.result.proof.signatureKind,acceptanceScope:r.result.proof.acceptanceScope,durableReplayStatus:r.result.proof.durableReplayStatus,evidenceRef:r.result.proof.evidenceRef}:null,billing:r.billing})),events:journal.events().filter(e=>e.data.companyId===companyId).map(e=>({sequence:e.sequence,type:e.type,at:e.at,data:Object.fromEntries(['actorId','agentId','workId','summary','reasonCode','targetId','priorRevision','newRevision','costNanoUsd','improvementId'].filter(k=>e.data[k]!==undefined).map(k=>[k,e.data[k]]))})),financial:{reservedNanoUsd:treasury.snapshot().reservations.filter(r=>!['reconciled','released'].includes(r.status)).reduce((sum,r)=>sum+BigInt(r.upperBoundNanoUsd),0n).toString(),actualNanoUsd:Object.values(treasury.snapshot().dailyCosts).reduce((sum,v)=>sum+BigInt(v),0n).toString()}};
  }
  return {seed,view,get busy(){return busy;},async start(){if(busy)return view();if(get()?.state!=='ready'&&!canRetry())fail('RECOVERY_ALREADY_ATTEMPTED');const attempt=(get().attempt??0)+1;busy=true;await update('start:'+attempt,{state:'running',attempt,reasonCode:null},'recovery.started',{actorId:'owner',summary:'Owner started bounded live NEAR AI recovery attempt '+attempt+'. Earlier preflight failures remain in the ledger.'});execute().catch(async error=>{await update('held:'+attempt,{state:'held',reasonCode:error.code??'RECOVERY_FAILED'},'recovery.held',{reasonCode:error.code??'RECOVERY_FAILED',summary:'The recovery scenario stopped at an actual blocker. No success or automatic inference retry was created.'});}).finally(()=>{busy=false;});return view();},async reconcile(){for(const run of journal.list('recoveryRuns'))if(run.result)await bill(run);return view();},async recover(){if(['running'].includes(get()?.state)){await update('interrupted:'+(get().attempt??1),{state:'held',reasonCode:'RECOVERY_PROCESS_INTERRUPTED'},'recovery.held',{summary:'The original process stopped. Outputs were not replayed or automatically resent.'});}return view();},async handle(request,transport){
   if(!transport.localOwner)return json({error:{code:'ACCESS_DENIED',message:'Open this workspace directly on this computer.'}},403);
