@@ -4,6 +4,7 @@ import {verificationSpec,verifyInferenceEvidence} from './verification.mjs';
 import {lifetimeExposure} from './ceiling.mjs';
 import {generationInputBytes} from '../generation-contracts.mjs';
 import {evaluateTemplateChange} from '../autonomy/evaluation.mjs';
+import {recoveryScenario,DEFAULT_RECOVERY_SCENARIO} from '../demo/recovery-scenarios.mjs';
 
 export const RECOVERY_LIMITS=Object.freeze({model:'Qwen/Qwen3.8-27B',maxCalls:6,maxRequestNanoUsd:'100000000',maxTotalNanoUsd:'600000000',maxInputBytes:16000,maxOutputTokens:4096,timeoutMs:90000});
 export const RECOVERY_POLICY=Object.freeze({inferenceVerification:{allowedTcbStatuses:['UpToDate'],maxAttestationAgeMs:300000,responseAcceptance:'live-verified-hold-on-loss'}});
@@ -16,7 +17,8 @@ const same=(a,b)=>fingerprint(a)===fingerprint(b);
 
 /** A deliberately separate owner-funded scope. This never changes the ordinary
  * company's inference policy, grants, evaluators or paid commercial authority. */
-export function createRecoveryRules({base,companyId,facts,clock=()=>new Date()}){
+export function createRecoveryRules({base,companyId,facts,clock=()=>new Date(),scenarioId=DEFAULT_RECOVERY_SCENARIO}){
+ const scenario=recoveryScenario(scenarioId);
  const permits=new Map(),spent=new Set();
  const now=()=>new Date(clock()).getTime();
  function decide(action,input){
@@ -58,25 +60,25 @@ export function createRecoveryRules({base,companyId,facts,clock=()=>new Date()})
    let value;try{value=JSON.parse(run.result.generation.output.replace(/^```(?:json)?\s*|\s*```$/g,''));}catch{return hold('RECOVERY_INVALID_JSON');}
    if(!text(value.summary))return hold('RECOVERY_SUMMARY_REQUIRED');
    if(run.role==='manager'&&!same(value.delegate,['support']))return hold('RECOVERY_DELEGATION_INVALID');
-   if(run.role==='backlog'&&!same([...(value.delegate??[])].sort(),['knowledge_curator','template_developer']))return hold('RECOVERY_DELEGATION_INVALID');
+   if(run.role==='backlog'&&(!Array.isArray(value.delegate)||!value.delegate.length||new Set(value.delegate).size!==value.delegate.length||value.delegate.some(role=>!Object.hasOwn(scenario.repairs,role))))return hold('RECOVERY_DELEGATION_INVALID');
    if(run.role==='knowledge_curator'){
     const source=run.documents.find(doc=>doc.id===d.sourceId);
-    if(!source||!text(value.excerpt)||!source.markdown.includes(value.excerpt)||!['policyReference','incidentSummary','contactPreference','portal','email'].every(s=>value.excerpt.includes(s)))return hold('RECOVERY_SOURCE_MISMATCH');
+    if(!source||!text(value.excerpt)||!source.markdown.includes(value.excerpt)||!scenario.evidenceTerms.every(s=>value.excerpt.includes(s)))return hold('RECOVERY_SOURCE_MISMATCH');
    }
-   if(run.role==='template_developer'&&!same(value.operations,[{type:'add_field',name:'contactPreference',required:true}]))return hold('RECOVERY_PATCH_INVALID');
+   if(run.role==='template_developer'&&!same(value.operations,scenario.repairOperations))return hold('RECOVERY_PATCH_INVALID');
    if(run.role.startsWith('support_')){
     if(!text(value.answer)||!Array.isArray(value.citations)||value.citations.length>4||typeof value.escalate!=='boolean')return hold('RECOVERY_ANSWER_INVALID');
     for(const c of value.citations){const doc=run.documents.find(doc=>doc.id===c.documentId);if(!doc||!text(c.quote)||!doc.markdown.includes(c.quote))return hold('RECOVERY_CITATION_MISMATCH');}
     if(run.role==='support_before'&&value.escalate!==true)return hold('RECOVERY_MISSING_INFORMATION_NOT_ESCALATED');
-    if(run.role==='support_after'&&(value.escalate||!value.citations.some(c=>c.quote.includes('contactPreference'))||!same(value.intake,{policyReference:'HM-AUTO-DEMO',incidentSummary:'Parked vehicle damage',contactPreference:'portal'})))return hold('RECOVERY_RETRY_NOT_REPAIRED');
+    if(run.role==='support_after'&&(value.escalate||!value.citations.some(c=>c.quote.includes(scenario.gap.field))||!same(value.intake,scenario.intake)))return hold('RECOVERY_RETRY_NOT_REPAIRED');
    }
    return outcome('allow','APPROVED',{kind:'recovery_commands',value});
   }
   if(action.type==='recovery_promote'){
    const e=d.evaluation,h=d.head,old=d.baseline,candidate=d.candidate,contract=d.contract;
-   if(run.role!=='template_developer'||run.state!=='completed'||!same(run.value?.operations,[{type:'add_field',name:'contactPreference',required:true}])||!e||!h||h.revisionId!==old?.id||!candidate||!contract)return hold('RECOVERY_PROMOTION_SCOPE_CHANGED');
+   if(run.role!=='template_developer'||run.state!=='completed'||!same(run.value?.operations,scenario.repairOperations)||!e||!h||h.revisionId!==old?.id||!candidate||!contract)return hold('RECOVERY_PROMOTION_SCOPE_CHANGED');
    const observed=evaluateTemplateChange({baseline:old.body,candidate:candidate.body,contract});
-   if(!same(observed,e.observation)||e.source!=='fixed-evaluator'||!observed.repaired||!same(candidate.body.fields,[...old.body.fields,{name:'contactPreference',required:true}]))return hold('RECOVERY_REPAIR_NOT_PROVEN');
+   if(!same(observed,e.observation)||e.source!=='fixed-evaluator'||!observed.repaired||!same(candidate.body.fields,[...old.body.fields,...scenario.repairOperations.map(({name,required})=>({name,required}))]))return hold('RECOVERY_REPAIR_NOT_PROVEN');
    return outcome('allow','APPROVED',{kind:'recovery_promote',priorRevision:old.id,newRevision:candidate.id,targetId:h.targetId});
   }
   return outcome('deny','UNKNOWN_RECOVERY_ACTION');
