@@ -31,7 +31,11 @@
      └─ Organization upgrades itself
 ```
 
-**A concrete example.** A customer asks the support agent about their insurance policy. The agent reads the company knowledge base, calls NEAR AI Cloud for a cited answer, and the interaction is recorded on the mainnet ledger. The x402 payment for the service goes into the treasury. Later, the owner notices the insurance report template only has first name and last name — but a customer needs a middle name field. This gap goes to the backlog. The master agent spins up a developer agent that picks up the backlog item, makes the template change, runs the evaluator, and promotes the new version. The organization just improved itself — funded by its own revenue.
+**A concrete example.** A customer asks the support agent about their auto insurance policy. The agent reads the company knowledge base (native JBrain), calls NEAR AI Cloud for a TEE-verified cited answer, and the interaction is recorded on the mainnet ledger. The x402 payment for the service goes into the treasury.
+
+Later, the customer needs a field the insurance report template doesn't have — say, a middle name. This gap is recorded (`recordGap`). The master agent triages it and delegates a developer agent (`kind: 'developer'`) to pick up the backlog item. The developer proposes a new template version with the additional field. A fixed template evaluator (`evaluateTemplateChange` in `src/autonomy/evaluation.mjs`, running as a WASM contract on OutLayer) compares the candidate against the baseline: does it preserve all existing required fields? Does it meet the contract's field requirements? Are identifiers safe? If the evaluation passes, the new template revision is promoted as the active head. The next customer query automatically uses the updated template — the organization just improved itself.
+
+In a real-world scenario, this same loop handles policy documents that customers pay extra to access — adding fields like address or coverage details, updating the knowledge base, and continuing to earn revenue from the enriched service. The updates happen in the backend; the agent keeps serving and collecting payments without interruption.
 
 **Revenue.** Users pay for services via x402 (USDC on NEAR). Two marketplace tasks have already been completed and paid on mainnet.
 
@@ -39,7 +43,7 @@
 
 **Self-sustaining.** The ledger records both sides — revenue in, expenses out — on a hash-chained Rust contract deployed on NEAR mainnet. The organization's financial history is on-chain and verifiable.
 
-**Hiring.** The master agent manages a backlog of improvements. When a gap is observed, it spins up a specialist agent (developer, researcher) to pick up the work, test it, and promote the new version. The organization maintains and upgrades itself.
+**Self-improving.** When a gap is observed (a missing field, a knowledge update, a template change), the master agent records it, triages it, and delegates a developer agent. The developer proposes a candidate template, a fixed evaluator (WASM on OutLayer) checks it against the contract, and if it passes, the new version is promoted. Future queries use the updated template automatically. The organization maintains and upgrades itself — funded by its own revenue.
 
 **The owner's role.** Define the company purpose, upload knowledge, set spending policy and budget. Then step back. The owner reviews instruction proposals and high-risk decisions, but the day-to-day — serving customers, paying for services, tracking gaps, improving — is the organization's own loop.
 
@@ -47,7 +51,7 @@
 
 ## How it works
 
-The product turns a company brief into a managed agent workspace. The intended routine is manager → scoped specialists → delivery → observed gaps → permanent backlog → developer → tested improvement → future work uses the new version. The owner sets purpose, knowledge, policy and budget. Company for none is the default for new companies; Company for one retains owner-managed work. The [full guide](docs/COMPANY_FOR_NONE_GUIDE.md) explains the operating loop, a fictional insurance day-in-the-life, healing, upgrades, resource buying, current capability status and the owner setup checklist.
+The product turns a company brief into a managed agent workspace — a living organization. The intended routine is manager → scoped specialists → delivery → observed gaps → permanent backlog → developer agent → fixed evaluation → tested improvement → future work uses the new version. The owner sets purpose, knowledge, policy and budget. The treasury tracks revenue (x402 payments) and expenses (inference, marketplace tasks) on the mainnet ledger. Company for none is the default for new companies; Company for one retains owner-managed work. The [full guide](docs/COMPANY_FOR_NONE_GUIDE.md) explains the operating loop, a fictional insurance day-in-the-life, healing, upgrades, resource buying, current capability status and the owner setup checklist.
 
 The local workspace, native JBrain knowledge and fictional customer-care service work now. The complete reasoning/improvement loop has controlled test evidence. **Real funded operations are demonstrated on mainnet** (see below); a single loop-driven mainnet spend is also evidenced; the remaining gap is the autonomous sale-to-payout loop where customer revenue funds the agent's own inference. The guide’s [single status table](docs/COMPANY_FOR_NONE_GUIDE.md#current-capability-and-status) separates local evidence, controlled tests, required inputs and remaining implementation.
 
