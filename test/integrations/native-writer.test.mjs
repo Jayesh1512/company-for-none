@@ -13,7 +13,7 @@ import {fingerprint} from '../../src/contracts.mjs';
 import {config} from '../rules/fixtures.mjs';
 import {LEDGER_ZERO_HASH,ledgerCompanyHash} from '../../src/rules/onchain-ledger.mjs';
 const NOW=Date.parse('2026-11-14T16:00:00Z'),companyId='native-integration',owner={companyId,role:'owner',verified:true},binding={networkId:'mainnet',contractId:'ledger.near',signerId:'writer.near'},txHash='2'.repeat(44),blockHash='3'.repeat(44),agentId='a'.repeat(64),correlation='op_'+'b'.repeat(43);
-async function fixture(t,{acceptedCrash=false,finalStatus='FINAL',executionStatus={SuccessValue:''},rpcUnavailable=false}={}){
+async function fixture(t,{acceptedCrash=false,finalStatus='FINAL',executionStatus={SuccessValue:''},rpcUnavailable=false,malformedCall=false}={}){
  const directory=await mkdtemp(path.join(tmpdir(),'native-mentor-'));let journal=await createJournal({directory,clock:()=>new Date(NOW)}),rules,treasury,ledger,writer,authorization,feeBound,envelope,call,sends=0,statusReads=0,rpcAlter=false,stopAtIdentity=false;
  await journal.transaction({actionId:'real-local-event',fingerprint:'local-event'},tx=>tx.append('support.replied',{companyId,text:'private customer text'}));
  const agentTransport=async(url,options)=>{
@@ -22,7 +22,7 @@ async function fixture(t,{acceptedCrash=false,finalStatus='FINAL',executionStatu
   if(stopAtIdentity)rules.updateConfig({...rules.snapshot().config,killSwitch:true});return new Response(JSON.stringify({status:'ACTIVE',wallet:{near_account_id:binding.signerId}}));
  };
  const rpcTransport=async(url,options)=>{assert.equal(url,NEAR_RPC.mainnet);const q=JSON.parse(options.body);if(rpcUnavailable&&q.method==='tx')throw Error('RPC unavailable');let result;
-  if(q.method==='tx')result={final_execution_status:finalStatus,transaction:{hash:txHash,signer_id:rpcAlter?'other.near':binding.signerId,receiver_id:binding.contractId,actions:[{FunctionCall:{...call,args:Buffer.from(JSON.stringify(call.args)).toString('base64')}}]},transaction_outcome:{id:'tx',block_hash:blockHash,outcome:{tokens_burnt:'5'}},receipts_outcome:[{id:'receipt',block_hash:blockHash,outcome:{tokens_burnt:'7'}}],status:executionStatus};
+  if(q.method==='tx')result={final_execution_status:finalStatus,transaction:{hash:txHash,signer_id:rpcAlter?'other.near':binding.signerId,receiver_id:binding.contractId,actions:[{FunctionCall:{...call,args:malformedCall?'not-json':Buffer.from(JSON.stringify(call.args)).toString('base64')}}]},transaction_outcome:{id:'tx',block_hash:blockHash,outcome:{tokens_burnt:'5'}},receipts_outcome:[{id:'receipt',block_hash:blockHash,outcome:{tokens_burnt:'7'}}],status:executionStatus};
   else if(q.method==='block')result={header:{hash:blockHash,height:101}};
   else if(q.params.request_type==='view_account')result={amount:'1000',code_hash:'test-pinned-code',block_height:100,block_hash:blockHash};
   else result={result:[...Buffer.from(JSON.stringify({writerId:binding.signerId,sequence:0,hash:LEDGER_ZERO_HASH,companyHash:ledgerCompanyHash(companyId)}))],block_height:100,block_hash:blockHash};
@@ -72,4 +72,8 @@ for(const [name,options]of Object.entries({pending:{finalStatus:'EXECUTED_OPTIMI
 });
 test('finalize rejects a provider hash whose final RPC transaction has another signer',async t=>{
  const f=await fixture(t),b=await f.prepare();await f.ledger.publish({batchId:b.id},owner);f.alterRpc();const final=await f.writer.finalize({action:f.journal.list('ledgerChainSubmissions')[0].action});assert.equal(final.status,'unknown');assert.equal(final.code,'NATIVE_TRANSACTION_BINDING_MISMATCH');assert.equal(f.counts().sends,1);
+});
+
+test('finalize holds a malformed RPC call without throwing or resubmitting',async t=>{
+ const f=await fixture(t,{malformedCall:true}),b=await f.prepare();await f.ledger.publish({batchId:b.id},owner);const final=await f.writer.finalize({action:f.journal.list('ledgerChainSubmissions')[0].action});assert.equal(final.status,'unknown');assert.equal(final.code,'NATIVE_TRANSACTION_BINDING_MISMATCH');assert.equal(f.counts().sends,1);
 });
