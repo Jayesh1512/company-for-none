@@ -35,7 +35,7 @@ export function createAgentLedgerWriter({journal,binding,agentId,secretRef,grant
    catch{return result(meta,'unknown',action,{...observed,code:'LEDGER_CHAIN_FINALITY_PENDING'});}
    const raw=receipt.result,tx=raw.transaction,submission=journal.get('ledgerChainSubmissions',action.id),call=submission?.nativeCall;
    let actualCall;try{const f=tx?.actions?.[0]?.FunctionCall;actualCall={receiver_id:tx.receiver_id,method_name:f.method_name,args:JSON.parse(Buffer.from(f.args,'base64').toString('utf8')),gas:String(f.gas),deposit:f.deposit};}catch{}
-   if(tx?.hash!==observed.transactionHash||tx?.signer_id!==binding.signerId||tx?.receiver_id!==binding.contractId||tx?.actions?.length!==1||!call||digest(actualCall)!==digest(call))return result(meta,'unknown',action,{...observed,code:'NATIVE_TRANSACTION_BINDING_MISMATCH'});
+   if(tx?.hash!==observed.transactionHash||tx?.signer_id!==binding.signerId||tx?.receiver_id!==binding.contractId||tx?.actions?.length!==1||!call||!actualCall||digest(actualCall)!==digest(call))return result(meta,'unknown',action,{...observed,code:'NATIVE_TRANSACTION_BINDING_MISMATCH'});
    if(raw.final_execution_status!=='FINAL'||!raw.status||!Object.hasOwn(raw.status,'SuccessValue'))return result(meta,'unknown',action,{...observed,code:'LEDGER_CHAIN_FINALITY_PENDING'});
    const artifact=await journal.putArtifact({actionId:`${action.id}:finality:${receipt.wireHash}`,content:JSON.stringify(raw),mediaType:'application/json'});
    return runtime.save(action,result(meta,'confirmed',action,{...observed,status:'confirmed',code:null,finalityVerified:true,settledBlockHeight:receipt.settledBlockHeight,evidence:[{source:'near-json-rpc',wireHash:receipt.wireHash,evidenceRef:`private:${artifact.id}`}]}));
